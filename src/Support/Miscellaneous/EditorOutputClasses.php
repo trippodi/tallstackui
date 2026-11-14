@@ -1,9 +1,9 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Miscellaneous;
+namespace Trippodi\TallStackUi\Support\Miscellaneous;
 
 use Exception;
-use Trippodi\Trippodi\TallStackUi\Components\Editor\Component as Editor;
+use Trippodi\TallStackUi\Components\Editor\Component as Editor;
 
 /** @internal */
 class EditorOutputClasses

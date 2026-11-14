@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Tag;
+namespace Trippodi\TallStackUi\Components\Form\Tag;
 
 use Facebook\WebDriver\WebDriverKeys;
 use Illuminate\Http\Request;

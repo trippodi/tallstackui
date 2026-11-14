@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Errors;
+namespace Trippodi\TallStackUi\Components\Errors;
 
 use Livewire\Attributes\Rule;
 use Livewire\Component;

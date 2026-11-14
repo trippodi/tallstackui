@@ -1,11 +1,11 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Miscellaneous;
+namespace Trippodi\TallStackUi\Support\Miscellaneous;
 
 use ReflectionAttribute;
 use ReflectionClass;
 use ReflectionException;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 class ReflectComponent
 {

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\CommandPalette\Component;
+use Trippodi\TallStackUi\Components\CommandPalette\Component;
 use Tests\Support\CommandPaletteActionableStub;
 use Tests\TestCase;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Facades;
+namespace Trippodi\TallStackUi\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

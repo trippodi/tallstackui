@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\File;
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Spinner\Component;
-use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi;
+use Trippodi\TallStackUi\Components\Spinner\Component;
+use Trippodi\TallStackUi\Facades\TallStackUi;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

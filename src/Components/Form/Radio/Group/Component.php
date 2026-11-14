@@ -1,19 +1,19 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Radio\Group;
+namespace Trippodi\TallStackUi\Components\Form\Radio\Group;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
-use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
-use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
-use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Components\Traits\SelectionCustomization;
-use Trippodi\Trippodi\TallStackUi\Components\Traits\SelectionSetup;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\SelectionColors;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\SelectionGroupRuntime;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Components\Traits\SelectionCustomization;
+use Trippodi\TallStackUi\Components\Traits\SelectionSetup;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\Support\Colors\Components\SelectionColors;
+use Trippodi\TallStackUi\Support\Runtime\Components\SelectionGroupRuntime;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.radio.group')]
 #[ColorsThroughOf(SelectionColors::class)]

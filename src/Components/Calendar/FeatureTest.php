@@ -3,7 +3,7 @@
 use Carbon\CarbonImmutable;
 use Carbon\CarbonPeriod;
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Calendar\Component;
+use Trippodi\TallStackUi\Components\Calendar\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

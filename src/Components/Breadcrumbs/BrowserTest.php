@@ -1,14 +1,14 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Breadcrumbs;
+namespace Trippodi\TallStackUi\Components\Breadcrumbs;
 
 use Illuminate\Routing\Router;
 use Laravel\Dusk\Browser;
 use Livewire\Component;
 use Livewire\Livewire;
 use PHPUnit\Framework\Attributes\Test;
-use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi;
-use Trippodi\Trippodi\TallStackUi\Support\Breadcrumbs\BreadcrumbTrail;
+use Trippodi\TallStackUi\Facades\TallStackUi;
+use Trippodi\TallStackUi\Support\Breadcrumbs\BreadcrumbTrail;
 use Tests\Browser\BrowserTestCase;
 
 class BrowserTest extends BrowserTestCase

@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\QrCode;
+namespace Trippodi\TallStackUi\Support\QrCode;
 
 final class Watermark
 {

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Badge\Component;
+use Trippodi\TallStackUi\Components\Badge\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

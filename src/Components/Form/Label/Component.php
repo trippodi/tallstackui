@@ -1,13 +1,13 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Label;
+namespace Trippodi\TallStackUi\Components\Form\Label;
 
 use Illuminate\Contracts\View\View;
-use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\LabelRuntime;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\Support\Runtime\Components\LabelRuntime;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.label')]
 #[PassThroughRuntime(LabelRuntime::class)]

@@ -1,12 +1,12 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
+namespace Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Exception;
-use Trippodi\Trippodi\TallStackUi\Components\Form\Number\Component as Number;
-use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi;
-use Trippodi\Trippodi\TallStackUi\Support\Blade\Wireable;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\TallStackUi\Components\Form\Number\Component as Number;
+use Trippodi\TallStackUi\Facades\TallStackUi;
+use Trippodi\TallStackUi\Support\Blade\Wireable;
+use Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class NumberRuntime extends AbstractRuntime
 {

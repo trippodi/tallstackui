@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Chart;
+namespace Trippodi\TallStackUi\Components\Chart;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component;

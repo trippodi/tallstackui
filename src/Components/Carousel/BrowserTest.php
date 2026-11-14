@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Carousel;
+namespace Trippodi\TallStackUi\Components\Carousel;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component;

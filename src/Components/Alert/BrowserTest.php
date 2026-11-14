@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Alert;
+namespace Trippodi\TallStackUi\Components\Alert;
 
 use Livewire\Component;
 use Livewire\Livewire;

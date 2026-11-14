@@ -1,17 +1,17 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Dial\Main;
+namespace Trippodi\TallStackUi\Components\Dial\Main;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
-use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
-use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\DialColors;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\DialRuntime;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\Support\Colors\Components\DialColors;
+use Trippodi\TallStackUi\Support\Runtime\Components\DialRuntime;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('dial')]
 #[ColorsThroughOf(DialColors::class)]

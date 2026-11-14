@@ -1,13 +1,13 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Interactions\Traits;
+namespace Trippodi\TallStackUi\Interactions\Traits;
 
 use Closure;
 use Exception;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
-use Trippodi\Trippodi\TallStackUi\Interactions\Dialog;
-use Trippodi\Trippodi\TallStackUi\Interactions\Toast;
+use Trippodi\TallStackUi\Interactions\Dialog;
+use Trippodi\TallStackUi\Interactions\Toast;
 
 /**
  * @internal

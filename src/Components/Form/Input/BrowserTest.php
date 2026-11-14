@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Input;
+namespace Trippodi\TallStackUi\Components\Form\Input;
 
 use Livewire\Attributes\Validate;
 use Livewire\Component;

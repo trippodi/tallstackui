@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Colors\Concerns;
+namespace Trippodi\TallStackUi\Support\Colors\Concerns;
 
 use Exception;
 use Illuminate\Support\Arr;
@@ -8,9 +8,9 @@ use Illuminate\View\Component;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
-use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\Support\Miscellaneous\ReflectComponent;
+use Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\Support\Miscellaneous\ReflectComponent;
 
 use function Livewire\invade;
 

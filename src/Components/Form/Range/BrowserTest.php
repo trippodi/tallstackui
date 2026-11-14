@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Range;
+namespace Trippodi\TallStackUi\Components\Form\Range;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component;

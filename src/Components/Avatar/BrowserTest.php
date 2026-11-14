@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Avatar;
+namespace Trippodi\TallStackUi\Components\Avatar;
 
 use Livewire\Component;
 use Livewire\Livewire;

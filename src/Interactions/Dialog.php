@@ -1,10 +1,10 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Interactions;
+namespace Trippodi\TallStackUi\Interactions;
 
-use Trippodi\Trippodi\TallStackUi\Components\Dialog\Component;
-use Trippodi\Trippodi\TallStackUi\Interactions\Traits\DispatchInteraction;
-use Trippodi\Trippodi\TallStackUi\Interactions\Traits\InteractWithConfirmation;
+use Trippodi\TallStackUi\Components\Dialog\Component;
+use Trippodi\TallStackUi\Interactions\Traits\DispatchInteraction;
+use Trippodi\TallStackUi\Interactions\Traits\InteractWithConfirmation;
 
 class Dialog extends AbstractInteraction
 {

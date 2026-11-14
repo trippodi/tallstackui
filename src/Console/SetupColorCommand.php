@@ -1,12 +1,12 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Console;
+namespace Trippodi\TallStackUi\Console;
 
 use Exception;
 use Illuminate\Console\Command;
 use ReflectionClass;
 use ReflectionException;
-use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\TallStackUi\Attributes\ColorsThroughOf;
 
 use function Laravel\Prompts\select;
 

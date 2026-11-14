@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Errors;
+namespace Trippodi\TallStackUi\Components\Errors;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
@@ -8,13 +8,13 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\ViewErrorBag;
 use Illuminate\View\ComponentSlot;
 use InvalidArgumentException;
-use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
-use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\ErrorsColors;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\ErrorsRuntime;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\Support\Colors\Components\ErrorsColors;
+use Trippodi\TallStackUi\Support\Runtime\Components\ErrorsRuntime;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('errors')]
 #[ColorsThroughOf(ErrorsColors::class)]

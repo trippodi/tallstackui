@@ -1,13 +1,13 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Wrapper\Radio;
+namespace Trippodi\TallStackUi\Components\Wrapper\Radio;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('wrapper.radio')]
 class Component extends TallStackUiComponent implements Customization

@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Customization;
+namespace Trippodi\TallStackUi\Customization;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Arr;

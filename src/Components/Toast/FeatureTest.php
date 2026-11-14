@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Toast\Component;
-use Trippodi\Trippodi\TallStackUi\Interactions\Toast;
+use Trippodi\TallStackUi\Components\Toast\Component;
+use Trippodi\TallStackUi\Interactions\Toast;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

@@ -1,9 +1,9 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
+namespace Trippodi\TallStackUi\Support\Runtime\Components;
 
-use Trippodi\Trippodi\TallStackUi\Components\Carousel\Component as Carousel;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\TallStackUi\Components\Carousel\Component as Carousel;
+use Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class CarouselRuntime extends AbstractRuntime
 {

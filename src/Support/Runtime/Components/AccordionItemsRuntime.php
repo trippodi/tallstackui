@@ -1,9 +1,9 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
+namespace Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Illuminate\View\ComponentSlot;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class AccordionItemsRuntime extends AbstractRuntime
 {

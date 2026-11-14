@@ -1,12 +1,12 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
+namespace Trippodi\TallStackUi\Support\Runtime\Components;
 
-use Trippodi\Trippodi\TallStackUi\Components\QrCode\Component as QrCode;
-use Trippodi\Trippodi\TallStackUi\Support\QrCode\Encoder;
-use Trippodi\Trippodi\TallStackUi\Support\QrCode\Path;
-use Trippodi\Trippodi\TallStackUi\Support\QrCode\Watermark;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\TallStackUi\Components\QrCode\Component as QrCode;
+use Trippodi\TallStackUi\Support\QrCode\Encoder;
+use Trippodi\TallStackUi\Support\QrCode\Path;
+use Trippodi\TallStackUi\Support\QrCode\Watermark;
+use Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class QrCodeRuntime extends AbstractRuntime
 {

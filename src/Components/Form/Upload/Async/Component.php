@@ -1,16 +1,16 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Upload\Async;
+namespace Trippodi\TallStackUi\Components\Form\Upload\Async;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\View\ComponentSlot;
-use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\UploadAsyncRuntime;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\Support\Runtime\Components\UploadAsyncRuntime;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.upload.async')]
 #[PassThroughRuntime(UploadAsyncRuntime::class)]

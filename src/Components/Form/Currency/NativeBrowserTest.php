@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Currency;
+namespace Trippodi\TallStackUi\Components\Form\Currency;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;

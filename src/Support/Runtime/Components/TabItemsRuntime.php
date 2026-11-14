@@ -1,10 +1,10 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
+namespace Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Illuminate\View\ComponentSlot;
 use Livewire\Livewire;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class TabItemsRuntime extends AbstractRuntime
 {

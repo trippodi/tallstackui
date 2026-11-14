@@ -1,9 +1,9 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Step\Items;
+namespace Trippodi\TallStackUi\Components\Step\Items;
 
 use Illuminate\Contracts\View\View;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 class Component extends TallStackUiComponent
 {

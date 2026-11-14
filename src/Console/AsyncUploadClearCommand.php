@@ -1,11 +1,11 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Console;
+namespace Trippodi\TallStackUi\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Facades\Storage;
-use Trippodi\Trippodi\TallStackUi\Components\Form\Upload\Async\Component;
+use Trippodi\TallStackUi\Components\Form\Upload\Async\Component;
 
 class AsyncUploadClearCommand extends Command
 {

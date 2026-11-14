@@ -1,20 +1,20 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Upload;
+namespace Trippodi\TallStackUi\Components\Form\Upload;
 
 use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
-use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
-use Trippodi\Trippodi\TallStackUi\Attributes\RequireLivewireContext;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Components\Floating\Component as Floating;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\Support\Miscellaneous\UploadComponentFileAdapter;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\UploadRuntime;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\TallStackUi\Attributes\RequireLivewireContext;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Components\Floating\Component as Floating;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\Support\Miscellaneous\UploadComponentFileAdapter;
+use Trippodi\TallStackUi\Support\Runtime\Components\UploadRuntime;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[RequireLivewireContext]
 #[SoftCustomization('form.upload')]

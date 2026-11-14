@@ -1,13 +1,13 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Layout\Header;
+namespace Trippodi\TallStackUi\Components\Layout\Header;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('layout.header')]
 class Component extends TallStackUiComponent implements Customization

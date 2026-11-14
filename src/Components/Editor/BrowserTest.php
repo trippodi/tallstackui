@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Editor;
+namespace Trippodi\TallStackUi\Components\Editor;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component as LivewireComponent;

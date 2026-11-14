@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Avatar\Component;
+use Trippodi\TallStackUi\Components\Avatar\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

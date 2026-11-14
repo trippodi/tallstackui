@@ -1,11 +1,11 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Traits;
+namespace Trippodi\TallStackUi\Components\Traits;
 
 use Illuminate\View\ComponentAttributeBag;
-use Trippodi\Trippodi\TallStackUi\Components\Button\Circle\Component as Circle;
-use Trippodi\Trippodi\TallStackUi\Components\Button\Normal\Component as Button;
-use Trippodi\Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
+use Trippodi\TallStackUi\Components\Button\Circle\Component as Circle;
+use Trippodi\TallStackUi\Components\Button\Normal\Component as Button;
+use Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
 
 trait ButtonSetup
 {

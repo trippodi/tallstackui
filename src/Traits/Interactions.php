@@ -1,11 +1,11 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Traits;
+namespace Trippodi\TallStackUi\Traits;
 
 use Livewire\Component;
-use Trippodi\Trippodi\TallStackUi\Interactions\Banner;
-use Trippodi\Trippodi\TallStackUi\Interactions\Dialog;
-use Trippodi\Trippodi\TallStackUi\Interactions\Toast;
+use Trippodi\TallStackUi\Interactions\Banner;
+use Trippodi\TallStackUi\Interactions\Dialog;
+use Trippodi\TallStackUi\Interactions\Toast;
 
 trait Interactions
 {

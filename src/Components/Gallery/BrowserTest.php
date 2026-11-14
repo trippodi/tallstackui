@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Gallery;
+namespace Trippodi\TallStackUi\Components\Gallery;
 
 use Livewire\Component;
 use Livewire\Livewire;

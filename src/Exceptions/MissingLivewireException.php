@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Exceptions;
+namespace Trippodi\TallStackUi\Exceptions;
 
 use Exception;
 

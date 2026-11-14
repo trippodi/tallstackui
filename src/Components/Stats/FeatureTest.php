@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Stats\Component;
+use Trippodi\TallStackUi\Components\Stats\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

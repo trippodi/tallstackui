@@ -1,12 +1,12 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Toast;
+namespace Trippodi\TallStackUi\Components\Toast;
 
 use Illuminate\Config\Repository;
 use Livewire\Component;
 use Livewire\Livewire;
 use PHPUnit\Framework\Attributes\Test;
-use Trippodi\Trippodi\TallStackUi\Traits\Interactions;
+use Trippodi\TallStackUi\Traits\Interactions;
 use Tests\Browser\BrowserTestCase;
 
 class StackedBrowserTest extends BrowserTestCase

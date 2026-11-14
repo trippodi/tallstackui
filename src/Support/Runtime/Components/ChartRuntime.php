@@ -1,18 +1,18 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
+namespace Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Closure;
-use Trippodi\Trippodi\TallStackUi\Components\Chart\Component as Chart;
-use Trippodi\Trippodi\TallStackUi\Support\Charts\Bars;
-use Trippodi\Trippodi\TallStackUi\Support\Charts\Plot;
-use Trippodi\Trippodi\TallStackUi\Support\Charts\Scale;
-use Trippodi\Trippodi\TallStackUi\Support\Charts\Series;
-use Trippodi\Trippodi\TallStackUi\Support\Charts\Slices;
-use Trippodi\Trippodi\TallStackUi\Support\Charts\Spline;
-use Trippodi\Trippodi\TallStackUi\Support\Colors\CompileColors;
-use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\ChartColors;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\TallStackUi\Components\Chart\Component as Chart;
+use Trippodi\TallStackUi\Support\Charts\Bars;
+use Trippodi\TallStackUi\Support\Charts\Plot;
+use Trippodi\TallStackUi\Support\Charts\Scale;
+use Trippodi\TallStackUi\Support\Charts\Series;
+use Trippodi\TallStackUi\Support\Charts\Slices;
+use Trippodi\TallStackUi\Support\Charts\Spline;
+use Trippodi\TallStackUi\Support\Colors\CompileColors;
+use Trippodi\TallStackUi\Support\Colors\Components\ChartColors;
+use Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class ChartRuntime extends AbstractRuntime
 {

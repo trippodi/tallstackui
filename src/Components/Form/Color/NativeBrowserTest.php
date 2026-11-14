@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Color;
+namespace Trippodi\TallStackUi\Components\Form\Color;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;

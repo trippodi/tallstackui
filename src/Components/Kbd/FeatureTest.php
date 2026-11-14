@@ -1,6 +1,6 @@
 <?php
 
-use Trippodi\Trippodi\TallStackUi\Components\Kbd\Component;
+use Trippodi\TallStackUi\Components\Kbd\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

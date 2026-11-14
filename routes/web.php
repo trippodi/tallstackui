@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Trippodi\Trippodi\TallStackUi\Http\Controllers\TallStackUiAssetsController;
-use Trippodi\Trippodi\TallStackUi\Http\Controllers\TallStackUiCommandPaletteController;
+use Trippodi\TallStackUi\Http\Controllers\TallStackUiAssetsController;
+use Trippodi\TallStackUi\Http\Controllers\TallStackUiCommandPaletteController;
 
 Route::name('tallstackui-trippodi.')
     ->prefix('/tallstackui-trippodi')

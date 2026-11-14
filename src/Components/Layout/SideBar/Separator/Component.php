@@ -1,12 +1,12 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Layout\SideBar\Separator;
+namespace Trippodi\TallStackUi\Components\Layout\SideBar\Separator;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('sideBar.separator')]
 class Component extends TallStackUiComponent implements Customization

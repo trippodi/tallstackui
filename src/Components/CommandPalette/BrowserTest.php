@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\CommandPalette;
+namespace Trippodi\TallStackUi\Components\CommandPalette;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component;

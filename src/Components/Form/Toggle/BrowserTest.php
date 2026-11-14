@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Toggle;
+namespace Trippodi\TallStackUi\Components\Form\Toggle;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component;

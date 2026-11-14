@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Date;
+namespace Trippodi\TallStackUi\Components\Form\Date;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Dial;
+namespace Trippodi\TallStackUi\Components\Dial;
 
 use Livewire\Component;
 use Livewire\Livewire;

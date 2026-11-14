@@ -1,14 +1,14 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Boolean;
+namespace Trippodi\TallStackUi\Components\Boolean;
 
 use Closure;
 use Illuminate\Contracts\View\View;
-use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\BooleanColors;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\Support\Colors\Components\BooleanColors;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('boolean')]
 #[ColorsThroughOf(BooleanColors::class)]

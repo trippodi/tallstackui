@@ -1,20 +1,20 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\QrCode;
+namespace Trippodi\TallStackUi\Components\QrCode;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\View as Views;
-use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
-use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Components\Icon\Component as Icon;
-use Trippodi\Trippodi\TallStackUi\Components\Traits\SkeletonSetup;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\QrCodeColors;
-use Trippodi\Trippodi\TallStackUi\Support\QrCode\Encoder;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\QrCodeRuntime;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Components\Icon\Component as Icon;
+use Trippodi\TallStackUi\Components\Traits\SkeletonSetup;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\Support\Colors\Components\QrCodeColors;
+use Trippodi\TallStackUi\Support\QrCode\Encoder;
+use Trippodi\TallStackUi\Support\Runtime\Components\QrCodeRuntime;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('qrCode')]
 #[ColorsThroughOf(QrCodeColors::class)]

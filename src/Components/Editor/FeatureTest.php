@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Js;
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Editor\Component;
-use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi;
+use Trippodi\TallStackUi\Components\Editor\Component;
+use Trippodi\TallStackUi\Facades\TallStackUi;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

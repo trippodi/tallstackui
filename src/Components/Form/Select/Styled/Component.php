@@ -1,21 +1,21 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Select\Styled;
+namespace Trippodi\TallStackUi\Components\Form\Select\Styled;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use InvalidArgumentException;
-use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
-use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Components\Floating\Component as Floating;
-use Trippodi\Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
-use Trippodi\Trippodi\TallStackUi\Components\Traits\FormDefaultInputClasses;
-use Trippodi\Trippodi\TallStackUi\Components\Traits\SelectSetup;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\SelectStyledRuntime;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Components\Floating\Component as Floating;
+use Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
+use Trippodi\TallStackUi\Components\Traits\FormDefaultInputClasses;
+use Trippodi\TallStackUi\Components\Traits\SelectSetup;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\Support\Runtime\Components\SelectStyledRuntime;
+use Trippodi\TallStackUi\TallStackUiComponent;
 use Throwable;
 
 #[SoftCustomization('select.styled')]

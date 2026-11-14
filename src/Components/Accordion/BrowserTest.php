@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Accordion;
+namespace Trippodi\TallStackUi\Components\Accordion;
 
 use Livewire\Component;
 use Livewire\Livewire;

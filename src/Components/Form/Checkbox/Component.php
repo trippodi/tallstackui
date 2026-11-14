@@ -1,19 +1,19 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Checkbox;
+namespace Trippodi\TallStackUi\Components\Form\Checkbox;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
-use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
-use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Components\Traits\FormSetup;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\CheckboxColors;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\CheckboxRuntime;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Components\Traits\FormSetup;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\Support\Colors\Components\CheckboxColors;
+use Trippodi\TallStackUi\Support\Runtime\Components\CheckboxRuntime;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[ColorsThroughOf(CheckboxColors::class)]
 #[SoftCustomization('form.checkbox')]

@@ -1,9 +1,9 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Concerns\BaseComponent;
+namespace Trippodi\TallStackUi\Support\Concerns\BaseComponent;
 
-use Trippodi\Trippodi\TallStackUi\Support\Colors\CompileColors;
-use Trippodi\Trippodi\TallStackUi\Support\Configurations\CompileConfigurations;
+use Trippodi\TallStackUi\Support\Colors\CompileColors;
+use Trippodi\TallStackUi\Support\Configurations\CompileConfigurations;
 use Throwable;
 
 trait ManagesCompilation

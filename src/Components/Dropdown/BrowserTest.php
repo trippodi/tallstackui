@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Dropdown;
+namespace Trippodi\TallStackUi\Components\Dropdown;
 
 use Facebook\WebDriver\WebDriverBy;
 use Laravel\Dusk\Browser;

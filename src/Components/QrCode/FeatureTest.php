@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Icon\Component as Icon;
+use Trippodi\TallStackUi\Components\Icon\Component as Icon;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

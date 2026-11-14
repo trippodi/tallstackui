@@ -1,16 +1,16 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Layout\SideBar\Item;
+namespace Trippodi\TallStackUi\Components\Layout\SideBar\Item;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\ComponentSlot;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Components\Floating\Component as Floating;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Components\Floating\Component as Floating;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('sideBar.item')]
 class Component extends TallStackUiComponent implements Customization

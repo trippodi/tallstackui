@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Errors\Component;
+use Trippodi\TallStackUi\Components\Errors\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

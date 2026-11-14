@@ -5,7 +5,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Table\Component as TableComponent;
+use Trippodi\TallStackUi\Components\Table\Component as TableComponent;
 use Tests\TestCase;
 
 use function Livewire\invade;

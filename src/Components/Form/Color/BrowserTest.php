@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Color;
+namespace Trippodi\TallStackUi\Components\Form\Color;
 
 use Livewire\Component;
 use Livewire\Livewire;

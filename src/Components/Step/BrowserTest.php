@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Step;
+namespace Trippodi\TallStackUi\Components\Step;
 
 use Livewire\Component;
 use Livewire\Livewire;

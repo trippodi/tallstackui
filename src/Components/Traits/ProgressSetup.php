@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Traits;
+namespace Trippodi\TallStackUi\Components\Traits;
 
 trait ProgressSetup
 {

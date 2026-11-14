@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
-use Trippodi\Trippodi\TallStackUi\Components\Layout\SideBar\Main\Component;
+use Trippodi\TallStackUi\Components\Layout\SideBar\Main\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

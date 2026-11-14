@@ -1,16 +1,16 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Dropdown\Main;
+namespace Trippodi\TallStackUi\Components\Dropdown\Main;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Components\Floating\Component as Floating;
-use Trippodi\Trippodi\TallStackUi\Components\Traits\DropdownSharedTransitions;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\Exceptions\InvalidSelectedPositionException;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Components\Floating\Component as Floating;
+use Trippodi\TallStackUi\Components\Traits\DropdownSharedTransitions;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\Exceptions\InvalidSelectedPositionException;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('dropdown')]
 class Component extends TallStackUiComponent implements Customization

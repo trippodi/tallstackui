@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Charts;
+namespace Trippodi\TallStackUi\Support\Charts;
 
 /** @internal */
 final class Spline

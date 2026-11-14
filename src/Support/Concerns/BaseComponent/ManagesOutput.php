@@ -1,11 +1,11 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Concerns\BaseComponent;
+namespace Trippodi\TallStackUi\Support\Concerns\BaseComponent;
 
 use Illuminate\Contracts\View\View;
 use ReflectionAttribute;
 use ReflectionClass;
-use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\TallStackUi\Attributes\SkipDebug;
 
 trait ManagesOutput
 {

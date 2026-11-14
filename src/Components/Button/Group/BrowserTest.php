@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Button\Group;
+namespace Trippodi\TallStackUi\Components\Button\Group;
 
 use Livewire\Component;
 use Livewire\Livewire;

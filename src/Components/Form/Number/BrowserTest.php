@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Number;
+namespace Trippodi\TallStackUi\Components\Form\Number;
 
 use Livewire\Component;
 use Livewire\Livewire;

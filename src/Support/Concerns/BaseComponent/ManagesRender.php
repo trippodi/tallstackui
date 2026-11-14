@@ -1,14 +1,14 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Concerns\BaseComponent;
+namespace Trippodi\TallStackUi\Support\Concerns\BaseComponent;
 
 use Closure;
 use Illuminate\Contracts\View\View;
-use Trippodi\Trippodi\TallStackUi\Attributes\RequireLivewireContext;
-use Trippodi\Trippodi\TallStackUi\Exceptions\MissingLivewireException;
-use Trippodi\Trippodi\TallStackUi\Support\Blade\ComponentPrefix;
-use Trippodi\Trippodi\TallStackUi\Support\Miscellaneous\ReflectComponent;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\CompileRuntime;
+use Trippodi\TallStackUi\Attributes\RequireLivewireContext;
+use Trippodi\TallStackUi\Exceptions\MissingLivewireException;
+use Trippodi\TallStackUi\Support\Blade\ComponentPrefix;
+use Trippodi\TallStackUi\Support\Miscellaneous\ReflectComponent;
+use Trippodi\TallStackUi\Support\Runtime\CompileRuntime;
 
 trait ManagesRender
 {

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Form\Currency\Component;
+use Trippodi\TallStackUi\Components\Form\Currency\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

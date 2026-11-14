@@ -1,13 +1,13 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Tab\Items;
+namespace Trippodi\TallStackUi\Components\Tab\Items;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\View\ComponentSlot;
-use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
-use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\TabItemsRuntime;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\TallStackUi\Support\Runtime\Components\TabItemsRuntime;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[PassThroughRuntime(TabItemsRuntime::class)]
 class Component extends TallStackUiComponent

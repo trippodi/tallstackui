@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Button\Normal\Component as NormalComponent;
+use Trippodi\TallStackUi\Components\Button\Normal\Component as NormalComponent;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

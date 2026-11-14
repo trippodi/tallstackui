@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Carousel\Component;
+use Trippodi\TallStackUi\Components\Carousel\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

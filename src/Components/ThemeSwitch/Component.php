@@ -1,13 +1,13 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\ThemeSwitch;
+namespace Trippodi\TallStackUi\Components\ThemeSwitch;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('themeSwitch')]
 class Component extends TallStackUiComponent implements Customization

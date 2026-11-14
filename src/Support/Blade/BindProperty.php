@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Blade;
+namespace Trippodi\TallStackUi\Support\Blade;
 
 use Exception;
 use Illuminate\Support\Collection;

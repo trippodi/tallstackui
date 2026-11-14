@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Alert\Component;
+use Trippodi\TallStackUi\Components\Alert\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

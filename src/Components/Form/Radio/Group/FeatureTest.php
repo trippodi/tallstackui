@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Collection;
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Form\Radio\Group\Component;
+use Trippodi\TallStackUi\Components\Form\Radio\Group\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

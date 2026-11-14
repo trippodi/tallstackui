@@ -1,15 +1,15 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Dialog;
+namespace Trippodi\TallStackUi\Components\Dialog;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use InvalidArgumentException;
-use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\DialogColors;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\Support\Colors\Components\DialogColors;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('dialog')]
 #[ColorsThroughOf(DialogColors::class)]

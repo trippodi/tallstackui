@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Layout\SideBar\Separator;
+namespace Trippodi\TallStackUi\Components\Layout\SideBar\Separator;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component;

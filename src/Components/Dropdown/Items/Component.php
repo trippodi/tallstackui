@@ -1,14 +1,14 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Dropdown\Items;
+namespace Trippodi\TallStackUi\Components\Dropdown\Items;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\DropdownItemsRuntime;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\Support\Runtime\Components\DropdownItemsRuntime;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('dropdown.items')]
 #[PassThroughRuntime(DropdownItemsRuntime::class)]

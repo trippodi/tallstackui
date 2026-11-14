@@ -1,19 +1,19 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\KeyValue;
+namespace Trippodi\TallStackUi\Components\KeyValue;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
-use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
-use Trippodi\Trippodi\TallStackUi\Attributes\RequireLivewireContext;
-use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\KeyValueColors;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\KeyValueRuntime;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\TallStackUi\Attributes\RequireLivewireContext;
+use Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\Support\Colors\Components\KeyValueColors;
+use Trippodi\TallStackUi\Support\Runtime\Components\KeyValueRuntime;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[RequireLivewireContext]
 #[SoftCustomization('keyValue')]

@@ -1,10 +1,10 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
+namespace Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Exception;
-use Trippodi\Trippodi\TallStackUi\Components\Form\Upload\Async\Component;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\TallStackUi\Components\Form\Upload\Async\Component;
+use Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class UploadAsyncRuntime extends AbstractRuntime
 {

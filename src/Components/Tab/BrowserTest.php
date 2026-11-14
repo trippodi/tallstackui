@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Tab;
+namespace Trippodi\TallStackUi\Components\Tab;
 
 use Livewire\Attributes\Lazy;
 use Livewire\Attributes\Url;

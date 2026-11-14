@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Runtime;
+namespace Trippodi\TallStackUi\Support\Runtime;
 
 use Error;
 use Exception;
@@ -11,9 +11,9 @@ use Illuminate\View\ComponentAttributeBag;
 use Illuminate\View\ComponentSlot;
 use Livewire\Component;
 use Livewire\WireDirective;
-use Trippodi\Trippodi\TallStackUi\Support\Blade\BindProperty;
-use Trippodi\Trippodi\TallStackUi\Support\Blade\ComponentPrefix;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Support\Blade\BindProperty;
+use Trippodi\TallStackUi\Support\Blade\ComponentPrefix;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 use function Livewire\invade;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Password;
+namespace Trippodi\TallStackUi\Components\Form\Password;
 
 use Facebook\WebDriver\WebDriverKeys;
 use Laravel\Dusk\OperatingSystem;

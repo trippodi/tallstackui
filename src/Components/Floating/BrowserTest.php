@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Floating;
+namespace Trippodi\TallStackUi\Components\Floating;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component;

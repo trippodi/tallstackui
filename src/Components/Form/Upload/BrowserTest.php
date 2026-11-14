@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Upload;
+namespace Trippodi\TallStackUi\Components\Form\Upload;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
@@ -14,7 +14,7 @@ use Livewire\Livewire;
 use Livewire\WithFileUploads;
 use PHPUnit\Framework\Attributes\Test;
 use Symfony\Component\Finder\SplFileInfo;
-use Trippodi\Trippodi\TallStackUi\Components\Form\Upload\Component as UploadComponent;
+use Trippodi\TallStackUi\Components\Form\Upload\Component as UploadComponent;
 use Tests\Browser\BrowserTestCase;
 
 class BrowserTest extends BrowserTestCase

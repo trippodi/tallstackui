@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Form\Time;
+namespace Trippodi\TallStackUi\Components\Form\Time;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component;

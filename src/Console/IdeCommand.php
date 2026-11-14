@@ -1,13 +1,13 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Console;
+namespace Trippodi\TallStackUi\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
-use Trippodi\Trippodi\TallStackUi\Components\Floating\Component as Floating;
-use Trippodi\Trippodi\TallStackUi\Components\Wrapper\Input\Component as InputWrapper;
-use Trippodi\Trippodi\TallStackUi\Components\Wrapper\Radio\Component as RadioWrapper;
-use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi;
+use Trippodi\TallStackUi\Components\Floating\Component as Floating;
+use Trippodi\TallStackUi\Components\Wrapper\Input\Component as InputWrapper;
+use Trippodi\TallStackUi\Components\Wrapper\Radio\Component as RadioWrapper;
+use Trippodi\TallStackUi\Facades\TallStackUi;
 
 use function Laravel\Prompts\confirm;
 

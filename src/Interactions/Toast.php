@@ -1,10 +1,10 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Interactions;
+namespace Trippodi\TallStackUi\Interactions;
 
-use Trippodi\Trippodi\TallStackUi\Components\Toast\Component;
-use Trippodi\Trippodi\TallStackUi\Interactions\Traits\DispatchInteraction;
-use Trippodi\Trippodi\TallStackUi\Interactions\Traits\InteractWithConfirmation;
+use Trippodi\TallStackUi\Components\Toast\Component;
+use Trippodi\TallStackUi\Interactions\Traits\DispatchInteraction;
+use Trippodi\TallStackUi\Interactions\Traits\InteractWithConfirmation;
 
 class Toast extends AbstractInteraction
 {

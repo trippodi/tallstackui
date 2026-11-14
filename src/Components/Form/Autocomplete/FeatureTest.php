@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Form\Autocomplete\Component;
-use Trippodi\Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
+use Trippodi\TallStackUi\Components\Form\Autocomplete\Component;
+use Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

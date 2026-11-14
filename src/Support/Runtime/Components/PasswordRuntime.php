@@ -1,10 +1,10 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
+namespace Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Exception;
-use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\TallStackUi\Facades\TallStackUi;
+use Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class PasswordRuntime extends AbstractRuntime
 {

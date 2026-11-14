@@ -1,12 +1,12 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Http\Controllers;
+namespace Trippodi\TallStackUi\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Trippodi\Trippodi\TallStackUi\Components\CommandPalette\Component;
-use Trippodi\Trippodi\TallStackUi\Support\CommandPalette\Callback;
-use Trippodi\Trippodi\TallStackUi\Support\CommandPalette\ItemSelected;
+use Trippodi\TallStackUi\Components\CommandPalette\Component;
+use Trippodi\TallStackUi\Support\CommandPalette\Callback;
+use Trippodi\TallStackUi\Support\CommandPalette\ItemSelected;
 
 class TallStackUiCommandPaletteController
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Toast;
+namespace Trippodi\TallStackUi\Components\Toast;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component;
 use Livewire\Livewire;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Attributes\Test;
-use Trippodi\Trippodi\TallStackUi\Traits\Interactions;
+use Trippodi\TallStackUi\Traits\Interactions;
 use Tests\Browser\BrowserTestCase;
 
 class BrowserTest extends BrowserTestCase

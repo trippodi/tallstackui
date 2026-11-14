@@ -5,16 +5,16 @@ namespace Trippodi\TallStackUi;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
-use Trippodi\Trippodi\TallStackUi\Components\Icon\Component as Icon;
-use Trippodi\Trippodi\TallStackUi\Console\AsyncUploadClearCommand;
-use Trippodi\Trippodi\TallStackUi\Console\FindComponentCommand;
-use Trippodi\Trippodi\TallStackUi\Console\IdeCommand;
-use Trippodi\Trippodi\TallStackUi\Console\SetupColorCommand;
-use Trippodi\Trippodi\TallStackUi\Console\SetupPrefixCommand;
-use Trippodi\Trippodi\TallStackUi\Customization\CustomizationFactory;
-use Trippodi\Trippodi\TallStackUi\Support\Blade\ComponentPrefix;
-use Trippodi\Trippodi\TallStackUi\Support\Blade\Directives;
-use Trippodi\Trippodi\TallStackUi\Support\Breadcrumbs\BreadcrumbRegistry;
+use Trippodi\TallStackUi\Components\Icon\Component as Icon;
+use Trippodi\TallStackUi\Console\AsyncUploadClearCommand;
+use Trippodi\TallStackUi\Console\FindComponentCommand;
+use Trippodi\TallStackUi\Console\IdeCommand;
+use Trippodi\TallStackUi\Console\SetupColorCommand;
+use Trippodi\TallStackUi\Console\SetupPrefixCommand;
+use Trippodi\TallStackUi\Customization\CustomizationFactory;
+use Trippodi\TallStackUi\Support\Blade\ComponentPrefix;
+use Trippodi\TallStackUi\Support\Blade\Directives;
+use Trippodi\TallStackUi\Support\Breadcrumbs\BreadcrumbRegistry;
 
 include __DIR__.'/helpers.php';
 

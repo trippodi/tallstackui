@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\BackToTop;
+namespace Trippodi\TallStackUi\Components\BackToTop;
 
 use Livewire\Component;
 use Livewire\Livewire;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Icons;
+namespace Trippodi\TallStackUi\Support\Icons;
 
 use Exception;
 use Illuminate\View\Component;
-use Trippodi\Trippodi\TallStackUi\Components\Icon\Component as Icon;
+use Trippodi\TallStackUi\Components\Icon\Component as Icon;
 
 class IconGuideMap
 {

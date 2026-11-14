@@ -1,6 +1,6 @@
 <?php
 
-use Trippodi\Trippodi\TallStackUi\Components;
+use Trippodi\TallStackUi\Components;
 
 return [
     /*

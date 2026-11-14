@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Timeline;
+namespace Trippodi\TallStackUi\Components\Timeline;
 
 use Livewire\Component;
 use Livewire\Livewire;

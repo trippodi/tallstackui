@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Http\AsyncUpload;
+namespace Trippodi\TallStackUi\Http\AsyncUpload;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

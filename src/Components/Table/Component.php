@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Table;
+namespace Trippodi\TallStackUi\Components\Table;
 
 use ArrayAccess;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -11,14 +11,14 @@ use Illuminate\Support\Collection;
 use Illuminate\View\ComponentAttributeBag;
 use Illuminate\View\ComponentSlot;
 use InvalidArgumentException;
-use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
-use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
-use Trippodi\Trippodi\TallStackUi\Components\Traits\SkeletonSetup;
-use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
-use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\TableRuntime;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
+use Trippodi\TallStackUi\Components\Traits\SkeletonSetup;
+use Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\TallStackUi\Support\Runtime\Components\TableRuntime;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('table')]
 #[PassThroughRuntime(TableRuntime::class)]

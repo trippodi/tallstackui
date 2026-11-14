@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Table;
+namespace Trippodi\TallStackUi\Components\Table;
 
 use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\Attributes\Computed;

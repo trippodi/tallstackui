@@ -3,12 +3,12 @@
 namespace Trippodi\TallStackUi;
 
 use Illuminate\View\ComponentAttributeBag;
-use Trippodi\Trippodi\TallStackUi\Customization\Customization;
-use Trippodi\Trippodi\TallStackUi\Support\Blade\ComponentPrefix;
-use Trippodi\Trippodi\TallStackUi\Support\Blade\Directives;
-use Trippodi\Trippodi\TallStackUi\Support\Blade\Wireable;
-use Trippodi\Trippodi\TallStackUi\Support\Breadcrumbs\BreadcrumbRegistry;
-use Trippodi\Trippodi\TallStackUi\Support\Icons\IconGuideMap;
+use Trippodi\TallStackUi\Customization\Customization;
+use Trippodi\TallStackUi\Support\Blade\ComponentPrefix;
+use Trippodi\TallStackUi\Support\Blade\Directives;
+use Trippodi\TallStackUi\Support\Blade\Wireable;
+use Trippodi\TallStackUi\Support\Breadcrumbs\BreadcrumbRegistry;
+use Trippodi\TallStackUi\Support\Icons\IconGuideMap;
 
 class TallStackUi
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Components\Rating;
+namespace Trippodi\TallStackUi\Components\Rating;
 
 use Livewire\Component;
 use Livewire\Livewire;

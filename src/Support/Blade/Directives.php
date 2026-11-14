@@ -1,10 +1,10 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Blade;
+namespace Trippodi\TallStackUi\Support\Blade;
 
 use Illuminate\Support\Facades\Blade;
-use Trippodi\Trippodi\TallStackUi\Components\Tooltip\Component as Tooltip;
-use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi as Facade;
+use Trippodi\TallStackUi\Components\Tooltip\Component as Tooltip;
+use Trippodi\TallStackUi\Facades\TallStackUi as Facade;
 
 class Directives
 {

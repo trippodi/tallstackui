@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Http\Controllers;
+namespace Trippodi\TallStackUi\Http\Controllers;
 
 use Exception;
 use Livewire\Drawer\Utils;

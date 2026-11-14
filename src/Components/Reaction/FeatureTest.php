@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Reaction\Component;
-use Trippodi\Trippodi\TallStackUi\Customization\Globals;
-use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi;
+use Trippodi\TallStackUi\Components\Reaction\Component;
+use Trippodi\TallStackUi\Customization\Globals;
+use Trippodi\TallStackUi\Facades\TallStackUi;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

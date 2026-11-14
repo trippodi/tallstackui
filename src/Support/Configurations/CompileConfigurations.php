@@ -1,28 +1,28 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Support\Configurations;
+namespace Trippodi\TallStackUi\Support\Configurations;
 
 use Exception;
 use Illuminate\Support\Facades\URL;
-use Trippodi\Trippodi\TallStackUi\Components\Chart\Component as Chart;
-use Trippodi\Trippodi\TallStackUi\Components\CommandPalette\Component as CommandPalette;
-use Trippodi\Trippodi\TallStackUi\Components\Dialog\Component as Dialog;
-use Trippodi\Trippodi\TallStackUi\Components\Editor\Component as Editor;
-use Trippodi\Trippodi\TallStackUi\Components\Form\Autocomplete\Component as Autocomplete;
-use Trippodi\Trippodi\TallStackUi\Components\Form\Color\Component as Color;
-use Trippodi\Trippodi\TallStackUi\Components\Form\Currency\Component as Currency;
-use Trippodi\Trippodi\TallStackUi\Components\Form\Number\Component as Number;
-use Trippodi\Trippodi\TallStackUi\Components\Form\Select\Styled\Component as SelectStyled;
-use Trippodi\Trippodi\TallStackUi\Components\Gallery\Component as Gallery;
-use Trippodi\Trippodi\TallStackUi\Components\Kbd\Component as Kbd;
-use Trippodi\Trippodi\TallStackUi\Components\Link\Component as Link;
-use Trippodi\Trippodi\TallStackUi\Components\Loading\Component as Loading;
-use Trippodi\Trippodi\TallStackUi\Components\Modal\Component as Modal;
-use Trippodi\Trippodi\TallStackUi\Components\QrCode\Component as QrCode;
-use Trippodi\Trippodi\TallStackUi\Components\Reaction\Component as Reaction;
-use Trippodi\Trippodi\TallStackUi\Components\Slide\Component as Slide;
-use Trippodi\Trippodi\TallStackUi\Components\Toast\Component as Toast;
-use Trippodi\Trippodi\TallStackUi\Support\Miscellaneous\EditorOutputClasses;
+use Trippodi\TallStackUi\Components\Chart\Component as Chart;
+use Trippodi\TallStackUi\Components\CommandPalette\Component as CommandPalette;
+use Trippodi\TallStackUi\Components\Dialog\Component as Dialog;
+use Trippodi\TallStackUi\Components\Editor\Component as Editor;
+use Trippodi\TallStackUi\Components\Form\Autocomplete\Component as Autocomplete;
+use Trippodi\TallStackUi\Components\Form\Color\Component as Color;
+use Trippodi\TallStackUi\Components\Form\Currency\Component as Currency;
+use Trippodi\TallStackUi\Components\Form\Number\Component as Number;
+use Trippodi\TallStackUi\Components\Form\Select\Styled\Component as SelectStyled;
+use Trippodi\TallStackUi\Components\Gallery\Component as Gallery;
+use Trippodi\TallStackUi\Components\Kbd\Component as Kbd;
+use Trippodi\TallStackUi\Components\Link\Component as Link;
+use Trippodi\TallStackUi\Components\Loading\Component as Loading;
+use Trippodi\TallStackUi\Components\Modal\Component as Modal;
+use Trippodi\TallStackUi\Components\QrCode\Component as QrCode;
+use Trippodi\TallStackUi\Components\Reaction\Component as Reaction;
+use Trippodi\TallStackUi\Components\Slide\Component as Slide;
+use Trippodi\TallStackUi\Components\Toast\Component as Toast;
+use Trippodi\TallStackUi\Support\Miscellaneous\EditorOutputClasses;
 
 /**
  * @internal

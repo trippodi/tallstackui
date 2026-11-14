@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Console;
+namespace Trippodi\TallStackUi\Console;
 
 use Exception;
 use Illuminate\Console\Command;

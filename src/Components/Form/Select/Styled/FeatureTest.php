@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\View\ViewException;
-use Trippodi\Trippodi\TallStackUi\Components\Form\Select\Styled\Component;
-use Trippodi\Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
+use Trippodi\TallStackUi\Components\Form\Select\Styled\Component;
+use Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

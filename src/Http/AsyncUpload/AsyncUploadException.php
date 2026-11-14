@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Http\AsyncUpload;
+namespace Trippodi\TallStackUi\Http\AsyncUpload;
 
 use Exception;
 

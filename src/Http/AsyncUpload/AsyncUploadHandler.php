@@ -1,6 +1,6 @@
 <?php
 
-namespace Trippodi\Trippodi\TallStackUi\Http\AsyncUpload;
+namespace Trippodi\TallStackUi\Http\AsyncUpload;
 
 use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Http\JsonResponse;
@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\File\File as SymfonyFile;
 use Symfony\Component\Mime\MimeTypes;
-use Trippodi\Trippodi\TallStackUi\Components\Form\Upload\Async\Component;
-use Trippodi\Trippodi\TallStackUi\Http\AsyncUpload\Events\AsyncUploadCompleted;
-use Trippodi\Trippodi\TallStackUi\Http\AsyncUpload\Events\AsyncUploadFailed;
-use Trippodi\Trippodi\TallStackUi\Http\AsyncUpload\Events\AsyncUploadStarted;
+use Trippodi\TallStackUi\Components\Form\Upload\Async\Component;
+use Trippodi\TallStackUi\Http\AsyncUpload\Events\AsyncUploadCompleted;
+use Trippodi\TallStackUi\Http\AsyncUpload\Events\AsyncUploadFailed;
+use Trippodi\TallStackUi\Http\AsyncUpload\Events\AsyncUploadStarted;
 
 class AsyncUploadHandler
 {

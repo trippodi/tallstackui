@@ -1,9 +1,9 @@
 <?php
 
-use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
-use Trippodi\Trippodi\TallStackUi\Customization\Globals;
-use Trippodi\Trippodi\TallStackUi\Support\Miscellaneous\ReflectComponent;
-use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
+use Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\TallStackUi\Customization\Globals;
+use Trippodi\TallStackUi\Support\Miscellaneous\ReflectComponent;
+use Trippodi\TallStackUi\TallStackUiComponent;
 
 if (! function_exists('__tst_get_component_configuration')) {
     /**

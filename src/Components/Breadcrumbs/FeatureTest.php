@@ -1,7 +1,7 @@
 <?php
 
-use Trippodi\Trippodi\TallStackUi\Components\Breadcrumbs\Component;
-use Trippodi\Trippodi\TallStackUi\Support\Breadcrumbs\BreadcrumbRegistry;
+use Trippodi\TallStackUi\Components\Breadcrumbs\Component;
+use Trippodi\TallStackUi\Support\Breadcrumbs\BreadcrumbRegistry;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -249,8 +249,8 @@ it('can load breadcrumb definitions from file paths', function () {
     $tmp = tempnam(sys_get_temp_dir(), 'bc_').'.php';
 
     file_put_contents($tmp, '<?php
-        use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi;
-        use Trippodi\Trippodi\TallStackUi\Support\Breadcrumbs\BreadcrumbTrail;
+        use Trippodi\TallStackUi\Facades\TallStackUi;
+        use Trippodi\TallStackUi\Support\Breadcrumbs\BreadcrumbTrail;
 
         TallStackUi::breadcrumbs()
             ->for("file.loaded.home", fn (BreadcrumbTrail $trail) => $trail->add("Home", "/"));
