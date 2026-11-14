@@ -19,7 +19,7 @@
     wire:navigate.hover
 @endif x-on:click="$refs.dropdown.dispatchEvent(new CustomEvent('select'))">
 @if ($icon && $position === 'left')
-    <x-dynamic-component :component="TallStackUi::prefix('icon')" :$icon internal
+    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')" :$icon internal
                          @class([
                              $customization['icon.base'],
                              $customization['icon.sizes.xs'],
@@ -30,7 +30,7 @@
 @endif
 {!! $text ?? $slot !!}
 @if ($icon && $position === 'right')
-    <x-dynamic-component :component="TallStackUi::prefix('icon')" :$icon internal
+    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')" :$icon internal
                          @class([
                              $customization['icon.base'],
                              $customization['icon.sizes.xs'],

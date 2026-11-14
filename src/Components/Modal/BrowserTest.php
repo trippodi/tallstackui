@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Modal;
+namespace Trippodi\Trippodi\TallStackUi\Components\Modal;
 
 use Facebook\WebDriver\WebDriverBy;
 use Laravel\Dusk\Browser;
@@ -8,7 +8,7 @@ use Livewire\Component;
 use Livewire\Livewire;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Attributes\Test;
-use TallStackUi\Traits\Interactions;
+use Trippodi\Trippodi\TallStackUi\Traits\Interactions;
 use Tests\Browser\BrowserTestCase;
 
 class BrowserTest extends BrowserTestCase

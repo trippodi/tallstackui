@@ -4,20 +4,20 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Form\Autocomplete\Component;
-use TallStackUi\Components\Spinner\Component as Spinner;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Autocomplete\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
 
 beforeEach(function () {
-    $this->components = config('ts-ui.components');
+    $this->components = config('ts-ui-trippodi.components');
 });
 
 afterEach(function () {
-    config()->set('ts-ui.components', $this->components);
+    config()->set('ts-ui-trippodi.components', $this->components);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can render with the default selectable keys', function () {
@@ -41,9 +41,9 @@ it('can render remapping the item keys', function () {
 });
 
 it('can render remapping the item keys from the global configuration', function () {
-    config()->set('ts-ui.components.autocomplete.1.select', 'value:name|description:email');
+    config()->set('ts-ui-trippodi.components.autocomplete.1.select', 'value:name|description:email');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-autocomplete :items="[[\'name\' => \'São Paulo\']]" />')->render()
         ->toContain('\\u0022value\\u0022:\\u0022name\\u0022')
@@ -51,9 +51,9 @@ it('can render remapping the item keys from the global configuration', function 
 });
 
 it('can override the global configuration keys inline', function () {
-    config()->set('ts-ui.components.autocomplete.1.select', 'value:name');
+    config()->set('ts-ui-trippodi.components.autocomplete.1.select', 'value:name');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-autocomplete :items="[[\'title\' => \'São Paulo\']]" select="value:title" />')->render()
         ->toContain('\\u0022value\\u0022:\\u0022title\\u0022')
@@ -207,33 +207,33 @@ it('can render a spinner loading indicator inline', function () {
 });
 
 it('can render a spinner loading indicator from the configuration', function () {
-    config()->set('ts-ui.components.autocomplete.1.indicator', 'spinner.dots');
+    config()->set('ts-ui-trippodi.components.autocomplete.1.indicator', 'spinner.dots');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-autocomplete request="https://api.example.com/cities" />')->render()
         ->toContain('dusk="spinner-dots"');
 });
 
 it('can use the global spinner type when the indicator is spinner', function () {
-    config()->set('ts-ui.components.autocomplete.1.indicator', 'spinner');
-    config()->set('ts-ui.components.spinner.1.type', 'wave');
+    config()->set('ts-ui-trippodi.components.autocomplete.1.indicator', 'spinner');
+    config()->set('ts-ui-trippodi.components.spinner.1.type', 'wave');
 
-    __ts_get_component_configuration(Component::class, flush: true);
-    __ts_get_component_configuration(Spinner::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Spinner::class, flush: true);
 
     try {
         expect('<x-autocomplete request="https://api.example.com/cities" />')->render()
             ->toContain('dusk="spinner-wave"');
     } finally {
-        __ts_get_component_configuration(Spinner::class, flush: true);
+        __tst_get_component_configuration(Spinner::class, flush: true);
     }
 });
 
 it('can override the configured spinner indicator inline', function () {
-    config()->set('ts-ui.components.autocomplete.1.indicator', 'spinner.dots');
+    config()->set('ts-ui-trippodi.components.autocomplete.1.indicator', 'spinner.dots');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-autocomplete request="https://api.example.com/cities" indicator="spinner.bars" />')->render()
         ->toContain('dusk="spinner-bars"')

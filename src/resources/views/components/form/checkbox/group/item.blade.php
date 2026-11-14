@@ -29,14 +29,14 @@
         @if ($shows['image'] && $item['image'])
             <img src="{{ $item['image'] }}" alt="{{ $item['label'] }}" class="{{ $customization['content.image'] }}">
         @elseif ($shows['icon'] && $item['icon'])
-            <x-dynamic-component :component="TallStackUi::prefix('icon')" :name="$item['icon']"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')" :name="$item['icon']"
                                  @class([$customization['content.icon'], $colors['text']]) />
         @endif
         <span class="{{ $customization['content.wrapper'] }}">
             <span class="{{ $customization['content.header'] }}">
                 <span @class([$customization['content.label'], $colors['text']])>{{ $item['label'] }}</span>
                 @if ($shows['badge'] && $item['badge'])
-                    <x-dynamic-component :component="TallStackUi::prefix('badge')" :text="$item['badge']" :color="$color" sm />
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('badge')" :text="$item['badge']" :color="$color" sm />
                 @endif
             </span>
             @if ($shows['description'] && $item['description'])
@@ -49,6 +49,6 @@
         @endif
     @endisset
     @if ($shows['check'])
-        <x-dynamic-component :component="TallStackUi::prefix('icon')" name="check-circle" @class([$customization['check'], $colors['text']]) />
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')" name="check-circle" @class([$customization['check'], $colors['text']]) />
     @endif
 </label>

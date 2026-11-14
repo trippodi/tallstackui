@@ -40,8 +40,8 @@
                       '{{ $customization['transition.leave.to'] }} {{ $customization['transition.leave.class'] }}': darkTheme === true,
                       '{{ $customization['transition.enter.to'] }} {{ $customization['transition.enter.class'] }}': darkTheme === false
                   }">
-               <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                    :icon="TallStackUi::icon($onlyIcons ? 'moon' : 'sun')"
+               <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                    :icon="TallStackUiTrippodi::icon($onlyIcons ? 'moon' : 'sun')"
                                     internal
                                     @class([
                                         $customization['colors.moon'] => !$onlyIcons,
@@ -56,8 +56,8 @@
                       '{{ $customization['transition.enter.to'] }} {{ $customization['transition.enter.class'] }}': darkTheme === true,
                       '{{ $customization['transition.leave.to'] }} {{ $customization['transition.leave.class'] }}': darkTheme === false
                   }">
-               <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                    :icon="TallStackUi::icon($onlyIcons ? 'sun' : 'moon')"
+               <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                    :icon="TallStackUiTrippodi::icon($onlyIcons ? 'sun' : 'moon')"
                                     internal
                                     @class([
                                         $customization['colors.sun'] => !$onlyIcons,

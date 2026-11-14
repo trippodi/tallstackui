@@ -1,18 +1,18 @@
 <?php
 
-namespace TallStackUi\Components\Form\Range;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Range;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\RangeColors;
-use TallStackUi\Support\Runtime\Components\RangeRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\RangeColors;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\RangeRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.range')]
 #[ColorsThroughOf(RangeColors::class)]
@@ -47,7 +47,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.range');
+        return view('ts-ui-trippodi::components.form.range');
     }
 
     public function customization(): array
@@ -104,11 +104,11 @@ class Component extends TallStackUiComponent implements Customization
         }
 
         if ($this->tooltip) {
-            __ts_validation_exception($this, 'The [tooltip] can only be used along with [dual].');
+            __tst_validation_exception($this, 'The [tooltip] can only be used along with [dual].');
         }
 
         if (is_array($this->value)) {
-            __ts_validation_exception($this, 'The [value] can only be an array along with [dual].');
+            __tst_validation_exception($this, 'The [value] can only be an array along with [dual].');
         }
     }
 }

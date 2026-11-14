@@ -1,9 +1,9 @@
 <?php
 
-namespace TallStackUi\Support\Runtime\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Exception;
-use TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class CurrencyRuntime extends AbstractRuntime
 {

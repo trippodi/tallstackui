@@ -18,7 +18,7 @@
     @js($readonly),
     @js($change))"
      x-cloak x-on:click.outside="show = false">
-    <x-dynamic-component :component="TallStackUi::prefix('input')"
+    <x-dynamic-component :component="TallStackUiTrippodi::prefix('input')"
                          scope="form.time.input"
                          {{ $attributes->except('name')->whereDoesntStartWith('wire:model') }}
                          :$label
@@ -35,23 +35,23 @@
             <div class="{{ $customization['icon.wrapper'] }}">
                 @if (!$attributes->has('required'))
                     <button type="button" class="cursor-pointer" x-on:click="clear()" x-show="model" @disabled($locked)>
-                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
                                              dusk="tallstackui_time_clear"
                                              internal
-                                             :icon="TallStackUi::icon('x-mark')"
+                                             :icon="TallStackUiTrippodi::icon('x-mark')"
                                 @class([$customization['icon.size'], $customization['icon.clear']]) />
                     </button>
                 @endif
                 <button type="button" class="cursor-pointer" x-on:click="show = !show" @disabled($locked)>
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('clock')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('clock')"
                                          internal
                                          class="{{ $customization['icon.size'] }}" />
                 </button>
             </div>
         </x-slot:suffix>
     </x-dynamic-component>
-    <x-dynamic-component :component="TallStackUi::prefix('floating')"
+    <x-dynamic-component :component="TallStackUiTrippodi::prefix('floating')"
                          scope="form.time.floating"
                          :floating="$customization['floating.default']"
                          :class="$customization['floating.class']">
@@ -129,9 +129,9 @@
         @if ($helper || $footer)
             <x-slot:footer>
                 @if ($helper)
-                    <x-dynamic-component :component="TallStackUi::prefix('button')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('button')"
                                          scope="form.time.button"
-                                         :text="trans('ts-ui::messages.time.helper')"
+                                         :text="trans('ts-ui-trippodi::messages.time.helper')"
                                          type="button"
                                          @class([$customization['helper.button'], $customization['helper.button-format-24'] => $format === '24'])
                                          x-on:click="current()"

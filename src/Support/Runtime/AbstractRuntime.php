@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Support\Runtime;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime;
 
 use Error;
 use Exception;
@@ -11,9 +11,9 @@ use Illuminate\View\ComponentAttributeBag;
 use Illuminate\View\ComponentSlot;
 use Livewire\Component;
 use Livewire\WireDirective;
-use TallStackUi\Support\Blade\BindProperty;
-use TallStackUi\Support\Blade\ComponentPrefix;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Support\Blade\BindProperty;
+use Trippodi\Trippodi\TallStackUi\Support\Blade\ComponentPrefix;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 use function Livewire\invade;
 
@@ -72,11 +72,11 @@ abstract class AbstractRuntime
         $unwrapped = (bool) $content->attributes->get(self::UNWRAPPED, false);
 
         if ($unwrapped && $alignments !== []) {
-            __ts_validation_exception($this->component, "The [{$slot}] slot cannot use [unwrapped] together with [".implode(', ', $alignments).'].');
+            __tst_validation_exception($this->component, "The [{$slot}] slot cannot use [unwrapped] together with [".implode(', ', $alignments).'].');
         }
 
         if (count($alignments) > 1) {
-            __ts_validation_exception($this->component, "The [{$slot}] slot cannot combine the alignments [".implode(', ', $alignments).'].');
+            __tst_validation_exception($this->component, "The [{$slot}] slot cannot combine the alignments [".implode(', ', $alignments).'].');
         }
 
         return $unwrapped ? null : ($alignments[0] ?? $default);
@@ -92,7 +92,7 @@ abstract class AbstractRuntime
         return app(BindProperty::class, [
             'attributes' => $this->data['attributes'],
             'errors' => $this->errors,
-            'invalidate' => $this->data['invalidate'] ?? config('ts-ui.invalidate_global') ?? false,
+            'invalidate' => $this->data['invalidate'] ?? config('ts-ui-trippodi.invalidate_global') ?? false,
             // Livewire here is a boolean to check if the
             // component is being used within a Livewire context.
             'livewire' => $this->livewire !== null,

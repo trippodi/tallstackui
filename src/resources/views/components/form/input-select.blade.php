@@ -2,7 +2,7 @@
     $customization = $classes();
 @endphp
 
-<x-dynamic-component :component="TallStackUi::prefix('wrapper.input')" :$id :$property :$error :$label :$hint :$invalidate>
+<x-dynamic-component :component="TallStackUiTrippodi::prefix('wrapper.input')" :$id :$property :$error :$label :$hint :$invalidate>
     @if ($left || $right)
         <div @class([
             $customization['input.wrapper.first'],
@@ -28,7 +28,7 @@
         ])>
         @if ($icon)
             <div @class([$customization['icon.wrapper'], $customization['icon.paddings.' . $position]])>
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
                                      :$icon
                                      :$error
                                      internal
@@ -43,8 +43,8 @@
             <div x-data="tallstackui_formInputClearable()"
                  @class([$customization['clearable.wrapper'], $customization['clearable.padding'], $customization['input.paddings.icon-clearable-extra'] => $icon && $position === 'right']) x-show="clearable">
                 <button type="button" class="cursor-pointer" dusk="tallstackui_form_input_clearable">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('x-mark')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('x-mark')"
                                          x-on:click="clear()"
                                          internal
                                         @class([

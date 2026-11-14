@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Accordion\Main\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Accordion\Main\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -93,31 +93,31 @@ it('can render bordered and shadowless together')
     ->toContain('shadow-none!');
 
 it('can render bordered through the global configuration', function () {
-    config()->set('ts-ui.components.accordion.1.bordered', true);
+    config()->set('ts-ui-trippodi.components.accordion.1.bordered', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-accordion><x-accordion.items title="A" id="a">Body</x-accordion.items></x-accordion>')
         ->render()
         ->toContain('border border-gray-200');
 
-    config()->set('ts-ui.components.accordion.1.bordered', false);
+    config()->set('ts-ui-trippodi.components.accordion.1.bordered', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can let the bordered prop win over the global configuration', function () {
-    config()->set('ts-ui.components.accordion.1.bordered', true);
+    config()->set('ts-ui-trippodi.components.accordion.1.bordered', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-accordion :bordered="false"><x-accordion.items title="A" id="a">Body</x-accordion.items></x-accordion>')
         ->render()
         ->not->toContain('border border-gray-200');
 
-    config()->set('ts-ui.components.accordion.1.bordered', false);
+    config()->set('ts-ui-trippodi.components.accordion.1.bordered', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can render with shadow by default')
@@ -132,31 +132,31 @@ it('can render shadowless')
     ->toContain('shadow-none!');
 
 it('can render shadowless through the global configuration', function () {
-    config()->set('ts-ui.components.accordion.1.shadowless', true);
+    config()->set('ts-ui-trippodi.components.accordion.1.shadowless', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-accordion><x-accordion.items title="A" id="a">Body</x-accordion.items></x-accordion>')
         ->render()
         ->toContain('shadow-none!');
 
-    config()->set('ts-ui.components.accordion.1.shadowless', false);
+    config()->set('ts-ui-trippodi.components.accordion.1.shadowless', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can let the shadowless prop win over the global configuration', function () {
-    config()->set('ts-ui.components.accordion.1.shadowless', true);
+    config()->set('ts-ui-trippodi.components.accordion.1.shadowless', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-accordion :shadowless="false"><x-accordion.items title="A" id="a">Body</x-accordion.items></x-accordion>')
         ->render()
         ->not->toContain('shadow-none!');
 
-    config()->set('ts-ui.components.accordion.1.shadowless', false);
+    config()->set('ts-ui-trippodi.components.accordion.1.shadowless', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('throws when chevron prop is not left or right', function () {

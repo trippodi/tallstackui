@@ -1,12 +1,12 @@
 <?php
 
-namespace TallStackUi\Support\Runtime\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
 
-use TallStackUi\Components\QrCode\Component as QrCode;
-use TallStackUi\Support\QrCode\Encoder;
-use TallStackUi\Support\QrCode\Path;
-use TallStackUi\Support\QrCode\Watermark;
-use TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\Trippodi\TallStackUi\Components\QrCode\Component as QrCode;
+use Trippodi\Trippodi\TallStackUi\Support\QrCode\Encoder;
+use Trippodi\Trippodi\TallStackUi\Support\QrCode\Path;
+use Trippodi\Trippodi\TallStackUi\Support\QrCode\Watermark;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class QrCodeRuntime extends AbstractRuntime
 {
@@ -43,7 +43,7 @@ class QrCodeRuntime extends AbstractRuntime
             'export' => [
                 'format' => $format,
                 // Read from the config rather than $this->data(): the snapshot predates what CompileConfigurations resolves.
-                'pixels' => __ts_get_component_configuration(QrCode::class, 'pixels') ?? 1024,
+                'pixels' => __tst_get_component_configuration(QrCode::class, 'pixels') ?? 1024,
             ],
         ];
     }

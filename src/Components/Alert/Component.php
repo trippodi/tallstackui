@@ -1,15 +1,15 @@
 <?php
 
-namespace TallStackUi\Components\Alert;
+namespace Trippodi\Trippodi\TallStackUi\Components\Alert;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\AlertColors;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\AlertColors;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('alert')]
 #[ColorsThroughOf(AlertColors::class)]
@@ -35,7 +35,7 @@ class Component extends TallStackUiComponent implements Customization
         #[SkipDebug]
         public array $borderedAttributes = ['side' => null, 'color' => null],
     ) {
-        $configuration = __ts_get_component_configuration(self::class);
+        $configuration = __tst_get_component_configuration(self::class);
 
         $this->shadowless ??= $configuration['shadowless'] ?? false;
         $this->bordered ??= $configuration['bordered'] ?? null;
@@ -54,7 +54,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.alert.main');
+        return view('ts-ui-trippodi::components.alert.main');
     }
 
     public function customization(): array
@@ -99,13 +99,13 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if ($this->dismiss !== null && $this->dismiss < 1) {
-            __ts_validation_exception($this, 'The [dismiss] must be a positive integer.');
+            __tst_validation_exception($this, 'The [dismiss] must be a positive integer.');
         }
 
         $rounded = ['xs', 'sm', 'md', 'lg', 'xl'];
 
         if ($this->rounded !== null && ! in_array($this->rounded, $rounded, true)) {
-            __ts_validation_exception($this, 'The [rounded] must be one of: ['.implode(', ', $rounded).'].');
+            __tst_validation_exception($this, 'The [rounded] must be one of: ['.implode(', ', $rounded).'].');
         }
 
         if ($this->bordered === null) {
@@ -115,7 +115,7 @@ class Component extends TallStackUiComponent implements Customization
         $sides = ['left', 'right'];
 
         if (! in_array($this->borderedAttributes['side'], $sides, true)) {
-            __ts_validation_exception($this, 'The [bordered] side must be one of: ['.implode(', ', $sides).'].');
+            __tst_validation_exception($this, 'The [bordered] side must be one of: ['.implode(', ', $sides).'].');
         }
     }
 }

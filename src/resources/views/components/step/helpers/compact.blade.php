@@ -28,7 +28,7 @@ $finishButton = 'inline-flex cursor-pointer select-none items-center rounded-lg 
                     dusk="tallstackui_step_finish"
                     {{ $attributes->only('x-on:finish') }}
                     class="{{ $finishButton }}">
-                {{ trans('ts-ui::messages.step.finish') }}
+                {{ trans('ts-ui-trippodi::messages.step.finish') }}
             </button>
         @endif
     @endif
@@ -42,9 +42,9 @@ $finishButton = 'inline-flex cursor-pointer select-none items-center rounded-lg 
                     x-bind:class="selected > 1 ? '{{ $navIdle }}' : '{{ $navOff }}'"
                     dusk="tallstackui_step_previous"
                     class="{{ $nav }}"
-                    aria-label="{{ trans('ts-ui::messages.step.previous') }}">
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                     :icon="TallStackUi::icon('chevron-left')"
+                    aria-label="{{ trans('ts-ui-trippodi::messages.step.previous') }}">
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                     :icon="TallStackUiTrippodi::icon('chevron-left')"
                                      internal
                                      class="size-4" />
             </button>
@@ -63,9 +63,9 @@ $finishButton = 'inline-flex cursor-pointer select-none items-center rounded-lg 
                     x-bind:class="selected < steps.length ? '{{ $navIdle }}' : '{{ $navOff }}'"
                     dusk="tallstackui_step_next"
                     class="{{ $nav }}"
-                    aria-label="{{ trans('ts-ui::messages.step.next') }}">
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                     :icon="TallStackUi::icon('chevron-right')"
+                    aria-label="{{ trans('ts-ui-trippodi::messages.step.next') }}">
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                     :icon="TallStackUiTrippodi::icon('chevron-right')"
                                      internal
                                      class="size-4" />
             </button>

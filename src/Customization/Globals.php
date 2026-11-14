@@ -1,10 +1,10 @@
 <?php
 
-namespace TallStackUi\Customization;
+namespace Trippodi\Trippodi\TallStackUi\Customization;
 
 use InvalidArgumentException;
-use TallStackUi\Components\Dialog\Component as Dialog;
-use TallStackUi\Components\Toast\Component as Toast;
+use Trippodi\Trippodi\TallStackUi\Components\Dialog\Component as Dialog;
+use Trippodi\Trippodi\TallStackUi\Components\Toast\Component as Toast;
 
 class Globals
 {

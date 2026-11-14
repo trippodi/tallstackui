@@ -1,17 +1,17 @@
 <?php
 
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Globals;
-use TallStackUi\Support\Miscellaneous\ReflectComponent;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Globals;
+use Trippodi\Trippodi\TallStackUi\Support\Miscellaneous\ReflectComponent;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
-if (! function_exists('__ts_get_component_configuration')) {
+if (! function_exists('__tst_get_component_configuration')) {
     /**
      * Get the component configuration from the config file.
      *
      * @internal This function should not be used outside the package.
      */
-    function __ts_get_component_configuration(string $component, ?string $key = null, bool $flush = false): mixed
+    function __tst_get_component_configuration(string $component, ?string $key = null, bool $flush = false): mixed
     {
         static $map = null;
 
@@ -20,7 +20,7 @@ if (! function_exists('__ts_get_component_configuration')) {
         }
 
         if ($map === null) {
-            $components = config('ts-ui.components');
+            $components = config('ts-ui-trippodi.components');
             $arrays = array_filter($components, 'is_array');
             $map = array_combine(array_column($arrays, 0), array_column($arrays, 1));
         }
@@ -33,15 +33,15 @@ if (! function_exists('__ts_get_component_configuration')) {
     }
 }
 
-if (! function_exists('__ts_class_collection')) {
+if (! function_exists('__tst_class_collection')) {
     /**
      * Creates an array with metadata about the class color.
      *
      * @internal This function should not be used outside the package.
      */
-    function __ts_class_collection(string $component): array
+    function __tst_class_collection(string $component): array
     {
-        $namespace = config('ts-ui.color_classes_namespace');
+        $namespace = config('ts-ui-trippodi.color_classes_namespace');
 
         if ($namespace === null) {
             return [];
@@ -65,17 +65,17 @@ if (! function_exists('__ts_class_collection')) {
     }
 }
 
-if (! function_exists('__ts_validation_exception')) {
+if (! function_exists('__tst_validation_exception')) {
     /**
      * Throw a validation exception for the component rendering beautiful messages.
      *
      * @internal This function should not be used outside the package.
      */
-    function __ts_validation_exception(TallStackUiComponent|string $component, string $message): mixed
+    function __tst_validation_exception(TallStackUiComponent|string $component, string $message): mixed
     {
         $class = is_string($component) ? $component : $component::class;
 
-        $prefix = 'TallStackUi\\Components\\';
+        $prefix = 'Trippodi\TallStackUi\\Components\\';
 
         $title = str_starts_with($class, $prefix) ? substr($class, strlen($prefix)) : $class;
         $title = preg_replace('/\\\\Component$/', '', $title);
@@ -84,11 +84,11 @@ if (! function_exists('__ts_validation_exception')) {
     }
 }
 
-if (! function_exists('__ts_filter_components_using_attribute')) {
+if (! function_exists('__tst_filter_components_using_attribute')) {
     /**
      * Filter all components that use the given attribute.
      */
-    function __ts_filter_components_using_attribute(string $attribute): array
+    function __tst_filter_components_using_attribute(string $attribute): array
     {
         static $classes = null;
         static $filtered = [];
@@ -117,14 +117,14 @@ if (! function_exists('__ts_filter_components_using_attribute')) {
                 }
             };
 
-            $scan(__DIR__.'/Components', 'TallStackUi\\Components\\');
+            $scan(__DIR__.'/Components', 'Trippodi\TallStackUi\\Components\\');
         }
 
         return $filtered[$attribute] = array_filter($classes, fn (string $class): bool => (new ReflectionClass($class))->getAttributes($attribute) !== []);
     }
 }
 
-if (! function_exists('__ts_search_component')) {
+if (! function_exists('__tst_search_component')) {
     /**
      * Search for the component key in the components.
      *
@@ -132,25 +132,25 @@ if (! function_exists('__ts_search_component')) {
      *
      * @internal This function should not be used outside the package.
      */
-    function __ts_search_component(string $component): string
+    function __tst_search_component(string $component): string
     {
         static $flipped = null;
 
         if ($flipped === null) {
-            $flipped = array_flip(__ts_soft_customization_components());
+            $flipped = array_flip(__tst_soft_customization_components());
         }
 
         return $flipped[$component] ?? throw new Exception("Component [{$component}] is not allowed to be customized");
     }
 }
 
-if (! function_exists('__ts_soft_customization_components')) {
+if (! function_exists('__tst_soft_customization_components')) {
     /**
      * Get all components that use the SoftPersonalization attribute.
      *
      * @internal This function should not be used outside the package.
      */
-    function __ts_soft_customization_components(): array
+    function __tst_soft_customization_components(): array
     {
         static $cache = null;
 
@@ -158,7 +158,7 @@ if (! function_exists('__ts_soft_customization_components')) {
             return $cache;
         }
 
-        $components = __ts_filter_components_using_attribute(SoftCustomization::class);
+        $components = __tst_filter_components_using_attribute(SoftCustomization::class);
         $result = [];
 
         foreach ($components as $component) {
@@ -174,26 +174,26 @@ if (! function_exists('__ts_soft_customization_components')) {
     }
 }
 
-if (! function_exists('__ts_global')) {
+if (! function_exists('__tst_global')) {
     /**
      * Check if a global is active for the given component.
      *
      * @internal This function should not be used outside the package.
      */
-    function __ts_global(string $global, TallStackUiComponent|string $component): bool
+    function __tst_global(string $global, TallStackUiComponent|string $component): bool
     {
         return Globals::is($global, is_string($component) ? $component : $component::class);
     }
 }
 
-if (! function_exists('__ts_merge_configuration')) {
+if (! function_exists('__tst_merge_configuration')) {
     /**
      * Merge the published configuration over the internal one, replacing scalar
      * lists so a shorter published list actually shortens the result.
      *
      * @internal This function should not be used outside the package.
      */
-    function __ts_merge_configuration(array $internal, array $published): array
+    function __tst_merge_configuration(array $internal, array $published): array
     {
         foreach ($published as $key => $value) {
             if (! is_array($value) || ! is_array($internal[$key] ?? null)) {
@@ -208,21 +208,21 @@ if (! function_exists('__ts_merge_configuration')) {
                 continue;
             }
 
-            $internal[$key] = __ts_merge_configuration($internal[$key], $value);
+            $internal[$key] = __tst_merge_configuration($internal[$key], $value);
         }
 
         return $internal;
     }
 }
 
-if (! function_exists('__ts_scope_container_key')) {
+if (! function_exists('__tst_scope_container_key')) {
     /**
      * Creates the key that will be used to look up the
      * scope instance reference in the Laravel container.
      *
      * @internal This function should not be used outside the package.
      */
-    function __ts_scope_container_key(string $component, string $key): string
+    function __tst_scope_container_key(string $component, string $key): string
     {
         return $component.'::scoped::'.strtolower($key);
     }

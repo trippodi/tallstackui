@@ -1,17 +1,17 @@
 <?php
 
-namespace TallStackUi\Components\Form\InputSelect;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\InputSelect;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Traits\FormDefaultInputClasses;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\InputSelectRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\FormDefaultInputClasses;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\InputSelectRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.input.select')]
 #[PassThroughRuntime(InputSelectRuntime::class)]
@@ -40,7 +40,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.input-select');
+        return view('ts-ui-trippodi::components.form.input-select');
     }
 
     public function customization(): array
@@ -93,11 +93,11 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if ($this->icon && (($this->position === 'left' && $this->prefix !== null) || ($this->position === 'right' && $this->suffix !== null))) {
-            __ts_validation_exception($this, 'The [icon] cannot be used with [prefix] or [suffix] at the same side');
+            __tst_validation_exception($this, 'The [icon] cannot be used with [prefix] or [suffix] at the same side');
         }
 
         if ($this->clearable && $this->suffix !== null) {
-            __ts_validation_exception($this, 'The [clearable] cannot be used with [suffix]');
+            __tst_validation_exception($this, 'The [clearable] cannot be used with [suffix]');
         }
     }
 }

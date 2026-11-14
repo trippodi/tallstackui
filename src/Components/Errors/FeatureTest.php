@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Errors\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Errors\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -137,40 +137,40 @@ it('can render bordered with the colors of the Tailwind 4.2 palettes', function 
 })->with(['mauve', 'olive', 'mist', 'taupe']);
 
 it('can render paddingless through the global configuration', function () {
-    config()->set('ts-ui.components.errors.1.paddingless', true);
+    config()->set('ts-ui-trippodi.components.errors.1.paddingless', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-errors />')->render()->toContain('px-0!');
     } finally {
-        config()->set('ts-ui.components.errors.1.paddingless', false);
+        config()->set('ts-ui-trippodi.components.errors.1.paddingless', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
 it('can render numeric through the global configuration', function () {
-    config()->set('ts-ui.components.errors.1.numeric', true);
+    config()->set('ts-ui-trippodi.components.errors.1.numeric', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-errors />')->render()
             ->toContain('list-decimal')
             ->not->toContain('list-disc');
     } finally {
-        config()->set('ts-ui.components.errors.1.numeric', false);
+        config()->set('ts-ui-trippodi.components.errors.1.numeric', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
 it('can suppress the global paddingless and numeric through the inline props', function () {
-    config()->set('ts-ui.components.errors.1.paddingless', true);
-    config()->set('ts-ui.components.errors.1.numeric', true);
+    config()->set('ts-ui-trippodi.components.errors.1.paddingless', true);
+    config()->set('ts-ui-trippodi.components.errors.1.numeric', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-errors :paddingless="false" :list-numeric="false" />')->render()
@@ -178,46 +178,46 @@ it('can suppress the global paddingless and numeric through the inline props', f
             ->toContain('list-disc')
             ->not->toContain('list-decimal');
     } finally {
-        config()->set('ts-ui.components.errors.1.paddingless', false);
-        config()->set('ts-ui.components.errors.1.numeric', false);
+        config()->set('ts-ui-trippodi.components.errors.1.paddingless', false);
+        config()->set('ts-ui-trippodi.components.errors.1.numeric', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
 it('can render the flat look through the global configuration', function () {
-    config()->set('ts-ui.components.errors.1.shadowless', true);
-    config()->set('ts-ui.components.errors.1.bordered', true);
+    config()->set('ts-ui-trippodi.components.errors.1.shadowless', true);
+    config()->set('ts-ui-trippodi.components.errors.1.bordered', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-errors />')->render()
             ->toContain('shadow-none!')
             ->toContain('border-red-200');
     } finally {
-        config()->set('ts-ui.components.errors.1.shadowless', false);
-        config()->set('ts-ui.components.errors.1.bordered', false);
+        config()->set('ts-ui-trippodi.components.errors.1.shadowless', false);
+        config()->set('ts-ui-trippodi.components.errors.1.bordered', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
 it('can let the flat look props win over the global configuration', function () {
-    config()->set('ts-ui.components.errors.1.shadowless', true);
-    config()->set('ts-ui.components.errors.1.bordered', true);
+    config()->set('ts-ui-trippodi.components.errors.1.shadowless', true);
+    config()->set('ts-ui-trippodi.components.errors.1.bordered', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-errors :shadowless="false" :bordered="false" />')->render()
             ->not->toContain('shadow-none!')
             ->not->toContain('border-red-200');
     } finally {
-        config()->set('ts-ui.components.errors.1.shadowless', false);
-        config()->set('ts-ui.components.errors.1.bordered', false);
+        config()->set('ts-ui-trippodi.components.errors.1.shadowless', false);
+        config()->set('ts-ui-trippodi.components.errors.1.bordered', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 

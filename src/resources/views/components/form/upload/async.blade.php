@@ -29,7 +29,7 @@
      {{ $attributes->only(['id']) }}
      dusk="tallstackui_upload_async">
     @if ($label)
-        <x-dynamic-component :component="TallStackUi::prefix('label')"
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('label')"
                              scope="form.upload.async.label"
                              :id="$id"
                              :label="(string) $label"
@@ -101,8 +101,8 @@
                     </template>
                     <template x-if="!image(file)">
                         <div class="{{ $customization['tile.document'] }}">
-                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                 :icon="TallStackUi::icon('document-text')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                 :icon="TallStackUiTrippodi::icon('document-text')"
                                                  internal
                                                  class="{{ $customization['tile.document-icon'] }}" />
                             <span x-text="extension(file)" class="{{ $customization['tile.extension'] }}"></span>
@@ -118,8 +118,8 @@
                             aria-label="Remove file"
                             class="{{ $customization['tile.remove'] }}"
                             dusk="tallstackui_upload_async_remove">
-                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                             :icon="TallStackUi::icon('trash')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                             :icon="TallStackUiTrippodi::icon('trash')"
                                              internal
                                              class="{{ $customization['tile.remove-icon'] }}" />
                     </button>
@@ -129,15 +129,15 @@
                          class="{{ $customization['tile.progress'] }}"></div>
 
                     <div x-show="file.status === 'success'" class="{{ $customization['tile.success-mark'] }}">
-                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                             :icon="TallStackUi::icon('check')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                             :icon="TallStackUiTrippodi::icon('check')"
                                              internal
                                              class="h-3 w-3" />
                     </div>
 
                     <div x-show="failed(file)" class="{{ $customization['tile.error-badge'] }}">
-                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                             :icon="TallStackUi::icon('x-mark')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                             :icon="TallStackUiTrippodi::icon('x-mark')"
                                              internal
                                              class="h-3 w-3" />
                     </div>
@@ -162,8 +162,8 @@
                 ? '{{ $customization['dropzone.placeholder-compact'] }}'
                 : '{{ $customization['dropzone.placeholder-full'] }}'"
              class="{{ $customization['dropzone.placeholder'] }}">
-            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                 :icon="TallStackUi::icon('cloud-arrow-up')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                 :icon="TallStackUiTrippodi::icon('cloud-arrow-up')"
                                  internal
                                  x-bind:class="[
                                     files.length ? '{{ $customization['dropzone.icon-compact'] }}' : '{{ $customization['dropzone.icon-full'] }}',
@@ -185,7 +185,7 @@
     </div>
 
     @if ($hint)
-        <x-dynamic-component :component="TallStackUi::prefix('hint')"
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('hint')"
                              scope="form.upload.async.hint"
                              :hint="(string) $hint" />
     @endif
@@ -194,7 +194,7 @@
         <div x-show="files.length" class="{{ $customization['footer.wrapper'] }}">
             <p x-text="summary()" class="{{ $customization['footer.summary'] }}"></p>
             <div class="{{ $customization['footer.actions'] }}">
-                <x-dynamic-component :component="TallStackUi::prefix('button')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('button')"
                                      scope="form.upload.async.clear"
                                      color="red"
                                      style="outline"
@@ -202,7 +202,7 @@
                                      dusk="tallstackui_upload_async_clear">
                     {{ $i18n['clear'] }}
                 </x-dynamic-component>
-                <x-dynamic-component :component="TallStackUi::prefix('button')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('button')"
                                      scope="form.upload.async.send"
                                      x-bind:disabled="!sendable() || locked()"
                                      x-on:click="send()"
@@ -262,8 +262,8 @@
                         aria-label="Close preview"
                         class="{{ $customization['lightbox.close'] }}"
                         dusk="tallstackui_upload_async_lightbox_close">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('x-mark')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('x-mark')"
                                          internal
                                          class="{{ $customization['lightbox.close-icon'] }}" />
                 </button>

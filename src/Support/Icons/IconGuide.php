@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Support\Icons;
+namespace Trippodi\Trippodi\TallStackUi\Support\Icons;
 
 use Exception;
 

@@ -1,20 +1,20 @@
 <?php
 
-namespace TallStackUi\Components\Form\Tag;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Tag;
 
 use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Floating\Component as Floating;
-use TallStackUi\Components\Traits\FormDefaultInputClasses;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\TagRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Floating\Component as Floating;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\FormDefaultInputClasses;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\TagRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.tag')]
 #[PassThroughRuntime(TagRuntime::class)]
@@ -37,12 +37,12 @@ class Component extends TallStackUiComponent implements Customization
     ) {
         $this->options = collect($this->options)->map('strval')->unique()->values()->all();
 
-        $this->placeholders = array_merge(trans('ts-ui::messages.tag'), $this->placeholders ?? []);
+        $this->placeholders = array_merge(trans('ts-ui-trippodi::messages.tag'), $this->placeholders ?? []);
     }
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.tag');
+        return view('ts-ui-trippodi::components.form.tag');
     }
 
     public function customization(): array
@@ -80,7 +80,7 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if ($this->lazy !== null && $this->lazy < 1) {
-            __ts_validation_exception($this, 'The [lazy] must be greater than zero.');
+            __tst_validation_exception($this, 'The [lazy] must be greater than zero.');
         }
 
         if (! $this->prefix) {
@@ -88,7 +88,7 @@ class Component extends TallStackUiComponent implements Customization
         }
 
         if (strlen($this->prefix) > 1) {
-            __ts_validation_exception($this, 'The [prefix] must be a single character.');
+            __tst_validation_exception($this, 'The [prefix] must be a single character.');
         }
     }
 }

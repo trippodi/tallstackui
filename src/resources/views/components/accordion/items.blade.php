@@ -27,13 +27,13 @@
         @if ($icon instanceof \Illuminate\View\ComponentSlot)
             {!! $icon->toHtml() !!}
         @elseif (is_string($icon) && $icon !== '')
-            <x-dynamic-component :component="TallStackUi::prefix('icon')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
                                  :name="$icon"
                                  x-bind:class="{ '{{ $customization['item.icon.rotated'] }}': isOpen(id) }"
                                  class="{{ $customization['item.icon.base'] }}"
             />
         @else
-            <x-dynamic-component :component="TallStackUi::prefix('icon')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
                                  name="chevron-down"
                                  x-bind:class="{ '{{ $customization['item.icon.rotated'] }}': isOpen(id) }"
                                  class="{{ $customization['item.icon.base'] }}"

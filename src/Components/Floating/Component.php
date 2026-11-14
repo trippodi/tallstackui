@@ -1,12 +1,12 @@
 <?php
 
-namespace TallStackUi\Components\Floating;
+namespace Trippodi\Trippodi\TallStackUi\Components\Floating;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('floating')]
 class Component extends TallStackUiComponent implements Customization
@@ -35,7 +35,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.floating.main');
+        return view('ts-ui-trippodi::components.floating.main');
     }
 
     public function customization(): array
@@ -45,6 +45,6 @@ class Component extends TallStackUiComponent implements Customization
 
     final public function lockable(): bool
     {
-        return (bool) config('ts-ui.floating_scroll_lock', false);
+        return (bool) config('ts-ui-trippodi.floating_scroll_lock', false);
     }
 }

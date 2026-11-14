@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Js;
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Editor\Component;
-use TallStackUi\Facades\TallStackUi;
+use Trippodi\Trippodi\TallStackUi\Components\Editor\Component;
+use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -140,7 +140,7 @@ it('can render the label and the hint', function () {
 it('can render the placeholder coming from the translations', function () {
     expect('<x-editor name="content" />')
         ->render()
-        ->toContain('data-placeholder="'.trans('ts-ui::messages.editor.placeholder').'"');
+        ->toContain('data-placeholder="'.trans('ts-ui-trippodi::messages.editor.placeholder').'"');
 });
 
 it('can render a custom placeholder', function () {
@@ -277,8 +277,8 @@ it('can render storing markdown through the attribute', function () {
 });
 
 it('can render storing markdown through the configuration', function () {
-    config()->set('ts-ui.components.editor.1.markdown', true);
-    __ts_get_component_configuration(Component::class, flush: true);
+    config()->set('ts-ui-trippodi.components.editor.1.markdown', true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-editor name="content" />')
         ->render()
@@ -286,8 +286,8 @@ it('can render storing markdown through the configuration', function () {
 })->after(function () {
     // The resolved configuration is cached in a static, so it outlives the
     // application the test case rebuilds.
-    config()->set('ts-ui.components.editor.1.markdown', false);
-    __ts_get_component_configuration(Component::class, flush: true);
+    config()->set('ts-ui-trippodi.components.editor.1.markdown', false);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can render dropping the buttons markdown cannot express', function () {
@@ -432,9 +432,9 @@ it('cannot render the output classes while storing markdown', function () {
 });
 
 it('can render the output classes with a custom prefix', function () {
-    config()->set('ts-ui.components.editor.1.output_classes_prefix', 'blog-');
+    config()->set('ts-ui-trippodi.components.editor.1.output_classes_prefix', 'blog-');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-editor name="content" output-classes />')
         ->render()
@@ -443,9 +443,9 @@ it('can render the output classes with a custom prefix', function () {
 });
 
 it('can render a renamed output class under a custom prefix', function () {
-    config()->set('ts-ui.components.editor.1.output_classes_prefix', 'blog-');
+    config()->set('ts-ui-trippodi.components.editor.1.output_classes_prefix', 'blog-');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-editor name="content" :output-classes="[\'ol\' => \'blog-steps\']" />')
         ->render()
@@ -454,7 +454,7 @@ it('can render a renamed output class under a custom prefix', function () {
 });
 
 it('can render the default prefix when none is configured', function () {
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-editor name="content" />')
         ->render()
@@ -462,9 +462,9 @@ it('can render the default prefix when none is configured', function () {
 });
 
 it('cannot render a renamed output class under the wrong prefix', function () {
-    config()->set('ts-ui.components.editor.1.output_classes_prefix', 'blog-');
+    config()->set('ts-ui-trippodi.components.editor.1.output_classes_prefix', 'blog-');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $this->expectException(ViewException::class);
     $this->expectExceptionMessageMatches('/must start with \[blog-\]/');
@@ -475,9 +475,9 @@ it('cannot render a renamed output class under the wrong prefix', function () {
 it('cannot render a malformed output classes prefix', function (string $prefix) {
     // The prefix is the whole of what the sanitizer lets through, so an empty
     // or loose one would turn the class attribute into an open door.
-    config()->set('ts-ui.components.editor.1.output_classes_prefix', $prefix);
+    config()->set('ts-ui-trippodi.components.editor.1.output_classes_prefix', $prefix);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $this->expectException(ViewException::class);
     $this->expectExceptionMessageMatches('/must be lowercase, dash separated and end with a dash/');
@@ -494,9 +494,9 @@ it('can render the output classes with an inline prefix', function () {
 });
 
 it('can render an inline prefix over the configured one', function () {
-    config()->set('ts-ui.components.editor.1.output_classes_prefix', 'app-');
+    config()->set('ts-ui-trippodi.components.editor.1.output_classes_prefix', 'app-');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-editor name="content" output-classes="blog-" />')
         ->render()
@@ -519,18 +519,18 @@ it('can render the toolbar tooltips by default', function () {
 });
 
 it('can render without the toolbar tooltips', function () {
-    config()->set('ts-ui.components.editor.1.toolbar_tooltip', false);
+    config()->set('ts-ui-trippodi.components.editor.1.toolbar_tooltip', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $html = expect('<x-editor name="content" />')->render();
 
     $html->not->toContain('x-tooltip="Bold"')
         ->not->toContain('x-bind:data-tooltip-disabled="show"');
 
-    config()->set('ts-ui.components.editor.1.toolbar_tooltip', true);
+    config()->set('ts-ui-trippodi.components.editor.1.toolbar_tooltip', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can render an initial value bound from a variable', function (string $component) {

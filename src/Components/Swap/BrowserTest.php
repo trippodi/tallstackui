@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Swap;
+namespace Trippodi\Trippodi\TallStackUi\Components\Swap;
 
 use Facebook\WebDriver\WebDriverBy;
 use Livewire\Component;

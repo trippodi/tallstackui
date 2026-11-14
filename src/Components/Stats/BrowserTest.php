@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Stats;
+namespace Trippodi\Trippodi\TallStackUi\Components\Stats;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component;

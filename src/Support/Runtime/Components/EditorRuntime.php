@@ -1,10 +1,10 @@
 <?php
 
-namespace TallStackUi\Support\Runtime\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Exception;
-use TallStackUi\Components\Editor\Component;
-use TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\Trippodi\TallStackUi\Components\Editor\Component;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class EditorRuntime extends AbstractRuntime
 {
@@ -45,7 +45,7 @@ class EditorRuntime extends AbstractRuntime
         $name = $component->attributes->get('name');
 
         if (! $property && ! $name) {
-            __ts_validation_exception($component, 'The component requires either the [wire:model] or the [name] attribute.');
+            __tst_validation_exception($component, 'The component requires either the [wire:model] or the [name] attribute.');
         }
 
         $this->validateToolbar($component->toolbar);
@@ -83,7 +83,7 @@ class EditorRuntime extends AbstractRuntime
                 'link' => str($id.'-link')->slug()->kebab()->value(),
                 'image' => str($id.'-image')->slug()->kebab()->value(),
             ],
-            'i18n' => trans('ts-ui::messages.editor'),
+            'i18n' => trans('ts-ui-trippodi::messages.editor'),
         ];
     }
 
@@ -133,7 +133,7 @@ class EditorRuntime extends AbstractRuntime
             return;
         }
 
-        __ts_validation_exception($this->component, sprintf(
+        __tst_validation_exception($this->component, sprintf(
             'The toolbar has unknown button(s): [%s]. Allowed: [%s].',
             implode(', ', $unknown),
             implode(', ', array_keys(self::GROUPS)),
@@ -150,11 +150,11 @@ class EditorRuntime extends AbstractRuntime
         }
 
         if ($component->uploadProperty === null || $component->uploadMethod === null) {
-            __ts_validation_exception($component, 'The [upload-property] and [upload-method] must be used together.');
+            __tst_validation_exception($component, 'The [upload-property] and [upload-method] must be used together.');
         }
 
         if (! $this->wireable()) {
-            __ts_validation_exception($component, 'The image upload requires the component to be used within a Livewire context.');
+            __tst_validation_exception($component, 'The image upload requires the component to be used within a Livewire context.');
         }
     }
 }

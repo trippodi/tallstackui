@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Traits;
+namespace Trippodi\Trippodi\TallStackUi\Components\Traits;
 
 use Illuminate\Support\Arr;
 

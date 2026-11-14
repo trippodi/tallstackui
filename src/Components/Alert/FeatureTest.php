@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Alert\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Alert\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -71,54 +71,54 @@ it('can render shadowless')
     ->toContain('shadow-none!');
 
 it('can render shadowless through the global configuration', function () {
-    config()->set('ts-ui.components.alert.1.shadowless', true);
+    config()->set('ts-ui-trippodi.components.alert.1.shadowless', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-alert title="Foo" text="Bar" light />')->render()->toContain('shadow-none!');
     } finally {
-        config()->set('ts-ui.components.alert.1.shadowless', false);
+        config()->set('ts-ui-trippodi.components.alert.1.shadowless', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
 it('can let the shadowless prop win over the global configuration', function () {
-    config()->set('ts-ui.components.alert.1.shadowless', true);
+    config()->set('ts-ui-trippodi.components.alert.1.shadowless', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-alert title="Foo" text="Bar" light :shadowless="false" />')->render()
             ->not->toContain('shadow-none!');
     } finally {
-        config()->set('ts-ui.components.alert.1.shadowless', false);
+        config()->set('ts-ui-trippodi.components.alert.1.shadowless', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
 it('can render the side border through the global configuration', function () {
-    config()->set('ts-ui.components.alert.1.bordered', 'left:red');
+    config()->set('ts-ui-trippodi.components.alert.1.bordered', 'left:red');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-alert title="Foo" text="Bar" light />')->render()
             ->toContain('border-l-4')
             ->toContain('border-red-600');
     } finally {
-        config()->set('ts-ui.components.alert.1.bordered', null);
+        config()->set('ts-ui-trippodi.components.alert.1.bordered', null);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
 it('can let the bordered prop win over the global configuration', function () {
-    config()->set('ts-ui.components.alert.1.bordered', 'left:red');
+    config()->set('ts-ui-trippodi.components.alert.1.bordered', 'left:red');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-alert title="Foo" text="Bar" light bordered="right:green" />')->render()
@@ -126,24 +126,24 @@ it('can let the bordered prop win over the global configuration', function () {
             ->toContain('border-green-600')
             ->not->toContain('border-l-4');
     } finally {
-        config()->set('ts-ui.components.alert.1.bordered', null);
+        config()->set('ts-ui-trippodi.components.alert.1.bordered', null);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
 it('cannot use an invalid side coming from the global configuration', function () {
-    config()->set('ts-ui.components.alert.1.bordered', 'top');
+    config()->set('ts-ui-trippodi.components.alert.1.bordered', 'top');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         $this->expectException(ViewException::class);
 
         expect('<x-alert title="Foo" text="Bar" light />')->render();
     } finally {
-        config()->set('ts-ui.components.alert.1.bordered', null);
+        config()->set('ts-ui-trippodi.components.alert.1.bordered', null);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });

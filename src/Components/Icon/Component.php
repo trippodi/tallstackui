@@ -1,21 +1,21 @@
 <?php
 
-namespace TallStackUi\Components\Icon;
+namespace Trippodi\Trippodi\TallStackUi\Components\Icon;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentAttributeBag;
 use Illuminate\View\ComponentSlot;
 use InvalidArgumentException;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\IconColors;
-use TallStackUi\Support\Concerns\BuildRawIcon;
-use TallStackUi\Support\Runtime\Components\IconRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\IconColors;
+use Trippodi\Trippodi\TallStackUi\Support\Concerns\BuildRawIcon;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\IconRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('icon')]
 #[ColorsThroughOf(IconColors::class)]
@@ -55,7 +55,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.icon.main');
+        return view('ts-ui-trippodi::components.icon.main');
     }
 
     public function customization(): array
@@ -87,20 +87,20 @@ class Component extends TallStackUiComponent implements Customization
         $colors = $this->shorthands($attributes, self::COLORS);
 
         if (count($sizes) > 1) {
-            __ts_validation_exception($this, 'Only one size can be used at a time, but ['.implode(', ', $sizes).'] were given');
+            __tst_validation_exception($this, 'Only one size can be used at a time, but ['.implode(', ', $sizes).'] were given');
         }
 
         if (count($colors) > 1) {
-            __ts_validation_exception($this, 'Only one color can be used at a time, but ['.implode(', ', $colors).'] were given');
+            __tst_validation_exception($this, 'Only one color can be used at a time, but ['.implode(', ', $colors).'] were given');
         }
 
         $handmade = $attributes->has('class');
 
-        $this->size = $handmade ? null : ($sizes[0] ?? __ts_get_component_configuration(self::class, 'size') ?? 'md');
+        $this->size = $handmade ? null : ($sizes[0] ?? __tst_get_component_configuration(self::class, 'size') ?? 'md');
         $this->color = $handmade || $this->error ? null : ($colors[0] ?? null);
 
         if ($this->size !== null && ! in_array($this->size, self::SIZES, true)) {
-            __ts_validation_exception($this, 'The [size] must be one of ['.implode(', ', self::SIZES).']');
+            __tst_validation_exception($this, 'The [size] must be one of ['.implode(', ', self::SIZES).']');
         }
 
         // x-dynamic-component builds a template out of the attribute names,

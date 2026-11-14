@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Traits;
+namespace Trippodi\Trippodi\TallStackUi\Components\Traits;
 
 use Illuminate\Support\Collection;
 
@@ -12,7 +12,7 @@ trait SelectSetup
             ? $this->options->values()->toArray()
             : array_values($this->options);
 
-        $this->select ??= __ts_get_component_configuration(static::class, 'select')
+        $this->select ??= __tst_get_component_configuration(static::class, 'select')
             ?? 'label:label|value:value|description:description|image:image';
 
         if (! $this->select || ($this->options !== [] && ! is_array($this->options[0]))) {
@@ -53,11 +53,11 @@ trait SelectSetup
                 &$grouped
             ): array {
                 if (! array_key_exists($label, $option)) {
-                    __ts_validation_exception($this, "The key [$label] is missing in the options array.");
+                    __tst_validation_exception($this, "The key [$label] is missing in the options array.");
                 }
 
                 if (! array_key_exists($value, $option)) {
-                    __ts_validation_exception($this, "The [$value] is missing in the options array.");
+                    __tst_validation_exception($this, "The [$value] is missing in the options array.");
                 }
 
                 // Any option carrying a nested list turns the whole select into

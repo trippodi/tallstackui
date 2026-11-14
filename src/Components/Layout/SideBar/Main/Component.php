@@ -1,13 +1,13 @@
 <?php
 
-namespace TallStackUi\Components\Layout\SideBar\Main;
+namespace Trippodi\Trippodi\TallStackUi\Components\Layout\SideBar\Main;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('sideBar')]
 class Component extends TallStackUiComponent implements Customization
@@ -28,7 +28,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.layout.sidebar.main');
+        return view('ts-ui-trippodi::components.layout.sidebar.main');
     }
 
     public function customization(): array
@@ -85,17 +85,17 @@ class Component extends TallStackUiComponent implements Customization
 
     protected function setup(): void
     {
-        $this->smart ??= __ts_get_component_configuration(self::class, 'smart') ?? false;
-        $this->collapsible ??= __ts_get_component_configuration(self::class, 'collapsible') ?? false;
+        $this->smart ??= __tst_get_component_configuration(self::class, 'smart') ?? false;
+        $this->collapsible ??= __tst_get_component_configuration(self::class, 'collapsible') ?? false;
 
         if ($this->navigate === null && $this->navigateHover === null) {
-            $this->navigate = __ts_get_component_configuration(self::class, 'navigate') ?? false;
-            $this->navigateHover = __ts_get_component_configuration(self::class, 'navigate-hover') ?? false;
+            $this->navigate = __tst_get_component_configuration(self::class, 'navigate') ?? false;
+            $this->navigateHover = __tst_get_component_configuration(self::class, 'navigate-hover') ?? false;
         }
 
         if ($this->thinScroll === null && $this->thickScroll === null) {
-            $this->thinScroll = __ts_get_component_configuration(self::class, 'thin-scroll') ?? false;
-            $this->thickScroll = __ts_get_component_configuration(self::class, 'thick-scroll') ?? false;
+            $this->thinScroll = __tst_get_component_configuration(self::class, 'thin-scroll') ?? false;
+            $this->thickScroll = __tst_get_component_configuration(self::class, 'thick-scroll') ?? false;
         }
     }
 }

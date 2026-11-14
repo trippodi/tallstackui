@@ -1,11 +1,11 @@
 <?php
 
-namespace TallStackUi\Components\Spinner;
+namespace Trippodi\Trippodi\TallStackUi\Components\Spinner;
 
 use Livewire\Component;
 use Livewire\Livewire;
 use PHPUnit\Framework\Attributes\Test;
-use TallStackUi\Components\Spinner\Component as Spinner;
+use Trippodi\Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
 use Tests\Browser\BrowserTestCase;
 
 class BrowserTest extends BrowserTestCase

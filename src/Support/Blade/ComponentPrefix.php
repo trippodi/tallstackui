@@ -1,12 +1,12 @@
 <?php
 
-namespace TallStackUi\Support\Blade;
+namespace Trippodi\Trippodi\TallStackUi\Support\Blade;
 
 class ComponentPrefix
 {
     public function __construct(private ?string $prefix = null)
     {
-        $this->prefix = config('ts-ui.prefix');
+        $this->prefix = config('ts-ui-trippodi.prefix');
     }
 
     /**

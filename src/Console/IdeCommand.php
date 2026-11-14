@@ -1,13 +1,13 @@
 <?php
 
-namespace TallStackUi\Console;
+namespace Trippodi\Trippodi\TallStackUi\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
-use TallStackUi\Components\Floating\Component as Floating;
-use TallStackUi\Components\Wrapper\Input\Component as InputWrapper;
-use TallStackUi\Components\Wrapper\Radio\Component as RadioWrapper;
-use TallStackUi\Facades\TallStackUi;
+use Trippodi\Trippodi\TallStackUi\Components\Floating\Component as Floating;
+use Trippodi\Trippodi\TallStackUi\Components\Wrapper\Input\Component as InputWrapper;
+use Trippodi\Trippodi\TallStackUi\Components\Wrapper\Radio\Component as RadioWrapper;
+use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi;
 
 use function Laravel\Prompts\confirm;
 
@@ -21,7 +21,7 @@ class IdeCommand extends Command
 
     protected $description = 'Generate IDE configuration file for TallStackUI components.';
 
-    protected $signature = 'tallstackui:ide';
+    protected $signature = 'tallstackui-trippodi:ide';
 
     public function handle(): int
     {
@@ -33,7 +33,7 @@ class IdeCommand extends Command
 
         $list = [];
 
-        $components = config('ts-ui.components');
+        $components = config('ts-ui-trippodi.components');
 
         if (count($components) === 0) {
             $this->components->error('No TallStackUI components found based on the config file.');

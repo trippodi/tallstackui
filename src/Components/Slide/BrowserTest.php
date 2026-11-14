@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Slide;
+namespace Trippodi\Trippodi\TallStackUi\Components\Slide;
 
 use Livewire\Component;
 use Livewire\Livewire;

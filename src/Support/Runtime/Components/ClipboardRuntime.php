@@ -1,8 +1,8 @@
 <?php
 
-namespace TallStackUi\Support\Runtime\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
 
-use TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class ClipboardRuntime extends AbstractRuntime
 {
@@ -21,7 +21,7 @@ class ClipboardRuntime extends AbstractRuntime
     public function validate(?string $text = null): void
     {
         if (! $text) {
-            __ts_validation_exception($this->component, 'The [text] cannot be empty. You should specify the text using property or slot.');
+            __tst_validation_exception($this->component, 'The [text] cannot be empty. You should specify the text using property or slot.');
         }
     }
 }

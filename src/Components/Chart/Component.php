@@ -1,23 +1,23 @@
 <?php
 
-namespace TallStackUi\Components\Chart;
+namespace Trippodi\Trippodi\TallStackUi\Components\Chart;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Traits\SkeletonSetup;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Charts\Series;
-use TallStackUi\Support\Charts\Spline;
-use TallStackUi\Support\Colors\Components\ChartColors;
-use TallStackUi\Support\Runtime\Components\ChartRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\SkeletonSetup;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Charts\Series;
+use Trippodi\Trippodi\TallStackUi\Support\Charts\Spline;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\ChartColors;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\ChartRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('chart')]
 #[ColorsThroughOf(ChartColors::class)]
@@ -74,7 +74,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view($this->skeletonized() ? 'ts-ui::components.chart.skeleton' : 'ts-ui::components.chart.main');
+        return view($this->skeletonized() ? 'ts-ui-trippodi::components.chart.skeleton' : 'ts-ui-trippodi::components.chart.main');
     }
 
     public function customization(): array
@@ -152,65 +152,65 @@ class Component extends TallStackUiComponent implements Customization
         $this->guard();
 
         if (! $this->skeletonized() && ($violation = Series::violation($this->series))) {
-            __ts_validation_exception($this, $violation);
+            __tst_validation_exception($this, $violation);
         }
 
         if (count($flags = $this->flags()) > 1) {
-            __ts_validation_exception($this, 'Only one type can be used at a time, but ['.implode(', ', $flags).'] were given.');
+            __tst_validation_exception($this, 'Only one type can be used at a time, but ['.implode(', ', $flags).'] were given.');
         }
 
         if ($flags !== [] && $this->type !== $flags[0]) {
-            __ts_validation_exception($this, 'The [type] and the ['.$flags[0].'] flag cannot be used together.');
+            __tst_validation_exception($this, 'The [type] and the ['.$flags[0].'] flag cannot be used together.');
         }
 
         if ($this->type !== null && ! in_array($this->type, self::TYPES, true)) {
-            __ts_validation_exception($this, 'The [type] must be one of: '.implode(', ', self::TYPES).'.');
+            __tst_validation_exception($this, 'The [type] must be one of: '.implode(', ', self::TYPES).'.');
         }
 
         if ($this->height !== null && $this->height < 1) {
-            __ts_validation_exception($this, 'The [height] must be greater than 0.');
+            __tst_validation_exception($this, 'The [height] must be greater than 0.');
         }
 
         if ($this->fit !== null && ! in_array($this->fit, self::FITS, true)) {
-            __ts_validation_exception($this, 'The [fit] must be one of: '.implode(', ', self::FITS).'.');
+            __tst_validation_exception($this, 'The [fit] must be one of: '.implode(', ', self::FITS).'.');
         }
 
         if ($this->curve !== null && ! in_array($this->curve, self::CURVES, true)) {
-            __ts_validation_exception($this, 'The [curve] must be one of: '.implode(', ', self::CURVES).'.');
+            __tst_validation_exception($this, 'The [curve] must be one of: '.implode(', ', self::CURVES).'.');
         }
 
         if ($this->round !== null && ! in_array($this->round, self::ROUNDS, true)) {
-            __ts_validation_exception($this, 'The [round] must be one of: '.implode(', ', self::ROUNDS).'.');
+            __tst_validation_exception($this, 'The [round] must be one of: '.implode(', ', self::ROUNDS).'.');
         }
 
         if ($this->corners !== null && ! in_array($this->corners, self::CORNERS, true)) {
-            __ts_validation_exception($this, 'The [corners] must be one of: '.implode(', ', self::CORNERS).'.');
+            __tst_validation_exception($this, 'The [corners] must be one of: '.implode(', ', self::CORNERS).'.');
         }
 
         foreach (['prefix' => $this->prefix, 'suffix' => $this->suffix, 'decimals' => $this->decimals] as $name => $value) {
             if (is_array($value) && array_diff(array_keys($value), Series::AXES) !== []) {
-                __ts_validation_exception($this, 'The ['.$name.'] must only use the keys: '.implode(', ', Series::AXES).'.');
+                __tst_validation_exception($this, 'The ['.$name.'] must only use the keys: '.implode(', ', Series::AXES).'.');
             }
         }
 
         foreach (is_array($this->decimals) ? $this->decimals : [$this->decimals] as $decimals) {
             if ($decimals !== null && (! is_int($decimals) || $decimals < 0)) {
-                __ts_validation_exception($this, 'The [decimals] must be an integer greater than or equal to 0.');
+                __tst_validation_exception($this, 'The [decimals] must be an integer greater than or equal to 0.');
             }
         }
 
         if ($this->stacked && in_array($this->type, ['pie', 'donut', 'line'], true)) {
-            __ts_validation_exception($this, 'The [stacked] cannot be used with the ['.$this->type.'] type.');
+            __tst_validation_exception($this, 'The [stacked] cannot be used with the ['.$this->type.'] type.');
         }
 
         if ($this->grid && in_array($this->type, ['pie', 'donut'], true)) {
-            __ts_validation_exception($this, 'The [grid] cannot be used with the ['.$this->type.'] type.');
+            __tst_validation_exception($this, 'The [grid] cannot be used with the ['.$this->type.'] type.');
         }
 
         $series = Series::normalize($this->series);
 
         if ($this->stacked && Series::on($series, 'right') !== []) {
-            __ts_validation_exception($this, 'The [stacked] cannot be used together with a secondary axis.');
+            __tst_validation_exception($this, 'The [stacked] cannot be used together with a secondary axis.');
         }
 
         if (! in_array($this->type, ['pie', 'donut'], true)) {
@@ -220,16 +220,16 @@ class Component extends TallStackUiComponent implements Customization
         // Explicit values only: the config defaults are written after this runs.
         foreach (['curve' => $this->curve, 'round' => $this->round, 'corners' => $this->corners] as $name => $value) {
             if ($value !== null) {
-                __ts_validation_exception($this, 'The ['.$name.'] cannot be used with the ['.$this->type.'] type.');
+                __tst_validation_exception($this, 'The ['.$name.'] cannot be used with the ['.$this->type.'] type.');
             }
         }
 
         if (Series::overrides($series) !== []) {
-            __ts_validation_exception($this, 'The [type] of a series cannot be used with the ['.$this->type.'] type.');
+            __tst_validation_exception($this, 'The [type] of a series cannot be used with the ['.$this->type.'] type.');
         }
 
         if (count($series) > 1) {
-            __ts_validation_exception($this, 'The ['.$this->type.'] type accepts only one series.');
+            __tst_validation_exception($this, 'The ['.$this->type.'] type accepts only one series.');
         }
     }
 

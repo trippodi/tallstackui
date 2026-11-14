@@ -1,15 +1,15 @@
 <?php
 
-namespace TallStackUi\Components\Modal;
+namespace Trippodi\Trippodi\TallStackUi\Components\Modal;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use InvalidArgumentException;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\ModalRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\ModalRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('modal')]
 #[PassThroughRuntime(ModalRuntime::class)]
@@ -36,7 +36,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.modal.main');
+        return view('ts-ui-trippodi::components.modal.main');
     }
 
     public function customization(): array
@@ -98,31 +98,31 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if (is_string($this->wire) && $this->wire === '') {
-            __ts_validation_exception($this, 'The [wire] property cannot be an empty string');
+            __tst_validation_exception($this, 'The [wire] property cannot be an empty string');
         }
 
-        $configuration = __ts_get_component_configuration(self::class);
+        $configuration = __tst_get_component_configuration(self::class);
         $sizes = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', 'full'];
 
         if (! in_array($this->size ?? $configuration['size'] ?? '2xl', $sizes)) {
-            __ts_validation_exception($this, 'The [size] must be one of the following: ['.implode(', ', $sizes).']');
+            __tst_validation_exception($this, 'The [size] must be one of the following: ['.implode(', ', $sizes).']');
         }
 
         $center = $this->center ?? $configuration['center'] ?? false;
         $breakpoints = ['sm', 'md', 'lg', 'xl', '2xl'];
 
         if (is_string($center) && ! in_array($center, $breakpoints)) {
-            __ts_validation_exception($this, 'The [center] must be a boolean or one of the following: ['.implode(', ', $breakpoints).']');
+            __tst_validation_exception($this, 'The [center] must be a boolean or one of the following: ['.implode(', ', $breakpoints).']');
         }
 
         // A fully centered modal never behaves as a bottom sheet
         // on mobile, so the drag-to-close handle has no surface.
         if (($this->handle ?? $configuration['handle'] ?? false) && $center === true) {
-            __ts_validation_exception($this, 'The [handle] cannot be used when [center] is fully enabled');
+            __tst_validation_exception($this, 'The [handle] cannot be used when [center] is fully enabled');
         }
 
         if (! str($this->zIndex ?? $configuration['z-index'] ?? 'z-50')->startsWith('z-')) {
-            __ts_validation_exception($this, 'The [z-index] must start with z- prefix');
+            __tst_validation_exception($this, 'The [z-index] must start with z- prefix');
         }
     }
 }

@@ -66,7 +66,7 @@
             </span>
         @elseif ($icon)
             <span class="{{ $customization['marker.icon-wrapper'] }}">
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
                                      :$icon
                                      internal
                                      @class([$customization['marker.icon-size'], $colors['icon'] ?? '']) />

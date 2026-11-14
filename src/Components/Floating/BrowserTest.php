@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Floating;
+namespace Trippodi\Trippodi\TallStackUi\Components\Floating;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component;
@@ -62,7 +62,7 @@ class BrowserTest extends BrowserTestCase
         {
             public function boot(): void
             {
-                config(['ts-ui.floating_scroll_lock' => false]);
+                config(['ts-ui-trippodi.floating_scroll_lock' => false]);
             }
 
             public function render(): string
@@ -94,7 +94,7 @@ class BrowserTest extends BrowserTestCase
 
             public function boot(): void
             {
-                config(['ts-ui.floating_scroll_lock' => true]);
+                config(['ts-ui-trippodi.floating_scroll_lock' => true]);
             }
 
             public function render(): string
@@ -226,7 +226,7 @@ class BrowserTest extends BrowserTestCase
         {
             public function boot(): void
             {
-                config(['ts-ui.floating_scroll_lock' => true]);
+                config(['ts-ui-trippodi.floating_scroll_lock' => true]);
             }
 
             public function render(): string
@@ -278,7 +278,7 @@ class BrowserTest extends BrowserTestCase
         {
             public function boot(): void
             {
-                config(['ts-ui.floating_scroll_lock' => true]);
+                config(['ts-ui-trippodi.floating_scroll_lock' => true]);
             }
 
             public function render(): string
@@ -327,7 +327,7 @@ class BrowserTest extends BrowserTestCase
         {
             public function boot(): void
             {
-                config(['ts-ui.floating_scroll_lock' => true]);
+                config(['ts-ui-trippodi.floating_scroll_lock' => true]);
             }
 
             public function render(): string
@@ -377,7 +377,7 @@ class BrowserTest extends BrowserTestCase
         {
             public function boot(): void
             {
-                config(['ts-ui.floating_scroll_lock' => true]);
+                config(['ts-ui-trippodi.floating_scroll_lock' => true]);
             }
 
             public function render(): string
@@ -477,7 +477,7 @@ class BrowserTest extends BrowserTestCase
 
             public function boot(): void
             {
-                config(['ts-ui.floating_scroll_lock' => true]);
+                config(['ts-ui-trippodi.floating_scroll_lock' => true]);
             }
 
             public function render(): string

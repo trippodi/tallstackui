@@ -12,7 +12,7 @@
       wire:loading.delay{{ $delay ? ".{$delay}" : "" }}
       dusk="button-loading-spinner">
     <span class="flex items-center justify-center">
-        <x-dynamic-component component="ts-ui::spinner.types.{{ $spinner }}"
+        <x-dynamic-component component="ts-ui-trippodi::spinner.types.{{ $spinner }}"
                              :$size
                              :customization="$blocks" />
     </span>

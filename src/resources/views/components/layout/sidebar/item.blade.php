@@ -36,8 +36,8 @@
                 @if ($icon instanceof \Illuminate\View\ComponentSlot)
                     {{ $icon }}
                 @elseif ($icon)
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon($icon)"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon($icon)"
                                          internal
                                          class="{{ $customization['group.icon.base'] }}" />
                 @endif
@@ -58,7 +58,7 @@
                                   '{{ $customization['group.badge.hidden'] }}' : railed,
                               }"
                           @endif>
-                        <x-dynamic-component :component="TallStackUi::prefix('badge')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('badge')"
                                              scope="sidebar.item.badge"
                                              :color="$badgeColor"
                                              round
@@ -66,7 +66,7 @@
                     </span>
                     @if ($collapsible)
                         <span class="{{ $customization['group.dot'] }}" x-show="railed" x-cloak>
-                            <x-dynamic-component :component="TallStackUi::prefix('badge')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('badge')"
                                                  scope="sidebar.item.badge"
                                                  :color="$badgeColor"
                                                  round
@@ -75,8 +75,8 @@
                         </span>
                     @endif
                 @endif
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                     :icon="TallStackUi::icon('chevron-down')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                     :icon="TallStackUiTrippodi::icon('chevron-down')"
                                      internal
                                      class="{{ $customization['group.icon.collapse.base'] }}"
                                      x-bind:class="{ '{{ $customization['group.icon.collapse.rotate'] }}': show }"
@@ -86,7 +86,7 @@
                 {{ $slot }}
             </ul>
             @if ($collapsible)
-                <x-dynamic-component :component="TallStackUi::prefix('floating')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('floating')"
                                      scope="sidebar.item.flyout"
                                      :floating="$customization['group.flyout.wrapper']"
                                      position="right-start"
@@ -141,8 +141,8 @@
                 @if ($icon instanceof \Illuminate\View\ComponentSlot)
                     {{ $icon }}
                 @elseif ($icon)
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon($icon)"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon($icon)"
                                          internal
                                          class="{{ $customization['item.icon'] }}" />
                 @endif
@@ -163,7 +163,7 @@
                                   '{{ $customization['item.badge.hidden'] }}' : railed,
                               }"
                           @endif>
-                        <x-dynamic-component :component="TallStackUi::prefix('badge')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('badge')"
                                              scope="sidebar.item.badge"
                                              :color="$badgeColor"
                                              round
@@ -171,7 +171,7 @@
                     </span>
                     @if ($collapsible)
                         <span class="{{ $customization['item.dot'] }}" x-show="railed" x-cloak>
-                            <x-dynamic-component :component="TallStackUi::prefix('badge')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('badge')"
                                                  scope="sidebar.item.badge"
                                                  :color="$badgeColor"
                                                  round

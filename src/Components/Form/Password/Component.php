@@ -1,19 +1,19 @@
 <?php
 
-namespace TallStackUi\Components\Form\Password;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Password;
 
 use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Floating\Component as Floating;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\PasswordRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Floating\Component as Floating;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\PasswordRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.password')]
 #[PassThroughRuntime(PasswordRuntime::class)]
@@ -30,7 +30,7 @@ class Component extends TallStackUiComponent implements Customization
         #[SkipDebug]
         public ?bool $simple = null,
     ) {
-        $default = __ts_get_component_configuration(self::class, 'rules');
+        $default = __tst_get_component_configuration(self::class, 'rules');
 
         $this->simple = $this->rules === null && $this->generator === null;
 
@@ -61,7 +61,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.password');
+        return view('ts-ui-trippodi::components.form.password');
     }
 
     public function customization(): array
@@ -99,11 +99,11 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if (is_string($this->generator) && trim($this->generator) === '') {
-            __ts_validation_exception($this, 'The [generator] target cannot be empty.');
+            __tst_validation_exception($this, 'The [generator] target cannot be empty.');
         }
 
         if ($this->generator && $this->rules?->isEmpty()) {
-            __ts_validation_exception($this, 'The [generator] requires the [rules] of the password.');
+            __tst_validation_exception($this, 'The [generator] requires the [rules] of the password.');
         }
     }
 }

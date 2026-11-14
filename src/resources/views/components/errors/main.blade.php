@@ -26,8 +26,8 @@
                     @unless ($withoutTitle)
                         <span @class([$customization['title.text'], $colors['text']])>
                             @if ($icon !== null)
-                                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                     :icon="TallStackUi::icon($icon)"
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                     :icon="TallStackUiTrippodi::icon($icon)"
                                                      internal
                                                      class="{{ $customization['title.icon'] }}"
                                                      outline />
@@ -40,8 +40,8 @@
                                 class="cursor-pointer"
                                 {{ $attributes->only('x-on:close') }}
                                 x-on:click="show = false; $dispatch('close')">
-                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                 :icon="TallStackUi::icon('x-mark')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                 :icon="TallStackUiTrippodi::icon('x-mark')"
                                                  internal
                                     @class([$customization['close'], $colors['text']]) />
                         </button>

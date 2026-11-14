@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Form\Tag\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Tag\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

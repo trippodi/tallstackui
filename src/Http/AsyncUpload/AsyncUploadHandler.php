@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Http\AsyncUpload;
+namespace Trippodi\Trippodi\TallStackUi\Http\AsyncUpload;
 
 use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Http\JsonResponse;
@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\File\File as SymfonyFile;
 use Symfony\Component\Mime\MimeTypes;
-use TallStackUi\Components\Form\Upload\Async\Component;
-use TallStackUi\Http\AsyncUpload\Events\AsyncUploadCompleted;
-use TallStackUi\Http\AsyncUpload\Events\AsyncUploadFailed;
-use TallStackUi\Http\AsyncUpload\Events\AsyncUploadStarted;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Upload\Async\Component;
+use Trippodi\Trippodi\TallStackUi\Http\AsyncUpload\Events\AsyncUploadCompleted;
+use Trippodi\Trippodi\TallStackUi\Http\AsyncUpload\Events\AsyncUploadFailed;
+use Trippodi\Trippodi\TallStackUi\Http\AsyncUpload\Events\AsyncUploadStarted;
 
 class AsyncUploadHandler
 {
@@ -107,7 +107,7 @@ class AsyncUploadHandler
 
     protected function config(?string $key = null): mixed
     {
-        return __ts_get_component_configuration(Component::class, $key);
+        return __tst_get_component_configuration(Component::class, $key);
     }
 
     protected function disk(): FilesystemAdapter
@@ -138,7 +138,7 @@ class AsyncUploadHandler
         );
 
         return response()->json([
-            'message' => array_values($errors)[0][0] ?? trans('ts-ui::messages.upload_async.errors.generic'),
+            'message' => array_values($errors)[0][0] ?? trans('ts-ui-trippodi::messages.upload_async.errors.generic'),
             'errors' => $errors,
         ], $status);
     }
@@ -153,7 +153,7 @@ class AsyncUploadHandler
             $tmp->deleteDirectory($sealed);
 
             return $this->fail($request, 'integrity', [
-                'chunk' => [trans('ts-ui::messages.upload_async.errors.integrity')],
+                'chunk' => [trans('ts-ui-trippodi::messages.upload_async.errors.integrity')],
             ], 422);
         }
 
@@ -197,7 +197,7 @@ class AsyncUploadHandler
 
         if ($authorize !== null && ! $authorize($request)) {
             return $this->fail($request, 'unauthorized', [
-                'chunk' => [trans('ts-ui::messages.upload_async.errors.unauthorized')],
+                'chunk' => [trans('ts-ui-trippodi::messages.upload_async.errors.unauthorized')],
             ], 403);
         }
 
@@ -207,7 +207,7 @@ class AsyncUploadHandler
 
         if ($max !== null && (int) $request->input('total_size') > $max * 1024 * 1024) {
             return $this->fail($request, 'size', [
-                'chunk' => [trans('ts-ui::messages.upload_async.errors.size', ['max' => $max])],
+                'chunk' => [trans('ts-ui-trippodi::messages.upload_async.errors.size', ['max' => $max])],
             ], 422);
         }
 

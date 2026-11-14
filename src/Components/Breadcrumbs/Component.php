@@ -1,17 +1,17 @@
 <?php
 
-namespace TallStackUi\Components\Breadcrumbs;
+namespace Trippodi\Trippodi\TallStackUi\Components\Breadcrumbs;
 
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Container\CircularDependencyException;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Breadcrumbs\BreadcrumbRegistry;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Breadcrumbs\BreadcrumbRegistry;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 use Throwable;
 
 #[SoftCustomization('breadcrumbs')]
@@ -42,7 +42,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.breadcrumbs.main');
+        return view('ts-ui-trippodi::components.breadcrumbs.main');
     }
 
     public function customization(): array

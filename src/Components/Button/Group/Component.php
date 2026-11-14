@@ -1,12 +1,12 @@
 <?php
 
-namespace TallStackUi\Components\Button\Group;
+namespace Trippodi\Trippodi\TallStackUi\Components\Button\Group;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('button.group')]
 class Component extends TallStackUiComponent implements Customization
@@ -18,7 +18,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.button.group');
+        return view('ts-ui-trippodi::components.button.group');
     }
 
     public function customization(): array

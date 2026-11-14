@@ -1,11 +1,11 @@
 <?php
 
-namespace TallStackUi\Components\Traits;
+namespace Trippodi\Trippodi\TallStackUi\Components\Traits;
 
 use Illuminate\View\ComponentAttributeBag;
-use TallStackUi\Components\Button\Circle\Component as Circle;
-use TallStackUi\Components\Button\Normal\Component as Button;
-use TallStackUi\Components\Spinner\Component as Spinner;
+use Trippodi\Trippodi\TallStackUi\Components\Button\Circle\Component as Circle;
+use Trippodi\Trippodi\TallStackUi\Components\Button\Normal\Component as Button;
+use Trippodi\Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
 
 trait ButtonSetup
 {
@@ -14,11 +14,11 @@ trait ButtonSetup
         $types = array_values(array_diff(Spinner::TYPES, Spinner::TEXTUAL));
 
         if (! in_array($this->spinner, $types, true)) {
-            __ts_validation_exception($this, 'The [spinner] must be one of: ['.implode(', ', $types).'].');
+            __tst_validation_exception($this, 'The [spinner] must be one of: ['.implode(', ', $types).'].');
         }
 
         if ($this->tinted && ! $this->subtle) {
-            __ts_validation_exception($this, 'The [tinted] can only be used with [subtle].');
+            __tst_validation_exception($this, 'The [tinted] can only be used with [subtle].');
         }
     }
 
@@ -43,8 +43,8 @@ trait ButtonSetup
     protected function setup(): void
     {
         // Circle intentionally reads the button config keys so one setting drives both.
-        $this->spinner ??= __ts_get_component_configuration(Button::class, 'spinner') ?? 'gradient';
-        $this->unfocus ??= __ts_get_component_configuration(Button::class, 'unfocus') ?? false;
+        $this->spinner ??= __tst_get_component_configuration(Button::class, 'spinner') ?? 'gradient';
+        $this->unfocus ??= __tst_get_component_configuration(Button::class, 'unfocus') ?? false;
 
         $this->style = $this->outline ? 'outline' : ($this->light ? 'light' : ($this->flat ? 'flat' : ($this->subtle ? 'subtle' : 'solid')));
         $this->size = $this->xs ? 'xs' : ($this->sm ? 'sm' : ($this->lg ? 'lg' : 'md'));

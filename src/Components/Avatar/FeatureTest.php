@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Avatar\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Avatar\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -90,16 +90,16 @@ it('can prioritize the shorthand over the size attribute')
     ->toContain('w-40 h-40');
 
 it('can render the size from the configuration', function () {
-    config()->set('ts-ui.components.avatar.1.size', '3xl');
+    config()->set('ts-ui-trippodi.components.avatar.1.size', '3xl');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-avatar label="Lorem" />')->render()->toContain('w-24 h-24');
     } finally {
-        config()->set('ts-ui.components.avatar.1.size', 'md');
+        config()->set('ts-ui-trippodi.components.avatar.1.size', 'md');
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
@@ -108,44 +108,44 @@ it('can render borderless', function () {
 });
 
 it('can render borderless from the configuration', function () {
-    config()->set('ts-ui.components.avatar.1.borderless', true);
+    config()->set('ts-ui-trippodi.components.avatar.1.borderless', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-avatar label="Lorem" />')->render()->not->toContain('border-2');
     } finally {
-        config()->set('ts-ui.components.avatar.1.borderless', false);
+        config()->set('ts-ui-trippodi.components.avatar.1.borderless', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
 it('can let the borderless attribute win over the configuration', function () {
-    config()->set('ts-ui.components.avatar.1.borderless', true);
+    config()->set('ts-ui-trippodi.components.avatar.1.borderless', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-avatar label="Lorem" :borderless="false" />')->render()->toContain('border-2');
     } finally {
-        config()->set('ts-ui.components.avatar.1.borderless', false);
+        config()->set('ts-ui-trippodi.components.avatar.1.borderless', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
 it('can let the size attribute win over the configuration', function () {
-    config()->set('ts-ui.components.avatar.1.size', '3xl');
+    config()->set('ts-ui-trippodi.components.avatar.1.size', '3xl');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-avatar label="Lorem" size="5xl" />')->render()->toContain('w-32 h-32');
     } finally {
-        config()->set('ts-ui.components.avatar.1.size', 'md');
+        config()->set('ts-ui-trippodi.components.avatar.1.size', 'md');
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
@@ -358,16 +358,16 @@ it('can let the image win over the gravatar')
     ->toContain('gravatar.com');
 
 it('can read the gravatar defaults from the configuration', function () {
-    config()->set('ts-ui.components.avatar.1.gravatar', ['default' => 'identicon', 'rating' => 'pg']);
+    config()->set('ts-ui-trippodi.components.avatar.1.gravatar', ['default' => 'identicon', 'rating' => 'pg']);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-avatar gravatar="aj@mail.com" />')->render()->toContain('d=identicon')->toContain('r=pg');
     } finally {
-        config()->set('ts-ui.components.avatar.1.gravatar', ['default' => 'mp', 'rating' => 'g']);
+        config()->set('ts-ui-trippodi.components.avatar.1.gravatar', ['default' => 'mp', 'rating' => 'g']);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 

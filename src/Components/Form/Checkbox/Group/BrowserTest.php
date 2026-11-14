@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Form\Checkbox\Group;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Checkbox\Group;
 
 use Livewire\Component;
 use Livewire\Livewire;

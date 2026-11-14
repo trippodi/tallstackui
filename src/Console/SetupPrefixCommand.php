@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Console;
+namespace Trippodi\Trippodi\TallStackUi\Console;
 
 use Exception;
 use Illuminate\Console\Command;
@@ -12,14 +12,14 @@ class SetupPrefixCommand extends Command
 {
     public $description = 'Set up Component prefix.';
 
-    public $signature = 'tallstackui:setup-prefix';
+    public $signature = 'tallstackui-trippodi:setup-prefix';
 
     public function handle(): int
     {
         $prefix = text('What prefix do you want to use?', required: true, hint: 'Type null to remove the current prefix, if set.');
         $null = $prefix === 'null';
 
-        if ($null && blank(config('ts-ui.prefix'))) {
+        if ($null && blank(config('ts-ui-trippodi.prefix'))) {
             $this->components->error('The prefix is already set to null.');
 
             return self::FAILURE;
@@ -42,7 +42,7 @@ class SetupPrefixCommand extends Command
      */
     private function config(string $prefix): bool|string
     {
-        if (! file_exists(config_path('tallstackui.php'))) {
+        if (! file_exists(config_path('tallstackui-trippodi.php'))) {
             Process::run('php artisan vendor:publish --tag=tallstackui.config');
         }
 
@@ -55,7 +55,7 @@ class SetupPrefixCommand extends Command
                 $this->content()
             );
 
-            file_put_contents(config_path('tallstackui.php'), $update);
+            file_put_contents(config_path('tallstackui-trippodi.php'), $update);
 
             return true;
         } catch (Exception $e) {
@@ -68,7 +68,7 @@ class SetupPrefixCommand extends Command
      */
     private function content(): string
     {
-        return file_get_contents(config_path('tallstackui.php'));
+        return file_get_contents(config_path('tallstackui-trippodi.php'));
     }
 
     /**
@@ -86,9 +86,9 @@ class SetupPrefixCommand extends Command
             $env = file_get_contents(base_path('.env'));
             $prefix = $prefix === 'null' ? '' : "\"$prefix\"";
 
-            $update = str_contains($env, 'TALLSTACKUI_PREFIX')
-                ? preg_replace("/(TALLSTACKUI_PREFIX=)[^\n]*/", "TALLSTACKUI_PREFIX=$prefix", $env)
-                : $env.PHP_EOL."TALLSTACKUI_PREFIX=$prefix";
+            $update = str_contains($env, 'TALLSTACKUI_TRIPPODI_PREFIX')
+                ? preg_replace("/(TALLSTACKUI_TRIPPODI_PREFIX=)[^\n]*/", "TALLSTACKUI_TRIPPODI_PREFIX=$prefix", $env)
+                : $env.PHP_EOL."TALLSTACKUI_TRIPPODI_PREFIX=$prefix";
 
             file_put_contents(base_path('.env'), $update);
 
@@ -105,7 +105,7 @@ class SetupPrefixCommand extends Command
     {
         // When the configuration file is old and does not have the key
         // for the env variable, we configure it directly in the config file.
-        if (file_exists(config_path('tallstackui.php')) && ! str_contains($this->content(), 'TALLSTACKUI_PREFIX')) {
+        if (file_exists(config_path('tallstackui-trippodi.php')) && ! str_contains($this->content(), 'TALLSTACKUI_TRIPPODI_PREFIX')) {
             return $this->config($prefix);
         }
 

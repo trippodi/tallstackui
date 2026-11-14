@@ -40,12 +40,12 @@
                                     x-bind:aria-expanded="show"
                                     aria-haspopup="menu"
                                     dusk="tallstackui_list_items_menu">
-                                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                     :icon="TallStackUi::icon('ellipsis-vertical')"
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                     :icon="TallStackUiTrippodi::icon('ellipsis-vertical')"
                                                      internal
                                                      class="{{ $customization['menu.icon'] }}" />
                             </button>
-                            <x-dynamic-component :component="TallStackUi::prefix('floating')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('floating')"
                                                  scope="list.items.menu"
                                                  :floating="$customization['menu.floating']"
                                                  @class([

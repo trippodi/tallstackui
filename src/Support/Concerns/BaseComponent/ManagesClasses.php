@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Support\Concerns\BaseComponent;
+namespace Trippodi\Trippodi\TallStackUi\Support\Concerns\BaseComponent;
 
 use Closure;
 use Exception;
@@ -8,10 +8,10 @@ use Illuminate\Support\Arr;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use ReflectionException;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Floating\Component as Floating;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Miscellaneous\ReflectComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Floating\Component as Floating;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Miscellaneous\ReflectComponent;
 
 trait ManagesClasses
 {
@@ -49,7 +49,7 @@ trait ManagesClasses
 
             unset($this->attributes['scope']);
 
-            $key = __ts_scope_container_key(__ts_search_component($reflection->parent()->getName()), $scope);
+            $key = __tst_scope_container_key(__tst_search_component($reflection->parent()->getName()), $scope);
 
             if (app()->bound($key)) {
                 $scoped = app()->get($key)->toArray();
@@ -83,7 +83,7 @@ trait ManagesClasses
             $classes = $callback($classes);
         }
 
-        if (__ts_global('square', static::class)) {
+        if (__tst_global('square', static::class)) {
             foreach ($classes as $key => $value) {
                 if (is_string($value)) {
                     // Dropping whole tokens rather than substrings, so that

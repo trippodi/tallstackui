@@ -1,15 +1,15 @@
 <?php
 
-namespace TallStackUi\Components\BackToTop;
+namespace Trippodi\Trippodi\TallStackUi\Components\BackToTop;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\BackToTopColors;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\BackToTopColors;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('backToTop')]
 #[ColorsThroughOf(BackToTopColors::class)]
@@ -38,7 +38,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.back-to-top.main');
+        return view('ts-ui-trippodi::components.back-to-top.main');
     }
 
     public function customization(): array
@@ -74,29 +74,29 @@ class Component extends TallStackUiComponent implements Customization
 
     protected function setup(): void
     {
-        $this->icon ??= __ts_get_component_configuration(self::class, 'icon') ?? 'chevron-up';
-        $this->color ??= __ts_get_component_configuration(self::class, 'color') ?? 'primary';
-        $this->position ??= __ts_get_component_configuration(self::class, 'position') ?? 'bottom-right';
-        $this->immediate ??= __ts_get_component_configuration(self::class, 'immediate') ?? false;
-        $this->square ??= __ts_get_component_configuration(self::class, 'square') ?? false;
+        $this->icon ??= __tst_get_component_configuration(self::class, 'icon') ?? 'chevron-up';
+        $this->color ??= __tst_get_component_configuration(self::class, 'color') ?? 'primary';
+        $this->position ??= __tst_get_component_configuration(self::class, 'position') ?? 'bottom-right';
+        $this->immediate ??= __tst_get_component_configuration(self::class, 'immediate') ?? false;
+        $this->square ??= __tst_get_component_configuration(self::class, 'square') ?? false;
 
         $this->size = match (true) {
             $this->lg === true => 'lg',
             $this->md === true => 'md',
             $this->sm === true => 'sm',
             $this->xs === true => 'xs',
-            default => __ts_get_component_configuration(self::class, 'size') ?? 'md',
+            default => __tst_get_component_configuration(self::class, 'size') ?? 'md',
         };
     }
 
     protected function validate(): void
     {
         if (! in_array($this->position, self::POSITIONS, true)) {
-            __ts_validation_exception($this, 'The [position] must be one of: '.implode(', ', self::POSITIONS));
+            __tst_validation_exception($this, 'The [position] must be one of: '.implode(', ', self::POSITIONS));
         }
 
         if (! in_array($this->size, self::SIZES, true)) {
-            __ts_validation_exception($this, 'The [size] must be one of: '.implode(', ', self::SIZES));
+            __tst_validation_exception($this, 'The [size] must be one of: '.implode(', ', self::SIZES));
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Form\Date;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Date;
 
 use Facebook\WebDriver\WebDriverBy;
 use Laravel\Dusk\Browser;

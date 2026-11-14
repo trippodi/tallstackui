@@ -1,18 +1,18 @@
 <?php
 
-namespace TallStackUi\Components\Button\Normal;
+namespace Trippodi\Trippodi\TallStackUi\Components\Button\Normal;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Traits\ButtonSetup;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\NormalButtonColors;
-use TallStackUi\Support\Runtime\Components\ButtonRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\ButtonSetup;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\NormalButtonColors;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\ButtonRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('button')]
 #[ColorsThroughOf(NormalButtonColors::class)]
@@ -57,13 +57,13 @@ class Component extends TallStackUiComponent implements Customization
         #[SkipDebug]
         public ?string $right = null,
     ) {
-        $this->round ??= __ts_get_component_configuration(self::class, 'round') ?? false;
+        $this->round ??= __tst_get_component_configuration(self::class, 'round') ?? false;
         $this->rounded = $this->round === true ? 'full' : (is_string($this->round) ? $this->round : 'md');
     }
 
     public function blade(): View
     {
-        return view('ts-ui::components.button.button');
+        return view('ts-ui-trippodi::components.button.button');
     }
 
     public function customization(): array
@@ -249,7 +249,7 @@ class Component extends TallStackUiComponent implements Customization
         $sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'full'];
 
         if (! in_array($this->round, $sizes, true)) {
-            __ts_validation_exception($this, 'The [round] must be true or one of: ['.implode(', ', $sizes).'].');
+            __tst_validation_exception($this, 'The [round] must be true or one of: ['.implode(', ', $sizes).'].');
         }
     }
 }

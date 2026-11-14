@@ -1,18 +1,18 @@
 <?php
 
-namespace TallStackUi\Components\Banner;
+namespace Trippodi\Trippodi\TallStackUi\Components\Banner;
 
 use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\BannerColors;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\BannerColors;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('banner')]
 #[ColorsThroughOf(BannerColors::class)]
@@ -45,7 +45,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.banner.main');
+        return view('ts-ui-trippodi::components.banner.main');
     }
 
     public function customization(): array
@@ -132,25 +132,25 @@ class Component extends TallStackUiComponent implements Customization
         $sizes = ['sm', 'md', 'lg'];
 
         if (! in_array($this->size, $sizes)) {
-            __ts_validation_exception($this, 'The [size] must be one of the following: ['.implode(', ', $sizes).']');
+            __tst_validation_exception($this, 'The [size] must be one of the following: ['.implode(', ', $sizes).']');
         }
 
         if (is_array($this->color)) {
             if (! isset($this->color['background'])) {
-                __ts_validation_exception($this, 'The [background] key must exists when color is an array.');
+                __tst_validation_exception($this, 'The [background] key must exists when color is an array.');
             }
 
             if (! isset($this->color['text'])) {
-                __ts_validation_exception($this, 'The [color] key must exists when color is an array.');
+                __tst_validation_exception($this, 'The [color] key must exists when color is an array.');
             }
         }
 
         if ($this->rotate !== false && $this->wire) {
-            __ts_validation_exception($this, 'The [rotate] cannot be used together with [wire] mode.');
+            __tst_validation_exception($this, 'The [rotate] cannot be used together with [wire] mode.');
         }
 
         if ($this->rotate !== false && $this->rotate !== true && ! in_array($this->rotate, ['slow', 'normal', 'fast'], true)) {
-            __ts_validation_exception($this, 'The [rotate] must be one of [slow, normal, fast].');
+            __tst_validation_exception($this, 'The [rotate] must be one of [slow, normal, fast].');
         }
 
         // If the banner is wire, we don't need to validate the until property
@@ -168,7 +168,7 @@ class Component extends TallStackUiComponent implements Customization
         }
 
         if (blank($until)) {
-            __ts_validation_exception($this, 'The [until] attribute must be a Carbon instance or a valid date string.');
+            __tst_validation_exception($this, 'The [until] attribute must be a Carbon instance or a valid date string.');
         }
     }
 

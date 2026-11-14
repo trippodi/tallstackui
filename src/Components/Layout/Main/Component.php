@@ -1,13 +1,13 @@
 <?php
 
-namespace TallStackUi\Components\Layout\Main;
+namespace Trippodi\Trippodi\TallStackUi\Components\Layout\Main;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('layout')]
 class Component extends TallStackUiComponent implements Customization
@@ -23,7 +23,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.layout.main');
+        return view('ts-ui-trippodi::components.layout.main');
     }
 
     public function customization(): array

@@ -1,18 +1,18 @@
 <?php
 
-namespace TallStackUi\Components\Swap;
+namespace Trippodi\Trippodi\TallStackUi\Components\Swap;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Traits\FormDefaultInputClasses;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\SwapRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\FormDefaultInputClasses;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\SwapRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('swap')]
 #[PassThroughRuntime(SwapRuntime::class)]
@@ -34,16 +34,16 @@ class Component extends TallStackUiComponent implements Customization
         #[SkipDebug]
         public Collection|array $options = [],
     ) {
-        $this->preview ??= (bool) __ts_get_component_configuration(self::class, 'preview');
+        $this->preview ??= (bool) __tst_get_component_configuration(self::class, 'preview');
 
-        $this->vertical ??= (bool) __ts_get_component_configuration(self::class, 'vertical');
+        $this->vertical ??= (bool) __tst_get_component_configuration(self::class, 'vertical');
 
-        $this->loop ??= (bool) (__ts_get_component_configuration(self::class, 'loop') ?? true);
+        $this->loop ??= (bool) (__tst_get_component_configuration(self::class, 'loop') ?? true);
     }
 
     public function blade(): View
     {
-        return view('ts-ui::components.swap.main');
+        return view('ts-ui-trippodi::components.swap.main');
     }
 
     public function customization(): array
@@ -110,11 +110,11 @@ class Component extends TallStackUiComponent implements Customization
             }
 
             if (! array_key_exists($label, $option)) {
-                __ts_validation_exception($this, "The key [$label] is missing in the options array.");
+                __tst_validation_exception($this, "The key [$label] is missing in the options array.");
             }
 
             if (! array_key_exists($value, $option)) {
-                __ts_validation_exception($this, "The key [$value] is missing in the options array.");
+                __tst_validation_exception($this, "The key [$value] is missing in the options array.");
             }
 
             return ['label' => (string) $option[$label], 'value' => $option[$value]];
@@ -124,7 +124,7 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if ($this->preview && $this->vertical) {
-            __ts_validation_exception($this, 'The [preview] and [vertical] cannot be used together.');
+            __tst_validation_exception($this, 'The [preview] and [vertical] cannot be used together.');
         }
     }
 
@@ -132,7 +132,7 @@ class Component extends TallStackUiComponent implements Customization
     {
         $keys = ['label' => 'label', 'value' => 'value'];
 
-        $this->select ??= __ts_get_component_configuration(self::class, 'select');
+        $this->select ??= __tst_get_component_configuration(self::class, 'select');
 
         foreach (explode('|', (string) $this->select) as $part) {
             $segments = explode(':', $part, 2);

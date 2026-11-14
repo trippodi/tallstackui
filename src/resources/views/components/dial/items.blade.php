@@ -26,7 +26,7 @@
             'rounded-full' => !$square,
         ]) }}
         dusk="tallstackui_dial_item">
-        <x-dynamic-component :component="TallStackUi::prefix('icon')"
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
                              :$icon
                              internal
                              @class([$customization['icon'], $colors['icon'] => filled($colors['icon'])]) />

@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Calendar;
+namespace Trippodi\Trippodi\TallStackUi\Components\Calendar;
 
 use DateTimeInterface;
 use Exception;
@@ -10,11 +10,11 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\View\ComponentSlot;
 use InvalidArgumentException;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\CalendarRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\CalendarRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('calendar')]
 #[PassThroughRuntime(CalendarRuntime::class)]
@@ -42,7 +42,7 @@ class Component extends TallStackUiComponent implements Customization
         public ?bool $shadowless = null,
         public ?bool $bordered = null,
     ) {
-        $configuration = __ts_get_component_configuration(self::class);
+        $configuration = __tst_get_component_configuration(self::class);
 
         $this->shadowless ??= $configuration['shadowless'] ?? false;
         $this->bordered ??= $configuration['bordered'] ?? false;
@@ -64,7 +64,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.calendar.main');
+        return view('ts-ui-trippodi::components.calendar.main');
     }
 
     public function customization(): array
@@ -152,39 +152,39 @@ class Component extends TallStackUiComponent implements Customization
         }
 
         if (blank($min)) {
-            __ts_validation_exception($this, 'The [min-date] attribute must be a Carbon instance or a valid date string.');
+            __tst_validation_exception($this, 'The [min-date] attribute must be a Carbon instance or a valid date string.');
         }
 
         if (blank($max)) {
-            __ts_validation_exception($this, 'The [max-date] attribute must be a Carbon instance or a valid date string.');
+            __tst_validation_exception($this, 'The [max-date] attribute must be a Carbon instance or a valid date string.');
         }
 
         if (($this->minDate && $this->maxDate) && $min->greaterThan($max)) {
-            __ts_validation_exception($this, 'The [min-date] must be less than or equal to [max-date].');
+            __tst_validation_exception($this, 'The [min-date] must be less than or equal to [max-date].');
         }
 
         if (($this->minYear && $this->maxYear) && $this->maxYear < $this->minYear) {
-            __ts_validation_exception($this, 'The year [min-year] must be less than or equal to [max-year].');
+            __tst_validation_exception($this, 'The year [min-year] must be less than or equal to [max-year].');
         }
 
         if ($this->start < 0 || $this->start > 6) {
-            __ts_validation_exception($this, 'The [start] attribute must be between 0 and 6.');
+            __tst_validation_exception($this, 'The [start] attribute must be between 0 and 6.');
         }
 
         if ($this->only && $this->only > 6) {
-            __ts_validation_exception($this, 'The [only] attribute must be between 0 and 6.');
+            __tst_validation_exception($this, 'The [only] attribute must be between 0 and 6.');
         }
 
         if ($this->double && ! $this->range) {
-            __ts_validation_exception($this, 'The [double] attribute requires [range] to be set.');
+            __tst_validation_exception($this, 'The [double] attribute requires [range] to be set.');
         }
 
         if ($this->range && $this->multiple) {
-            __ts_validation_exception($this, 'The [range] and [multiple] attributes cannot be used together.');
+            __tst_validation_exception($this, 'The [range] and [multiple] attributes cannot be used together.');
         }
 
         if ($this->lockMonthYear && $this->monthYearOnly) {
-            __ts_validation_exception($this, 'The [lock-month-year] and [month-year-only] attributes cannot be used together.');
+            __tst_validation_exception($this, 'The [lock-month-year] and [month-year-only] attributes cannot be used together.');
         }
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Badge\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Badge\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -52,43 +52,43 @@ it('cannot accept invalid round value', function () {
 });
 
 it('can render round through the global configuration', function () {
-    config()->set('ts-ui.components.badge.1.round', true);
+    config()->set('ts-ui-trippodi.components.badge.1.round', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-badge>Foo bar</x-badge>')->render()
         ->toContain('rounded-full')
         ->not->toContain('rounded-md');
 
-    config()->set('ts-ui.components.badge.1.round', false);
+    config()->set('ts-ui-trippodi.components.badge.1.round', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can render a named round through the global configuration', function () {
-    config()->set('ts-ui.components.badge.1.round', 'lg');
+    config()->set('ts-ui-trippodi.components.badge.1.round', 'lg');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-badge>Foo bar</x-badge>')->render()->toContain('rounded-lg');
 
-    config()->set('ts-ui.components.badge.1.round', false);
+    config()->set('ts-ui-trippodi.components.badge.1.round', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can suppress the global round through the inline prop', function () {
-    config()->set('ts-ui.components.badge.1.round', true);
+    config()->set('ts-ui-trippodi.components.badge.1.round', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-badge :round="false">Foo bar</x-badge>')->render()
         ->not->toContain('rounded-full')
         ->toContain('rounded-md');
 
-    config()->set('ts-ui.components.badge.1.round', false);
+    config()->set('ts-ui-trippodi.components.badge.1.round', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can render size variations', function (array $size) {
@@ -163,37 +163,37 @@ it('can render right slot', function () {
 });
 
 it('can render the size through the global configuration', function () {
-    config()->set('ts-ui.components.badge.1.size', 'lg');
+    config()->set('ts-ui-trippodi.components.badge.1.size', 'lg');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-badge>Foo bar</x-badge>')->render()
         ->toContain('text-lg')
         ->not->toContain('text-xs');
 
-    config()->set('ts-ui.components.badge.1.size', 'xs');
+    config()->set('ts-ui-trippodi.components.badge.1.size', 'xs');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can override the global size through the inline prop', function () {
-    config()->set('ts-ui.components.badge.1.size', 'lg');
+    config()->set('ts-ui-trippodi.components.badge.1.size', 'lg');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-badge sm>Foo bar</x-badge>')->render()
         ->toContain('text-sm')
         ->not->toContain('text-lg');
 
-    config()->set('ts-ui.components.badge.1.size', 'xs');
+    config()->set('ts-ui-trippodi.components.badge.1.size', 'xs');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('cannot accept an invalid global size', function () {
-    config()->set('ts-ui.components.badge.1.size', 'huge');
+    config()->set('ts-ui-trippodi.components.badge.1.size', 'huge');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         $this->expectException(ViewException::class);
@@ -201,8 +201,8 @@ it('cannot accept an invalid global size', function () {
 
         expect('<x-badge>Foo bar</x-badge>')->render();
     } finally {
-        config()->set('ts-ui.components.badge.1.size', 'xs');
+        config()->set('ts-ui-trippodi.components.badge.1.size', 'xs');
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });

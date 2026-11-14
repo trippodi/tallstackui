@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Form\Currency\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Currency\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -64,8 +64,8 @@ it('cannot use mutate and decimal together', function () {
 });
 
 it('inherits global mutate default from config', function () {
-    config()->set('ts-ui.components.currency.1.mutate', true);
-    __ts_get_component_configuration(Component::class, flush: true);
+    config()->set('ts-ui-trippodi.components.currency.1.mutate', true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-currency />')
         ->render()
@@ -73,8 +73,8 @@ it('inherits global mutate default from config', function () {
 });
 
 it('inherits global decimal default from config', function () {
-    config()->set('ts-ui.components.currency.1.decimal', true);
-    __ts_get_component_configuration(Component::class, flush: true);
+    config()->set('ts-ui-trippodi.components.currency.1.decimal', true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-currency />')
         ->render()
@@ -82,8 +82,8 @@ it('inherits global decimal default from config', function () {
 });
 
 it('per-instance prop overrides the global default', function () {
-    config()->set('ts-ui.components.currency.1.mutate', true);
-    __ts_get_component_configuration(Component::class, flush: true);
+    config()->set('ts-ui-trippodi.components.currency.1.mutate', true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-currency :mutate="false" />')
         ->render()

@@ -29,8 +29,8 @@
                           clip-rule="evenodd"></path>
                 </svg>
             @else
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                     :icon="TallStackUi::icon($icon)"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                     :icon="TallStackUiTrippodi::icon($icon)"
                                      internal
                                      @class($customization['sizes.' . $size])
                                      x-bind:class="{ '{{ $colors['background'] }}': rate >= index + 1, '{{ $customization['star'] }}': rate < index + 1 }" />

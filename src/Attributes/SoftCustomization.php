@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Attributes;
+namespace Trippodi\Trippodi\TallStackUi\Attributes;
 
 use Attribute;
 
@@ -14,6 +14,6 @@ class SoftCustomization
 
     public function prefixed(): string
     {
-        return 'ts-ui::customization.'.$this->key;
+        return 'ts-ui-trippodi::customization.'.$this->key;
     }
 }

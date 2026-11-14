@@ -4,7 +4,7 @@
 
 @unless(blank($sentence))
     <div class="{{ $customization['wrapper'] }}" x-data>
-        <x-dynamic-component :component="$raw('ts-ui::icon.')"
+        <x-dynamic-component :component="$raw('ts-ui-trippodi::icon.')"
                              data-position="{{ $position }}"
                              x-tooltip="{!! $sentence !!}"
                 {{ $attributes->merge($settings)->class([$customization['sizes.' . $size], $colors['icon']]) }} />

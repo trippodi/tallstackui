@@ -1,16 +1,16 @@
 <?php
 
-namespace TallStackUi\Components\Slide;
+namespace Trippodi\Trippodi\TallStackUi\Components\Slide;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
 use InvalidArgumentException;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\SlideRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\SlideRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('slide')]
 #[PassThroughRuntime(SlideRuntime::class)]
@@ -38,7 +38,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.slide.main');
+        return view('ts-ui-trippodi::components.slide.main');
     }
 
     public function customization(): array
@@ -101,23 +101,23 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if (is_string($this->wire) && $this->wire === '') {
-            __ts_validation_exception($this, 'The [wire] property cannot be an empty string');
+            __tst_validation_exception($this, 'The [wire] property cannot be an empty string');
         }
 
-        $configuration = __ts_get_component_configuration(self::class);
+        $configuration = __tst_get_component_configuration(self::class);
         $sizes = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', 'full'];
         $positions = ['right', 'left', 'top', 'bottom'];
 
         if (! in_array($this->size ?? $configuration['size'] ?? 'lg', $sizes)) {
-            __ts_validation_exception($this, 'The [size] must be one of the following: ['.implode(', ', $sizes).']');
+            __tst_validation_exception($this, 'The [size] must be one of the following: ['.implode(', ', $sizes).']');
         }
 
         if (! str($this->zIndex ?? $configuration['z-index'] ?? 'z-50')->startsWith('z-')) {
-            __ts_validation_exception($this, 'The [z-index] must start with z- prefix');
+            __tst_validation_exception($this, 'The [z-index] must start with z- prefix');
         }
 
         if (! in_array($this->left ? 'left' : $configuration['position'] ?? 'right', $positions) && ! in_array($this->top ? 'top' : $configuration['position'] ?? 'right', $positions) && ! in_array($this->bottom ? 'bottom' : $configuration['position'] ?? 'right', $positions)) {
-            __ts_validation_exception($this, 'The [position] must be one of the following: ['.implode(', ', $positions).']');
+            __tst_validation_exception($this, 'The [position] must be one of the following: ['.implode(', ', $positions).']');
         }
     }
 }

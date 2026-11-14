@@ -1,13 +1,13 @@
 <?php
 
-namespace TallStackUi\Components\Tab\Items;
+namespace Trippodi\Trippodi\TallStackUi\Components\Tab\Items;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Support\Runtime\Components\TabItemsRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\TabItemsRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[PassThroughRuntime(TabItemsRuntime::class)]
 class Component extends TallStackUiComponent
@@ -28,6 +28,6 @@ class Component extends TallStackUiComponent
 
     public function blade(): View
     {
-        return view('ts-ui::components.tab.items');
+        return view('ts-ui-trippodi::components.tab.items');
     }
 }

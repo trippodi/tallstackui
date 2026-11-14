@@ -1,15 +1,15 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Swap\Component;
-use TallStackUi\Customization\Globals;
-use TallStackUi\Facades\TallStackUi;
+use Trippodi\Trippodi\TallStackUi\Components\Swap\Component;
+use Trippodi\Trippodi\TallStackUi\Customization\Globals;
+use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
 
 beforeEach(function () {
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     Globals::reset();
 });
@@ -46,9 +46,9 @@ it('can render preview slots as thirds')
     ->toContain('w-1/3');
 
 it('can enable preview through global configuration', function () {
-    config()->set('ts-ui.components.swap.1.preview', true);
+    config()->set('ts-ui-trippodi.components.swap.1.preview', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-swap :options="[\'foo\', \'bar\']" />')->render()
         ->toContain('mask-image');
@@ -60,9 +60,9 @@ it('can render vertical')
     ->toContain('flex-col');
 
 it('can enable vertical through global configuration', function () {
-    config()->set('ts-ui.components.swap.1.vertical', true);
+    config()->set('ts-ui-trippodi.components.swap.1.vertical', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-swap :options="[\'foo\', \'bar\']" />')->render()
         ->toContain('flex-col');
@@ -108,9 +108,9 @@ it('can use dimensional options with custom keys')
     ->toContain('tallstackui_swap');
 
 it('can use dimensional options with keys from the global configuration', function () {
-    config()->set('ts-ui.components.swap.1.select', 'label:name|value:id');
+    config()->set('ts-ui-trippodi.components.swap.1.select', 'label:name|value:id');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $expected = base64_encode(json_encode([['label' => 'Foo', 'value' => 1], ['label' => 'Bar', 'value' => 2]]));
 
@@ -119,9 +119,9 @@ it('can use dimensional options with keys from the global configuration', functi
 });
 
 it('can override the global configuration keys inline', function () {
-    config()->set('ts-ui.components.swap.1.select', 'label:name|value:id');
+    config()->set('ts-ui-trippodi.components.swap.1.select', 'label:name|value:id');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $expected = base64_encode(json_encode([['label' => 'Foo', 'value' => 1]]));
 

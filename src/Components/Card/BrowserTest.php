@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Card;
+namespace Trippodi\Trippodi\TallStackUi\Components\Card;
 
 use Livewire\Component;
 use Livewire\Livewire;

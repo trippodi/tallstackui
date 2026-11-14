@@ -1,9 +1,9 @@
 <?php
 
-namespace TallStackUi\Support\Runtime\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Exception;
-use TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class TimeRuntime extends AbstractRuntime
 {
@@ -35,11 +35,11 @@ class TimeRuntime extends AbstractRuntime
     private function validate(mixed $value): void
     {
         if (! is_string($value)) {
-            __ts_validation_exception($this->component, 'The [value] must be a string.');
+            __tst_validation_exception($this->component, 'The [value] must be a string.');
         }
 
         if ($this->data('format') === '12' && ! preg_match('/(AM|PM)/', $value)) {
-            __ts_validation_exception($this->component, 'The [format] is not 24 and the value does not contain the interval (AM/PM).');
+            __tst_validation_exception($this->component, 'The [format] is not 24 and the value does not contain the interval (AM/PM).');
         }
     }
 }

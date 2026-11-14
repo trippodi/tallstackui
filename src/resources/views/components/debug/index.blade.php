@@ -3,7 +3,7 @@
 <div>
     {!! $slot !!}
     @if ($code)
-        <x-dynamic-component component="ts-ui::icon.generic.code-bracket-square"
+        <x-dynamic-component component="ts-ui-trippodi::icon.generic.code-bracket-square"
                              data-position="auto"
                              x-data
                              x-tooltip="{!! $code !!}"

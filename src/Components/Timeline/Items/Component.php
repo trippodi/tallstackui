@@ -1,19 +1,19 @@
 <?php
 
-namespace TallStackUi\Components\Timeline\Items;
+namespace Trippodi\Trippodi\TallStackUi\Components\Timeline\Items;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
 use Illuminate\View\Factory;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\TimelineColors;
-use TallStackUi\Support\Runtime\Components\TimelineItemsRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\TimelineColors;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\TimelineItemsRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('timeline.items')]
 #[ColorsThroughOf(TimelineColors::class)]
@@ -38,7 +38,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.timeline.items');
+        return view('ts-ui-trippodi::components.timeline.items');
     }
 
     public function customization(): array

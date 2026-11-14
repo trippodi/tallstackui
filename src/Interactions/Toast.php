@@ -1,10 +1,10 @@
 <?php
 
-namespace TallStackUi\Interactions;
+namespace Trippodi\Trippodi\TallStackUi\Interactions;
 
-use TallStackUi\Components\Toast\Component;
-use TallStackUi\Interactions\Traits\DispatchInteraction;
-use TallStackUi\Interactions\Traits\InteractWithConfirmation;
+use Trippodi\Trippodi\TallStackUi\Components\Toast\Component;
+use Trippodi\Trippodi\TallStackUi\Interactions\Traits\DispatchInteraction;
+use Trippodi\Trippodi\TallStackUi\Interactions\Traits\InteractWithConfirmation;
 
 class Toast extends AbstractInteraction
 {
@@ -95,7 +95,7 @@ class Toast extends AbstractInteraction
     public function position(string $position): self
     {
         if (! in_array($position, Component::POSITIONS)) {
-            __ts_validation_exception(Component::class, "Invalid position: {$position}. Allowed: ".implode(', ', Component::POSITIONS).'.');
+            __tst_validation_exception(Component::class, "Invalid position: {$position}. Allowed: ".implode(', ', Component::POSITIONS).'.');
         }
 
         $this->position = $position;
@@ -180,7 +180,7 @@ class Toast extends AbstractInteraction
      */
     protected function additional(): array
     {
-        $configuration = __ts_get_component_configuration(Component::class);
+        $configuration = __tst_get_component_configuration(Component::class);
 
         return [
             'expandable' => $this->expand ?? $configuration['expandable'] ?? false,
@@ -205,6 +205,6 @@ class Toast extends AbstractInteraction
      */
     protected function messages(): array
     {
-        return [trans('ts-ui::messages.toast.button.confirm'), trans('ts-ui::messages.toast.button.cancel')];
+        return [trans('ts-ui-trippodi::messages.toast.button.confirm'), trans('ts-ui-trippodi::messages.toast.button.cancel')];
     }
 }

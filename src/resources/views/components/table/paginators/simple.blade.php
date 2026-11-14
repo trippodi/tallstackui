@@ -73,23 +73,23 @@ $disabled = 'cursor-not-allowed select-none text-gray-300 dark:text-dark-500';
                             @if ($paginator->onFirstPage())
                                 <span class="{{ $wrapper }}" aria-disabled="true" aria-label="{{ trans('pagination.previous') }}">
                                     <span class="{{ $nav }} {{ $navOff }}" aria-hidden="true">
-                                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                             :icon="TallStackUi::icon('chevron-left')"
+                                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                             :icon="TallStackUiTrippodi::icon('chevron-left')"
                                                              internal
                                                              class="size-4" />
                                     </span>
                                 </span>
                             @elseif ($livewire)
                                 <button type="button" wire:click="previousPage('{{ $name }}')" x-on:click="{!! $scroll !!}" dusk="previousPage{{ $dusk }}.after" rel="prev" class="{{ $nav }} {{ $navIdle }}" aria-label="{{ trans('pagination.previous') }}">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('chevron-left')"
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('chevron-left')"
                                                          internal
                                                          class="size-4" />
                                 </button>
                             @else
                                 <a href="{{ $paginator->previousPageUrl() }}{{ $fragment }}" dusk="previousPage{{ $dusk }}.after" rel="prev" class="{{ $nav }} {{ $navIdle }}" aria-label="{{ trans('pagination.previous') }}">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('chevron-left')"
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('chevron-left')"
                                                          internal
                                                          class="size-4" />
                                 </a>
@@ -127,23 +127,23 @@ $disabled = 'cursor-not-allowed select-none text-gray-300 dark:text-dark-500';
                             @if (!$paginator->hasMorePages())
                                 <span class="{{ $wrapper }}" aria-disabled="true" aria-label="{{ trans('pagination.next') }}">
                                     <span class="{{ $nav }} {{ $navOff }}" aria-hidden="true">
-                                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                             :icon="TallStackUi::icon('chevron-right')"
+                                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                             :icon="TallStackUiTrippodi::icon('chevron-right')"
                                                              internal
                                                              class="size-4" />
                                     </span>
                                 </span>
                             @elseif ($livewire)
                                 <button type="button" wire:click="nextPage('{{ $name }}')" x-on:click="{!! $scroll !!}" dusk="nextPage{{ $dusk }}.after" rel="next" class="{{ $nav }} {{ $navIdle }}" aria-label="{{ trans('pagination.next') }}">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('chevron-right')"
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('chevron-right')"
                                                          internal
                                                          class="size-4" />
                                 </button>
                             @else
                                 <a href="{{ $paginator->nextPageUrl() }}{{ $fragment }}" dusk="nextPage{{ $dusk }}.after" rel="next" class="{{ $nav }} {{ $navIdle }}" aria-label="{{ trans('pagination.next') }}">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('chevron-right')"
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('chevron-right')"
                                                          internal
                                                          class="size-4" />
                                 </a>

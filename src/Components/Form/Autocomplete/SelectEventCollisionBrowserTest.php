@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Form\Autocomplete;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Autocomplete;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component;

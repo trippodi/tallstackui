@@ -17,7 +17,7 @@
      @js($property),
      @js($value),
      @js($monthYearOnly),
-     @js(trans('ts-ui::messages.date.calendar')),
+     @js(trans('ts-ui-trippodi::messages.date.calendar')),
      @js($disabled),
      @js($readonly),
      @js($change),
@@ -27,7 +27,7 @@
      @js($weekends),
      @js($typeable))"
      x-cloak x-on:click.outside="show = false">
-    <x-dynamic-component :component="TallStackUi::prefix('input')"
+    <x-dynamic-component :component="TallStackUiTrippodi::prefix('input')"
                          scope="form.date.input"
                          {{ $attributes->except(['name', 'value'])->whereDoesntStartWith(['wire:model', 'wire:change']) }}
                          :$label
@@ -47,22 +47,22 @@
             <div class="{{ $customization['icon.wrapper'] }}">
                 <button type="button" class="cursor-pointer" x-on:click="clear()" x-show="quantity > 0"
                         @disabled($locked) {{ $attributes->only('x-on:clear') }} dusk="tallstackui_date_clear">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('x-mark')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('x-mark')"
                                          internal
                             @class([$customization['icon.size'], $customization['icon.clear']])/>
                 </button>
                 <button type="button" class="cursor-pointer" x-on:click="show = !show"
                         @disabled($locked) dusk="tallstackui_date_open_close">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('calendar')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('calendar')"
                                          internal
                                          class="{{ $customization['icon.size'] }}" />
                 </button>
             </div>
         </x-slot:suffix>
     </x-dynamic-component>
-    <x-dynamic-component :component="TallStackUi::prefix('floating')"
+    <x-dynamic-component :component="TallStackUiTrippodi::prefix('floating')"
                          scope="form.date.floating"
                          :floating="$customization['floating.default']"
                          :class="$customization['floating.class']"
@@ -84,7 +84,7 @@
                                       class="{{ $customization['label.month'] }}"></span>
                             </button>
                             <button type="button" class="{{ $customization['slot.icon-spacing-right'] }} cursor-pointer" x-on:click="now()" x-show="!monthYearOnly">
-                                {{ trans('ts-ui::messages.date.helpers.today') }}
+                                {{ trans('ts-ui-trippodi::messages.date.helpers.today') }}
                             </button>
                         </div>
                         <template x-for="(months, index) in calendar.months" :key="index">
@@ -108,7 +108,7 @@
                                 <span x-text="range.year.last" class="{{ $customization['label.month'] }}"></span>
                             </div>
                             <button type="button" class="cursor-pointer" x-on:click="now()" x-show="!monthYearOnly">
-                                {{ trans('ts-ui::messages.date.helpers.today') }}
+                                {{ trans('ts-ui-trippodi::messages.date.helpers.today') }}
                             </button>
                             <div>
                                 <button type="button"
@@ -118,8 +118,8 @@
                                         x-on:pointerup="if (interval) { clearInterval(interval); interval = null; }"
                                         x-on:pointerleave="if (interval) { clearInterval(interval); interval = null; }"
                                         x-on:pointercancel="if (interval) { clearInterval(interval); interval = null; }">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('chevron-left')"
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('chevron-left')"
                                                          internal
                                                          class="{{ $customization['icon.navigate'] }}" />
                                 </button>
@@ -130,8 +130,8 @@
                                         x-on:pointerup="if (interval) { clearInterval(interval); interval = null; }"
                                         x-on:pointerleave="if (interval) { clearInterval(interval); interval = null; }"
                                         x-on:pointercancel="if (interval) { clearInterval(interval); interval = null; }">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('chevron-right')"
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('chevron-right')"
                                                          internal
                                                          class="{{ $customization['icon.navigate'] }}" />
                                 </button>
@@ -156,8 +156,8 @@
                         x-on:pointerup="if (interval) { clearInterval(interval); interval = null; }"
                         x-on:pointerleave="if (interval) { clearInterval(interval); interval = null; }"
                         x-on:pointercancel="if (interval) { clearInterval(interval); interval = null; }">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('chevron-left')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('chevron-left')"
                                          internal
                                          class="{{ $customization['icon.navigate'] }}" />
                 </button>
@@ -168,8 +168,8 @@
                         x-on:pointerup="if (interval) { clearInterval(interval); interval = null; }"
                         x-on:pointerleave="if (interval) { clearInterval(interval); interval = null; }"
                         x-on:pointercancel="if (interval) { clearInterval(interval); interval = null; }">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('chevron-right')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('chevron-right')"
                                          internal
                                          class="{{ $customization['icon.navigate'] }}" />
                 </button>
@@ -214,7 +214,7 @@
                                 dusk="tallstackui_date_helper_{{ $helper }}"
                                 x-on:click="helper($event, @js($helper))"
                                 class="{{ $customization['button.helpers'] }}">
-                            {{ trans('ts-ui::messages.date.helpers.' . $helper) }}
+                            {{ trans('ts-ui-trippodi::messages.date.helpers.' . $helper) }}
                         </button>
                     @endforeach
                 </div>

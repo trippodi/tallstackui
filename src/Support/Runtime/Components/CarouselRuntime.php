@@ -1,9 +1,9 @@
 <?php
 
-namespace TallStackUi\Support\Runtime\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
 
-use TallStackUi\Components\Carousel\Component as Carousel;
-use TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\Trippodi\TallStackUi\Components\Carousel\Component as Carousel;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class CarouselRuntime extends AbstractRuntime
 {
@@ -12,7 +12,7 @@ class CarouselRuntime extends AbstractRuntime
         /** @var Carousel $component */
         $component = $this->component;
 
-        $limit = $component->limit ?? __ts_get_component_configuration(Carousel::class, 'limit') ?? 6;
+        $limit = $component->limit ?? __tst_get_component_configuration(Carousel::class, 'limit') ?? 6;
 
         return [
             'visible' => $limit,

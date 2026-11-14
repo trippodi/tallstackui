@@ -1,10 +1,10 @@
 <?php
 
-namespace TallStackUi\Exceptions;
+namespace Trippodi\Trippodi\TallStackUi\Exceptions;
 
 use Exception;
-use TallStackUi\Components\Icon\Component as Icon;
-use TallStackUi\Components\Tooltip\Component as Tooltip;
+use Trippodi\Trippodi\TallStackUi\Components\Icon\Component as Icon;
+use Trippodi\Trippodi\TallStackUi\Components\Tooltip\Component as Tooltip;
 
 class InappropriateIconGuideExecution extends Exception
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Customization\Contracts;
+namespace Trippodi\Trippodi\TallStackUi\Customization\Contracts;
 
 interface Customization
 {

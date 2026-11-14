@@ -35,8 +35,8 @@
                 $customization['button.base'],
                 $customization['button.sizes.'.$size],
             ])>
-        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                             :icon="TallStackUi::icon($icon)"
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                             :icon="TallStackUiTrippodi::icon($icon)"
                              internal
                              @class([$customization['icon.base'], $customization['icon.sizes.'.$size], $colors['icon']])
                              x-bind:class="{ '{{ $customization['icon.rotated'] }}': {{ $preventRotate ? 'false' : 'show' }} }" />

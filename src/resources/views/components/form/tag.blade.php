@@ -6,7 +6,7 @@
     <input hidden name="{{ $property }}" @disabled($disabled)>
 @endif
 
-<x-dynamic-component :component="TallStackUi::prefix('wrapper.input')" :$id :$property :$error :$label :$hint
+<x-dynamic-component :component="TallStackUiTrippodi::prefix('wrapper.input')" :$id :$property :$error :$label :$hint
                      :$invalidate>
     <div x-data="tallstackui_formTag({!! $entangle !!}, @js($limit), @js($lazy), @js($prefix), @js($livewire), @js($property), @js($value), @js($options), @js($listable), @js($disabled), @js($readonly))"
          x-cloak
@@ -26,8 +26,8 @@
                 <span class="{{ $customization['label.base'] }}">
                     <span x-text="tag"></span>
                     <button type="button" {!! $attributes->only('x-on:remove') !!} @disabled($locked) x-on:click="remove(index)">
-                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                             :icon="TallStackUi::icon('x-mark')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                             :icon="TallStackUiTrippodi::icon('x-mark')"
                                              internal
                                              :class="$customization['label.icon']" />
                     </button>
@@ -61,13 +61,13 @@
                 dusk="tallstackui_tag_erase"
                 class="{{ $customization['button.wrapper'] }}"
                 {{ $attributes->only('x-on:erase') }}>
-            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                 :icon="TallStackUi::icon('x-mark')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                 :icon="TallStackUiTrippodi::icon('x-mark')"
                                  internal
                                  :class="$customization['button.icon']" />
         </button>
         @if ($listable)
-            <x-dynamic-component :component="TallStackUi::prefix('floating')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('floating')"
                                  scope="form.tag.floating"
                                  :floating="$customization['floating.default']"
                                  :class="$customization['floating.class']"

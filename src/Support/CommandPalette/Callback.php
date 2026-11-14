@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Support\CommandPalette;
+namespace Trippodi\Trippodi\TallStackUi\Support\CommandPalette;
 
 use Illuminate\Contracts\Support\Arrayable;
 

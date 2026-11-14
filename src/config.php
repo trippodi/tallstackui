@@ -1,6 +1,6 @@
 <?php
 
-use TallStackUi\Components;
+use Trippodi\Trippodi\TallStackUi\Components;
 
 return [
     /*
@@ -15,7 +15,7 @@ return [
     | For example, prefixing as 'ts-', the `alert` usage will be: '<x-ts-alert />'
     |
     */
-    'prefix' => env('TALLSTACKUI_PREFIX'),
+    'prefix' => env('TALLSTACKUI_TRIPPODI_PREFIX', 'tst-'),
 
     /*
     |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ return [
     | The namespace related to classes used for component color personalization.
     |
     */
-    'color_classes_namespace' => env('TALLSTACKUI_COLOR_CLASSES_NAMESPACE', 'App\\View\\Components\\TallStackUi\\Colors'),
+    'color_classes_namespace' => env('TALLSTACKUI_TRIPPODI_COLOR_CLASSES_NAMESPACE', 'App\\View\\Components\\Trippodi\TallStackUi\\Colors'),
 
     /*
     |--------------------------------------------------------------------------
@@ -38,7 +38,7 @@ return [
     | globally, without the need to specific it individually per component.
     |
     */
-    'invalidate_global' => env('TALLSTACKUI_INVALIDATE_GLOBAL', false),
+    'invalidate_global' => env('TALLSTACKUI_TRIPPODI_INVALIDATE_GLOBAL', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +55,7 @@ return [
     | by the first one to open and released only by the last one to close.
     |
     */
-    'floating_scroll_lock' => env('TALLSTACKUI_FLOATING_SCROLL_LOCK', false),
+    'floating_scroll_lock' => env('TALLSTACKUI_TRIPPODI_FLOATING_SCROLL_LOCK', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -66,7 +66,7 @@ return [
     |
     */
     'debug' => [
-        'status' => env('TALLSTACKUI_DEBUG_MODE', false),
+        'status' => env('TALLSTACKUI_TRIPPODI_DEBUG_MODE', false),
 
         /*
         |----------------------------------------------------------------------
@@ -74,7 +74,7 @@ return [
         |----------------------------------------------------------------------
         |
         */
-        'environments' => array_map('trim', explode(',', env('TALLSTACKUI_DEBUG_ENVIRONMENTS', 'local,sandbox,staging'))),
+        'environments' => array_map('trim', explode(',', env('TALLSTACKUI_TRIPPODI_DEBUG_ENVIRONMENTS', 'local,sandbox,staging'))),
 
         /*
         |----------------------------------------------------------------------
@@ -570,7 +570,7 @@ return [
                 | Allowed: heroicons, BladeUI or anonymous Blade components as svg (check the docs).
                 |
                 */
-                'type' => env('TALLSTACKUI_ICON_TYPE', 'heroicons'),
+                'type' => env('TALLSTACKUI_TRIPPODI_ICON_TYPE', 'heroicons'),
 
                 /*
                 |----------------------------------
@@ -579,7 +579,7 @@ return [
                 | Allowed: solid, outline (Heroicons only).
                 |
                 */
-                'style' => env('TALLSTACKUI_ICON_STYLE', 'solid'),
+                'style' => env('TALLSTACKUI_TRIPPODI_ICON_STYLE', 'solid'),
 
                 /*
                 |----------------------------------
@@ -678,7 +678,7 @@ return [
             |
             */
             [
-                'ignore' => env('TALLSTACKUI_IGNORE_LAYOUT_REGISTRATION', false),
+                'ignore' => env('TALLSTACKUI_TRIPPODI_IGNORE_LAYOUT_REGISTRATION', false),
             ],
         ],
         'layout.header' => [

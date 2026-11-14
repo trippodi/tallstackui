@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Signature;
+namespace Trippodi\Trippodi\TallStackUi\Components\Signature;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component;

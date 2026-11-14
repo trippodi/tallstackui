@@ -1,16 +1,16 @@
 <?php
 
-namespace TallStackUi\Components\Dropdown\Main;
+namespace Trippodi\Trippodi\TallStackUi\Components\Dropdown\Main;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Floating\Component as Floating;
-use TallStackUi\Components\Traits\DropdownSharedTransitions;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Exceptions\InvalidSelectedPositionException;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Floating\Component as Floating;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\DropdownSharedTransitions;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Exceptions\InvalidSelectedPositionException;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('dropdown')]
 class Component extends TallStackUiComponent implements Customization
@@ -41,7 +41,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.dropdown.main');
+        return view('ts-ui-trippodi::components.dropdown.main');
     }
 
     public function customization(): array
@@ -82,7 +82,7 @@ class Component extends TallStackUiComponent implements Customization
         $allowed = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'];
 
         if (! in_array($this->width, $allowed, true)) {
-            __ts_validation_exception($this, 'The [width] must be one of: '.implode(', ', $allowed).'.');
+            __tst_validation_exception($this, 'The [width] must be one of: '.implode(', ', $allowed).'.');
         }
     }
 }

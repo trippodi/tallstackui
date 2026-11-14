@@ -1,6 +1,6 @@
 <?php
 
-use TallStackUi\Components\Tab\Main\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Tab\Main\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -101,20 +101,20 @@ it('can render the flat look through the global configuration', function () {
     </x-tab>
     HTML;
 
-    config()->set('ts-ui.components.tab.1.shadowless', true);
-    config()->set('ts-ui.components.tab.1.bordered', true);
+    config()->set('ts-ui-trippodi.components.tab.1.shadowless', true);
+    config()->set('ts-ui-trippodi.components.tab.1.bordered', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect($component)->render()
             ->toContain('shadow-none!')
             ->toContain('border border-gray-200');
     } finally {
-        config()->set('ts-ui.components.tab.1.shadowless', false);
-        config()->set('ts-ui.components.tab.1.bordered', false);
+        config()->set('ts-ui-trippodi.components.tab.1.shadowless', false);
+        config()->set('ts-ui-trippodi.components.tab.1.bordered', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
@@ -127,20 +127,20 @@ it('can let the flat look props win over the global configuration', function () 
     </x-tab>
     HTML;
 
-    config()->set('ts-ui.components.tab.1.shadowless', true);
-    config()->set('ts-ui.components.tab.1.bordered', true);
+    config()->set('ts-ui-trippodi.components.tab.1.shadowless', true);
+    config()->set('ts-ui-trippodi.components.tab.1.bordered', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect($component)->render()
             ->not->toContain('shadow-none!')
             ->not->toContain('border border-gray-200');
     } finally {
-        config()->set('ts-ui.components.tab.1.shadowless', false);
-        config()->set('ts-ui.components.tab.1.bordered', false);
+        config()->set('ts-ui-trippodi.components.tab.1.shadowless', false);
+        config()->set('ts-ui-trippodi.components.tab.1.bordered', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 

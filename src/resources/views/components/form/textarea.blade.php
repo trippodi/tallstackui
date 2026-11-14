@@ -2,7 +2,7 @@
     $customization = $classes();
 @endphp
 
-<x-dynamic-component :component="TallStackUi::prefix('wrapper.input')" :$id :$property :$error :$label :$hint
+<x-dynamic-component :component="TallStackUiTrippodi::prefix('wrapper.input')" :$id :$property :$error :$label :$hint
                      :$invalidate>
     <div x-data="tallstackui_formTextArea(@js($resizeAuto), @js($customization['count.max']))">
         <div @class([

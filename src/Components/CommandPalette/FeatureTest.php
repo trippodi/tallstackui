@@ -2,14 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\ViewException;
-use TallStackUi\Components\CommandPalette\Component;
+use Trippodi\Trippodi\TallStackUi\Components\CommandPalette\Component;
 use Tests\Support\CommandPaletteActionableStub;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
 
 afterEach(function () {
-    config()->set('ts-ui.components.command-palette', [
+    config()->set('ts-ui-trippodi.components.command-palette', [
         Component::class,
         [
             'actionable' => null,
@@ -24,7 +24,7 @@ afterEach(function () {
         ],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can render', function () {
@@ -170,7 +170,7 @@ it('shows keyboard hints by default', function () {
 });
 
 it('hides keyboard hints when elements config is false', function () {
-    config()->set('ts-ui.components.command-palette', [
+    config()->set('ts-ui-trippodi.components.command-palette', [
         Component::class,
         [
             'actionable' => null,
@@ -185,7 +185,7 @@ it('hides keyboard hints when elements config is false', function () {
         ],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $component = <<<'HTML'
     <x-command-palette request="https://example.com/search" select="label:title|value:id" />
@@ -208,7 +208,7 @@ it('renders with custom scrollbar by default', function () {
 });
 
 it('renders without custom scrollbar when disabled', function () {
-    config()->set('ts-ui.components.command-palette', [
+    config()->set('ts-ui-trippodi.components.command-palette', [
         Component::class,
         [
             'actionable' => null,
@@ -223,7 +223,7 @@ it('renders without custom scrollbar when disabled', function () {
         ],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $component = <<<'HTML'
     <x-command-palette request="https://example.com/search" select="label:title|value:id" />
@@ -266,7 +266,7 @@ it('renders icon template in options', function () {
 // --- Config fallback tests ---
 
 it('can render with request from config as string url', function () {
-    config()->set('ts-ui.components.command-palette', [
+    config()->set('ts-ui-trippodi.components.command-palette', [
         Component::class,
         [
             'actionable' => null,
@@ -281,7 +281,7 @@ it('can render with request from config as string url', function () {
         ],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-command-palette />')->render()
         ->toContain('tallstackui_commandPalette')
@@ -289,7 +289,7 @@ it('can render with request from config as string url', function () {
 });
 
 it('can render with request from config as array', function () {
-    config()->set('ts-ui.components.command-palette', [
+    config()->set('ts-ui-trippodi.components.command-palette', [
         Component::class,
         [
             'actionable' => null,
@@ -304,7 +304,7 @@ it('can render with request from config as array', function () {
         ],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-command-palette />')->render()
         ->toContain('tallstackui_commandPalette')
@@ -312,7 +312,7 @@ it('can render with request from config as array', function () {
 });
 
 it('inline request overrides config request', function () {
-    config()->set('ts-ui.components.command-palette', [
+    config()->set('ts-ui-trippodi.components.command-palette', [
         Component::class,
         [
             'actionable' => null,
@@ -327,7 +327,7 @@ it('inline request overrides config request', function () {
         ],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $component = <<<'HTML'
     <x-command-palette request="https://example.com/inline-search" select="label:title|value:id" />
@@ -339,7 +339,7 @@ it('inline request overrides config request', function () {
 });
 
 it('can render with select from config', function () {
-    config()->set('ts-ui.components.command-palette', [
+    config()->set('ts-ui-trippodi.components.command-palette', [
         Component::class,
         [
             'actionable' => null,
@@ -355,7 +355,7 @@ it('can render with select from config', function () {
         ],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-command-palette request="https://example.com/search" />')->render()
         ->toContain('\\u0022label\\u0022:\\u0022name\\u0022')
@@ -365,7 +365,7 @@ it('can render with select from config', function () {
 });
 
 it('inline select overrides config select', function () {
-    config()->set('ts-ui.components.command-palette', [
+    config()->set('ts-ui-trippodi.components.command-palette', [
         Component::class,
         [
             'actionable' => null,
@@ -381,7 +381,7 @@ it('inline select overrides config select', function () {
         ],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $component = <<<'HTML'
     <x-command-palette request="https://example.com/search" select="label:title|value:uuid" />
@@ -416,7 +416,7 @@ it('can resolve route name as request', function () {
 it('can resolve route name from config', function () {
     Route::get('/global-command-palette-search', fn () => [])->name('global.command.palette.search');
 
-    config()->set('ts-ui.components.command-palette', [
+    config()->set('ts-ui-trippodi.components.command-palette', [
         Component::class,
         [
             'actionable' => null,
@@ -431,7 +431,7 @@ it('can resolve route name from config', function () {
         ],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-command-palette />')->render()
         ->toContain('tallstackui_commandPalette')
@@ -460,7 +460,7 @@ it('recycle is true by default', function () {
 });
 
 it('recycle can be disabled via config', function () {
-    config()->set('ts-ui.components.command-palette', [
+    config()->set('ts-ui-trippodi.components.command-palette', [
         Component::class,
         [
             'actionable' => null,
@@ -475,7 +475,7 @@ it('recycle can be disabled via config', function () {
         ],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $component = <<<'HTML'
     <x-command-palette request="https://example.com/search" select="label:title|value:id" />
@@ -486,7 +486,7 @@ it('recycle can be disabled via config', function () {
 });
 
 it('inline recycle overrides config recycle', function () {
-    config()->set('ts-ui.components.command-palette', [
+    config()->set('ts-ui-trippodi.components.command-palette', [
         Component::class,
         [
             'actionable' => null,
@@ -501,7 +501,7 @@ it('inline recycle overrides config recycle', function () {
         ],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $component = <<<'HTML'
     <x-command-palette request="https://example.com/search" select="label:title|value:id" recycle />
@@ -523,7 +523,7 @@ it('shortcut defaults to ctrl.k', function () {
 });
 
 it('shortcut can be changed via config', function () {
-    config()->set('ts-ui.components.command-palette', [
+    config()->set('ts-ui-trippodi.components.command-palette', [
         Component::class,
         [
             'actionable' => null,
@@ -538,7 +538,7 @@ it('shortcut can be changed via config', function () {
         ],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $component = <<<'HTML'
     <x-command-palette request="https://example.com/search" select="label:title|value:id" />
@@ -549,7 +549,7 @@ it('shortcut can be changed via config', function () {
 });
 
 it('inline shortcut overrides config shortcut', function () {
-    config()->set('ts-ui.components.command-palette', [
+    config()->set('ts-ui-trippodi.components.command-palette', [
         Component::class,
         [
             'actionable' => null,
@@ -564,7 +564,7 @@ it('inline shortcut overrides config shortcut', function () {
         ],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $component = <<<'HTML'
     <x-command-palette request="https://example.com/search" select="label:title|value:id" shortcut="meta.k" />
@@ -589,7 +589,7 @@ it('renders footer with x-show for conditional visibility', function () {
 });
 
 it('cannot use non-existent actionable class', function () {
-    config()->set('ts-ui.components.command-palette', [
+    config()->set('ts-ui-trippodi.components.command-palette', [
         Component::class,
         [
             'actionable' => 'App\\NonExistent\\FakeClass',
@@ -604,7 +604,7 @@ it('cannot use non-existent actionable class', function () {
         ],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $this->expectException(ViewException::class);
     $this->expectExceptionMessage('[TallStackUI] CommandPalette: The [actionable] class does not exist.');
@@ -613,7 +613,7 @@ it('cannot use non-existent actionable class', function () {
 });
 
 it('cannot use non-invocable actionable class', function () {
-    config()->set('ts-ui.components.command-palette', [
+    config()->set('ts-ui-trippodi.components.command-palette', [
         Component::class,
         [
             'actionable' => TestCase::class,
@@ -628,7 +628,7 @@ it('cannot use non-invocable actionable class', function () {
         ],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $this->expectException(ViewException::class);
     $this->expectExceptionMessage('[TallStackUI] CommandPalette: The [actionable] class must be invocable (__invoke).');
@@ -646,7 +646,7 @@ it('renders with null actionable by default', function () {
 });
 
 it('passes action url when actionable is configured', function () {
-    config()->set('ts-ui.components.command-palette', [
+    config()->set('ts-ui-trippodi.components.command-palette', [
         Component::class,
         [
             'actionable' => CommandPaletteActionableStub::class,
@@ -661,7 +661,7 @@ it('passes action url when actionable is configured', function () {
         ],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $component = <<<'HTML'
     <x-command-palette request="https://example.com/search" select="label:title|value:id" />

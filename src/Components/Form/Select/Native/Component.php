@@ -1,17 +1,17 @@
 <?php
 
-namespace TallStackUi\Components\Form\Select\Native;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Select\Native;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Traits\FormDefaultInputClasses;
-use TallStackUi\Components\Traits\SelectSetup;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\SelectNativeRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\FormDefaultInputClasses;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\SelectSetup;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\SelectNativeRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('select.native')]
 #[PassThroughRuntime(SelectNativeRuntime::class)]
@@ -34,7 +34,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.select.native');
+        return view('ts-ui-trippodi::components.form.select.native');
     }
 
     public function customization(): array

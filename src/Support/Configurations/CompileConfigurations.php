@@ -1,28 +1,28 @@
 <?php
 
-namespace TallStackUi\Support\Configurations;
+namespace Trippodi\Trippodi\TallStackUi\Support\Configurations;
 
 use Exception;
 use Illuminate\Support\Facades\URL;
-use TallStackUi\Components\Chart\Component as Chart;
-use TallStackUi\Components\CommandPalette\Component as CommandPalette;
-use TallStackUi\Components\Dialog\Component as Dialog;
-use TallStackUi\Components\Editor\Component as Editor;
-use TallStackUi\Components\Form\Autocomplete\Component as Autocomplete;
-use TallStackUi\Components\Form\Color\Component as Color;
-use TallStackUi\Components\Form\Currency\Component as Currency;
-use TallStackUi\Components\Form\Number\Component as Number;
-use TallStackUi\Components\Form\Select\Styled\Component as SelectStyled;
-use TallStackUi\Components\Gallery\Component as Gallery;
-use TallStackUi\Components\Kbd\Component as Kbd;
-use TallStackUi\Components\Link\Component as Link;
-use TallStackUi\Components\Loading\Component as Loading;
-use TallStackUi\Components\Modal\Component as Modal;
-use TallStackUi\Components\QrCode\Component as QrCode;
-use TallStackUi\Components\Reaction\Component as Reaction;
-use TallStackUi\Components\Slide\Component as Slide;
-use TallStackUi\Components\Toast\Component as Toast;
-use TallStackUi\Support\Miscellaneous\EditorOutputClasses;
+use Trippodi\Trippodi\TallStackUi\Components\Chart\Component as Chart;
+use Trippodi\Trippodi\TallStackUi\Components\CommandPalette\Component as CommandPalette;
+use Trippodi\Trippodi\TallStackUi\Components\Dialog\Component as Dialog;
+use Trippodi\Trippodi\TallStackUi\Components\Editor\Component as Editor;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Autocomplete\Component as Autocomplete;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Color\Component as Color;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Currency\Component as Currency;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Number\Component as Number;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Select\Styled\Component as SelectStyled;
+use Trippodi\Trippodi\TallStackUi\Components\Gallery\Component as Gallery;
+use Trippodi\Trippodi\TallStackUi\Components\Kbd\Component as Kbd;
+use Trippodi\Trippodi\TallStackUi\Components\Link\Component as Link;
+use Trippodi\Trippodi\TallStackUi\Components\Loading\Component as Loading;
+use Trippodi\Trippodi\TallStackUi\Components\Modal\Component as Modal;
+use Trippodi\Trippodi\TallStackUi\Components\QrCode\Component as QrCode;
+use Trippodi\Trippodi\TallStackUi\Components\Reaction\Component as Reaction;
+use Trippodi\Trippodi\TallStackUi\Components\Slide\Component as Slide;
+use Trippodi\Trippodi\TallStackUi\Components\Toast\Component as Toast;
+use Trippodi\Trippodi\TallStackUi\Support\Miscellaneous\EditorOutputClasses;
 
 /**
  * @internal
@@ -63,7 +63,7 @@ class CompileConfigurations
         // config file and make a direct mapping, so there is no need
         // to create a method for each component.
         if (is_string($data)) {
-            $data = __ts_get_component_configuration($data);
+            $data = __tst_get_component_configuration($data);
         }
 
         return $data;
@@ -76,7 +76,7 @@ class CompileConfigurations
      */
     private static function autocomplete(Autocomplete $component): array
     {
-        $configuration = __ts_get_component_configuration(Autocomplete::class);
+        $configuration = __tst_get_component_configuration(Autocomplete::class);
 
         $component->strict ??= $configuration['strict'] ?? false;
 
@@ -90,7 +90,7 @@ class CompileConfigurations
      */
     private static function chart(Chart $component): array
     {
-        $configuration = __ts_get_component_configuration(Chart::class);
+        $configuration = __tst_get_component_configuration(Chart::class);
 
         $component->height ??= $configuration['height'] ?? 64;
         $component->legend ??= $configuration['legend'] ?? false;
@@ -117,7 +117,7 @@ class CompileConfigurations
      */
     private static function color(Color $component): array
     {
-        $configuration = __ts_get_component_configuration(Color::class);
+        $configuration = __tst_get_component_configuration(Color::class);
 
         $component->colors ??= $configuration['colors'] ?? [];
         $component->picker ??= $configuration['picker'] ?? false;
@@ -136,7 +136,7 @@ class CompileConfigurations
 
     private static function commandPalette(CommandPalette $component): array
     {
-        $configuration = __ts_get_component_configuration(CommandPalette::class);
+        $configuration = __tst_get_component_configuration(CommandPalette::class);
 
         $actionable = $configuration['actionable'] ?? null;
 
@@ -161,7 +161,7 @@ class CompileConfigurations
 
     private static function currency(Currency $component): array
     {
-        $configuration = __ts_get_component_configuration(Currency::class);
+        $configuration = __tst_get_component_configuration(Currency::class);
 
         $component->mutate ??= $configuration['mutate'] ?? false;
         $component->decimal ??= $configuration['decimal'] ?? false;
@@ -176,7 +176,7 @@ class CompileConfigurations
      */
     private static function editor(Editor $component): array
     {
-        $configuration = __ts_get_component_configuration(Editor::class);
+        $configuration = __tst_get_component_configuration(Editor::class);
 
         $component->markdown ??= $configuration['markdown'];
         $component->outputClasses ??= $configuration['output_classes'];
@@ -186,7 +186,7 @@ class CompileConfigurations
         $component->maxHeight ??= $configuration['max_height'];
         $component->uploadMimes ??= $configuration['upload']['mimes'];
         $component->uploadMaxSize ??= $configuration['upload']['max_size'];
-        $component->placeholder ??= trans('ts-ui::messages.editor.placeholder');
+        $component->placeholder ??= trans('ts-ui-trippodi::messages.editor.placeholder');
 
         $prefix = is_string($component->outputClasses)
             ? $component->outputClasses
@@ -215,7 +215,7 @@ class CompileConfigurations
      */
     private static function gallery(Gallery $component): array
     {
-        $configuration = __ts_get_component_configuration(Gallery::class);
+        $configuration = __tst_get_component_configuration(Gallery::class);
 
         $layout = match (true) {
             (bool) $component->masonry => 'masonry',
@@ -264,7 +264,7 @@ class CompileConfigurations
      */
     private static function kbd(Kbd $component): array
     {
-        $configuration = __ts_get_component_configuration(Kbd::class);
+        $configuration = __tst_get_component_configuration(Kbd::class);
 
         $component->borderless ??= $configuration['borderless'] ?? false;
         $component->shadowless ??= $configuration['shadowless'] ?? false;
@@ -282,7 +282,7 @@ class CompileConfigurations
      */
     private static function link(Link $component): array
     {
-        $configuration = __ts_get_component_configuration(Link::class);
+        $configuration = __tst_get_component_configuration(Link::class);
 
         // Both are mutually exclusive, so deciding either one of
         // them inline suppresses the global default of both.
@@ -302,7 +302,7 @@ class CompileConfigurations
      */
     private static function loading(Loading $component): array
     {
-        $configuration = __ts_get_component_configuration(Loading::class);
+        $configuration = __tst_get_component_configuration(Loading::class);
 
         $component->zIndex ??= $configuration['z-index'] ?? 'z-50';
         $component->overflow ??= $configuration['overflow'] ?? false;
@@ -322,7 +322,7 @@ class CompileConfigurations
      */
     private static function modal(Modal $component): array
     {
-        $configuration = __ts_get_component_configuration(Modal::class);
+        $configuration = __tst_get_component_configuration(Modal::class);
 
         $component->zIndex ??= $configuration['z-index'] ?? 'z-50';
         $component->overflow ??= $configuration['overflow'] ?? false;
@@ -372,7 +372,7 @@ class CompileConfigurations
      */
     private static function number(Number $component): array
     {
-        $configuration = __ts_get_component_configuration(Number::class);
+        $configuration = __tst_get_component_configuration(Number::class);
 
         $component->centralized ??= $configuration['centralized'] ?? false;
         $component->selectable ??= $configuration['selectable'] ?? false;
@@ -394,7 +394,7 @@ class CompileConfigurations
      */
     private static function qrCode(QrCode $component): array
     {
-        $configuration = __ts_get_component_configuration(QrCode::class);
+        $configuration = __tst_get_component_configuration(QrCode::class);
 
         $component->size ??= $configuration['size'] ?? 'md';
 
@@ -408,7 +408,7 @@ class CompileConfigurations
      */
     private static function reaction(Reaction $component): array
     {
-        $configuration = __ts_get_component_configuration(Reaction::class) ?? [];
+        $configuration = __tst_get_component_configuration(Reaction::class) ?? [];
 
         // Inline prop, then config.php, then the flash global as a last
         // resort when neither side named a delay.
@@ -416,7 +416,7 @@ class CompileConfigurations
         $component->balloon ??= $configuration['balloon'] ?? null;
         $component->hover ??= $configuration['hover'] ?? false;
 
-        if ($component->delay === null && __ts_global('flash', $component::class)) {
+        if ($component->delay === null && __tst_global('flash', $component::class)) {
             $component->delay = 'flash';
         }
 
@@ -429,7 +429,7 @@ class CompileConfigurations
 
     private static function select(SelectStyled $component): array
     {
-        $configuration = __ts_get_component_configuration(SelectStyled::class);
+        $configuration = __tst_get_component_configuration(SelectStyled::class);
 
         $component->recycle ??= $configuration['recycle'] ?? false;
         $component->unfiltered ??= $configuration['unfiltered'] ?? false;
@@ -442,7 +442,7 @@ class CompileConfigurations
      */
     private static function slide(Slide $component): array
     {
-        $configuration = __ts_get_component_configuration(Slide::class);
+        $configuration = __tst_get_component_configuration(Slide::class);
 
         $component->zIndex ??= $configuration['z-index'] ?? 'z-50';
         $component->overflow ??= $configuration['overflow'] ?? false;

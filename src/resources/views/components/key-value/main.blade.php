@@ -11,8 +11,8 @@
             $customization['header.neutral'] => blank($colors['header'] ?? null),
             $colors['header'] ?? '' => true,
         ])>
-        <p class="{{ $customization['header.key'] }}">{{ $label ?? trans('ts-ui::messages.key-value.headers.key') }}</p>
-        <p class="{{ $customization['header.value'] }}">{{ $value ?? trans('ts-ui::messages.key-value.headers.value') }}</p>
+        <p class="{{ $customization['header.key'] }}">{{ $label ?? trans('ts-ui-trippodi::messages.key-value.headers.key') }}</p>
+        <p class="{{ $customization['header.value'] }}">{{ $value ?? trans('ts-ui-trippodi::messages.key-value.headers.value') }}</p>
         @if ($header)
             {{ $header }}
         @endif
@@ -24,7 +24,7 @@
              ])
              dusk="tallstackui_empty_message"
              x-show="rows.length === 0">
-            <p class="{{ $customization['empty.text'] }}">{{ trans('ts-ui::messages.key-value.empty') }}</p>
+            <p class="{{ $customization['empty.text'] }}">{{ trans('ts-ui-trippodi::messages.key-value.empty') }}</p>
         </div>
         <template x-for="(row, index) in rows" :key="row.index ?? index">
             <div @class([
@@ -38,7 +38,7 @@
                            x-on:keyup.enter="sync"
                            dusk="tallstackui_input_key"
                            @readonly($static)
-                           @if ($placeholders) placeholder="{{ trans('ts-ui::messages.key-value.placeholders.key') }}"
+                           @if ($placeholders) placeholder="{{ trans('ts-ui-trippodi::messages.key-value.placeholders.key') }}"
                            @endif
                            class="{{ $customization['list.input.key'] }}" />
                 </div>
@@ -52,7 +52,7 @@
                                x-on:keyup.shift.enter="add"
                                x-on:keyup.enter="sync"
                                dusk="tallstackui_input_value"
-                               @if ($placeholders) placeholder="{{ trans('ts-ui::messages.key-value.placeholders.value') }}"
+                               @if ($placeholders) placeholder="{{ trans('ts-ui-trippodi::messages.key-value.placeholders.value') }}"
                                @endif
                                @readonly($static)
                                class="{{ $customization['list.input.value'] }}" />
@@ -65,8 +65,8 @@
                             @if ($icon instanceof \Illuminate\View\ComponentSlot)
                                 {{ $icon }}
                             @else
-                                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                     :icon="TallStackUi::icon($icon ?? 'trash')"
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                     :icon="TallStackUiTrippodi::icon($icon ?? 'trash')"
                                                      dusk="tallstackui_delete_row_button"
                                                      internal
                                                      class="{{ $customization['button.delete'] }}" />
@@ -88,6 +88,6 @@
                 $colors['button'] ?? '' => true,
             ])
             x-show="addable">
-        {{ trans('ts-ui::messages.key-value.add-row') }}
+        {{ trans('ts-ui-trippodi::messages.key-value.add-row') }}
     </button>
 </div>

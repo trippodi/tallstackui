@@ -1,8 +1,8 @@
 <?php
 
-namespace TallStackUi\Support\Colors\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Colors\Components;
 
-use TallStackUi\Support\Colors\Concerns\SetupColors;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Concerns\SetupColors;
 
 class IconColors
 {

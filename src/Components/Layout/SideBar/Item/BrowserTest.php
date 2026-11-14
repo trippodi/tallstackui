@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Layout\SideBar\Item;
+namespace Trippodi\Trippodi\TallStackUi\Components\Layout\SideBar\Item;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component;

@@ -1,11 +1,11 @@
 <?php
 
-namespace TallStackUi\Support\Colors;
+namespace Trippodi\Trippodi\TallStackUi\Support\Colors;
 
 use Exception;
 use Illuminate\View\Component;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Support\Miscellaneous\ReflectComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Support\Miscellaneous\ReflectComponent;
 
 /**
  * @internal

@@ -1,17 +1,17 @@
 <?php
 
-namespace TallStackUi\Components\CommandPalette;
+namespace Trippodi\Trippodi\TallStackUi\Components\CommandPalette;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Traits\SelectSetup;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\CommandPaletteRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\SelectSetup;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\CommandPaletteRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 use Throwable;
 
 #[SoftCustomization('commandPalette')]
@@ -37,16 +37,16 @@ class Component extends TallStackUiComponent implements Customization
         #[SkipDebug]
         public ?string $select = null,
     ) {
-        $this->request ??= __ts_get_component_configuration(self::class, 'request');
+        $this->request ??= __tst_get_component_configuration(self::class, 'request');
 
         $this->request();
 
-        $this->placeholders = array_merge(trans('ts-ui::messages.command-palette'), $this->placeholders ?? []);
+        $this->placeholders = array_merge(trans('ts-ui-trippodi::messages.command-palette'), $this->placeholders ?? []);
     }
 
     public function blade(): View
     {
-        return view('ts-ui::components.command-palette.main');
+        return view('ts-ui-trippodi::components.command-palette.main');
     }
 
     public function customization(): array
@@ -98,7 +98,7 @@ class Component extends TallStackUiComponent implements Customization
 
     protected function setup(): void
     {
-        $this->select ??= __ts_get_component_configuration(self::class, 'select')
+        $this->select ??= __tst_get_component_configuration(self::class, 'select')
             ?? 'label:label|value:value|description:description|image:image|icon:icon';
 
         $this->boot();
@@ -123,17 +123,17 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if (! filled($this->request)) {
-            __ts_validation_exception($this, 'The [request] must be configured either as an inline attribute or in the config file.');
+            __tst_validation_exception($this, 'The [request] must be configured either as an inline attribute or in the config file.');
         }
 
-        $actionable = __ts_get_component_configuration(self::class, 'actionable');
+        $actionable = __tst_get_component_configuration(self::class, 'actionable');
 
         if ($actionable !== null && ! class_exists($actionable)) {
-            __ts_validation_exception($this, 'The [actionable] class does not exist.');
+            __tst_validation_exception($this, 'The [actionable] class does not exist.');
         }
 
         if ($actionable !== null && ! method_exists($actionable, '__invoke')) {
-            __ts_validation_exception($this, 'The [actionable] class must be invocable (__invoke).');
+            __tst_validation_exception($this, 'The [actionable] class must be invocable (__invoke).');
         }
 
         if (! is_array($this->request)) {
@@ -141,17 +141,17 @@ class Component extends TallStackUiComponent implements Customization
         }
 
         if (! isset($this->request['url'])) {
-            __ts_validation_exception($this, 'The attribute [url] is required in the request array.');
+            __tst_validation_exception($this, 'The attribute [url] is required in the request array.');
         }
 
         $this->request['method'] = strtolower((string) ($this->request['method'] ?? 'get'));
 
         if (! in_array($this->request['method'], ['get', 'post'])) {
-            __ts_validation_exception($this, 'The attribute [method] must be "get" or "post".');
+            __tst_validation_exception($this, 'The attribute [method] must be "get" or "post".');
         }
 
         if (isset($this->request['params']) && (! is_array($this->request['params']) || blank($this->request['params']))) {
-            __ts_validation_exception($this, 'The attribute [params] must be an array and cannot be empty.');
+            __tst_validation_exception($this, 'The attribute [params] must be an array and cannot be empty.');
         }
     }
 

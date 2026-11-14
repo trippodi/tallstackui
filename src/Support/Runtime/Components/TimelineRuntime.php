@@ -1,8 +1,8 @@
 <?php
 
-namespace TallStackUi\Support\Runtime\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
 
-use TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class TimelineRuntime extends AbstractRuntime
 {
@@ -15,7 +15,7 @@ class TimelineRuntime extends AbstractRuntime
         $slot = $this->data('slot');
 
         if ($items !== null && $items !== [] && $slot !== null && trim((string) $slot) !== '') {
-            __ts_validation_exception($this->component, 'Cannot pass both [:items] and slot content simultaneously. Choose one.');
+            __tst_validation_exception($this->component, 'Cannot pass both [:items] and slot content simultaneously. Choose one.');
         }
 
         $computed = [];

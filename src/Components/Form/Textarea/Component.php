@@ -1,17 +1,17 @@
 <?php
 
-namespace TallStackUi\Components\Form\Textarea;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Textarea;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
 use InvalidArgumentException;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Traits\FormDefaultInputClasses;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\TextareaRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\FormDefaultInputClasses;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\TextareaRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.textarea')]
 #[PassThroughRuntime(TextareaRuntime::class)]
@@ -32,7 +32,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.textarea');
+        return view('ts-ui-trippodi::components.form.textarea');
     }
 
     public function customization(): array
@@ -51,7 +51,7 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if ($this->attributes->has('rows') && $this->resizeAuto) {
-            __ts_validation_exception($this, 'The textarea cannot be used with [rows] and [resize-auto] at the same time because the rows will have no effect since resizing is automatic.');
+            __tst_validation_exception($this, 'The textarea cannot be used with [rows] and [resize-auto] at the same time because the rows will have no effect since resizing is automatic.');
         }
     }
 }

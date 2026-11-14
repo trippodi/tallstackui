@@ -1,9 +1,9 @@
 <?php
 
-namespace TallStackUi\Components\Step\Items;
+namespace Trippodi\Trippodi\TallStackUi\Components\Step\Items;
 
 use Illuminate\Contracts\View\View;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 class Component extends TallStackUiComponent
 {
@@ -19,6 +19,6 @@ class Component extends TallStackUiComponent
 
     public function blade(): View
     {
-        return view('ts-ui::components.step.items');
+        return view('ts-ui-trippodi::components.step.items');
     }
 }

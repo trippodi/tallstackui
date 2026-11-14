@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Carousel\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Carousel\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -190,39 +190,39 @@ it('applies round to the thumbnail tiles', function () {
 });
 
 it('can render the thumbnails through the global configuration', function () {
-    config()->set('ts-ui.components.carousel.1.thumbnails', true);
+    config()->set('ts-ui-trippodi.components.carousel.1.thumbnails', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $images = [['src' => 'a.jpg', 'alt' => 'a'], ['src' => 'b.jpg', 'alt' => 'b']];
 
     expect('<x-carousel :images="$images" />')->render(['images' => $images])
         ->toContain('tallstackui_carousel_thumbnails');
 
-    config()->set('ts-ui.components.carousel.1.thumbnails', false);
+    config()->set('ts-ui-trippodi.components.carousel.1.thumbnails', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can suppress the global thumbnails through the inline prop', function () {
-    config()->set('ts-ui.components.carousel.1.thumbnails', true);
+    config()->set('ts-ui-trippodi.components.carousel.1.thumbnails', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $images = [['src' => 'a.jpg', 'alt' => 'a'], ['src' => 'b.jpg', 'alt' => 'b']];
 
     expect('<x-carousel :thumbnails="false" :images="$images" />')->render(['images' => $images])
         ->not->toContain('tallstackui_carousel_thumbnails');
 
-    config()->set('ts-ui.components.carousel.1.thumbnails', false);
+    config()->set('ts-ui-trippodi.components.carousel.1.thumbnails', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can render the limit through the global configuration', function () {
-    config()->set('ts-ui.components.carousel.1.limit', 3);
+    config()->set('ts-ui-trippodi.components.carousel.1.limit', 3);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $images = collect(range(1, 5))->map(fn (int $index) => ['src' => "{$index}.jpg", 'alt' => "image-{$index}"])->toArray();
 
@@ -230,9 +230,9 @@ it('can render the limit through the global configuration', function () {
         ->toContain('index + 1 === 3')
         ->toContain('+2</span>');
 
-    config()->set('ts-ui.components.carousel.1.limit', 6);
+    config()->set('ts-ui-trippodi.components.carousel.1.limit', 6);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('cannot use limit without thumbnails', function () {
@@ -286,9 +286,9 @@ it('cannot use without-highlight without thumbnails', function () {
 });
 
 it('can render the thumbnails without the highlight through the global configuration', function () {
-    config()->set('ts-ui.components.carousel.1.without-highlight', true);
+    config()->set('ts-ui-trippodi.components.carousel.1.without-highlight', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $images = [['src' => 'a.jpg', 'alt' => 'a'], ['src' => 'b.jpg', 'alt' => 'b']];
 
@@ -302,9 +302,9 @@ it('can render the thumbnails without the highlight through the global configura
     expect('<x-carousel :images="$images" />')->render(['images' => $images])
         ->not->toContain('tallstackui_carousel_thumbnails');
 
-    config()->set('ts-ui.components.carousel.1.without-highlight', false);
+    config()->set('ts-ui-trippodi.components.carousel.1.without-highlight', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('renders the slides without the backdrop when no image sets it', function (array $images) {

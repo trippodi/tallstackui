@@ -1,17 +1,17 @@
 <?php
 
-namespace TallStackUi\Components\Environment;
+namespace Trippodi\Trippodi\TallStackUi\Components\Environment;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\EnvironmentColors;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\EnvironmentColors;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('environment')]
 #[ColorsThroughOf(EnvironmentColors::class)]
@@ -43,7 +43,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.environment.main');
+        return view('ts-ui-trippodi::components.environment.main');
     }
 
     public function customization(): array
@@ -81,7 +81,7 @@ class Component extends TallStackUiComponent implements Customization
         $sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
 
         if (! in_array($this->round, $sizes, true)) {
-            __ts_validation_exception($this, 'The [round] must be true or one of: ['.implode(', ', $sizes).'].');
+            __tst_validation_exception($this, 'The [round] must be true or one of: ['.implode(', ', $sizes).'].');
         }
     }
 

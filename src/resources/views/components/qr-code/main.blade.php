@@ -13,7 +13,7 @@
          @class([$customization['code'], $customization['sizes.' . $scale], $colors['text']])>
         <path fill="currentColor" shape-rendering="crispEdges" d="{{ $path }}" />
         @if ($mark && $mark['type'] === 'icon')
-            <x-dynamic-component :component="TallStackUi::prefix('icon')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
                                  :icon="$mark['value']"
                                  internal
                                  class="{{ $customization['watermark.icon'] }}"
@@ -40,16 +40,16 @@
                 <button type="button"
                         x-on:click="copy()"
                         class="{{ $customization['actions.button'] }}"
-                        title="{{ __('ts-ui::messages.qr-code.copy') }}"
-                        aria-label="{{ __('ts-ui::messages.qr-code.copy') }}"
+                        title="{{ __('ts-ui-trippodi::messages.qr-code.copy') }}"
+                        aria-label="{{ __('ts-ui-trippodi::messages.qr-code.copy') }}"
                         dusk="tallstackui_qr_code_copy">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('clipboard-document')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('clipboard-document')"
                                          internal
                                          class="{{ $customization['actions.icon'] }}"
                                          x-show="!copied" />
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('check')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('check')"
                                          internal
                                          class="{{ $customization['actions.icon'] }}"
                                          x-show="copied"
@@ -60,11 +60,11 @@
                 <button type="button"
                         x-on:click="download()"
                         class="{{ $customization['actions.button'] }}"
-                        title="{{ __('ts-ui::messages.qr-code.download') }}"
-                        aria-label="{{ __('ts-ui::messages.qr-code.download') }}"
+                        title="{{ __('ts-ui-trippodi::messages.qr-code.download') }}"
+                        aria-label="{{ __('ts-ui-trippodi::messages.qr-code.download') }}"
                         dusk="tallstackui_qr_code_download">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('arrow-down-tray')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('arrow-down-tray')"
                                          internal
                                          class="{{ $customization['actions.icon'] }}" />
                 </button>

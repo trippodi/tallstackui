@@ -2,7 +2,7 @@
     $customization = $classes();
 @endphp
 
-<x-dynamic-component :component="TallStackUi::prefix('wrapper.input')" :$id :$property :$error :$label :$hint :$invalidate>
+<x-dynamic-component :component="TallStackUiTrippodi::prefix('wrapper.input')" :$id :$property :$error :$label :$hint :$invalidate>
     <div x-data="tallstackui_editor({
             id: @js($id),
             value: @js($wireable ? '' : $value),
@@ -40,7 +40,7 @@
                     @else
                         @switch($item['slug'])
                             @case('style')
-                                <x-dynamic-component :component="TallStackUi::prefix('dropdown')" scope="editor.toolbar"
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('dropdown')" scope="editor.toolbar"
                                                      width="xs" size="sm">
                                     <x-slot:action>
                                         <button type="button"
@@ -57,20 +57,20 @@
                                                 dusk="tallstackui_editor_style"
                                                 class="{{ $customization['toolbar.dropdown.trigger'] }}">
                                             <span x-text="blockLabel()"></span>
-                                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                                 :icon="TallStackUi::icon('chevron-down')" internal
+                                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                                 :icon="TallStackUiTrippodi::icon('chevron-down')" internal
                                                                  class="h-3 w-3" />
                                         </button>
                                     </x-slot:action>
                                     @foreach (['h1', 'h2', 'h3'] as $level)
-                                        <x-dynamic-component :component="TallStackUi::prefix('dropdown.items')"
+                                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('dropdown.items')"
                                                              :text="$i18n['style'][$level]"
                                                              :class="$customization['toolbar.dropdown.style.'.$level]"
                                                              x-on:mousedown.prevent="toggleBlock('{{ $level }}'); show = false"
                                                              x-on:keydown.enter.prevent="toggleBlock('{{ $level }}'); show = false"
                                                              x-bind:class="blockType === '{{ $level }}' && '{{ $customization['toolbar.dropdown.active'] }}'" />
                                     @endforeach
-                                    <x-dynamic-component :component="TallStackUi::prefix('dropdown.items')"
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('dropdown.items')"
                                                          :text="$i18n['style']['paragraph']"
                                                          :class="$customization['toolbar.dropdown.style.paragraph']"
                                                          x-on:mousedown.prevent="toggleBlock('p'); show = false"
@@ -180,8 +180,8 @@
                                         @endif
                                         dusk="tallstackui_editor_ordered_list"
                                         class="{{ $customization['toolbar.button.base'] }}">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('numbered-list')" internal
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('numbered-list')" internal
                                                          class="{{ $customization['toolbar.icon'] }}" />
                                 </button>
                             @break
@@ -199,8 +199,8 @@
                                         @endif
                                         dusk="tallstackui_editor_unordered_list"
                                         class="{{ $customization['toolbar.button.base'] }}">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('list-bullet')" internal
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('list-bullet')" internal
                                                          class="{{ $customization['toolbar.icon'] }}" />
                                 </button>
                             @break
@@ -216,8 +216,8 @@
                                         @endif
                                         dusk="tallstackui_editor_indent"
                                         class="{{ $customization['toolbar.button.base'] }}">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('chevron-double-right')" internal
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('chevron-double-right')" internal
                                                          class="{{ $customization['toolbar.icon'] }}" />
                                 </button>
                                 @break
@@ -233,14 +233,14 @@
                                         @endif
                                         dusk="tallstackui_editor_outdent"
                                         class="{{ $customization['toolbar.button.base'] }}">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('chevron-double-left')" internal
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('chevron-double-left')" internal
                                                          class="{{ $customization['toolbar.icon'] }}" />
                                 </button>
                             @break
 
                             @case('align')
-                                <x-dynamic-component :component="TallStackUi::prefix('dropdown')" scope="editor.toolbar"
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('dropdown')" scope="editor.toolbar"
                                                      width="sm" size="sm">
                                     <x-slot:action>
                                         <button type="button"
@@ -256,13 +256,13 @@
                                                 @endif
                                                 dusk="tallstackui_editor_align"
                                                 class="{{ $customization['toolbar.dropdown.trigger'] }}">
-                                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                                 :icon="TallStackUi::icon('bars-3-bottom-left')" internal
+                                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                                 :icon="TallStackUiTrippodi::icon('bars-3-bottom-left')" internal
                                                                  class="{{ $customization['toolbar.icon'] }}" />
                                         </button>
                                     </x-slot:action>
                                     @foreach (['left' => 'justifyLeft', 'center' => 'justifyCenter', 'right' => 'justifyRight', 'justify' => 'justifyFull'] as $side => $command)
-                                        <x-dynamic-component :component="TallStackUi::prefix('dropdown.items')"
+                                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('dropdown.items')"
                                                              :text="$i18n['align'][$side]"
                                                              x-on:mousedown.prevent="exec('{{ $command }}'); show = false"
                                                              x-on:keydown.enter.prevent="exec('{{ $command }}'); show = false"
@@ -284,8 +284,8 @@
                                         @endif
                                         dusk="tallstackui_editor_code"
                                         class="{{ $customization['toolbar.button.base'] }}">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('code-bracket')" internal
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('code-bracket')" internal
                                                          class="{{ $customization['toolbar.icon'] }}" />
                                 </button>
                                 @break
@@ -303,8 +303,8 @@
                                         @endif
                                         dusk="tallstackui_editor_code_block"
                                         class="{{ $customization['toolbar.button.base'] }}">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('code-bracket-square')" internal
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('code-bracket-square')" internal
                                                          class="{{ $customization['toolbar.icon'] }}" />
                                 </button>
                                 @break
@@ -321,8 +321,8 @@
                                         data-tsui-shortcut="mod+backslash"
                                         dusk="tallstackui_editor_clear_format"
                                         class="{{ $customization['toolbar.button.base'] }}">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('backspace')" internal
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('backspace')" internal
                                                          class="{{ $customization['toolbar.icon'] }}" />
                                 </button>
                                 @break
@@ -341,8 +341,8 @@
                                         data-tsui-shortcut="mod+k"
                                         dusk="tallstackui_editor_link"
                                         class="{{ $customization['toolbar.button.base'] }}">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('link')" internal
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('link')" internal
                                                          class="{{ $customization['toolbar.icon'] }}" />
                                 </button>
                                 @break
@@ -358,8 +358,8 @@
                                         @endif
                                         dusk="tallstackui_editor_image"
                                         class="{{ $customization['toolbar.button.base'] }}">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('photo')" internal
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('photo')" internal
                                                          class="{{ $customization['toolbar.icon'] }}" />
                                 </button>
                                 @break
@@ -375,8 +375,8 @@
                                         @endif
                                         dusk="tallstackui_editor_hr"
                                         class="{{ $customization['toolbar.button.base'] }}">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('minus')" internal
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('minus')" internal
                                                          class="{{ $customization['toolbar.icon'] }}" />
                                 </button>
                             @break
@@ -393,8 +393,8 @@
                                         data-tsui-shortcut="mod+z"
                                         dusk="tallstackui_editor_undo"
                                         class="{{ $customization['toolbar.button.base'] }}">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('arrow-uturn-left')" internal
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('arrow-uturn-left')" internal
                                                          class="{{ $customization['toolbar.icon'] }}" />
                                 </button>
                             @break
@@ -411,8 +411,8 @@
                                         data-tsui-shortcut="mod+shift+z"
                                         dusk="tallstackui_editor_redo"
                                         class="{{ $customization['toolbar.button.base'] }}">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('arrow-uturn-right')" internal
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('arrow-uturn-right')" internal
                                                          class="{{ $customization['toolbar.icon'] }}" />
                                 </button>
                             @break
@@ -431,13 +431,13 @@
                                         dusk="tallstackui_editor_fullscreen"
                                         class="{{ $customization['toolbar.button.base'] }}">
                                     <template x-if="!fullscreen">
-                                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                             :icon="TallStackUi::icon('arrows-pointing-out')" internal
+                                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                             :icon="TallStackUiTrippodi::icon('arrows-pointing-out')" internal
                                                              class="{{ $customization['toolbar.icon'] }}" />
                                     </template>
                                     <template x-if="fullscreen">
-                                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                             :icon="TallStackUi::icon('arrows-pointing-in')" internal
+                                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                             :icon="TallStackUiTrippodi::icon('arrows-pointing-in')" internal
                                                              class="{{ $customization['toolbar.icon'] }}" />
                                     </template>
                                 </button>
@@ -492,7 +492,7 @@
         @endif
 
         @unless ($readonly || $disabled)
-            <x-dynamic-component :component="TallStackUi::prefix('modal')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('modal')"
                                  :id="$dialogs['link']"
                                  scope="editor.modal.link"
                                  size="sm"
@@ -500,12 +500,12 @@
                                  :title="$i18n['link']['title']"
                                  x-on:close="dialogClosed()">
                 <div class="{{ $customization['dialog.fields'] }}">
-                    <x-dynamic-component :component="TallStackUi::prefix('input')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('input')"
                                          :id="$dialogs['link'].'-text'"
                                          :label="$i18n['link']['text']"
                                          x-model="linkText"
                                          x-ref="linkText" />
-                    <x-dynamic-component :component="TallStackUi::prefix('input')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('input')"
                                          :id="$dialogs['link'].'-url'"
                                          :label="$i18n['link']['url']"
                                          type="url"
@@ -514,14 +514,14 @@
                 </div>
 
                 <x-slot:footer between>
-                    <x-dynamic-component :component="TallStackUi::prefix('button')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('button')"
                                          color="secondary"
                                          sm
                                          round
                                          block
                                          x-on:click="closeDialog()"
                                          :text="$i18n['link']['cancel']" />
-                    <x-dynamic-component :component="TallStackUi::prefix('button')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('button')"
                                          x-on:click="insertLink()"
                                          x-bind:disabled="!linkUrl || !validLinkUrl"
                                          dusk="tallstackui_editor_link_insert"
@@ -532,7 +532,7 @@
                 </x-slot:footer>
             </x-dynamic-component>
 
-            <x-dynamic-component :component="TallStackUi::prefix('modal')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('modal')"
                                  :id="$dialogs['image']"
                                  scope="editor.modal.image"
                                  size="md"
@@ -548,8 +548,8 @@
                              dusk="tallstackui_editor_image_upload"
                              class="{{ $customization['image.upload.area'] }}">
                             <span class="{{ $customization['image.upload.button'] }}">
-                                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                     :icon="TallStackUi::icon('arrow-up-tray')" internal
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                     :icon="TallStackUiTrippodi::icon('arrow-up-tray')" internal
                                                      class="h-4 w-4" />
                                 <span x-text="uploading ? uploadProgress + '%' : @js($i18n['image']['upload'])"></span>
                             </span>
@@ -573,7 +573,7 @@
                         </div>
                     @endif
 
-                    <x-dynamic-component :component="TallStackUi::prefix('input')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('input')"
                                          :id="$dialogs['image'].'-url'"
                                          :label="$i18n['image']['url']"
                                          type="url"
@@ -581,7 +581,7 @@
                                          x-on:keydown.enter.prevent="insertImage()"
                                          x-ref="imageUrl" />
 
-                    <x-dynamic-component :component="TallStackUi::prefix('input')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('input')"
                                          :id="$dialogs['image'].'-alt'"
                                          :label="$i18n['image']['alt']"
                                          :hint="$i18n['image']['alt_hint']"
@@ -601,14 +601,14 @@
                 </div>
 
                 <x-slot:footer between>
-                    <x-dynamic-component :component="TallStackUi::prefix('button')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('button')"
                                          color="secondary"
                                          sm
                                          round
                                          block
                                          x-on:click="closeDialog()"
                                          :text="$i18n['image']['cancel']" />
-                    <x-dynamic-component :component="TallStackUi::prefix('button')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('button')"
                                          x-on:click="insertImage()"
                                          x-bind:disabled="!imageUrl || !validImageUrl || uploading"
                                          dusk="tallstackui_editor_image_insert"

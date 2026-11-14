@@ -15,11 +15,11 @@ $button = 'inline-flex cursor-pointer select-none items-center gap-1.5 rounded-l
                     x-on:click="previous()"
                     dusk="tallstackui_step_previous"
                     class="{{ $button }}">
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                     :icon="TallStackUi::icon('chevron-left')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                     :icon="TallStackUiTrippodi::icon('chevron-left')"
                                      internal
                                      class="size-4" />
-                {{ trans('ts-ui::messages.step.previous') }}
+                {{ trans('ts-ui-trippodi::messages.step.previous') }}
             </button>
         @endif
     </div>
@@ -34,9 +34,9 @@ $button = 'inline-flex cursor-pointer select-none items-center gap-1.5 rounded-l
                     x-on:click="next()"
                     dusk="tallstackui_step_next"
                     class="{{ $button }}">
-                {{ trans('ts-ui::messages.step.next') }}
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                     :icon="TallStackUi::icon('chevron-right')"
+                {{ trans('ts-ui-trippodi::messages.step.next') }}
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                     :icon="TallStackUiTrippodi::icon('chevron-right')"
                                      internal
                                      class="size-4" />
             </button>
@@ -53,7 +53,7 @@ $button = 'inline-flex cursor-pointer select-none items-center gap-1.5 rounded-l
                         dusk="tallstackui_step_finish"
                         {{ $attributes->only('x-on:finish') }}
                         class="{{ $button }}">
-                    {{ trans('ts-ui::messages.step.finish') }}
+                    {{ trans('ts-ui-trippodi::messages.step.finish') }}
                 </button>
             @endif
         @endif

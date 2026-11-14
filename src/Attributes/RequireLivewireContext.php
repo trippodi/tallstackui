@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Attributes;
+namespace Trippodi\Trippodi\TallStackUi\Attributes;
 
 use Attribute;
 

@@ -18,7 +18,7 @@
                 {!! $slot !!}
             </div>
         @elseif ($spinner)
-            <x-dynamic-component :component="TallStackUi::prefix('spinner')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('spinner')"
                                  :type="$spinner"
                                  :text="$text" />
         @elseif ($text)
@@ -26,7 +26,7 @@
                 {!! $text !!}
             </div>
         @else
-            <x-ts-ui::icon.generic.loading class="{{ $customization['spinner'] }}" />
+            <x-ts-ui-trippodi::icon.generic.loading class="{{ $customization['spinner'] }}" />
         @endif
     </div>
 </div>

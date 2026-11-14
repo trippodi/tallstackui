@@ -1,12 +1,12 @@
 <?php
 
-namespace TallStackUi;
+namespace Trippodi\TallStackUi;
 
 use Illuminate\View\Component;
-use TallStackUi\Support\Concerns\BaseComponent\ManagesClasses;
-use TallStackUi\Support\Concerns\BaseComponent\ManagesCompilation;
-use TallStackUi\Support\Concerns\BaseComponent\ManagesOutput;
-use TallStackUi\Support\Concerns\BaseComponent\ManagesRender;
+use Trippodi\Trippodi\TallStackUi\Support\Concerns\BaseComponent\ManagesClasses;
+use Trippodi\Trippodi\TallStackUi\Support\Concerns\BaseComponent\ManagesCompilation;
+use Trippodi\Trippodi\TallStackUi\Support\Concerns\BaseComponent\ManagesOutput;
+use Trippodi\Trippodi\TallStackUi\Support\Concerns\BaseComponent\ManagesRender;
 
 abstract class TallStackUiComponent extends Component
 {

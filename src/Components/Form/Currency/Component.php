@@ -1,16 +1,16 @@
 <?php
 
-namespace TallStackUi\Components\Form\Currency;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Currency;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\CurrencyRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\CurrencyRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.currency')]
 #[PassThroughRuntime(CurrencyRuntime::class)]
@@ -31,12 +31,12 @@ class Component extends TallStackUiComponent implements Customization
         #[SkipDebug]
         public ?array $symbols = [],
     ) {
-        $this->symbols = trans('ts-ui::messages.currency');
+        $this->symbols = trans('ts-ui-trippodi::messages.currency');
     }
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.currency');
+        return view('ts-ui-trippodi::components.form.currency');
     }
 
     public function customization(): array
@@ -66,11 +66,11 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if ($this->precision < $this->decimals) {
-            __ts_validation_exception($this, 'The [precision] must be greater than or equal to [decimals].');
+            __tst_validation_exception($this, 'The [precision] must be greater than or equal to [decimals].');
         }
 
         if ($this->mutate && $this->decimal) {
-            __ts_validation_exception($this, 'The [mutate] and [decimal] cannot be used together.');
+            __tst_validation_exception($this, 'The [mutate] and [decimal] cannot be used together.');
         }
     }
 }

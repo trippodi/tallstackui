@@ -1,8 +1,8 @@
 <?php
 
-namespace TallStackUi\Interactions\Traits;
+namespace Trippodi\Trippodi\TallStackUi\Interactions\Traits;
 
-use TallStackUi\Interactions\Dialog;
+use Trippodi\Trippodi\TallStackUi\Interactions\Dialog;
 
 /**
  * @internal

@@ -1,14 +1,14 @@
 <?php
 
-namespace TallStackUi\Components\Dropdown\Items;
+namespace Trippodi\Trippodi\TallStackUi\Components\Dropdown\Items;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\DropdownItemsRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\DropdownItemsRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('dropdown.items')]
 #[PassThroughRuntime(DropdownItemsRuntime::class)]
@@ -28,7 +28,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.dropdown.items');
+        return view('ts-ui-trippodi::components.dropdown.items');
     }
 
     public function customization(): array

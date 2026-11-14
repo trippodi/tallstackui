@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Form\Input;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Input;
 
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -299,7 +299,7 @@ class BrowserTest extends BrowserTestCase
 
             public function boot(): void
             {
-                config(['ts-ui.invalidate_global' => true]);
+                config(['ts-ui-trippodi.invalidate_global' => true]);
             }
 
             public function render(): string

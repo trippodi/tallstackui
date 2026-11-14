@@ -1,19 +1,19 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Toast\Component;
-use TallStackUi\Interactions\Toast;
+use Trippodi\Trippodi\TallStackUi\Components\Toast\Component;
+use Trippodi\Trippodi\TallStackUi\Interactions\Toast;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
 
 afterEach(function () {
-    config()->set('ts-ui.components.toast.1.position', 'top-right');
-    config()->set('ts-ui.components.toast.1.stacked', false);
-    config()->set('ts-ui.components.toast.1.top-on-mobile', false);
-    config()->set('ts-ui.components.toast.1.timeout', 3);
+    config()->set('ts-ui-trippodi.components.toast.1.position', 'top-right');
+    config()->set('ts-ui-trippodi.components.toast.1.stacked', false);
+    config()->set('ts-ui-trippodi.components.toast.1.top-on-mobile', false);
+    config()->set('ts-ui-trippodi.components.toast.1.timeout', 3);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     session()->forget('ts-ui:toast');
 });
@@ -41,8 +41,8 @@ it('rejects an unknown position through the fluent method', function () {
 });
 
 it('accepts every allowed position through the configuration', function (string $position) {
-    config()->set('ts-ui.components.toast.1.position', $position);
-    __ts_get_component_configuration(Component::class, flush: true);
+    config()->set('ts-ui-trippodi.components.toast.1.position', $position);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-toast />')
         ->render()
@@ -50,8 +50,8 @@ it('accepts every allowed position through the configuration', function (string 
 })->with(Component::POSITIONS);
 
 it('rejects an unknown position through the configuration', function () {
-    config()->set('ts-ui.components.toast.1.position', 'top-middle');
-    __ts_get_component_configuration(Component::class, flush: true);
+    config()->set('ts-ui-trippodi.components.toast.1.position', 'top-middle');
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $this->expectException(ViewException::class);
     $this->expectExceptionMessage('The [position] must be one of the following: [top-right, top-left, top-center, bottom-right, bottom-left, bottom-center]');
@@ -82,8 +82,8 @@ it('always renders the pile bindings, inert until stacked turns on')
     ->toContain('tallstackui_toastLoop(toast)');
 
 it('piles the toasts when stacked is enabled', function () {
-    config()->set('ts-ui.components.toast.1.stacked', true);
-    __ts_get_component_configuration(Component::class, flush: true);
+    config()->set('ts-ui-trippodi.components.toast.1.stacked', true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-toast />')
         ->render()
@@ -91,8 +91,8 @@ it('piles the toasts when stacked is enabled', function () {
 });
 
 it('hands the pile its own wrapper instead of the inert one', function () {
-    config()->set('ts-ui.components.toast.1.stacked', true);
-    __ts_get_component_configuration(Component::class, flush: true);
+    config()->set('ts-ui-trippodi.components.toast.1.stacked', true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-toast />')
         ->render()
@@ -106,8 +106,8 @@ it('does not pin the toasts to the top on mobile by default')
     ->not->toContain('max-md:justify-start');
 
 it('pins the toasts to the top on mobile when enabled', function () {
-    config()->set('ts-ui.components.toast.1.top-on-mobile', true);
-    __ts_get_component_configuration(Component::class, flush: true);
+    config()->set('ts-ui-trippodi.components.toast.1.top-on-mobile', true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-toast />')
         ->render()
@@ -116,9 +116,9 @@ it('pins the toasts to the top on mobile when enabled', function () {
 });
 
 it('tells the pile about top-on-mobile so it can flip its anchor', function () {
-    config()->set('ts-ui.components.toast.1.stacked', true);
-    config()->set('ts-ui.components.toast.1.top-on-mobile', true);
-    __ts_get_component_configuration(Component::class, flush: true);
+    config()->set('ts-ui-trippodi.components.toast.1.stacked', true);
+    config()->set('ts-ui-trippodi.components.toast.1.top-on-mobile', true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-toast />')
         ->render()
@@ -127,8 +127,8 @@ it('tells the pile about top-on-mobile so it can flip its anchor', function () {
 });
 
 it('uses the configured timeout when timeout() is not called', function () {
-    config()->set('ts-ui.components.toast.1.timeout', 60);
-    __ts_get_component_configuration(Component::class, flush: true);
+    config()->set('ts-ui-trippodi.components.toast.1.timeout', 60);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     (new Toast(null))->success('Test')->send();
 
@@ -136,8 +136,8 @@ it('uses the configured timeout when timeout() is not called', function () {
 });
 
 it('falls back to three seconds when the timeout is not configured', function () {
-    config()->set('ts-ui.components.toast.1.timeout', null);
-    __ts_get_component_configuration(Component::class, flush: true);
+    config()->set('ts-ui-trippodi.components.toast.1.timeout', null);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     (new Toast(null))->success('Test')->send();
 
@@ -145,8 +145,8 @@ it('falls back to three seconds when the timeout is not configured', function ()
 });
 
 it('uses the configured timeout when timeout() is called without seconds', function () {
-    config()->set('ts-ui.components.toast.1.timeout', 60);
-    __ts_get_component_configuration(Component::class, flush: true);
+    config()->set('ts-ui-trippodi.components.toast.1.timeout', 60);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     (new Toast(null))->success('Test')->timeout()->send();
 
@@ -154,8 +154,8 @@ it('uses the configured timeout when timeout() is called without seconds', funct
 });
 
 it('prefers the explicit timeout over the configured one', function () {
-    config()->set('ts-ui.components.toast.1.timeout', 60);
-    __ts_get_component_configuration(Component::class, flush: true);
+    config()->set('ts-ui-trippodi.components.toast.1.timeout', 60);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     (new Toast(null))->success('Test')->timeout(10)->send();
 

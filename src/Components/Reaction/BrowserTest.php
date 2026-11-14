@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Reaction;
+namespace Trippodi\Trippodi\TallStackUi\Components\Reaction;
 
 use Facebook\WebDriver\WebDriverBy;
 use Livewire\Component;

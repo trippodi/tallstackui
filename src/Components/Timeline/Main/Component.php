@@ -1,17 +1,17 @@
 <?php
 
-namespace TallStackUi\Components\Timeline\Main;
+namespace Trippodi\Trippodi\TallStackUi\Components\Timeline\Main;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\TimelineColors;
-use TallStackUi\Support\Runtime\Components\TimelineRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\TimelineColors;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\TimelineRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('timeline')]
 #[ColorsThroughOf(TimelineColors::class)]
@@ -33,7 +33,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.timeline.main');
+        return view('ts-ui-trippodi::components.timeline.main');
     }
 
     public function customization(): array
@@ -51,7 +51,7 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if (! in_array($this->style, ['solid', 'light', 'outline'], true)) {
-            __ts_validation_exception($this, 'The [style] prop must be one of: solid, light, outline.');
+            __tst_validation_exception($this, 'The [style] prop must be one of: solid, light, outline.');
         }
     }
 }

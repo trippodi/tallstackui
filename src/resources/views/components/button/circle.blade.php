@@ -12,7 +12,7 @@
     wire:loading.attr="disabled" wire:loading.class="{{ $customization['wire.loading-cursor'] }}"
 @endif>
 @if ($icon)
-    <x-dynamic-component :component="TallStackUi::prefix('icon')"
+    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
                          :$icon
                          :attributes="$wireable['icon']"
                          internal
@@ -23,6 +23,6 @@
             @endif @class([$customization['text.sizes.' . $size]])>{{ $text ?? $slot }}</span>
 @endif
 @if ($livewire && $loading)
-    <x-ts-ui::icon.generic.loading-button :$loading :$delay :$spinner :$size :customization="$customization" @class([$colors['icon']]) />
+    <x-ts-ui-trippodi::icon.generic.loading-button :$loading :$delay :$spinner :$size :customization="$customization" @class([$colors['icon']]) />
 @endif
 </{{ $tag }}>

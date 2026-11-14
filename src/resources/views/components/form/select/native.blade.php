@@ -4,7 +4,7 @@
 
 <div>
     @if ($label && !$side)
-        <x-dynamic-component :component="TallStackUi::prefix('label')" scope="form.select-native.label" :$label :$error />
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('label')" scope="form.select-native.label" :$label :$error />
     @endif
     <select {{ $attributes->except(['disabled', 'readonly'])->class([
             $customization['wrapper'],
@@ -46,9 +46,9 @@
         @endforelse
     </select>
     @if ($hint && !$error && !$side)
-        <x-dynamic-component :component="TallStackUi::prefix('hint')" scope="form.select-native.hint" :$hint />
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('hint')" scope="form.select-native.hint" :$hint />
     @endif
     @if ($validate && !$side)
-        <x-dynamic-component :component="TallStackUi::prefix('error')" scope="form.select-native.error" :$property />
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('error')" scope="form.select-native.error" :$property />
     @endif
 </div>

@@ -1,10 +1,10 @@
 <?php
 
-namespace TallStackUi\Support\Runtime\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Exception;
-use TallStackUi\Components\Form\InputSelect\Component;
-use TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\Trippodi\TallStackUi\Components\Form\InputSelect\Component;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class InputSelectRuntime extends AbstractRuntime
 {
@@ -20,7 +20,7 @@ class InputSelectRuntime extends AbstractRuntime
         $right = $this->data('right');
 
         if (! $left && ! $right) {
-            __ts_validation_exception(Component::class, 'The [left] and [right] slots are mandatory.');
+            __tst_validation_exception(Component::class, 'The [left] and [right] slots are mandatory.');
         }
 
         return [

@@ -1,13 +1,13 @@
 <?php
 
-namespace TallStackUi\Components\ThemeSwitch;
+namespace Trippodi\Trippodi\TallStackUi\Components\ThemeSwitch;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('themeSwitch')]
 class Component extends TallStackUiComponent implements Customization
@@ -31,17 +31,17 @@ class Component extends TallStackUiComponent implements Customization
         $this->variation = $this->simple ? 'simple' : 'segmented';
 
         if ($this->onlyIcons && ! $this->simple) {
-            __ts_validation_exception($this, 'The [only-icons] property requires [simple] to be enabled.');
+            __tst_validation_exception($this, 'The [only-icons] property requires [simple] to be enabled.');
         }
 
         if ($this->block && $this->simple) {
-            __ts_validation_exception($this, 'The [block] property is not supported with [simple] variation.');
+            __tst_validation_exception($this, 'The [block] property is not supported with [simple] variation.');
         }
     }
 
     public function blade(): View
     {
-        return view('ts-ui::components.theme-switch.main');
+        return view('ts-ui-trippodi::components.theme-switch.main');
     }
 
     public function customization(): array

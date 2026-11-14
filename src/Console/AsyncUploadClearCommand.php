@@ -1,21 +1,21 @@
 <?php
 
-namespace TallStackUi\Console;
+namespace Trippodi\Trippodi\TallStackUi\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Facades\Storage;
-use TallStackUi\Components\Form\Upload\Async\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Upload\Async\Component;
 
 class AsyncUploadClearCommand extends Command
 {
     public $description = 'Delete orphan async-upload chunk sessions older than the configured keep window.';
 
-    public $signature = 'tallstackui:async-upload:clear';
+    public $signature = 'tallstackui-trippodi:async-upload:clear';
 
     public function handle(): int
     {
-        $configuration = __ts_get_component_configuration(Component::class);
+        $configuration = __tst_get_component_configuration(Component::class);
 
         /** @var FilesystemAdapter $disk */
         $disk = Storage::disk($configuration['tmp_disk']);

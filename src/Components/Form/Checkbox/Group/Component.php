@@ -1,19 +1,19 @@
 <?php
 
-namespace TallStackUi\Components\Form\Checkbox\Group;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Checkbox\Group;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Traits\SelectionCustomization;
-use TallStackUi\Components\Traits\SelectionSetup;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\SelectionColors;
-use TallStackUi\Support\Runtime\Components\SelectionGroupRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\SelectionCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\SelectionSetup;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\SelectionColors;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\SelectionGroupRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.checkbox.group')]
 #[ColorsThroughOf(SelectionColors::class)]
@@ -57,7 +57,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.checkbox.group.main');
+        return view('ts-ui-trippodi::components.form.checkbox.group.main');
     }
 
     public function customization(): array

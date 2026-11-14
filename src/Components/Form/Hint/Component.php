@@ -1,11 +1,11 @@
 <?php
 
-namespace TallStackUi\Components\Form\Hint;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Hint;
 
 use Illuminate\Contracts\View\View;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.hint')]
 class Component extends TallStackUiComponent implements Customization
@@ -17,7 +17,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.hint');
+        return view('ts-ui-trippodi::components.form.hint');
     }
 
     public function customization(): array

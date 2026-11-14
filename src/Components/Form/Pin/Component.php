@@ -1,16 +1,16 @@
 <?php
 
-namespace TallStackUi\Components\Form\Pin;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Pin;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
 use InvalidArgumentException;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\PinRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\PinRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.pin')]
 #[PassThroughRuntime(PinRuntime::class)]
@@ -36,7 +36,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.pin');
+        return view('ts-ui-trippodi::components.form.pin');
     }
 
     public function customization(): array
@@ -97,28 +97,28 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if (! $this->length) {
-            __ts_validation_exception($this, 'The [length] is mandatory and should be set.');
+            __tst_validation_exception($this, 'The [length] is mandatory and should be set.');
         }
 
         if ($this->prefix && strlen($this->prefix) > 3) {
-            __ts_validation_exception($this, 'The [prefix] must be 3 characters or less.');
+            __tst_validation_exception($this, 'The [prefix] must be 3 characters or less.');
         }
 
         if ($this->numbers && $this->letters) {
-            __ts_validation_exception($this, 'The [numbers] and [letters] cannot be used together.');
+            __tst_validation_exception($this, 'The [numbers] and [letters] cannot be used together.');
         }
 
         if (is_string($this->separator) && mb_strlen($this->separator) > 3) {
-            __ts_validation_exception($this, 'The [separator] must be 3 characters or less.');
+            __tst_validation_exception($this, 'The [separator] must be 3 characters or less.');
         }
 
         if ($this->split !== null && ! $this->separator) {
-            __ts_validation_exception($this, 'The [split] requires the [separator] to be set.');
+            __tst_validation_exception($this, 'The [split] requires the [separator] to be set.');
         }
 
         foreach ($this->splits() as $position) {
             if ($position < 1 || $position >= $this->length) {
-                __ts_validation_exception($this, 'The [split] positions must be between 1 and the [length] minus one.');
+                __tst_validation_exception($this, 'The [split] positions must be between 1 and the [length] minus one.');
             }
         }
     }

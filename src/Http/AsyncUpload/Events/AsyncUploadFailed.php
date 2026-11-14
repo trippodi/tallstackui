@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Http\AsyncUpload\Events;
+namespace Trippodi\Trippodi\TallStackUi\Http\AsyncUpload\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 

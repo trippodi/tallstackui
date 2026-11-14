@@ -3,7 +3,7 @@
 @endphp
 
 <div>
-    <x-dynamic-component component="ts-ui::progress.variations.{{ $variation }}"
+    <x-dynamic-component component="ts-ui-trippodi::progress.variations.{{ $variation }}"
                          :$title
                          :$percent
                          :$size

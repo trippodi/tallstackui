@@ -1,9 +1,9 @@
 <?php
 
-namespace TallStackUi\Support\Colors\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Colors\Components;
 
 use Illuminate\Support\Str;
-use TallStackUi\Support\Colors\Concerns\SetupColors;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Concerns\SetupColors;
 
 class EnvironmentColors
 {

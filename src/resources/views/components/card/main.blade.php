@@ -39,13 +39,13 @@
                         @if ($minimize)
                             <button type="button" class="cursor-pointer" x-on:click="minimize = !minimize"
                                     dusk="tallstackui_card_minimize">
-                                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                     :icon="TallStackUi::icon('minus')"
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                     :icon="TallStackUiTrippodi::icon('minus')"
                                                      class="{{ $customization['button.minimize'] }}"
                                                      internal
                                                      x-show="!minimize" />
-                                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                     :icon="TallStackUi::icon('plus')"
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                     :icon="TallStackUiTrippodi::icon('plus')"
                                                      class="{{ $customization['button.maximize'] }}"
                                                      internal
                                                      x-show="minimize" />
@@ -54,8 +54,8 @@
                         @if ($close)
                             <button type="button" class="cursor-pointer" x-on:click="show = false"
                                     dusk="tallstackui_card_close">
-                                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                     :icon="TallStackUi::icon('x-mark')"
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                     :icon="TallStackUiTrippodi::icon('x-mark')"
                                                      internal
                                                      class="{{ $customization['button.close'] }}" />
                             </button>
@@ -71,13 +71,13 @@
                         @if ($minimize)
                             <button type="button" class="cursor-pointer" x-on:click="minimize = !minimize"
                                     dusk="tallstackui_card_minimize">
-                                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                     :icon="TallStackUi::icon('minus')"
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                     :icon="TallStackUiTrippodi::icon('minus')"
                                                      class="{{ $customization['button.minimize'] }}"
                                                      internal
                                                      x-show="!minimize" />
-                                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                     :icon="TallStackUi::icon('plus')"
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                     :icon="TallStackUiTrippodi::icon('plus')"
                                                      class="{{ $customization['button.maximize'] }}"
                                                      internal
                                                      x-show="minimize" />
@@ -86,8 +86,8 @@
                         @if ($close)
                             <button type="button" class="cursor-pointer" x-on:click="show = false"
                                     dusk="tallstackui_card_close">
-                                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                     :icon="TallStackUi::icon('x-mark')"
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                     :icon="TallStackUiTrippodi::icon('x-mark')"
                                                      internal
                                                      class="{{ $customization['button.close'] }}" />
                             </button>

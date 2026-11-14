@@ -23,7 +23,7 @@ x-cloak>
         @if ($chart instanceof \Illuminate\View\ComponentSlot)
             {{ $chart }}
         @else
-            <x-dynamic-component :component="TallStackUi::prefix('chart')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('chart')"
                                  :series="$chart"
                                  :$color
                                  :height="64"
@@ -50,7 +50,7 @@ x-cloak>
     @if ($icon)
         @if (! $icon instanceof \Illuminate\View\ComponentSlot)
             <div @class([$customization['wrapper.third'], $colors['background']])>
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
                                      :$icon
                                      internal
                                      class="{{ $customization['icon'] }}" />
@@ -82,13 +82,13 @@ x-cloak>
     @elseif ($increase || $decrease)
         <div>
             @if ($increase)
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                     :icon="TallStackUi::icon($customization['slots.right.increase.icon'])"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                     :icon="TallStackUiTrippodi::icon($customization['slots.right.increase.icon'])"
                                      internal
                                      class="{{ $customization['slots.right.increase.class'] }}" />
             @else
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                     :icon="TallStackUi::icon($customization['slots.right.decrease.icon'])"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                     :icon="TallStackUiTrippodi::icon($customization['slots.right.decrease.icon'])"
                                      internal
                                      class="{{ $customization['slots.right.decrease.class'] }}" />
             @endif

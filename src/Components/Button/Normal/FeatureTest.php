@@ -1,16 +1,16 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Button\Normal\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Button\Normal\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
 
 afterEach(function () {
-    config()->set('ts-ui.components.button.1.spinner', null);
-    config()->set('ts-ui.components.button.1.round', false);
+    config()->set('ts-ui-trippodi.components.button.1.spinner', null);
+    config()->set('ts-ui-trippodi.components.button.1.round', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can render with slot')
@@ -80,9 +80,9 @@ it('cannot render round when square is on')
     ->not->toContain('rounded');
 
 it('can render round through the global configuration', function () {
-    config()->set('ts-ui.components.button.1.round', true);
+    config()->set('ts-ui-trippodi.components.button.1.round', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-button text="Foo bar" />')->render()
         ->toContain('rounded-full')
@@ -90,17 +90,17 @@ it('can render round through the global configuration', function () {
 });
 
 it('can render a named round through the global configuration', function () {
-    config()->set('ts-ui.components.button.1.round', 'lg');
+    config()->set('ts-ui-trippodi.components.button.1.round', 'lg');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-button text="Foo bar" />')->render()->toContain('rounded-lg');
 });
 
 it('can suppress the global round through the inline prop', function () {
-    config()->set('ts-ui.components.button.1.round', true);
+    config()->set('ts-ui-trippodi.components.button.1.round', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-button text="Foo bar" :round="false" />')->render()
         ->not->toContain('rounded-full')
@@ -108,9 +108,9 @@ it('can suppress the global round through the inline prop', function () {
 });
 
 it('can thrown exception when the global round is unnaceptable', function () {
-    config()->set('ts-ui.components.button.1.round', '2xl');
+    config()->set('ts-ui-trippodi.components.button.1.round', '2xl');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $this->expectException(ViewException::class);
     $this->expectExceptionMessage('[TallStackUI] Button\Normal: The [round] must be true or one of: [xs, sm, md, lg, xl, full].');
@@ -215,9 +215,9 @@ it('cannot render the loading spinner outside the livewire context')
     ->not->toContain('dusk="button-loading-spinner"');
 
 it('can use the global spinner configuration', function () {
-    config()->set('ts-ui.components.button.1.spinner', 'dots');
+    config()->set('ts-ui-trippodi.components.button.1.spinner', 'dots');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     livewireContext();
 
@@ -226,9 +226,9 @@ it('can use the global spinner configuration', function () {
 });
 
 it('cannot use an invalid global spinner configuration', function () {
-    config()->set('ts-ui.components.button.1.spinner', 'shimmer');
+    config()->set('ts-ui-trippodi.components.button.1.spinner', 'shimmer');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $this->expectException(ViewException::class);
 

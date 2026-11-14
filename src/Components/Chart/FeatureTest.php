@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Chart\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Chart\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -390,9 +390,9 @@ it('can pick how the axis labels fit', function (string $fit) {
 })->with(['thin', 'rotate', 'stagger']);
 
 it('can set the axis fit globally', function () {
-    config()->set('ts-ui.components.chart.1', ['fit' => 'rotate']);
+    config()->set('ts-ui-trippodi.components.chart.1', ['fit' => 'rotate']);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-chart :series="[10, 40, 25]" :labels="[\'Jan\', \'Fev\', \'Mar\']" />')
         ->render()
@@ -463,11 +463,11 @@ it('walks a stacked step band back the way it came', function () {
 });
 
 it('can set the curve globally', function () {
-    $original = config('ts-ui.components.chart.1');
+    $original = config('ts-ui-trippodi.components.chart.1');
 
-    config()->set('ts-ui.components.chart.1', ['curve' => 'straight']);
+    config()->set('ts-ui-trippodi.components.chart.1', ['curve' => 'straight']);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-chart :series="[10, 40, 25]" />')
@@ -475,9 +475,9 @@ it('can set the curve globally', function () {
             ->toContain(' L50,')
             ->not->toContain(' C');
     } finally {
-        config()->set('ts-ui.components.chart.1', $original);
+        config()->set('ts-ui-trippodi.components.chart.1', $original);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
@@ -503,18 +503,18 @@ it('cannot shape what a radial type does not draw', function (string $attribute)
 })->with(['curve', 'round', 'corners']);
 
 it('lets a global curve reach a radial type without complaint', function () {
-    $original = config('ts-ui.components.chart.1');
+    $original = config('ts-ui-trippodi.components.chart.1');
 
-    config()->set('ts-ui.components.chart.1', ['curve' => 'straight', 'round' => 'lg', 'corners' => 'end']);
+    config()->set('ts-ui-trippodi.components.chart.1', ['curve' => 'straight', 'round' => 'lg', 'corners' => 'end']);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-chart :series="[10, 40, 25]" pie />')->render()->toContain('<svg');
     } finally {
-        config()->set('ts-ui.components.chart.1', $original);
+        config()->set('ts-ui-trippodi.components.chart.1', $original);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
@@ -632,20 +632,20 @@ it('can square the bars off')
     ->not->toContain(' A');
 
 it('can set the corners globally', function () {
-    $original = config('ts-ui.components.chart.1');
+    $original = config('ts-ui-trippodi.components.chart.1');
 
-    config()->set('ts-ui.components.chart.1', ['round' => 'md', 'corners' => 'end']);
+    config()->set('ts-ui-trippodi.components.chart.1', ['round' => 'md', 'corners' => 'end']);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         preg_match('/<path class="fill-current" d="([^"]+)"/', expect('<x-chart :series="[10, 40, 25]" bar />')->render()->value, $bar);
 
         expect(substr_count($bar[1], 'A1.2,1.2'))->toBe(2);
     } finally {
-        config()->set('ts-ui.components.chart.1', $original);
+        config()->set('ts-ui-trippodi.components.chart.1', $original);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
@@ -765,7 +765,7 @@ it('can override the palette per series')
     ->toContain('text-amber-500');
 
 it('can default every chart through the config', function () {
-    config()->set('ts-ui.components.chart.1', [
+    config()->set('ts-ui-trippodi.components.chart.1', [
         'height' => 180,
         'grid' => true,
         'legend' => true,
@@ -773,7 +773,7 @@ it('can default every chart through the config', function () {
         'markers' => true,
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-chart :series="[[\'name\' => \'a\', \'data\' => [10, 40, 25]]]" />')
         ->render()
@@ -786,9 +786,9 @@ it('can default every chart through the config', function () {
 });
 
 it('cannot let a config default reach a type that rejects it', function () {
-    config()->set('ts-ui.components.chart.1', ['grid' => true]);
+    config()->set('ts-ui-trippodi.components.chart.1', ['grid' => true]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-chart :series="[10, 40, 25]" type="donut" />')
         ->render()

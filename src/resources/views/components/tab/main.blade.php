@@ -2,7 +2,7 @@
     $customization = $classes();
 @endphp
 
-<div x-data="tallstackui_tab(@if (!$selected) {!! TallStackUi::blade($attributes, $livewire)->entangle() !!} @else @js($selected) @endif)"
+<div x-data="tallstackui_tab(@if (!$selected) {!! TallStackUiTrippodi::blade($attributes, $livewire)->entangle() !!} @else @js($selected) @endif)"
      @class([$customization['base.wrapper'], $customization['shadowless'] => $shadowless, $customization['bordered'] => $bordered])>
     @if (!$scrollOnMobile)
         <div class="{{ $customization['base.padding'] }}">

@@ -1,10 +1,10 @@
 <?php
 
-namespace TallStackUi\Support\Runtime\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Exception;
-use TallStackUi\Components\Form\Color\Component as Color;
-use TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Color\Component as Color;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class ColorRuntime extends AbstractRuntime
 {

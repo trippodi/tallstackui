@@ -1,16 +1,16 @@
 <?php
 
-namespace TallStackUi\Components\Gallery;
+namespace Trippodi\Trippodi\TallStackUi\Components\Gallery;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\GalleryRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\GalleryRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('gallery')]
 #[PassThroughRuntime(GalleryRuntime::class)]
@@ -39,7 +39,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.gallery.main');
+        return view('ts-ui-trippodi::components.gallery.main');
     }
 
     public function customization(): array
@@ -138,65 +138,65 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if (blank($this->images)) {
-            __ts_validation_exception($this, 'The [images] attribute is required.');
+            __tst_validation_exception($this, 'The [images] attribute is required.');
         }
 
         if (collect([$this->grid, $this->masonry, $this->feature])->filter()->count() > 1) {
-            __ts_validation_exception($this, 'The [grid], [masonry] and [feature] cannot be used together.');
+            __tst_validation_exception($this, 'The [grid], [masonry] and [feature] cannot be used together.');
         }
 
         if ($this->caption !== null && ! in_array($this->caption, ['overlay', 'footer'], true)) {
-            __ts_validation_exception($this, 'The [caption] must be one of: overlay, footer.');
+            __tst_validation_exception($this, 'The [caption] must be one of: overlay, footer.');
         }
 
         if ($this->caption !== null && ! $this->clickable) {
-            __ts_validation_exception($this, 'The [caption] requires [clickable] to be enabled.');
+            __tst_validation_exception($this, 'The [caption] requires [clickable] to be enabled.');
         }
 
         if ($this->navigable && ! $this->clickable) {
-            __ts_validation_exception($this, 'The [navigable] requires [clickable] to be enabled.');
+            __tst_validation_exception($this, 'The [navigable] requires [clickable] to be enabled.');
         }
 
         if ($this->withoutLoop && ! $this->clickable) {
-            __ts_validation_exception($this, 'The [without-loop] requires [clickable] to be enabled.');
+            __tst_validation_exception($this, 'The [without-loop] requires [clickable] to be enabled.');
         }
 
         if ($this->columns !== null && ($this->columns < 2 || $this->columns > 6)) {
-            __ts_validation_exception($this, 'The [columns] must be between 2 and 6.');
+            __tst_validation_exception($this, 'The [columns] must be between 2 and 6.');
         }
 
         if ($this->ratio !== null && ! in_array($this->ratio, ['square', 'video', 'portrait'], true)) {
-            __ts_validation_exception($this, 'The [ratio] must be one of: square, video, portrait.');
+            __tst_validation_exception($this, 'The [ratio] must be one of: square, video, portrait.');
         }
 
         if ($this->limit !== null && $this->limit < 2) {
-            __ts_validation_exception($this, 'The [limit] must be at least 2.');
+            __tst_validation_exception($this, 'The [limit] must be at least 2.');
         }
 
         if ($this->thumbnails !== null && ! in_array($this->thumbnails, ['bottom', 'left', 'right'], true)) {
-            __ts_validation_exception($this, 'The [thumbnails] must be one of: bottom, left, right.');
+            __tst_validation_exception($this, 'The [thumbnails] must be one of: bottom, left, right.');
         }
 
         if ($this->thumbnails !== null && ! $this->feature) {
-            __ts_validation_exception($this, 'The [thumbnails] can only be used with [feature].');
+            __tst_validation_exception($this, 'The [thumbnails] can only be used with [feature].');
         }
 
         $heights = ['40', '60', '80', '96'];
 
         if ($this->height !== null && ! in_array($this->height, $heights, true)) {
-            __ts_validation_exception($this, 'The [height] must be one of: ['.implode(', ', $heights).'].');
+            __tst_validation_exception($this, 'The [height] must be one of: ['.implode(', ', $heights).'].');
         }
 
         if ($this->columns !== null && $this->feature) {
-            __ts_validation_exception($this, 'The [columns] cannot be used with [feature].');
+            __tst_validation_exception($this, 'The [columns] cannot be used with [feature].');
         }
 
         if ($this->limit !== null && ! $this->feature) {
-            __ts_validation_exception($this, 'The [limit] can only be used with [feature].');
+            __tst_validation_exception($this, 'The [limit] can only be used with [feature].');
         }
 
         if ($this->ratio !== null && $this->masonry) {
-            __ts_validation_exception($this, 'The [ratio] cannot be used with [masonry].');
+            __tst_validation_exception($this, 'The [ratio] cannot be used with [masonry].');
         }
     }
 }

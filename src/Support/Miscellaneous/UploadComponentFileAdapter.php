@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Support\Miscellaneous;
+namespace Trippodi\Trippodi\TallStackUi\Support\Miscellaneous;
 
 use Exception;
 use Illuminate\Support\Arr;

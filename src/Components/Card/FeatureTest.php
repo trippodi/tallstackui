@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Card\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Card\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -160,10 +160,10 @@ it('can render shadowless and bordered together')
     ->toContain('border border-gray-200 dark:border-dark-700');
 
 it('can render the flat look through the global configuration', function () {
-    config()->set('ts-ui.components.card.1.shadowless', true);
-    config()->set('ts-ui.components.card.1.bordered', true);
+    config()->set('ts-ui-trippodi.components.card.1.shadowless', true);
+    config()->set('ts-ui-trippodi.components.card.1.bordered', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-card>Foo bar</x-card>')->render()
@@ -174,17 +174,17 @@ it('can render the flat look through the global configuration', function () {
             ->toContain('shadow-none!')
             ->toContain('border border-gray-200');
     } finally {
-        config()->set('ts-ui.components.card.1.shadowless', false);
-        config()->set('ts-ui.components.card.1.bordered', false);
+        config()->set('ts-ui-trippodi.components.card.1.shadowless', false);
+        config()->set('ts-ui-trippodi.components.card.1.bordered', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
 it('can render round through the global configuration', function () {
-    config()->set('ts-ui.components.card.1.round', '2xl');
+    config()->set('ts-ui-trippodi.components.card.1.round', '2xl');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-card>Foo bar</x-card>')->render()
@@ -195,32 +195,32 @@ it('can render round through the global configuration', function () {
             ->toContain('rounded-2xl')
             ->not->toContain('rounded-lg');
     } finally {
-        config()->set('ts-ui.components.card.1.round', false);
+        config()->set('ts-ui-trippodi.components.card.1.round', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
 it('can let the round prop win over the global configuration', function () {
-    config()->set('ts-ui.components.card.1.round', '2xl');
+    config()->set('ts-ui-trippodi.components.card.1.round', '2xl');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-card round="sm">Foo bar</x-card>')->render()
             ->toContain('rounded-sm')
             ->not->toContain('rounded-2xl');
     } finally {
-        config()->set('ts-ui.components.card.1.round', false);
+        config()->set('ts-ui-trippodi.components.card.1.round', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
 it('cannot accept invalid round value through the global configuration', function () {
-    config()->set('ts-ui.components.card.1.round', 'huge');
+    config()->set('ts-ui-trippodi.components.card.1.round', 'huge');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         $this->expectException(ViewException::class);
@@ -228,27 +228,27 @@ it('cannot accept invalid round value through the global configuration', functio
 
         expect('<x-card>Foo bar</x-card>')->render();
     } finally {
-        config()->set('ts-ui.components.card.1.round', false);
+        config()->set('ts-ui-trippodi.components.card.1.round', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
 it('can let the flat look props win over the global configuration', function () {
-    config()->set('ts-ui.components.card.1.shadowless', true);
-    config()->set('ts-ui.components.card.1.bordered', true);
+    config()->set('ts-ui-trippodi.components.card.1.shadowless', true);
+    config()->set('ts-ui-trippodi.components.card.1.bordered', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-card :shadowless="false" :bordered="false">Foo bar</x-card>')->render()
             ->not->toContain('shadow-none!')
             ->not->toContain('border border-gray-200');
     } finally {
-        config()->set('ts-ui.components.card.1.shadowless', false);
-        config()->set('ts-ui.components.card.1.bordered', false);
+        config()->set('ts-ui-trippodi.components.card.1.shadowless', false);
+        config()->set('ts-ui-trippodi.components.card.1.bordered', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 

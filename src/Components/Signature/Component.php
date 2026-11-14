@@ -1,15 +1,15 @@
 <?php
 
-namespace TallStackUi\Components\Signature;
+namespace Trippodi\Trippodi\TallStackUi\Components\Signature;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\RequireLivewireContext;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\SignatureRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\RequireLivewireContext;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\SignatureRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[RequireLivewireContext]
 #[SoftCustomization('signature')]
@@ -34,7 +34,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.signature.main');
+        return view('ts-ui-trippodi::components.signature.main');
     }
 
     public function customization(): array
@@ -56,11 +56,11 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if (is_null($this->line)) {
-            __ts_validation_exception($this, 'The [line] must be a number.');
+            __tst_validation_exception($this, 'The [line] must be a number.');
         }
 
         if ($this->height < 10) {
-            __ts_validation_exception($this, 'The [height] must be at least 10.');
+            __tst_validation_exception($this, 'The [height] must be at least 10.');
         }
     }
 }

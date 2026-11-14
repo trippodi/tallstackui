@@ -11,7 +11,7 @@
 
 <div>
     @if ($label)
-        <x-dynamic-component :component="TallStackUi::prefix('label')" scope="form.pin.label" :$label :$error />
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('label')" scope="form.pin.label" :$label :$error />
     @endif
     <div x-data="tallstackui_formPin(
              {!! $entangle !!},
@@ -91,8 +91,8 @@
             @endforeach
             <template x-if="clear && model">
                 <button class="cursor-pointer" x-on:click="erase();" @disabled($locked) dusk="form_pin_clear">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('x-circle')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('x-circle')"
                                          solid
                                          internal
                                          class="{{ $customization['button'] }}" />
@@ -101,9 +101,9 @@
         </div>
     </div>
     @if ($hint && !$error)
-        <x-dynamic-component :component="TallStackUi::prefix('hint')" scope="form.pin.hint" :$hint />
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('hint')" scope="form.pin.hint" :$hint />
     @endif
     @if ($validate)
-        <x-dynamic-component :component="TallStackUi::prefix('error')" scope="form.pin.error" :$property />
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('error')" scope="form.pin.error" :$property />
     @endif
 </div>

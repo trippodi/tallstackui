@@ -1,16 +1,16 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Icon\Component;
-use TallStackUi\Facades\TallStackUi;
+use Trippodi\Trippodi\TallStackUi\Components\Icon\Component;
+use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
 
 afterEach(function () {
-    config()->set('ts-ui.components.icon.1.size', 'md');
+    config()->set('ts-ui-trippodi.components.icon.1.size', 'md');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can render')
@@ -118,17 +118,17 @@ it('cannot use more than one color at a time', function () {
 });
 
 it('can use the global size configuration', function () {
-    config()->set('ts-ui.components.icon.1.size', 'lg');
+    config()->set('ts-ui-trippodi.components.icon.1.size', 'lg');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-icon icon="users" />')->render()->toContain('h-6 w-6');
 });
 
 it('cannot use an invalid global size configuration', function () {
-    config()->set('ts-ui.components.icon.1.size', 'foo');
+    config()->set('ts-ui-trippodi.components.icon.1.size', 'foo');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $this->expectException(ViewException::class);
     $this->expectExceptionMessage('The [size] must be one of');

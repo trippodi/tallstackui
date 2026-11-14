@@ -2,7 +2,7 @@
     $customization = $classes();
 @endphp
 
-<x-dynamic-component :component="TallStackUi::prefix('wrapper.input')" :$id :$property :$error :$label :$hint
+<x-dynamic-component :component="TallStackUiTrippodi::prefix('wrapper.input')" :$id :$property :$error :$label :$hint
                      :$invalidate :wrapper="$customization['input.wrapper']">
     @if ($dual)
         <div x-data="tallstackui_formRange({!! $entangle !!}, @js($initial), @js($min), @js($max), @js($step), @js($disabled), @js($readonly), @js($tooltip), @js($livewire))"

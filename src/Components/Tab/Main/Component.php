@@ -1,12 +1,12 @@
 <?php
 
-namespace TallStackUi\Components\Tab\Main;
+namespace Trippodi\Trippodi\TallStackUi\Components\Tab\Main;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('tab')]
 class Component extends TallStackUiComponent implements Customization
@@ -19,7 +19,7 @@ class Component extends TallStackUiComponent implements Customization
         public ?bool $shadowless = null,
         public ?bool $bordered = null,
     ) {
-        $configuration = __ts_get_component_configuration(self::class);
+        $configuration = __tst_get_component_configuration(self::class);
 
         $this->shadowless ??= $configuration['shadowless'] ?? false;
         $this->bordered ??= $configuration['bordered'] ?? false;
@@ -27,7 +27,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.tab.main');
+        return view('ts-ui-trippodi::components.tab.main');
     }
 
     public function customization(): array

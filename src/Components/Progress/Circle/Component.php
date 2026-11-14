@@ -1,17 +1,17 @@
 <?php
 
-namespace TallStackUi\Components\Progress\Circle;
+namespace Trippodi\Trippodi\TallStackUi\Components\Progress\Circle;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Traits\ProgressSetup;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\ProgressColors;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\ProgressSetup;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\ProgressColors;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('progress.circle')]
 #[ColorsThroughOf(ProgressColors::class)]
@@ -42,7 +42,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.progress.circle');
+        return view('ts-ui-trippodi::components.progress.circle');
     }
 
     public function customization(): array

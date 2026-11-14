@@ -4,7 +4,7 @@
 
 <div class="{{ $customization['wrapper'] }}">
     @if ($label)
-        <x-dynamic-component :component="TallStackUi::prefix('label')"
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('label')"
                              scope="list.label"
                              :$label />
     @endif
@@ -17,15 +17,15 @@
                     $customization['search.wrapper-compact'] => $compact,
                  ])>
                 <span class="{{ $customization['search.icon.wrapper'] }}">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('magnifying-glass')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('magnifying-glass')"
                                          internal
                                          class="{{ $customization['search.icon.size'] }}" />
                 </span>
                 <input type="search"
                        x-model.debounce.150ms="search"
                        class="{{ $customization['search.input'] }}"
-                       placeholder="{{ $searchPlaceholder ?? __('ts-ui::messages.list.search') }}"
+                       placeholder="{{ $searchPlaceholder ?? __('ts-ui-trippodi::messages.list.search') }}"
                        dusk="tallstackui_list_search" />
             </div>
         @endif
@@ -38,7 +38,7 @@
              ])>
             @if ($slice !== null)
                 <template x-for="(item, index) in visible" :key="index">
-                    <x-dynamic-component :component="TallStackUi::prefix('list.items')" lazy />
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('list.items')" lazy />
                 </template>
 
                 <div x-ref="sentinel"
@@ -46,7 +46,7 @@
                      dusk="tallstackui_list_sentinel"></div>
             @elseif ($items !== null)
                 @foreach ($resolved as $item)
-                    <x-dynamic-component :component="TallStackUi::prefix('list.items')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('list.items')"
                                          :name="data_get($item, 'name')"
                                          :caption="data_get($item, 'caption')">
                         @isset($item_caption)
@@ -74,14 +74,14 @@
                 @if (isset($empty) && ! $empty->isEmpty())
                     {{ $empty }}
                 @else
-                    <p class="{{ $customization['empty.text'] }}">{{ __('ts-ui::messages.list.empty') }}</p>
+                    <p class="{{ $customization['empty.text'] }}">{{ __('ts-ui-trippodi::messages.list.empty') }}</p>
                 @endif
             </div>
         </div>
     </div>
 
     @if ($hint)
-        <x-dynamic-component :component="TallStackUi::prefix('hint')"
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('hint')"
                              scope="list.hint"
                              :$hint />
     @endif

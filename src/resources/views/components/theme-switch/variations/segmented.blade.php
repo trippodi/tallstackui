@@ -20,8 +20,8 @@
                     '{{ $customization['segmented.inactive'] }}': mode !== 'dark'
                 }"
                 @class([$customization['segmented.button'], $customization['segmented-block'] => $block])>
-            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                 :icon="TallStackUi::icon('moon')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                 :icon="TallStackUiTrippodi::icon('moon')"
                                  internal
                                  @class([$customization['segmented.colors.moon'], $customization['segmented.icons.sizes.' . $size]]) />
         </button>
@@ -32,8 +32,8 @@
                     '{{ $customization['segmented.inactive'] }}': mode !== 'system'
                 }"
                 @class([$customization['segmented.button'], $customization['segmented-block'] => $block])>
-            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                 :icon="TallStackUi::icon('computer-desktop')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                 :icon="TallStackUiTrippodi::icon('computer-desktop')"
                                  internal
                                  @class([$customization['segmented.colors.system'], $customization['segmented.icons.sizes.' . $size]]) />
         </button>
@@ -44,8 +44,8 @@
                     '{{ $customization['segmented.inactive'] }}': mode !== 'light'
                 }"
                 @class([$customization['segmented.button'], $customization['segmented-block'] => $block])>
-            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                 :icon="TallStackUi::icon('sun')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                 :icon="TallStackUiTrippodi::icon('sun')"
                                  internal
                                  @class([$customization['segmented.colors.sun'], $customization['segmented.icons.sizes.' . $size]]) />
         </button>

@@ -4,7 +4,7 @@
 
 <template x-teleport="body" x-data>
 <div x-cloak
-     x-data="tallstackui_dialog(@js(session()->pull('ts-ui:dialog')), @js(trans('ts-ui::messages.dialog.button')), @js($configurations['overflow'] ?? false))"
+     x-data="tallstackui_dialog(@js(session()->pull('ts-ui:dialog')), @js(trans('ts-ui-trippodi::messages.dialog.button')), @js($configurations['overflow'] ?? false))"
      x-on:ts-ui:dialog.window="add($event.detail)"
      @if (!$configurations['persistent']) x-on:keydown.escape.window="top_ui && remove(true)" @endif
      x-on:keydown.enter.window="enter($event)"
@@ -47,8 +47,8 @@
                  @if (!$configurations['persistent']) x-on:click.outside="top_ui && $root.contains($event.target) && remove(true)" @endif>
                 <div class="{{ $customization['buttons.close.wrapper'] }}">
                     <button x-on:click="remove()">
-                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                             :icon="TallStackUi::icon('x-mark')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                             :icon="TallStackUiTrippodi::icon('x-mark')"
                                              dusk="tallstackui_dialog_close"
                                              internal
                                              class="{{ $ts_ui__colorful ? $customization['colorful.close'] : $customization['buttons.close.icon'] }}" />
@@ -68,36 +68,36 @@
                             @endif
                         }">
                         <div x-show="dialog.type === 'success'">
-                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                 :icon="TallStackUi::icon('check-circle')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                 :icon="TallStackUiTrippodi::icon('check-circle')"
                                                  outline
                                                  internal
                                     @class([$customization['icon.size'], $ts_ui__colorful ? $customization['colorful.icon'] : $colors['icon']['icon']['success']]) />
                         </div>
                         <div x-show="dialog.type === 'error'">
-                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                 :icon="TallStackUi::icon('x-circle')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                 :icon="TallStackUiTrippodi::icon('x-circle')"
                                                  outline
                                                  internal
                                     @class([$customization['icon.size'], $ts_ui__colorful ? $customization['colorful.icon'] : $colors['icon']['icon']['error']]) />
                         </div>
                         <div x-show="dialog.type === 'info'">
-                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                 :icon="TallStackUi::icon('information-circle')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                 :icon="TallStackUiTrippodi::icon('information-circle')"
                                                  outline
                                                  internal
                                     @class([$customization['icon.size'], $ts_ui__colorful ? $customization['colorful.icon'] : $colors['icon']['icon']['info']]) />
                         </div>
                         <div x-show="dialog.type === 'warning'">
-                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                 :icon="TallStackUi::icon('exclamation-circle')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                 :icon="TallStackUiTrippodi::icon('exclamation-circle')"
                                                  outline
                                                  internal
                                     @class([$customization['icon.size'], $ts_ui__colorful ? $customization['colorful.icon'] : $colors['icon']['icon']['warning']]) />
                         </div>
                         <div x-show="dialog.type === 'question'">
-                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                 :icon="TallStackUi::icon('question-mark-circle')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                 :icon="TallStackUiTrippodi::icon('question-mark-circle')"
                                                  outline
                                                  internal
                                     @class([$customization['icon.size'], $ts_ui__colorful ? $customization['colorful.icon'] : $colors['icon']['icon']['question']]) />
@@ -118,7 +118,7 @@
                                     x-text="dialog.options?.cancel?.text"
                                     dusk="tallstackui_dialog_rejection"></button>
                         @else
-                            <x-dynamic-component :component="TallStackUi::prefix('button')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('button')"
                                                  scope="dialog.button"
                                                  :color="$colors['cancel']"
                                                  :class="$customization['buttons.cancel.base']"

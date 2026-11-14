@@ -1,16 +1,16 @@
 <?php
 
-namespace TallStackUi\Components\Spinner;
+namespace Trippodi\Trippodi\TallStackUi\Components\Spinner;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use InvalidArgumentException;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\SpinnerColors;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\SpinnerColors;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('spinner')]
 #[ColorsThroughOf(SpinnerColors::class)]
@@ -62,7 +62,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.spinner.main');
+        return view('ts-ui-trippodi::components.spinner.main');
     }
 
     public function customization(): array
@@ -293,18 +293,18 @@ class Component extends TallStackUiComponent implements Customization
             }
         }
 
-        $this->type ??= __ts_get_component_configuration(self::class, 'type') ?? 'ring';
+        $this->type ??= __tst_get_component_configuration(self::class, 'type') ?? 'ring';
 
         $this->size = match (true) {
             $this->lg === true => 'lg',
             $this->md === true => 'md',
             $this->sm === true => 'sm',
             $this->xs === true => 'xs',
-            default => __ts_get_component_configuration(self::class, 'size') ?? 'md',
+            default => __tst_get_component_configuration(self::class, 'size') ?? 'md',
         };
 
         $this->label = $this->text === true ? null : $this->text;
-        $this->label ??= $this->type === 'thinking' ? trans('ts-ui::messages.spinner.thinking') : null;
+        $this->label ??= $this->type === 'thinking' ? trans('ts-ui-trippodi::messages.spinner.thinking') : null;
 
         $this->textual = in_array($this->type, self::TEXTUAL, true);
         $this->frames = self::FRAMES;
@@ -316,25 +316,25 @@ class Component extends TallStackUiComponent implements Customization
         $flags = array_values(array_filter(self::TYPES, fn (string $type): bool => $this->{$type} === true));
 
         if (count($flags) > 1) {
-            __ts_validation_exception($this, 'Only one variant can be used at a time, but ['.implode(', ', $flags).'] were given');
+            __tst_validation_exception($this, 'Only one variant can be used at a time, but ['.implode(', ', $flags).'] were given');
         }
 
         if (! in_array($this->type, self::TYPES, true)) {
-            __ts_validation_exception($this, 'The [type] must be one of ['.implode(', ', self::TYPES).']');
+            __tst_validation_exception($this, 'The [type] must be one of ['.implode(', ', self::TYPES).']');
         }
 
         if (! in_array($this->size, self::SIZES, true)) {
-            __ts_validation_exception($this, 'The [size] must be one of ['.implode(', ', self::SIZES).']');
+            __tst_validation_exception($this, 'The [size] must be one of ['.implode(', ', self::SIZES).']');
         }
 
         if ($this->interval !== null && $this->interval < 1) {
-            __ts_validation_exception($this, 'The [interval] must be greater than 0');
+            __tst_validation_exception($this, 'The [interval] must be greater than 0');
         }
 
         // Both variants animate the text itself, so there is
         // nothing left on the screen without any content.
         if (in_array($this->type, ['shimmer', 'caret'], true) && blank($this->label) && trim((string) ($data['slot'] ?? '')) === '') {
-            __ts_validation_exception($this, "The [{$this->type}] variant animates its own text, so [text] or the default slot is required");
+            __tst_validation_exception($this, "The [{$this->type}] variant animates its own text, so [text] or the default slot is required");
         }
     }
 }

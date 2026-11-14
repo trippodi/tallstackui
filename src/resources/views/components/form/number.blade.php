@@ -2,7 +2,7 @@
     $customization = $classes();
 @endphp
 
-<x-dynamic-component :component="TallStackUi::prefix('wrapper.input')" :$id :$property :$error :$label :$hint
+<x-dynamic-component :component="TallStackUiTrippodi::prefix('wrapper.input')" :$id :$property :$error :$label :$hint
                      :$invalidate>
     <div @class([
             $customization['input.wrapper'],
@@ -40,7 +40,7 @@
                     @disabled($locked)
                     dusk="tallstackui_form_number_decrement"
                     @class([$customization['buttons.left.base'], $customization['buttons.left.centralized'] => $configurations['centralized']])>
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
                                      :icon="$icons['left']"
                                      internal
                         @class([$customization['buttons.left.size'], $customization['buttons.left.color'] => !$error, $customization['buttons.left.error'] => $error]) />
@@ -56,7 +56,7 @@
                     @disabled($locked)
                     dusk="tallstackui_form_number_increment"
                     @class([$customization['buttons.right.base'], $customization['buttons.right.separator'] => !$configurations['centralized']])>
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
                                      :icon="$icons['right']"
                                      internal
                         @class([$customization['buttons.right.size'], $customization['buttons.right.color'] => !$error, $customization['buttons.right.error'] => $error]) />

@@ -1,13 +1,13 @@
 <?php
 
-namespace TallStackUi\Components\Form\Label;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Label;
 
 use Illuminate\Contracts\View\View;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\LabelRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\LabelRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.label')]
 #[PassThroughRuntime(LabelRuntime::class)]
@@ -24,7 +24,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.label');
+        return view('ts-ui-trippodi::components.form.label');
     }
 
     public function customization(): array

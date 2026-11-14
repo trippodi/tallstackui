@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Layout\Main;
+namespace Trippodi\Trippodi\TallStackUi\Components\Layout\Main;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component;

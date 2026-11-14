@@ -1,13 +1,13 @@
 <?php
 
-namespace TallStackUi\Components\Form\Error;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Error;
 
 use Illuminate\Contracts\View\View;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\ErrorRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\ErrorRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.error')]
 #[PassThroughRuntime(ErrorRuntime::class)]
@@ -20,7 +20,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.error');
+        return view('ts-ui-trippodi::components.form.error');
     }
 
     public function customization(): array

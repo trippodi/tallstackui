@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Form\Upload\Async;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Upload\Async;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component as LivewireComponent;

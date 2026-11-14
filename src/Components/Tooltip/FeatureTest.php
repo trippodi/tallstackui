@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Tooltip\Component;
-use TallStackUi\Customization\Globals;
-use TallStackUi\Facades\TallStackUi;
+use Trippodi\Trippodi\TallStackUi\Components\Tooltip\Component;
+use Trippodi\Trippodi\TallStackUi\Customization\Globals;
+use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');

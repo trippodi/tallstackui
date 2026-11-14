@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use TallStackUi\Http\Controllers\TallStackUiAssetsController;
-use TallStackUi\Http\Controllers\TallStackUiCommandPaletteController;
+use Trippodi\Trippodi\TallStackUi\Http\Controllers\TallStackUiAssetsController;
+use Trippodi\Trippodi\TallStackUi\Http\Controllers\TallStackUiCommandPaletteController;
 
-Route::name('tallstackui.')
-    ->prefix('/tallstackui')
+Route::name('tallstackui-trippodi.')
+    ->prefix('/tallstackui-trippodi')
     ->group(function () {
         Route::get('/script/{file?}', [TallStackUiAssetsController::class, 'script'])->name('script');
         Route::get('/style/{file?}', [TallStackUiAssetsController::class, 'style'])->name('style');

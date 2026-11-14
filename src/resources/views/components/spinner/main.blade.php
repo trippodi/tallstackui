@@ -5,13 +5,13 @@
 <div {{ $attributes->class([$customization['wrapper'], $colors['text']]) }}
      role="status">
     @if ($textual)
-        <x-dynamic-component component="ts-ui::spinner.types.{{ $type }}"
+        <x-dynamic-component component="ts-ui-trippodi::spinner.types.{{ $type }}"
                              :$size
                              :$customization
                              :$frames
                              :$interval>{{ $label !== false ? ($label ?? $slot) : '' }}</x-dynamic-component>
     @else
-        <x-dynamic-component component="ts-ui::spinner.types.{{ $type }}"
+        <x-dynamic-component component="ts-ui-trippodi::spinner.types.{{ $type }}"
                              :$size
                              :$customization />
         @if ($label !== false && ($label !== null || !empty(trim($slot->toHtml()))))
@@ -19,6 +19,6 @@
         @endif
     @endif
     @if ($label === false || ($label === null && empty(trim($slot->toHtml()))))
-        <span class="sr-only">{{ trans('ts-ui::messages.spinner.loading') }}</span>
+        <span class="sr-only">{{ trans('ts-ui-trippodi::messages.spinner.loading') }}</span>
     @endif
 </div>

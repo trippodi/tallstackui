@@ -1,19 +1,19 @@
 <?php
 
-namespace TallStackUi\Components\Form\Radio;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Radio;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Traits\FormSetup;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\RadioColors;
-use TallStackUi\Support\Runtime\Components\CheckboxRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\FormSetup;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\RadioColors;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\CheckboxRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.radio')]
 #[ColorsThroughOf(RadioColors::class)]
@@ -39,7 +39,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.radio.main');
+        return view('ts-ui-trippodi::components.form.radio.main');
     }
 
     public function customization(): array

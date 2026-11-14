@@ -1,10 +1,10 @@
 <?php
 
-namespace TallStackUi\Support\Runtime\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Exception;
-use TallStackUi\Components\Form\Upload\Async\Component;
-use TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Upload\Async\Component;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class UploadAsyncRuntime extends AbstractRuntime
 {
@@ -19,7 +19,7 @@ class UploadAsyncRuntime extends AbstractRuntime
         $name = $component->attributes->get('name');
 
         if (! $property && ! $name) {
-            __ts_validation_exception($component, 'The component requires either the [wire:model] or the [name] attribute.');
+            __tst_validation_exception($component, 'The component requires either the [wire:model] or the [name] attribute.');
         }
 
         // Unlike every other form component, this one also renders outside of
@@ -30,7 +30,7 @@ class UploadAsyncRuntime extends AbstractRuntime
             $value = $component->files;
         }
 
-        $configuration = __ts_get_component_configuration(Component::class);
+        $configuration = __tst_get_component_configuration(Component::class);
 
         $errors = $property && $this->errors
             ? $this->errors->get(is_array($value) ? $property.'.*' : $property)
@@ -63,7 +63,7 @@ class UploadAsyncRuntime extends AbstractRuntime
                 'max_size' => $component->maxSize ?? $configuration['max_size'],
                 'accept' => $component->accept ?? $configuration['accept'],
             ],
-            'i18n' => trans('ts-ui::messages.upload_async'),
+            'i18n' => trans('ts-ui-trippodi::messages.upload_async'),
         ];
     }
 

@@ -1,16 +1,16 @@
 <?php
 
-namespace TallStackUi\Components\List\Items;
+namespace Trippodi\Trippodi\TallStackUi\Components\List\Items;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\ListItemsRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\ListItemsRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[PassThroughRuntime(ListItemsRuntime::class)]
 #[SoftCustomization('list.items')]
@@ -38,7 +38,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view($this->lazy ? 'ts-ui::components.list.items-lazy' : 'ts-ui::components.list.items');
+        return view($this->lazy ? 'ts-ui-trippodi::components.list.items-lazy' : 'ts-ui-trippodi::components.list.items');
     }
 
     public function customization(): array
@@ -75,13 +75,13 @@ class Component extends TallStackUiComponent implements Customization
     {
         // The lazy row is a template: the name only exists on the client side.
         if (! $this->lazy && (! is_string($this->name) || trim($this->name) === '')) {
-            __ts_validation_exception($this, 'The [name] attribute is required.');
+            __tst_validation_exception($this, 'The [name] attribute is required.');
         }
 
         $allowed = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'];
 
         if (! in_array($this->width, $allowed, true)) {
-            __ts_validation_exception($this, 'The [width] must be one of: '.implode(', ', $allowed));
+            __tst_validation_exception($this, 'The [width] must be one of: '.implode(', ', $allowed));
         }
     }
 }

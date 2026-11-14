@@ -3,7 +3,7 @@
 @endphp
 
 <div x-data="{
-        selected: @if (!$selected) {!! TallStackUi::blade($attributes, $livewire)->entangle() !!} @else @js($selected) @endif,
+        selected: @if (!$selected) {!! TallStackUiTrippodi::blade($attributes, $livewire)->entangle() !!} @else @js($selected) @endif,
         navigate: @js($navigate),
         navigatePrevious: @js($navigatePrevious),
         steps: [],
@@ -22,7 +22,7 @@
         <ul role="list"
                 @class($customization['wrapper.' . $variation])>
             <template x-for="item in steps">
-                <x-dynamic-component component="ts-ui::step.variations.{{ $variation }}"
+                <x-dynamic-component component="ts-ui-trippodi::step.variations.{{ $variation }}"
                                      :$customization
                                      :$navigate />
             </template>

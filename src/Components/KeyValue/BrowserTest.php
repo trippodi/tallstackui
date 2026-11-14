@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\KeyValue;
+namespace Trippodi\Trippodi\TallStackUi\Components\KeyValue;
 
 use Facebook\WebDriver\WebDriverBy;
 use Livewire\Component;

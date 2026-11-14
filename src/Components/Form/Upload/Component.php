@@ -1,20 +1,20 @@
 <?php
 
-namespace TallStackUi\Components\Form\Upload;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Upload;
 
 use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\RequireLivewireContext;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Floating\Component as Floating;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Miscellaneous\UploadComponentFileAdapter;
-use TallStackUi\Support\Runtime\Components\UploadRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\RequireLivewireContext;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Floating\Component as Floating;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Miscellaneous\UploadComponentFileAdapter;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\UploadRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[RequireLivewireContext]
 #[SoftCustomization('form.upload')]
@@ -39,9 +39,9 @@ class Component extends TallStackUiComponent implements Customization
         public ?bool $invalidate = null,
         public ?bool $withoutSummary = null,
     ) {
-        $this->placeholder ??= trans('ts-ui::messages.upload.placeholder');
-        $this->error ??= trans('ts-ui::messages.upload.error');
-        $this->withoutSummary ??= __ts_get_component_configuration(self::class, 'without-summary') ?? false;
+        $this->placeholder ??= trans('ts-ui-trippodi::messages.upload.placeholder');
+        $this->error ??= trans('ts-ui-trippodi::messages.upload.error');
+        $this->withoutSummary ??= __tst_get_component_configuration(self::class, 'without-summary') ?? false;
     }
 
     /** @throws Exception */
@@ -55,7 +55,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.upload');
+        return view('ts-ui-trippodi::components.form.upload');
     }
 
     public function customization(): array
@@ -135,7 +135,7 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if ($this->static && $this->direct) {
-            __ts_validation_exception($this, 'The [static] and [direct] cannot be used together.');
+            __tst_validation_exception($this, 'The [static] and [direct] cannot be used together.');
         }
     }
 }

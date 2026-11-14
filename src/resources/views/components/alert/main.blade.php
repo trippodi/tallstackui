@@ -21,7 +21,7 @@
             @if ($icon)
                 <div @class([$customization['icon.wrapper'] => $icon, $customization['icon.wrapper-with-title'] => $icon && $title])>
                     @if ($icon)
-                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
                                              :$icon
                                              internal
                                              @class([$customization['icon.size'], $colors['text']]) />
@@ -38,8 +38,8 @@
         @if ($close)
             <div class="{{ $customization['close.wrapper'] }}">
                 <button type="button" dusk="alert-close-button" class="cursor-pointer" x-on:click="show = false">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('x-mark')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('x-mark')"
                                          internal
                                          @class([$customization['close.size'], $colors['text']]) />
                 </button>

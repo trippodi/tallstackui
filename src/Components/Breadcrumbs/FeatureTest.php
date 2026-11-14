@@ -1,7 +1,7 @@
 <?php
 
-use TallStackUi\Components\Breadcrumbs\Component;
-use TallStackUi\Support\Breadcrumbs\BreadcrumbRegistry;
+use Trippodi\Trippodi\TallStackUi\Components\Breadcrumbs\Component;
+use Trippodi\Trippodi\TallStackUi\Support\Breadcrumbs\BreadcrumbRegistry;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -249,19 +249,19 @@ it('can load breadcrumb definitions from file paths', function () {
     $tmp = tempnam(sys_get_temp_dir(), 'bc_').'.php';
 
     file_put_contents($tmp, '<?php
-        use TallStackUi\Facades\TallStackUi;
-        use TallStackUi\Support\Breadcrumbs\BreadcrumbTrail;
+        use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi;
+        use Trippodi\Trippodi\TallStackUi\Support\Breadcrumbs\BreadcrumbTrail;
 
         TallStackUi::breadcrumbs()
             ->for("file.loaded.home", fn (BreadcrumbTrail $trail) => $trail->add("Home", "/"));
     ');
 
-    config()->set('ts-ui.components.breadcrumbs', [
+    config()->set('ts-ui-trippodi.components.breadcrumbs', [
         Component::class,
         ['files' => [$tmp]],
     ]);
 
-    __ts_get_component_configuration('', flush: true);
+    __tst_get_component_configuration('', flush: true);
 
     require $tmp;
 

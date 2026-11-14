@@ -1,18 +1,18 @@
 <?php
 
-namespace TallStackUi\Components\Form\Time;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Time;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
 use InvalidArgumentException;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Floating\Component as Floating;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\TimeRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Floating\Component as Floating;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\TimeRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.time')]
 #[PassThroughRuntime(TimeRuntime::class)]
@@ -38,7 +38,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.time');
+        return view('ts-ui-trippodi::components.form.time');
     }
 
     public function customization(): array
@@ -120,29 +120,29 @@ class Component extends TallStackUiComponent implements Customization
 
         if ($this->minHour && $this->maxHour) {
             if ($this->minHour < 0 || $this->minHour > 23) {
-                __ts_validation_exception($this, 'The [min-hour] must be between 0 and 23.');
+                __tst_validation_exception($this, 'The [min-hour] must be between 0 and 23.');
             }
 
             if ($this->maxHour < 0 || $this->maxHour > 23) {
-                __ts_validation_exception($this, 'The [max-hour] must be between 0 and 23.');
+                __tst_validation_exception($this, 'The [max-hour] must be between 0 and 23.');
             }
 
             if ($this->minHour > $this->maxHour) {
-                __ts_validation_exception($this, 'The [min-hour] must be less than or equal to the time [max-hour].');
+                __tst_validation_exception($this, 'The [min-hour] must be less than or equal to the time [max-hour].');
             }
         }
 
         if ($this->minMinute && $this->maxMinute) {
             if ($this->minMinute < 0 || $this->minMinute > 59) {
-                __ts_validation_exception($this, 'The [min-minute] must be between 0 and 59.');
+                __tst_validation_exception($this, 'The [min-minute] must be between 0 and 59.');
             }
 
             if ($this->maxMinute < 0 || $this->maxMinute > 59) {
-                __ts_validation_exception($this, 'The [max-minute] must be between 0 and 59.');
+                __tst_validation_exception($this, 'The [max-minute] must be between 0 and 59.');
             }
 
             if ($this->minMinute > $this->maxMinute) {
-                __ts_validation_exception($this, 'The [min-minute] must be less than or equal to the time [max-minute].');
+                __tst_validation_exception($this, 'The [min-minute] must be less than or equal to the time [max-minute].');
             }
         }
     }

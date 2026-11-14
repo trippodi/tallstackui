@@ -9,7 +9,7 @@
         @js($error),
         @js($static),
         @js($placeholder),
-        @js(trans('ts-ui::messages.upload.uploaded')),
+        @js(trans('ts-ui-trippodi::messages.upload.uploaded')),
         @js($overflow),
         @js($closeAfterUpload),
         @js($disabled),
@@ -24,7 +24,7 @@
     @if ($static)
         <p hidden x-ref="placeholder">{{ $placeholder }}</p>
     @endif
-    <x-dynamic-component :component="TallStackUi::prefix('input')"
+    <x-dynamic-component :component="TallStackUiTrippodi::prefix('input')"
                          scope="form.upload.input"
                          :value="$placeholder"
                          :$id
@@ -43,12 +43,12 @@
         <x-slot:suffix :class="$customization['slot.spacing']">
             <button type="button" class="cursor-pointer" x-on:click="pick()" @disabled($locked)>
                 @if ($direct)
-                    <x-ts-ui::icon.generic.loading x-show="uploading"
+                    <x-ts-ui-trippodi::icon.generic.loading x-show="uploading"
                                                    class="{{ $customization['upload.spinner'] }}"
                                                    dusk="tallstackui_upload_loading" />
                 @endif
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                     :icon="TallStackUi::icon('arrow-up-tray')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                     :icon="TallStackUiTrippodi::icon('arrow-up-tray')"
                                      internal
                                      :x-show="$direct ? '!uploading' : null"
                                      class="{{ $customization['icon'] }}" />
@@ -56,7 +56,7 @@
         </x-slot:suffix>
         <x-slot:label>
             @if ($label)
-                <x-dynamic-component :component="TallStackUi::prefix('label')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('label')"
                                      scope="form.upload.label"
                                      :$id
                                      :$label
@@ -67,7 +67,7 @@
     </x-dynamic-component>
     @if ($invalid['summary'])
         <span class="{{ $customization['invalid'] }}">
-                {{ trans('ts-ui::messages.upload.invalid') }}
+                {{ trans('ts-ui-trippodi::messages.upload.invalid') }}
             </span>
     @endif
     @if ($preview && ! $direct)
@@ -88,8 +88,8 @@
                 <div class="{{ $customization['preview.wrapper'] }}">
                     <button class="{{ $customization['preview.button.base'] }}"
                             x-on:click="preview = false; $nextTick(() => show = true)">
-                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                             :icon="TallStackUi::icon('x-mark')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                             :icon="TallStackUiTrippodi::icon('x-mark')"
                                              class="{{ $customization['preview.button.icon'] }}"
                                              internal />
                     </button>
@@ -111,7 +111,7 @@
             <span x-show="error" x-text="warning" class="{{ $customization['invalid'] }}"></span>
         @endif
     @else
-        <x-dynamic-component :component="TallStackUi::prefix('floating')"
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('floating')"
                              scope="form.upload.floating"
                              :floating="$customization['floating.default']"
                              :class="$customization['floating.class']"
@@ -120,12 +120,12 @@
                 <div @class(['flex', $customization['staging.wrapper'], $customization['staging.with-footer'] => $footer?->isNotEmpty()])>
                     <div class="{{ $customization['placeholder.wrapper'] }}" :class="{ '{{ $customization['placeholder.wrapper-dragging'] }}': dragging }">
                         <div class="{{ $customization['placeholder.icon.wrapper'] }}">
-                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                 :icon="TallStackUi::icon('cloud-arrow-up')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                 :icon="TallStackUiTrippodi::icon('cloud-arrow-up')"
                                                  internal
                                                  class="{{ $customization['placeholder.icon.class'] }}" />
                             <p class="{{ $customization['placeholder.title'] }}">
-                                {{ trans('ts-ui::messages.upload.upload') }}
+                                {{ trans('ts-ui-trippodi::messages.upload.upload') }}
                             </p>
                         </div>
                         @if (is_string($tip))
@@ -167,21 +167,21 @@
                                              @if ($preview) x-on:click="image = @js($file['url']); preview = true; show = false" @endif
                                                 @class([$customization['item.image'], $customization['item.image-clickable'] => $preview])>
                                     @else
-                                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                             :icon="TallStackUi::icon('document-text')"
+                                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                             :icon="TallStackUiTrippodi::icon('document-text')"
                                                              internal
                                                              :class="$customization['item.document']" />
                                     @endif
                                     <div @class(['flex-auto', $customization['item.description']])>
                                         <p class="{{ $customization['item.title'] }}">{{ $file['real_name'] }}</p>
                                         @if ($validate)
-                                            <x-dynamic-component :component="TallStackUi::prefix('error')"
+                                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('error')"
                                                                  scope="form.upload.error"
                                                                  :property="is_array($value) ? $property . '.' . $key : $property" />
                                         @endif
                                         @if ($file['size'] !== null)
                                             <p class="{{ $customization['item.size'] }}">
-                                                <span>{{ trans('ts-ui::messages.upload.size') }}: </span>
+                                                <span>{{ trans('ts-ui-trippodi::messages.upload.size') }}: </span>
                                                 <span>{{ $file['size'] }}</span>
                                             </p>
                                         @endif
@@ -193,8 +193,8 @@
                                                 class="cursor-pointer"
                                                 {{ $attributes->only('x-on:remove') }}
                                                 x-on:click="remove(@js($deleteMethod), @js($file))">
-                                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                                 :icon="TallStackUi::icon('trash')"
+                                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                                 :icon="TallStackUiTrippodi::icon('trash')"
                                                                  class="{{ $customization['item.delete'] }}"
                                                                  internal />
                                         </button>
@@ -206,15 +206,15 @@
                 </div>
             @elseif ($static === true)
                 <div class="{{ $customization['static.empty.wrapper'] }}">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('photo')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('photo')"
                                          internal
                                          class="{{ $customization['static.empty.icon'] }}" />
                     <h3 class="{{ $customization['static.empty.title'] }}">
-                        {{ trans('ts-ui::messages.upload.static.empty.title') }}
+                        {{ trans('ts-ui-trippodi::messages.upload.static.empty.title') }}
                     </h3>
                     <p class="{{ $customization['static.empty.description'] }}">
-                        {{ trans('ts-ui::messages.upload.static.empty.description') }}
+                        {{ trans('ts-ui-trippodi::messages.upload.static.empty.description') }}
                     </p>
                 </div>
             @endif

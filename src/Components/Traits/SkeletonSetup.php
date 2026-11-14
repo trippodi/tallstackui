@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Traits;
+namespace Trippodi\Trippodi\TallStackUi\Components\Traits;
 
 trait SkeletonSetup
 {
@@ -21,7 +21,7 @@ trait SkeletonSetup
     protected function guard(): void
     {
         if (is_int($this->skeleton) && $this->skeleton < 1) {
-            __ts_validation_exception($this, 'The [skeleton] must be greater than 0.');
+            __tst_validation_exception($this, 'The [skeleton] must be greater than 0.');
         }
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Form\Pin;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Pin;
 
 use Facebook\WebDriver\WebDriverKeys;
 use Laravel\Dusk\OperatingSystem;

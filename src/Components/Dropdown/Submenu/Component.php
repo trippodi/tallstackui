@@ -1,14 +1,14 @@
 <?php
 
-namespace TallStackUi\Components\Dropdown\Submenu;
+namespace Trippodi\Trippodi\TallStackUi\Components\Dropdown\Submenu;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Floating\Component as Floating;
-use TallStackUi\Components\Traits\DropdownSharedTransitions;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Floating\Component as Floating;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\DropdownSharedTransitions;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('dropdown.submenu')]
 class Component extends TallStackUiComponent implements Customization
@@ -26,7 +26,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.dropdown.submenu');
+        return view('ts-ui-trippodi::components.dropdown.submenu');
     }
 
     public function customization(): array

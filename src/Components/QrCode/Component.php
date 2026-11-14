@@ -1,20 +1,20 @@
 <?php
 
-namespace TallStackUi\Components\QrCode;
+namespace Trippodi\Trippodi\TallStackUi\Components\QrCode;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\View as Views;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Icon\Component as Icon;
-use TallStackUi\Components\Traits\SkeletonSetup;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\QrCodeColors;
-use TallStackUi\Support\QrCode\Encoder;
-use TallStackUi\Support\Runtime\Components\QrCodeRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Icon\Component as Icon;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\SkeletonSetup;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\QrCodeColors;
+use Trippodi\Trippodi\TallStackUi\Support\QrCode\Encoder;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\QrCodeRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('qrCode')]
 #[ColorsThroughOf(QrCodeColors::class)]
@@ -46,7 +46,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view($this->skeletonized() ? 'ts-ui::components.qr-code.skeleton' : 'ts-ui::components.qr-code.main');
+        return view($this->skeletonized() ? 'ts-ui-trippodi::components.qr-code.skeleton' : 'ts-ui-trippodi::components.qr-code.main');
     }
 
     public function customization(): array
@@ -86,11 +86,11 @@ class Component extends TallStackUiComponent implements Customization
             return false;
         }
 
-        $configuration = __ts_get_component_configuration(Icon::class);
+        $configuration = __tst_get_component_configuration(Icon::class);
         $type = $configuration['type'] ?? 'heroicons';
 
         if (in_array($type, ['hero', 'heroicons'], true)) {
-            return Views::exists('ts-ui::components.icon.heroicons.'.($configuration['style'] ?? 'solid').'.'.$this->watermark);
+            return Views::exists('ts-ui-trippodi::components.icon.heroicons.'.($configuration['style'] ?? 'solid').'.'.$this->watermark);
         }
 
         // A local set is plain Blade components, so the same check applies once
@@ -113,17 +113,17 @@ class Component extends TallStackUiComponent implements Customization
         $this->guard();
 
         if ($this->size !== null && ! in_array($this->size, self::SIZES, true)) {
-            __ts_validation_exception($this, 'The [size] must be one of: '.implode(', ', self::SIZES).'.');
+            __tst_validation_exception($this, 'The [size] must be one of: '.implode(', ', self::SIZES).'.');
         }
 
         if (is_string($this->download) && ! in_array($this->download, self::FORMATS, true)) {
-            __ts_validation_exception($this, 'The [download] must be one of: '.implode(', ', self::FORMATS).'.');
+            __tst_validation_exception($this, 'The [download] must be one of: '.implode(', ', self::FORMATS).'.');
         }
 
         // Only the caption has to fit the strip. An icon is drawn from its
         // view, so its name is as long as the set made it.
         if ($this->watermark !== null && ! $this->iconic() && mb_strlen($this->watermark) > self::WATERMARK) {
-            __ts_validation_exception($this, 'The [watermark] must not be longer than '.self::WATERMARK.' characters as text.');
+            __tst_validation_exception($this, 'The [watermark] must not be longer than '.self::WATERMARK.' characters as text.');
         }
 
         // The link is the content, which is what a placeholder stands in for.
@@ -132,17 +132,17 @@ class Component extends TallStackUiComponent implements Customization
         }
 
         if (blank($this->link)) {
-            __ts_validation_exception($this, 'The [link] is required.');
+            __tst_validation_exception($this, 'The [link] is required.');
         }
 
         if (filter_var($this->link, FILTER_VALIDATE_URL) === false) {
-            __ts_validation_exception($this, 'The [link] must be a valid URL.');
+            __tst_validation_exception($this, 'The [link] must be a valid URL.');
         }
 
         // Checked here so the failure names the property, instead of surfacing
         // as the encoder's own exception from inside the runtime.
         if (strlen($this->link) > ($limit = Encoder::limit($this->level()))) {
-            __ts_validation_exception($this, 'The [link] must not be longer than '.$limit.' characters.');
+            __tst_validation_exception($this, 'The [link] must not be longer than '.$limit.' characters.');
         }
     }
 }

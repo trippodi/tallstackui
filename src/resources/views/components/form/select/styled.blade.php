@@ -33,12 +33,12 @@
      @if ($open) x-on:select:{{ $open }}.window="$nextTick(() => show = true)" @endif
      @if ($close) x-on:select:{{ $close }}.window="show = false" @endif
      wire:ignore.self>
-    <div hidden x-ref="options">{{ TallStackUi::blade()->json($options) }}</div>
+    <div hidden x-ref="options">{{ TallStackUiTrippodi::blade()->json($options) }}</div>
     @if ($request['params'] ?? null)
-        <div hidden x-ref="params">{{ TallStackUi::blade()->json($request['params']) }}</div>
+        <div hidden x-ref="params">{{ TallStackUiTrippodi::blade()->json($request['params']) }}</div>
     @endif
     @if ($label && !$side)
-        <x-dynamic-component :component="TallStackUi::prefix('label')" scope="form.select-styled.label" :$label :$error />
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('label')" scope="form.select-styled.label" :$label :$error />
     @endif
     <div class="relative" x-on:click.outside="show = false">
         <button type="button"
@@ -93,8 +93,8 @@
                                             <div class="{{ $customization['items.multiple.icon'] }}">
                                                 <button type="button" class="cursor-pointer"
                                                         x-on:click="$event.stopPropagation(); clear(select)">
-                                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                                         :icon="TallStackUi::icon('x-mark')"
+                                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                                         :icon="TallStackUiTrippodi::icon('x-mark')"
                                                                          internal
                                                                          class="{{ $customization['items.multiple.icon'] }}" />
                                                 </button>
@@ -115,20 +115,20 @@
                                 type="button"
                                 class="cursor-pointer"
                                 x-on:click="$event.stopPropagation(); clear();">
-                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                 :icon="TallStackUi::icon('x-mark')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                 :icon="TallStackUiTrippodi::icon('x-mark')"
                                                  internal
                                     @class([$customization['buttons.size'], $customization['buttons.base'] => !$error, $customization['buttons.error'] => $error]) />
                         </button>
                     </template>
                 @endif
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                     :icon="TallStackUi::icon('chevron-up-down')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                     :icon="TallStackUiTrippodi::icon('chevron-up-down')"
                                      internal
                         @class([$customization['buttons.size'], $customization['buttons.base'] => !$error, $customization['buttons.error'] => $error]) />
             </div>
         </button>
-        <x-dynamic-component :component="TallStackUi::prefix('floating')"
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('floating')"
                              scope="form.select-styled.floating"
                              :floating="$customization['floating.default']"
                              @class([$customization['floating.class'], ($floating ?? $customization['floating.side']) => $side])
@@ -137,7 +137,7 @@
                              x-on:keydown="navigate($event)">
             <template x-if="searchable">
                 <div class="{{ $customization['box.searchable.wrapper'] }}">
-                    <x-dynamic-component :component="TallStackUi::prefix('input')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('input')"
                                          scope="form.select-styled.input"
                                          :placeholder="data_get($placeholders, 'search')"
                                          x-model.debounce.500ms="search"
@@ -148,8 +148,8 @@
                             class="{{ $customization['box.button.class'] }}"
                             x-on:click="search = ''; $refs.search.focus();"
                             x-show="search?.length > 0">
-                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                             :icon="TallStackUi::icon('x-mark')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                             :icon="TallStackUiTrippodi::icon('x-mark')"
                                              internal
                                              class="{{ $customization['box.button.icon'] }}" />
                     </button>
@@ -160,9 +160,9 @@
                 @if ($request)
                     <div x-show="loading" class="{{ $customization['box.list.loading.wrapper'] }}">
                         @if ($spinner)
-                            <x-dynamic-component :component="TallStackUi::prefix('spinner')" :type="$spinner" />
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('spinner')" :type="$spinner" />
                         @else
-                            <x-ts-ui::icon.generic.loading class="{{ $customization['box.list.loading.class'] }}" />
+                            <x-ts-ui-trippodi::icon.generic.loading class="{{ $customization['box.list.loading.class'] }}" />
                         @endif
                     </div>
                 @endif
@@ -208,8 +208,8 @@
                                             </div>
                                         </div>
                                         <div class="{{ $customization['box.list.item.check'] }}">
-                                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                                 :icon="TallStackUi::icon('check')"
+                                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                                 :icon="TallStackUiTrippodi::icon('check')"
                                                                  x-show="selected(item)"
                                                                  internal
                                                                  class="{{ $customization['box.list.item.check'] }}" />
@@ -238,8 +238,8 @@
                                     </div>
                                 </div>
                                 <div class="{{ $customization['box.list.item.check'] }}">
-                                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                         :icon="TallStackUi::icon('check')"
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                         :icon="TallStackUiTrippodi::icon('check')"
                                                          x-show="!common ? selected(option) : selects.includes(option)"
                                                          internal
                                                          class="{{ $customization['box.list.item.check'] }}" />
@@ -266,9 +266,9 @@
         </x-dynamic-component>
     </div>
     @if ($hint && !$error && !$side)
-        <x-dynamic-component :component="TallStackUi::prefix('hint')" scope="form.select-styled.hint" :$hint />
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('hint')" scope="form.select-styled.hint" :$hint />
     @endif
     @if ($validate && !$side)
-        <x-dynamic-component :component="TallStackUi::prefix('error')" scope="form.select-styled.error" :$property />
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('error')" scope="form.select-styled.error" :$property />
     @endif
 </div>

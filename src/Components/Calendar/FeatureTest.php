@@ -3,7 +3,7 @@
 use Carbon\CarbonImmutable;
 use Carbon\CarbonPeriod;
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Calendar\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Calendar\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -80,38 +80,38 @@ it('renders shadowless and bordered together', function () {
 });
 
 it('renders the flat look through the global configuration', function () {
-    config()->set('ts-ui.components.calendar.1.shadowless', true);
-    config()->set('ts-ui.components.calendar.1.bordered', true);
+    config()->set('ts-ui-trippodi.components.calendar.1.shadowless', true);
+    config()->set('ts-ui-trippodi.components.calendar.1.bordered', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-calendar />')->render()
             ->toContain('shadow-none!')
             ->toContain('border border-gray-200 dark:border-dark-700');
     } finally {
-        config()->set('ts-ui.components.calendar.1.shadowless', false);
-        config()->set('ts-ui.components.calendar.1.bordered', false);
+        config()->set('ts-ui-trippodi.components.calendar.1.shadowless', false);
+        config()->set('ts-ui-trippodi.components.calendar.1.bordered', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
 it('lets the flat look props win over the global configuration', function () {
-    config()->set('ts-ui.components.calendar.1.shadowless', true);
-    config()->set('ts-ui.components.calendar.1.bordered', true);
+    config()->set('ts-ui-trippodi.components.calendar.1.shadowless', true);
+    config()->set('ts-ui-trippodi.components.calendar.1.bordered', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-calendar :shadowless="false" :bordered="false" />')->render()
             ->not->toContain('shadow-none!')
             ->not->toContain('border border-gray-200 dark:border-dark-700');
     } finally {
-        config()->set('ts-ui.components.calendar.1.shadowless', false);
-        config()->set('ts-ui.components.calendar.1.bordered', false);
+        config()->set('ts-ui-trippodi.components.calendar.1.shadowless', false);
+        config()->set('ts-ui-trippodi.components.calendar.1.bordered', false);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
@@ -120,30 +120,30 @@ it('starts the week on Sunday by default', function () {
 });
 
 it('starts the week through the global configuration', function () {
-    config()->set('ts-ui.components.calendar.1.start', 1);
+    config()->set('ts-ui-trippodi.components.calendar.1.start', 1);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-calendar />')->render()->toContain("1,\n     null,\n     false,\n     false)");
     } finally {
-        config()->set('ts-ui.components.calendar.1.start', 0);
+        config()->set('ts-ui-trippodi.components.calendar.1.start', 0);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
 it('lets the start attribute win over the global configuration', function () {
-    config()->set('ts-ui.components.calendar.1.start', 1);
+    config()->set('ts-ui-trippodi.components.calendar.1.start', 1);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-calendar start="6" />')->render()->toContain("6,\n     null,\n     false,\n     false)");
     } finally {
-        config()->set('ts-ui.components.calendar.1.start', 0);
+        config()->set('ts-ui-trippodi.components.calendar.1.start', 0);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
@@ -155,9 +155,9 @@ it('cannot start the week on a negative day', function () {
 });
 
 it('cannot start the week out of range through the global configuration', function () {
-    config()->set('ts-ui.components.calendar.1.start', 7);
+    config()->set('ts-ui-trippodi.components.calendar.1.start', 7);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         $this->expectException(ViewException::class);
@@ -165,9 +165,9 @@ it('cannot start the week out of range through the global configuration', functi
 
         expect('<x-calendar />')->render();
     } finally {
-        config()->set('ts-ui.components.calendar.1.start', 0);
+        config()->set('ts-ui-trippodi.components.calendar.1.start', 0);
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 

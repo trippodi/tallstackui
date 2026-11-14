@@ -1,19 +1,19 @@
 <?php
 
-namespace TallStackUi\Components\Form\Color;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Color;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\View\ComponentSlot;
 use InvalidArgumentException;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Floating\Component as Floating;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\ColorRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Floating\Component as Floating;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\ColorRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.color')]
 #[PassThroughRuntime(ColorRuntime::class)]
@@ -43,7 +43,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.color');
+        return view('ts-ui-trippodi::components.form.color');
     }
 
     public function customization(): array
@@ -93,17 +93,17 @@ class Component extends TallStackUiComponent implements Customization
         if (($colors = collect($this->colors))->isNotEmpty()) {
             $colors->each(function (string $color): void {
                 if (! str($color)->startsWith('#')) {
-                    __ts_validation_exception($this, 'All the [colors] must starts with #');
+                    __tst_validation_exception($this, 'All the [colors] must starts with #');
                 }
             });
         }
 
         // The picker may still come from the global configuration at this
         // point, since validate() runs before CompileConfigurations.
-        $picker = $this->picker ?? __ts_get_component_configuration(self::class, 'picker') ?? false;
+        $picker = $this->picker ?? __tst_get_component_configuration(self::class, 'picker') ?? false;
 
         if (! $picker && $this->excludedStep) {
-            __ts_validation_exception($this, 'The [excluded-step] attribute can only be used with [picker] attribute.');
+            __tst_validation_exception($this, 'The [excluded-step] attribute can only be used with [picker] attribute.');
         }
 
         $colors = [
@@ -118,13 +118,13 @@ class Component extends TallStackUiComponent implements Customization
 
         foreach ($this->excludedColor as $color) {
             if (! in_array($color, $colors, true)) {
-                __ts_validation_exception($this, "The [excluded-color] value [{$color}] is not a valid Tailwind CSS color.");
+                __tst_validation_exception($this, "The [excluded-color] value [{$color}] is not a valid Tailwind CSS color.");
             }
         }
 
         foreach ($this->excludedStep as $step) {
             if (! in_array($step, $steps, true)) {
-                __ts_validation_exception($this, "The [excluded-step] value [{$step}] is not a valid Tailwind CSS color step.");
+                __tst_validation_exception($this, "The [excluded-step] value [{$step}] is not a valid Tailwind CSS color step.");
             }
         }
     }

@@ -12,10 +12,10 @@
     @if ($left)
         {{ $left }}
     @endif
-    {{ __('ts-ui::messages.environment.environment') }}: {{ str(app()->environment())->title() }}
+    {{ __('ts-ui-trippodi::messages.environment.environment') }}: {{ str(app()->environment())->title() }}
     @if ($branch)
-        ({{ __('ts-ui::messages.environment.branch') }}:
-        <x-ts-ui::icon.generic.fork :class="$customization['icon.fork-size']" /> {{ $branch }})
+        ({{ __('ts-ui-trippodi::messages.environment.branch') }}:
+        <x-ts-ui-trippodi::icon.generic.fork :class="$customization['icon.fork-size']" /> {{ $branch }})
     @endif
     @if ($right)
         {{ $right }}

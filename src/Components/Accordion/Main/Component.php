@@ -1,12 +1,12 @@
 <?php
 
-namespace TallStackUi\Components\Accordion\Main;
+namespace Trippodi\Trippodi\TallStackUi\Components\Accordion\Main;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('accordion')]
 class Component extends TallStackUiComponent implements Customization
@@ -17,7 +17,7 @@ class Component extends TallStackUiComponent implements Customization
         public ?bool $bordered = null,
         public ?string $chevron = 'right',
     ) {
-        $configuration = __ts_get_component_configuration(self::class);
+        $configuration = __tst_get_component_configuration(self::class);
 
         $this->shadowless ??= $configuration['shadowless'] ?? false;
         $this->bordered ??= $configuration['bordered'] ?? false;
@@ -25,7 +25,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.accordion.main');
+        return view('ts-ui-trippodi::components.accordion.main');
     }
 
     public function customization(): array
@@ -43,7 +43,7 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if (! in_array($this->chevron, ['left', 'right'], true)) {
-            __ts_validation_exception($this, 'The [chevron] prop must be either "left" or "right".');
+            __tst_validation_exception($this, 'The [chevron] prop must be either "left" or "right".');
         }
     }
 }

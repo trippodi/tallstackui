@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Traits;
+namespace Trippodi\Trippodi\TallStackUi\Components\Traits;
 
 use Illuminate\Support\Collection;
 
@@ -43,7 +43,7 @@ trait SelectionSetup
     protected function validate(): void
     {
         if ($this->columns < 1 || $this->columns > 4) {
-            __ts_validation_exception($this, 'The [columns] must be between 1 and 4.');
+            __tst_validation_exception($this, 'The [columns] must be between 1 and 4.');
         }
     }
 
@@ -51,12 +51,12 @@ trait SelectionSetup
     private function normalize(mixed $option, int $index): array
     {
         if (! is_array($option)) {
-            __ts_validation_exception($this, 'The [options] must be an array of arrays.');
+            __tst_validation_exception($this, 'The [options] must be an array of arrays.');
         }
 
         foreach (['label', 'value'] as $mandatory) {
             if (! array_key_exists($key = $this->selectable[$mandatory], $option)) {
-                __ts_validation_exception($this, "The key [{$key}] is missing in the options array.");
+                __tst_validation_exception($this, "The key [{$key}] is missing in the options array.");
             }
         }
 
@@ -79,7 +79,7 @@ trait SelectionSetup
     {
         $keys = ['label', 'value', 'description', 'aside', 'icon', 'image', 'badge'];
 
-        $this->select ??= __ts_get_component_configuration(static::class, 'select');
+        $this->select ??= __tst_get_component_configuration(static::class, 'select');
 
         $select = array_reduce(
             explode('|', (string) $this->select),

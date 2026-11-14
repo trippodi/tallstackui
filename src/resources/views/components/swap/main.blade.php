@@ -2,7 +2,7 @@
     $customization = $classes();
 @endphp
 
-<x-dynamic-component :component="TallStackUi::prefix('wrapper.input')"
+<x-dynamic-component :component="TallStackUiTrippodi::prefix('wrapper.input')"
                      :$id
                      :$property
                      :$error
@@ -12,7 +12,7 @@
                      :wrapper="$customization['wrapper']">
     <div x-data="tallstackui_swap(
             {!! $entangle !!},
-            {{ TallStackUi::blade()->json($options) }},
+            {{ TallStackUiTrippodi::blade()->json($options) }},
             @js($preview),
             @js($vertical),
             @js($loop),
@@ -57,8 +57,8 @@
                     x-on:keydown.right.prevent="next()"
                 @endif
                 x-bind:disabled="locked() || (!loop && slot <= 0)">
-            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                 :icon="TallStackUi::icon($vertical ? 'chevron-up' : 'chevron-left')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                 :icon="TallStackUiTrippodi::icon($vertical ? 'chevron-up' : 'chevron-left')"
                                  internal
                                  class="{{ $customization['button.icon'] }}" />
         </button>
@@ -115,8 +115,8 @@
                     x-on:keydown.right.prevent="next()"
                 @endif
                 x-bind:disabled="locked() || (!loop && slot >= items.length - 1)">
-            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                 :icon="TallStackUi::icon($vertical ? 'chevron-down' : 'chevron-right')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                 :icon="TallStackUiTrippodi::icon($vertical ? 'chevron-down' : 'chevron-right')"
                                  internal
                                  class="{{ $customization['button.icon'] }}" />
         </button>

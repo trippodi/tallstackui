@@ -1,13 +1,13 @@
 <?php
 
-namespace TallStackUi\Components\Dialog;
+namespace Trippodi\Trippodi\TallStackUi\Components\Dialog;
 
 use Laravel\Dusk\Browser;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\Livewire;
 use PHPUnit\Framework\Attributes\Test;
-use TallStackUi\Traits\Interactions;
+use Trippodi\Trippodi\TallStackUi\Traits\Interactions;
 use Tests\Browser\BrowserTestCase;
 
 class BrowserTest extends BrowserTestCase

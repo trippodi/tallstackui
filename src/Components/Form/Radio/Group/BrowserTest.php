@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Form\Radio\Group;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Radio\Group;
 
 use Livewire\Component;
 use Livewire\Livewire;

@@ -1,15 +1,15 @@
 <?php
 
-namespace TallStackUi\Components\Editor;
+namespace Trippodi\Trippodi\TallStackUi\Components\Editor;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\EditorRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\EditorRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('editor')]
 #[PassThroughRuntime(EditorRuntime::class)]
@@ -68,7 +68,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.editor.main');
+        return view('ts-ui-trippodi::components.editor.main');
     }
 
     public function customization(): array
@@ -141,11 +141,11 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if ($this->readonly && $this->disabled) {
-            __ts_validation_exception($this, 'The [readonly] and [disabled] cannot be used together.');
+            __tst_validation_exception($this, 'The [readonly] and [disabled] cannot be used together.');
         }
 
         if ($this->toolbar !== null && $this->toolbar === []) {
-            __ts_validation_exception($this, 'The [toolbar] cannot be empty.');
+            __tst_validation_exception($this, 'The [toolbar] cannot be empty.');
         }
     }
 }

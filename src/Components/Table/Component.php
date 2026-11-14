@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Table;
+namespace Trippodi\Trippodi\TallStackUi\Components\Table;
 
 use ArrayAccess;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -11,14 +11,14 @@ use Illuminate\Support\Collection;
 use Illuminate\View\ComponentAttributeBag;
 use Illuminate\View\ComponentSlot;
 use InvalidArgumentException;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Spinner\Component as Spinner;
-use TallStackUi\Components\Traits\SkeletonSetup;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\TableRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\SkeletonSetup;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\TableRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('table')]
 #[PassThroughRuntime(TableRuntime::class)]
@@ -69,7 +69,7 @@ class Component extends TallStackUiComponent implements Customization
         #[SkipDebug]
         public ?string $spinner = null,
     ) {
-        $this->placeholders = array_merge(trans('ts-ui::messages.table'), $this->placeholders ?? []);
+        $this->placeholders = array_merge(trans('ts-ui-trippodi::messages.table'), $this->placeholders ?? []);
     }
 
     final public function alignment(Collection|array $header): string
@@ -79,7 +79,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view($this->skeletonized() ? 'ts-ui::components.table.skeleton' : 'ts-ui::components.table.main');
+        return view($this->skeletonized() ? 'ts-ui-trippodi::components.table.skeleton' : 'ts-ui-trippodi::components.table.main');
     }
 
     public function customization(): array
@@ -242,7 +242,7 @@ class Component extends TallStackUiComponent implements Customization
     {
         return str_contains($this->paginator, '::') || str_contains($this->paginator, '.')
             ? $this->paginator
-            : 'ts-ui::components.table.paginators.'.$this->paginator;
+            : 'ts-ui-trippodi::components.table.paginators.'.$this->paginator;
     }
 
     final public function sortable(Collection|array $header): bool
@@ -270,19 +270,19 @@ class Component extends TallStackUiComponent implements Customization
     {
         // Null means "not given", so an explicit :paginate="false" still wins
         // over a global default that turns it on.
-        $this->paginator ??= __ts_get_component_configuration(self::class, 'paginator') ?? 'simple';
-        $this->simplePagination ??= __ts_get_component_configuration(self::class, 'simple-pagination') ?? false;
+        $this->paginator ??= __tst_get_component_configuration(self::class, 'paginator') ?? 'simple';
+        $this->simplePagination ??= __tst_get_component_configuration(self::class, 'simple-pagination') ?? false;
         // The simple-pagination alone is enough to turn pagination on.
-        $this->paginate ??= $this->simplePagination ?: (__ts_get_component_configuration(self::class, 'paginate') ?? false);
-        $this->quantity ??= __ts_get_component_configuration(self::class, 'quantity') ?? [10, 25, 50, 100];
-        $this->filter ??= __ts_get_component_configuration(self::class, 'filter') ?? null;
-        $this->compact ??= __ts_get_component_configuration(self::class, 'compact') ?? false;
-        $this->indicator ??= __ts_get_component_configuration(self::class, 'indicator');
+        $this->paginate ??= $this->simplePagination ?: (__tst_get_component_configuration(self::class, 'paginate') ?? false);
+        $this->quantity ??= __tst_get_component_configuration(self::class, 'quantity') ?? [10, 25, 50, 100];
+        $this->filter ??= __tst_get_component_configuration(self::class, 'filter') ?? null;
+        $this->compact ??= __tst_get_component_configuration(self::class, 'compact') ?? false;
+        $this->indicator ??= __tst_get_component_configuration(self::class, 'indicator');
 
         if (blank($this->indicator)) {
             $this->indicator = null;
         } elseif ($this->indicator === 'spinner') {
-            $this->spinner = __ts_get_component_configuration(Spinner::class, 'type') ?? 'ring';
+            $this->spinner = __tst_get_component_configuration(Spinner::class, 'type') ?? 'ring';
         } elseif (str_starts_with($this->indicator, 'spinner.')) {
             $this->spinner = substr($this->indicator, 8);
         }
@@ -305,42 +305,42 @@ class Component extends TallStackUiComponent implements Customization
         $this->guard();
 
         if (! str_contains($this->paginator, '.') && ! in_array($this->paginator, self::PAGINATORS, true)) {
-            __ts_validation_exception($this, 'The [paginator] must be one of ['.implode(', ', self::PAGINATORS).'] or a view path.');
+            __tst_validation_exception($this, 'The [paginator] must be one of ['.implode(', ', self::PAGINATORS).'] or a view path.');
         }
 
-        $messages = trans('ts-ui::messages.table');
+        $messages = trans('ts-ui-trippodi::messages.table');
 
         // A skeleton renders no text, so these messages are never reached.
         if (! $this->skeletonized()) {
             if (blank($this->empty) && blank($messages['empty'] ?? null)) {
-                __ts_validation_exception($this, 'The [empty] message cannot be empty.');
+                __tst_validation_exception($this, 'The [empty] message cannot be empty.');
             }
 
             if (blank($messages['quantity'] ?? null)) {
-                __ts_validation_exception($this, 'The [quantity] message cannot be empty.');
+                __tst_validation_exception($this, 'The [quantity] message cannot be empty.');
             }
 
             if (blank($messages['search'] ?? null)) {
-                __ts_validation_exception($this, 'The [search] message cannot be empty.');
+                __tst_validation_exception($this, 'The [search] message cannot be empty.');
             }
         }
 
         if ($this->selectable && blank($this->selectableProperty)) {
-            __ts_validation_exception($this, 'The [selectableProperty] property is required when [selectable] is set.');
+            __tst_validation_exception($this, 'The [selectableProperty] property is required when [selectable] is set.');
         }
 
         if ($this->highlight && blank($this->highlightProperty)) {
-            __ts_validation_exception($this, 'The [highlightProperty] property is required when [highlight] is set.');
+            __tst_validation_exception($this, 'The [highlightProperty] property is required when [highlight] is set.');
         }
 
         foreach ($this->headers as $header) {
             if (! in_array($this->alignment($header), self::ALIGNMENTS, true)) {
-                __ts_validation_exception($this, 'The header [align] must be one of ['.implode(', ', self::ALIGNMENTS).'].');
+                __tst_validation_exception($this, 'The header [align] must be one of ['.implode(', ', self::ALIGNMENTS).'].');
             }
         }
 
         if (is_string($this->persistent) && blank($this->persistent)) {
-            __ts_validation_exception($this, 'The [persistent] must be the id of an existing element when given as a string.');
+            __tst_validation_exception($this, 'The [persistent] must be the id of an existing element when given as a string.');
         }
 
         if ($this->indicator === null) {
@@ -348,7 +348,7 @@ class Component extends TallStackUiComponent implements Customization
         }
 
         if (! in_array($this->spinner, Spinner::TYPES, true)) {
-            __ts_validation_exception($this, 'The [indicator] must be [spinner] or [spinner.{type}], where type is one of ['.implode(', ', Spinner::TYPES).']');
+            __tst_validation_exception($this, 'The [indicator] must be [spinner] or [spinner.{type}], where type is one of ['.implode(', ', Spinner::TYPES).']');
         }
     }
 }

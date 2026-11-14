@@ -1,12 +1,12 @@
 <?php
 
-namespace TallStackUi\Console;
+namespace Trippodi\Trippodi\TallStackUi\Console;
 
 use Exception;
 use Illuminate\Console\Command;
 use ReflectionClass;
 use ReflectionException;
-use TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
 
 use function Laravel\Prompts\select;
 
@@ -14,24 +14,24 @@ class SetupColorCommand extends Command
 {
     public $description = 'Publish stubs to customize Component colors.';
 
-    public $signature = 'tallstackui:setup-color';
+    public $signature = 'tallstackui-trippodi:setup-color';
 
     /** @throws ReflectionException */
     public function handle(): int
     {
-        if (blank(config('ts-ui.color_classes_namespace'))) {
+        if (blank(config('ts-ui-trippodi.color_classes_namespace'))) {
             $this->components->error('The namespace for the color classes is blank.');
 
             return self::FAILURE;
         }
 
-        $filtered = __ts_filter_components_using_attribute(ColorsThroughOf::class);
+        $filtered = __tst_filter_components_using_attribute(ColorsThroughOf::class);
 
         $components = [];
         $map = [];
 
         foreach ($filtered as $class) {
-            $display = str_replace('TallStackUi\\Components\\', '', $class);
+            $display = str_replace('Trippodi\TallStackUi\\Components\\', '', $class);
             $display = preg_replace('/\\\\Component$/', '', $display);
             $display = str_replace('\\Main', '', $display);
 
@@ -49,7 +49,7 @@ class SetupColorCommand extends Command
 
     private function publish(string $component): int
     {
-        $collect = __ts_class_collection($component);
+        $collect = __tst_class_collection($component);
 
         if ($collect['file_exists'] === true) {
             $this->components->error('According to the namespace, the class file already exists.');

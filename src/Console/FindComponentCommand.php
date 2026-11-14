@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Console;
+namespace Trippodi\Trippodi\TallStackUi\Console;
 
 use Exception;
 use Illuminate\Console\Command;
@@ -26,16 +26,16 @@ class FindComponentCommand extends Command
 
     public $description = 'Find Components occurrences usage through all Blade files.';
 
-    public $signature = 'tallstackui:find-component';
+    public $signature = 'tallstackui-trippodi:find-component';
 
     public function handle(): int
     {
-        $components = collect(config('ts-ui.components'))
+        $components = collect(config('ts-ui-trippodi.components'))
             ->keys()
             ->filter(fn (string $component) => ! in_array($component, self::IGNORES));
 
         $original = suggest('Select Component', $components->values()->toArray(), required: true);
-        $prefix = config('ts-ui.prefix');
+        $prefix = config('ts-ui-trippodi.prefix');
         $find = sprintf('<x-%s', $prefix ? $prefix.$original : $original);
 
         $windows = windows_os();

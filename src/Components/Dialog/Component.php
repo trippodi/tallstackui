@@ -1,15 +1,15 @@
 <?php
 
-namespace TallStackUi\Components\Dialog;
+namespace Trippodi\Trippodi\TallStackUi\Components\Dialog;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use InvalidArgumentException;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\DialogColors;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\DialogColors;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('dialog')]
 #[ColorsThroughOf(DialogColors::class)]
@@ -17,7 +17,7 @@ class Component extends TallStackUiComponent implements Customization
 {
     public function blade(): View
     {
-        return view('ts-ui::components.dialog.main');
+        return view('ts-ui-trippodi::components.dialog.main');
     }
 
     public function customization(): array
@@ -71,22 +71,22 @@ class Component extends TallStackUiComponent implements Customization
     /** @throws InvalidArgumentException */
     protected function validate(): void
     {
-        $messages = trans('ts-ui::messages.dialog.button');
+        $messages = trans('ts-ui-trippodi::messages.dialog.button');
 
-        if (! str(__ts_get_component_configuration(self::class, 'z-index') ?? 'z-50')->startsWith('z-')) {
-            __ts_validation_exception($this, 'The [z-index] must start with z- prefix');
+        if (! str(__tst_get_component_configuration(self::class, 'z-index') ?? 'z-50')->startsWith('z-')) {
+            __tst_validation_exception($this, 'The [z-index] must start with z- prefix');
         }
 
         if (blank($messages['ok'] ?? null)) {
-            __ts_validation_exception($this, 'The [ok] message cannot be empty.');
+            __tst_validation_exception($this, 'The [ok] message cannot be empty.');
         }
 
         if (blank($messages['confirm'] ?? null)) {
-            __ts_validation_exception($this, 'The [confirm] message cannot be empty.');
+            __tst_validation_exception($this, 'The [confirm] message cannot be empty.');
         }
 
         if (blank($messages['cancel'] ?? null)) {
-            __ts_validation_exception($this, 'The [cancel] message cannot be empty.');
+            __tst_validation_exception($this, 'The [cancel] message cannot be empty.');
         }
     }
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace TallStackUi\Support\Miscellaneous;
+namespace Trippodi\Trippodi\TallStackUi\Support\Miscellaneous;
 
 use Exception;
-use TallStackUi\Components\Editor\Component as Editor;
+use Trippodi\Trippodi\TallStackUi\Components\Editor\Component as Editor;
 
 /** @internal */
 class EditorOutputClasses
@@ -30,7 +30,7 @@ class EditorOutputClasses
         $invalid = array_filter($classes, fn (mixed $class): bool => ! is_string($class) || ! str_starts_with($class, $prefix));
 
         if ($invalid !== []) {
-            __ts_validation_exception($component, sprintf(
+            __tst_validation_exception($component, sprintf(
                 'The output class of [%s] must start with [%s].',
                 implode(', ', array_keys($invalid)),
                 $prefix,
@@ -52,6 +52,6 @@ class EditorOutputClasses
             return;
         }
 
-        __ts_validation_exception($component, sprintf('The output classes prefix [%s] must be lowercase, dash separated and end with a dash.', $prefix));
+        __tst_validation_exception($component, sprintf('The output classes prefix [%s] must be lowercase, dash separated and end with a dash.', $prefix));
     }
 }

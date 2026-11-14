@@ -1,8 +1,8 @@
 <?php
 
-namespace TallStackUi\Support\Runtime\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
 
-use TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class ListRuntime extends AbstractRuntime
 {
@@ -30,7 +30,7 @@ class ListRuntime extends AbstractRuntime
 
         foreach (self::INTERACTIONS as $interaction) {
             if ($this->data($interaction) !== null) {
-                __ts_validation_exception($this->component, "The [lazy] cannot be used together with [@interact('{$interaction}')] because the slot is resolved on the server side.");
+                __tst_validation_exception($this->component, "The [lazy] cannot be used together with [@interact('{$interaction}')] because the slot is resolved on the server side.");
             }
         }
 

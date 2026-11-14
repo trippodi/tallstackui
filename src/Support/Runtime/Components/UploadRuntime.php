@@ -1,9 +1,9 @@
 <?php
 
-namespace TallStackUi\Support\Runtime\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Exception;
-use TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class UploadRuntime extends AbstractRuntime
 {
@@ -28,7 +28,7 @@ class UploadRuntime extends AbstractRuntime
         ];
 
         if (is_null($property)) {
-            __ts_validation_exception($this->component, 'The component requires a property to bind using [wire:model].');
+            __tst_validation_exception($this->component, 'The component requires a property to bind using [wire:model].');
         }
 
         return $data;

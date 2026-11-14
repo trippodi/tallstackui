@@ -10,7 +10,7 @@
                 @if ($index > 0)
                     <li class="{{ $customization['separator.wrapper'] }}">
                         @if (str_contains($separator, 'icon:'))
-                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
                                                  :icon="str_replace('icon:', '', $separator)"
                                                  internal
                                                  @class([$customization['separator.icon.class'], $customization['separator.icon.sizes.' . $size], $separatorClass]) />
@@ -25,7 +25,7 @@
                            @class([$customization['item.link.class'], $customization['item.link.sizes.' . $size]])
                            @if ($item['tooltip'] ?? null) x-data x-tooltip="{{ $item['tooltip'] }}" @endif>
                             @if ($item['icon'] ?? null)
-                                <x-dynamic-component :component="TallStackUi::prefix('icon')"
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
                                                      :icon="$item['icon']"
                                                      internal
                                                      class="{{ $customization['item.icon.class'] }} {{ $customization['item.icon.sizes.' . $size] }}" />
@@ -36,7 +36,7 @@
                         <span @class([$customization['item.current.class'], $customization['item.current.sizes.' . $size]])
                               @if ($item['tooltip'] ?? null) x-data x-tooltip="{{ $item['tooltip'] }}" @endif>
                             @if ($item['icon'] ?? null)
-                                <x-dynamic-component :component="TallStackUi::prefix('icon')"
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
                                                      :icon="$item['icon']"
                                                      internal
                                                      class="{{ $customization['item.icon.class'] }} {{ $customization['item.icon.sizes.' . $size] }}" />

@@ -2,17 +2,17 @@
 
 use Illuminate\Support\Facades\File;
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Spinner\Component;
-use TallStackUi\Facades\TallStackUi;
+use Trippodi\Trippodi\TallStackUi\Components\Spinner\Component;
+use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
 
 afterEach(function () {
-    config()->set('ts-ui.components.spinner.1.type', 'ring');
-    config()->set('ts-ui.components.spinner.1.size', 'md');
+    config()->set('ts-ui-trippodi.components.spinner.1.type', 'ring');
+    config()->set('ts-ui-trippodi.components.spinner.1.size', 'md');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can render')
@@ -29,7 +29,7 @@ it('can render the ring as the default variant')
     ->not->toContain('dusk="spinner-bars"');
 
 it('has a view for every variant', function (string $type) {
-    expect(view()->exists('ts-ui::components.spinner.types.'.$type))->toBeTrue();
+    expect(view()->exists('ts-ui-trippodi::components.spinner.types.'.$type))->toBeTrue();
 })->with(Component::TYPES);
 
 it('has a variant flag for every view', function () {
@@ -244,25 +244,25 @@ it('can be softly customized through a scope', function () {
 });
 
 it('can use the global type configuration', function () {
-    config()->set('ts-ui.components.spinner.1.type', 'bars');
+    config()->set('ts-ui-trippodi.components.spinner.1.type', 'bars');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-spinner />')->render()->toContain('dusk="spinner-bars"');
 });
 
 it('can use the global size configuration', function () {
-    config()->set('ts-ui.components.spinner.1.size', 'lg');
+    config()->set('ts-ui-trippodi.components.spinner.1.size', 'lg');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-spinner />')->render()->toContain('size-8');
 });
 
 it('cannot use an invalid global type configuration', function () {
-    config()->set('ts-ui.components.spinner.1.type', 'foo');
+    config()->set('ts-ui-trippodi.components.spinner.1.type', 'foo');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $this->expectException(ViewException::class);
     $this->expectExceptionMessage('The [type] must be one of');
@@ -271,9 +271,9 @@ it('cannot use an invalid global type configuration', function () {
 });
 
 it('cannot use an invalid global size configuration', function () {
-    config()->set('ts-ui.components.spinner.1.size', 'foo');
+    config()->set('ts-ui-trippodi.components.spinner.1.size', 'foo');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $this->expectException(ViewException::class);
     $this->expectExceptionMessage('The [size] must be one of');

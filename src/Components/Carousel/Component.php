@@ -1,16 +1,16 @@
 <?php
 
-namespace TallStackUi\Components\Carousel;
+namespace Trippodi\Trippodi\TallStackUi\Components\Carousel;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\CarouselRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\CarouselRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('carousel')]
 #[PassThroughRuntime(CarouselRuntime::class)]
@@ -44,16 +44,16 @@ class Component extends TallStackUiComponent implements Customization
 
         $this->interval *= 1000;
 
-        $this->thumbnails ??= __ts_get_component_configuration(self::class, 'thumbnails') ?? false;
+        $this->thumbnails ??= __tst_get_component_configuration(self::class, 'thumbnails') ?? false;
 
         if ($this->thumbnails) {
-            $this->withoutHighlight ??= __ts_get_component_configuration(self::class, 'without-highlight') ?? false;
+            $this->withoutHighlight ??= __tst_get_component_configuration(self::class, 'without-highlight') ?? false;
         }
     }
 
     public function blade(): View
     {
-        return view('ts-ui::components.carousel.main');
+        return view('ts-ui-trippodi::components.carousel.main');
     }
 
     public function customization(): array
@@ -167,37 +167,37 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if (blank($this->images)) {
-            __ts_validation_exception($this, 'The [images] attribute is required.');
+            __tst_validation_exception($this, 'The [images] attribute is required.');
         }
 
         if ($this->caption !== null && ! in_array($this->caption, ['overlay', 'footer'], true)) {
-            __ts_validation_exception($this, 'The [caption] must be one of: overlay, footer.');
+            __tst_validation_exception($this, 'The [caption] must be one of: overlay, footer.');
         }
 
         if ($this->caption !== null && ! $this->clickable) {
-            __ts_validation_exception($this, 'The [caption] requires [clickable] to be enabled.');
+            __tst_validation_exception($this, 'The [caption] requires [clickable] to be enabled.');
         }
 
         if ($this->navigable && ! $this->clickable) {
-            __ts_validation_exception($this, 'The [navigable] requires [clickable] to be enabled.');
+            __tst_validation_exception($this, 'The [navigable] requires [clickable] to be enabled.');
         }
 
         if ($this->limit !== null && ! $this->thumbnails) {
-            __ts_validation_exception($this, 'The [limit] can only be used along with [thumbnails].');
+            __tst_validation_exception($this, 'The [limit] can only be used along with [thumbnails].');
         }
 
         if ($this->limit !== null && $this->limit < 2) {
-            __ts_validation_exception($this, 'The [limit] must be at least 2.');
+            __tst_validation_exception($this, 'The [limit] must be at least 2.');
         }
 
         if ($this->withoutHighlight && ! $this->thumbnails) {
-            __ts_validation_exception($this, 'The [without-highlight] can only be used along with [thumbnails].');
+            __tst_validation_exception($this, 'The [without-highlight] can only be used along with [thumbnails].');
         }
 
         $rounded = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', 'full'];
 
         if (is_string($this->round) && ! in_array($this->round, $rounded, true)) {
-            __ts_validation_exception($this, 'The [round] must be a boolean or one of: ['.implode(', ', $rounded).'].');
+            __tst_validation_exception($this, 'The [round] must be a boolean or one of: ['.implode(', ', $rounded).'].');
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Avatar;
+namespace Trippodi\Trippodi\TallStackUi\Components\Avatar;
 
 use Closure;
 use Illuminate\Contracts\View\View;
@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentAttributeBag;
 use InvalidArgumentException;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\AvatarColors;
-use TallStackUi\Support\Runtime\Components\AvatarRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\AvatarColors;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\AvatarRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('avatar')]
 #[ColorsThroughOf(AvatarColors::class)]
@@ -62,7 +62,7 @@ class Component extends TallStackUiComponent implements Customization
         #[SkipDebug]
         public ?string $size = null,
     ) {
-        $this->borderless ??= __ts_get_component_configuration(self::class, 'borderless') ?? false;
+        $this->borderless ??= __tst_get_component_configuration(self::class, 'borderless') ?? false;
 
         $this->presence = value($this->presence);
         $this->pulse = value($this->pulse);
@@ -70,7 +70,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.avatar.main');
+        return view('ts-ui-trippodi::components.avatar.main');
     }
 
     public function customization(): array
@@ -199,38 +199,38 @@ class Component extends TallStackUiComponent implements Customization
         $sizes = array_values(array_filter(self::SIZES, fn (string $size): bool => (bool) $attributes->get($size, false)));
 
         if (count($sizes) > 1) {
-            __ts_validation_exception($this, 'Only one size can be used at a time, but ['.implode(', ', $sizes).'] were given');
+            __tst_validation_exception($this, 'Only one size can be used at a time, but ['.implode(', ', $sizes).'] were given');
         }
 
-        $this->size = $sizes[0] ?? $this->size ?? __ts_get_component_configuration(self::class, 'size') ?? 'md';
+        $this->size = $sizes[0] ?? $this->size ?? __tst_get_component_configuration(self::class, 'size') ?? 'md';
 
         if (! in_array($this->size, self::SIZES, true)) {
-            __ts_validation_exception($this, 'The [size] must be one of: '.implode(', ', self::SIZES));
+            __tst_validation_exception($this, 'The [size] must be one of: '.implode(', ', self::SIZES));
         }
 
         // Dropped by hand: [2xl] cannot be a prop because $2xl is invalid PHP.
         $attributes->setAttributes(Arr::except($attributes->getAttributes(), self::SIZES));
 
         if ($this->presence && ! in_array($this->presencePosition, ['right-top', 'right-bottom', 'left-top', 'left-bottom'])) {
-            __ts_validation_exception($this, 'The [presence-position] must be one of: right-top, right-bottom, left-top, left-bottom.');
+            __tst_validation_exception($this, 'The [presence-position] must be one of: right-top, right-bottom, left-top, left-bottom.');
         }
 
-        $gravatar = __ts_get_component_configuration(self::class, 'gravatar');
+        $gravatar = __tst_get_component_configuration(self::class, 'gravatar');
 
         $this->gravatarDefault ??= data_get($gravatar, 'default') ?? 'mp';
         $this->gravatarRating ??= data_get($gravatar, 'rating') ?? 'g';
 
         if (! in_array($this->gravatarDefault, self::GRAVATAR_DEFAULTS, true)) {
-            __ts_validation_exception($this, 'The [gravatar-default] must be one of: '.implode(', ', self::GRAVATAR_DEFAULTS));
+            __tst_validation_exception($this, 'The [gravatar-default] must be one of: '.implode(', ', self::GRAVATAR_DEFAULTS));
         }
 
         if (! in_array($this->gravatarRating, self::GRAVATAR_RATINGS, true)) {
-            __ts_validation_exception($this, 'The [gravatar-rating] must be one of: '.implode(', ', self::GRAVATAR_RATINGS));
+            __tst_validation_exception($this, 'The [gravatar-rating] must be one of: '.implode(', ', self::GRAVATAR_RATINGS));
         }
 
         if ($this->gravatar) {
             if (blank($this->email())) {
-                __ts_validation_exception($this, 'The [gravatar] requires an email, either inline or through a model carrying it.');
+                __tst_validation_exception($this, 'The [gravatar] requires an email, either inline or through a model carrying it.');
             }
 
             return;
@@ -248,7 +248,7 @@ class Component extends TallStackUiComponent implements Customization
         $property = $this->model->getAttribute($this->property);
 
         if (blank($property)) {
-            __ts_validation_exception($this, "The property [{$this->property}] does not exists or is blank at the model [$model]");
+            __tst_validation_exception($this, "The property [{$this->property}] does not exists or is blank at the model [$model]");
         }
     }
 

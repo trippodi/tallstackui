@@ -1,15 +1,15 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Button\Normal\Component as NormalComponent;
+use Trippodi\Trippodi\TallStackUi\Components\Button\Normal\Component as NormalComponent;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
 
 afterEach(function () {
-    config()->set('ts-ui.components.button.1.spinner', null);
+    config()->set('ts-ui-trippodi.components.button.1.spinner', null);
 
-    __ts_get_component_configuration(NormalComponent::class, flush: true);
+    __tst_get_component_configuration(NormalComponent::class, flush: true);
 });
 
 it('can render with slot')
@@ -150,9 +150,9 @@ it('cannot render the loading spinner outside the livewire context')
     ->not->toContain('dusk="button-loading-spinner"');
 
 it('can use the global spinner configuration', function () {
-    config()->set('ts-ui.components.button.1.spinner', 'bars');
+    config()->set('ts-ui-trippodi.components.button.1.spinner', 'bars');
 
-    __ts_get_component_configuration(NormalComponent::class, flush: true);
+    __tst_get_component_configuration(NormalComponent::class, flush: true);
 
     livewireContext();
 

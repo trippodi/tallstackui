@@ -1,10 +1,10 @@
 <?php
 
-namespace TallStackUi\Interactions;
+namespace Trippodi\Trippodi\TallStackUi\Interactions;
 
-use TallStackUi\Components\Dialog\Component;
-use TallStackUi\Interactions\Traits\DispatchInteraction;
-use TallStackUi\Interactions\Traits\InteractWithConfirmation;
+use Trippodi\Trippodi\TallStackUi\Components\Dialog\Component;
+use Trippodi\Trippodi\TallStackUi\Interactions\Traits\DispatchInteraction;
+use Trippodi\Trippodi\TallStackUi\Interactions\Traits\InteractWithConfirmation;
 
 class Dialog extends AbstractInteraction
 {
@@ -109,7 +109,7 @@ class Dialog extends AbstractInteraction
     protected function additional(): array
     {
         return [
-            'persistent' => $this->persistent ?? __ts_get_component_configuration(Component::class, 'persistent'),
+            'persistent' => $this->persistent ?? __tst_get_component_configuration(Component::class, 'persistent'),
         ];
     }
 
@@ -126,6 +126,6 @@ class Dialog extends AbstractInteraction
      */
     protected function messages(): array
     {
-        return [trans('ts-ui::messages.dialog.button.confirm'), trans('ts-ui::messages.dialog.button.cancel')];
+        return [trans('ts-ui-trippodi::messages.dialog.button.confirm'), trans('ts-ui-trippodi::messages.dialog.button.cancel')];
     }
 }

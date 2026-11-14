@@ -19,7 +19,7 @@
         @js($disabled),
         @js($readonly))"
      x-cloak>
-    <x-dynamic-component :component="TallStackUi::prefix('input')"
+    <x-dynamic-component :component="TallStackUiTrippodi::prefix('input')"
                          scope="form.color.input"
                          {{ $attributes->merge($select)->class(['cursor-pointer caret-transparent' => $configurations['selectable']])->except(['name', 'value']) }}
                          :$label
@@ -46,8 +46,8 @@
                 @if ($configurations['clearable'] && ! $locked)
                     <button type="button" class="{{ $customization['clearable.button'] }}"
                             dusk="tallstackui_form_color_clearable" x-show="clearable">
-                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                             :icon="TallStackUi::icon('x-mark')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                             :icon="TallStackUiTrippodi::icon('x-mark')"
                                              internal
                                              x-on:click="clear()"
                                              class="{{ $customization['clearable.size'] }}" />
@@ -55,15 +55,15 @@
                 @endif
                 <button type="button" class="cursor-pointer" x-on:click="show = !show"
                         @disabled($locked) dusk="tallstackui_form_color_open_close">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('swatch')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('swatch')"
                                          internal
                                          class="{{ $customization['icon.class'] }}" />
                 </button>
             </div>
         </x-slot:suffix>
     </x-dynamic-component>
-    <x-dynamic-component :component="TallStackUi::prefix('floating')"
+    <x-dynamic-component :component="TallStackUiTrippodi::prefix('floating')"
                          scope="form.color.floating"
                          :floating="$customization['floating.default']"
                          :class="$customization['floating.class']"
@@ -84,8 +84,8 @@
                         <div class="{{ $customization['box.button.color'] }}" :style="{ 'background-color': color }">
                             <span x-show="color === model"
                                   x-bind:class="{'{{ $customization['check.light'] }}': !check(color), '{{ $customization['check.dark'] }}': check(color)}">
-                                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                     :icon="TallStackUi::icon('check')"
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                     :icon="TallStackUiTrippodi::icon('check')"
                                                      internal
                                                      class="{{ $customization['box.button.icon'] }}" />
                             </span>

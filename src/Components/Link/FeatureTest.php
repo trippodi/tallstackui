@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Link\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Link\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -125,42 +125,42 @@ it('can render with wire:navigate.hover')
     ->toContain('wire:navigate.hover');
 
 it('can render with wire:navigate through the global configuration', function () {
-    config()->set('ts-ui.components.link.1.navigate', true);
+    config()->set('ts-ui-trippodi.components.link.1.navigate', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-link href="https://google.com.br" />')->render()->toContain('wire:navigate');
 
-    config()->set('ts-ui.components.link.1.navigate', false);
+    config()->set('ts-ui-trippodi.components.link.1.navigate', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can render with wire:navigate.hover through the global configuration', function () {
-    config()->set('ts-ui.components.link.1.navigate-hover', true);
+    config()->set('ts-ui-trippodi.components.link.1.navigate-hover', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-link href="https://google.com.br" />')->render()->toContain('wire:navigate.hover');
 
-    config()->set('ts-ui.components.link.1.navigate-hover', false);
+    config()->set('ts-ui-trippodi.components.link.1.navigate-hover', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can suppress the global navigate through the inline prop', function () {
-    config()->set('ts-ui.components.link.1.navigate', true);
+    config()->set('ts-ui-trippodi.components.link.1.navigate', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-link href="https://google.com.br" :navigate="false" />')->render()->not->toContain('wire:navigate');
 
     expect('<x-link href="https://google.com.br" navigate-hover />')->render()
         ->toContain('wire:navigate.hover');
 
-    config()->set('ts-ui.components.link.1.navigate', false);
+    config()->set('ts-ui-trippodi.components.link.1.navigate', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('cannot render without href', function () {

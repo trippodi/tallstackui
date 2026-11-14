@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Form\Autocomplete;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Autocomplete;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;

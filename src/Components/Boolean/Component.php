@@ -1,14 +1,14 @@
 <?php
 
-namespace TallStackUi\Components\Boolean;
+namespace Trippodi\Trippodi\TallStackUi\Components\Boolean;
 
 use Closure;
 use Illuminate\Contracts\View\View;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\BooleanColors;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\BooleanColors;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('boolean')]
 #[ColorsThroughOf(BooleanColors::class)]
@@ -31,7 +31,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.boolean.main');
+        return view('ts-ui-trippodi::components.boolean.main');
     }
 
     public function customization(): array

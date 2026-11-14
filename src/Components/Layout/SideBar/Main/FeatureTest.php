@@ -2,13 +2,13 @@
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
-use TallStackUi\Components\Layout\SideBar\Main\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Layout\SideBar\Main\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
 
 afterEach(function () {
-    config()->set('ts-ui.components.side-bar.1', [
+    config()->set('ts-ui-trippodi.components.side-bar.1', [
         'smart' => false,
         'collapsible' => false,
         'thin-scroll' => false,
@@ -17,7 +17,7 @@ afterEach(function () {
         'navigate-hover' => false,
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can render', function () {
@@ -32,9 +32,9 @@ it('can render', function () {
 });
 
 it('can render smart through the global configuration', function () {
-    config()->set('ts-ui.components.side-bar.1.smart', true);
+    config()->set('ts-ui-trippodi.components.side-bar.1.smart', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     Route::get('/reports', fn (): string => Blade::render(<<<'HTML'
     <x-side-bar>
@@ -48,18 +48,18 @@ it('can render smart through the global configuration', function () {
 });
 
 it('can render collapsible through the global configuration', function () {
-    config()->set('ts-ui.components.side-bar.1.collapsible', true);
+    config()->set('ts-ui-trippodi.components.side-bar.1.collapsible', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-side-bar>Foo</x-side-bar>')->render()
         ->toContain("\$store['tsui.side-bar'].collapsible = true");
 });
 
 it('can render the thin scroll through the global configuration', function () {
-    config()->set('ts-ui.components.side-bar.1.thin-scroll', true);
+    config()->set('ts-ui-trippodi.components.side-bar.1.thin-scroll', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-side-bar>Foo</x-side-bar>')->render()
         ->toContain('soft-scrollbar')
@@ -67,9 +67,9 @@ it('can render the thin scroll through the global configuration', function () {
 });
 
 it('can render the thick scroll through the global configuration', function () {
-    config()->set('ts-ui.components.side-bar.1.thick-scroll', true);
+    config()->set('ts-ui-trippodi.components.side-bar.1.thick-scroll', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-side-bar>Foo</x-side-bar>')->render()
         ->toContain('custom-scrollbar')
@@ -77,9 +77,9 @@ it('can render the thick scroll through the global configuration', function () {
 });
 
 it('can suppress the global thin scroll through the inline prop', function () {
-    config()->set('ts-ui.components.side-bar.1.thin-scroll', true);
+    config()->set('ts-ui-trippodi.components.side-bar.1.thin-scroll', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-side-bar thick-scroll>Foo</x-side-bar>')->render()
         ->toContain('custom-scrollbar')
@@ -87,9 +87,9 @@ it('can suppress the global thin scroll through the inline prop', function () {
 });
 
 it('can render navigate through the global configuration', function () {
-    config()->set('ts-ui.components.side-bar.1.navigate', true);
+    config()->set('ts-ui-trippodi.components.side-bar.1.navigate', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-side-bar><x-side-bar.item text="Home" /></x-side-bar>')->render()
         ->toContain('wire:navigate')
@@ -97,18 +97,18 @@ it('can render navigate through the global configuration', function () {
 });
 
 it('can render navigate hover through the global configuration', function () {
-    config()->set('ts-ui.components.side-bar.1.navigate-hover', true);
+    config()->set('ts-ui-trippodi.components.side-bar.1.navigate-hover', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-side-bar><x-side-bar.item text="Home" /></x-side-bar>')->render()
         ->toContain('wire:navigate.hover');
 });
 
 it('can suppress the global navigate through the inline prop', function () {
-    config()->set('ts-ui.components.side-bar.1.navigate', true);
+    config()->set('ts-ui-trippodi.components.side-bar.1.navigate', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-side-bar navigate-hover><x-side-bar.item text="Home" /></x-side-bar>')->render()
         ->toContain('wire:navigate.hover');

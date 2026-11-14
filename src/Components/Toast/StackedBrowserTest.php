@@ -1,12 +1,12 @@
 <?php
 
-namespace TallStackUi\Components\Toast;
+namespace Trippodi\Trippodi\TallStackUi\Components\Toast;
 
 use Illuminate\Config\Repository;
 use Livewire\Component;
 use Livewire\Livewire;
 use PHPUnit\Framework\Attributes\Test;
-use TallStackUi\Traits\Interactions;
+use Trippodi\Trippodi\TallStackUi\Traits\Interactions;
 use Tests\Browser\BrowserTestCase;
 
 class StackedBrowserTest extends BrowserTestCase
@@ -101,10 +101,10 @@ class StackedBrowserTest extends BrowserTestCase
         parent::defineEnvironment($app);
 
         tap($app['config'], function (Repository $config) {
-            $config->set('ts-ui.components.toast.1.stacked', true);
+            $config->set('ts-ui-trippodi.components.toast.1.stacked', true);
         });
 
-        __ts_get_component_configuration(\TallStackUi\Components\Toast\Component::class, flush: true);
+        __tst_get_component_configuration(\Trippodi\TallStackUi\Components\Toast\Component::class, flush: true);
     }
 
     protected function expiring(): Component

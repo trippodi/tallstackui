@@ -13,7 +13,7 @@
 >
     @if ($computedItems !== [])
         @foreach ($computedItems as $item)
-            <x-dynamic-component :component="TallStackUi::prefix('timeline.items')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('timeline.items')"
                                  :title="$item['title']"
                                  :description="$item['description']"
                                  :date="$item['date']"

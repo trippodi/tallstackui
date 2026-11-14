@@ -22,14 +22,14 @@
             x-ref="button"
             aria-expanded="show">
         @if ($position === 'left-start')
-            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                 :icon="TallStackUi::icon('chevron-left')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                 :icon="TallStackUiTrippodi::icon('chevron-left')"
                                  internal
                                  class="{{ $customization['submenu.left'] }}" />
         @endif
         <div class="{{ $customization['wrapper'] }}">
             @if ($icon)
-                <x-dynamic-component :component="TallStackUi::prefix('icon')" internal :$icon
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')" internal :$icon
                                      @class([
                                          $customization['icon.sizes.xs'],
                                          $customization['icon.sizes.sm'],
@@ -40,13 +40,13 @@
             {{ $text }}
         </div>
         @if ($position === 'right-start')
-            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                 :icon="TallStackUi::icon('chevron-right')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                 :icon="TallStackUiTrippodi::icon('chevron-right')"
                                  internal
                                  class="{{ $customization['submenu.right'] }}" />
         @endif
     </button>
-    <x-dynamic-component :component="TallStackUi::prefix('floating')"
+    <x-dynamic-component :component="TallStackUiTrippodi::prefix('floating')"
                          scope="dropdown.submenu.floating"
                          :floating="$customization['floating.default']"
                          @class([

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\BackToTop\Component;
+use Trippodi\Trippodi\TallStackUi\Components\BackToTop\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -86,30 +86,30 @@ it('can render with smooth scroll by default')
     ->toContain('true');
 
 it('cannot render with invalid size through the global configuration', function () {
-    config()->set('ts-ui.components.back-to-top.1.size', 'xxl');
+    config()->set('ts-ui-trippodi.components.back-to-top.1.size', 'xxl');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         $this->expectException(ViewException::class);
 
         expect('<x-back-to-top />')->render();
     } finally {
-        config()->set('ts-ui.components.back-to-top.1.size', 'md');
+        config()->set('ts-ui-trippodi.components.back-to-top.1.size', 'md');
 
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 });
 
 it('can render the global configuration defaults', function (string $key, mixed $value, string $expected) {
-    config()->set("ts-ui.components.back-to-top.1.{$key}", $value);
+    config()->set("ts-ui-trippodi.components.back-to-top.1.{$key}", $value);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect('<x-back-to-top />')->render()->toContain($expected);
     } finally {
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 })->with([
     'immediate' => ['immediate', true, 'tallstackui_backToTop(null, false)'],
@@ -121,14 +121,14 @@ it('can render the global configuration defaults', function (string $key, mixed 
 ]);
 
 it('can let the props win over the global configuration', function (string $key, mixed $value, string $component, string $expected) {
-    config()->set("ts-ui.components.back-to-top.1.{$key}", $value);
+    config()->set("ts-ui-trippodi.components.back-to-top.1.{$key}", $value);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     try {
         expect($component)->render()->toContain($expected);
     } finally {
-        __ts_get_component_configuration(Component::class, flush: true);
+        __tst_get_component_configuration(Component::class, flush: true);
     }
 })->with([
     'immediate' => ['immediate', true, '<x-back-to-top :immediate="false" />', 'tallstackui_backToTop(null, true)'],

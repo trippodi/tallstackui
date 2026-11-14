@@ -1,20 +1,20 @@
 <?php
 
-namespace TallStackUi\Components\Reaction;
+namespace Trippodi\Trippodi\TallStackUi\Components\Reaction;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
 use InvalidArgumentException;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\RequireLivewireContext;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Tooltip\Component as Tooltip;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Exceptions\InvalidSelectedPositionException;
-use TallStackUi\Support\Runtime\Components\ReactionRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\RequireLivewireContext;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Tooltip\Component as Tooltip;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Exceptions\InvalidSelectedPositionException;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\ReactionRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[RequireLivewireContext]
 #[SoftCustomization('reaction')]
@@ -67,7 +67,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.reaction.main');
+        return view('ts-ui-trippodi::components.reaction.main');
     }
 
     final public function content(string $component): string
@@ -127,19 +127,19 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if (blank($this->reactMethod)) {
-            __ts_validation_exception($this, 'The react [reactMethod] is required.');
+            __tst_validation_exception($this, 'The react [reactMethod] is required.');
         }
 
         if ($this->delay !== null && ! in_array($this->delay, Tooltip::DELAYS)) {
-            __ts_validation_exception($this, 'The [delay] must be one of the following: ['.implode(', ', Tooltip::DELAYS).']');
+            __tst_validation_exception($this, 'The [delay] must be one of the following: ['.implode(', ', Tooltip::DELAYS).']');
         }
 
         if ($this->balloon !== null && ! in_array($this->balloon, Tooltip::BALLOONS)) {
-            __ts_validation_exception($this, 'The [balloon] must be one of the following: ['.implode(', ', Tooltip::BALLOONS).']');
+            __tst_validation_exception($this, 'The [balloon] must be one of the following: ['.implode(', ', Tooltip::BALLOONS).']');
         }
 
         if (array_diff($this->only ?? [], array_keys(self::ICONS)) !== []) {
-            __ts_validation_exception($this, 'The react [only] icons is invalid. Supported: '.implode(', ', array_keys(self::ICONS)));
+            __tst_validation_exception($this, 'The react [only] icons is invalid. Supported: '.implode(', ', array_keys(self::ICONS)));
         }
 
         InvalidSelectedPositionException::validate(static::class, $this->position);

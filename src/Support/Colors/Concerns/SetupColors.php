@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Support\Colors\Concerns;
+namespace Trippodi\Trippodi\TallStackUi\Support\Colors\Concerns;
 
 use Exception;
 use Illuminate\Support\Arr;
@@ -8,9 +8,9 @@ use Illuminate\View\Component;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Miscellaneous\ReflectComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Miscellaneous\ReflectComponent;
 
 use function Livewire\invade;
 
@@ -103,7 +103,7 @@ trait SetupColors
 
         $component = str_replace('Colors', '', $class);
 
-        $collect = __ts_class_collection($component);
+        $collect = __tst_class_collection($component);
         $class = $collect['instance'] ?? null;
 
         foreach ($methods as $method) {

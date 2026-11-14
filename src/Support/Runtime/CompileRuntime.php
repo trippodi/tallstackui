@@ -1,12 +1,12 @@
 <?php
 
-namespace TallStackUi\Support\Runtime;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime;
 
 use Illuminate\Contracts\View\Factory;
 use ReflectionException;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Support\Miscellaneous\ReflectComponent;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Support\Miscellaneous\ReflectComponent;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 // The main purpose of this class, the classes inside the Components/ folder and
 // the PassThroughRuntime attribute is to allow us to define variables at runtime

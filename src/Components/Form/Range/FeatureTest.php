@@ -238,7 +238,7 @@ function publishRangeColors(string $scenario, string $body): void
 
     require_once $file;
 
-    config(['ts-ui.color_classes_namespace' => $namespace]);
+    config(['ts-ui-trippodi.color_classes_namespace' => $namespace]);
 }
 
 afterEach(function () {

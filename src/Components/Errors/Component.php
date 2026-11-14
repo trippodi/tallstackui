@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Errors;
+namespace Trippodi\Trippodi\TallStackUi\Components\Errors;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
@@ -8,13 +8,13 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\ViewErrorBag;
 use Illuminate\View\ComponentSlot;
 use InvalidArgumentException;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\ErrorsColors;
-use TallStackUi\Support\Runtime\Components\ErrorsRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\ErrorsColors;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\ErrorsRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('errors')]
 #[ColorsThroughOf(ErrorsColors::class)]
@@ -34,14 +34,14 @@ class Component extends TallStackUiComponent implements Customization
         public ?bool $bordered = null,
         public ComponentSlot|string|null $footer = null,
     ) {
-        $configuration = __ts_get_component_configuration(self::class);
+        $configuration = __tst_get_component_configuration(self::class);
 
         $this->shadowless ??= $configuration['shadowless'] ?? false;
         $this->bordered ??= $configuration['bordered'] ?? false;
         $this->paddingless ??= $configuration['paddingless'] ?? false;
         $this->listNumeric ??= $configuration['numeric'] ?? false;
 
-        $this->title ??= trans('ts-ui::messages.errors.title');
+        $this->title ??= trans('ts-ui-trippodi::messages.errors.title');
 
         $this->only = match (true) {
             $this->only instanceof Collection => $this->only->all(),
@@ -56,7 +56,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.errors.main');
+        return view('ts-ui-trippodi::components.errors.main');
     }
 
     public function count(ViewErrorBag $errors): int
@@ -121,6 +121,6 @@ class Component extends TallStackUiComponent implements Customization
             return;
         }
 
-        __ts_validation_exception($this, 'The [title] cannot be empty');
+        __tst_validation_exception($this, 'The [title] cannot be empty');
     }
 }

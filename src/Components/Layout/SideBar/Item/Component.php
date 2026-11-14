@@ -1,16 +1,16 @@
 <?php
 
-namespace TallStackUi\Components\Layout\SideBar\Item;
+namespace Trippodi\Trippodi\TallStackUi\Components\Layout\SideBar\Item;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Floating\Component as Floating;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Floating\Component as Floating;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('sideBar.item')]
 class Component extends TallStackUiComponent implements Customization
@@ -32,7 +32,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.layout.sidebar.item');
+        return view('ts-ui-trippodi::components.layout.sidebar.item');
     }
 
     public function customization(): array

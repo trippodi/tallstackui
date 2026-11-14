@@ -1,9 +1,9 @@
 <?php
 
-namespace TallStackUi\Support\Runtime\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Exception;
-use TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class KeyValueRuntime extends AbstractRuntime
 {
@@ -23,7 +23,7 @@ class KeyValueRuntime extends AbstractRuntime
     private function validate(mixed $value): void
     {
         if (! is_array($value)) {
-            __ts_validation_exception($this->component, 'The [value] must be an array.');
+            __tst_validation_exception($this->component, 'The [value] must be an array.');
         }
 
         if (blank($value)) {
@@ -35,7 +35,7 @@ class KeyValueRuntime extends AbstractRuntime
             ->every(fn (array $item) => array_key_exists('key', $item) && array_key_exists('value', $item));
 
         if (! $valid) {
-            __ts_validation_exception($this->component, 'The [value] must be an array of arrays with [key] and [value] keys.');
+            __tst_validation_exception($this->component, 'The [value] must be an array of arrays with [key] and [value] keys.');
         }
     }
 }

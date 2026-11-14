@@ -1,17 +1,17 @@
 <?php
 
-namespace TallStackUi\Components\Rating;
+namespace Trippodi\Trippodi\TallStackUi\Components\Rating;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\RatingColors;
-use TallStackUi\Support\Runtime\Components\RatingRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\RatingColors;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\RatingRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('rating')]
 #[ColorsThroughOf(RatingColors::class)]
@@ -42,7 +42,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.rating.main');
+        return view('ts-ui-trippodi::components.rating.main');
     }
 
     public function customization(): array
@@ -64,11 +64,11 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if (blank($this->evaluateMethod)) {
-            __ts_validation_exception($this, 'The [evaluateMethod] is required.');
+            __tst_validation_exception($this, 'The [evaluateMethod] is required.');
         }
 
         if ($this->quantity > 5) {
-            __ts_validation_exception($this, 'The [quantity] of stars must be  equal or less than 5');
+            __tst_validation_exception($this, 'The [quantity] of stars must be  equal or less than 5');
         }
     }
 }

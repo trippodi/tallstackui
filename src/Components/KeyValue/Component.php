@@ -1,19 +1,19 @@
 <?php
 
-namespace TallStackUi\Components\KeyValue;
+namespace Trippodi\Trippodi\TallStackUi\Components\KeyValue;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\RequireLivewireContext;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\KeyValueColors;
-use TallStackUi\Support\Runtime\Components\KeyValueRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\RequireLivewireContext;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\KeyValueColors;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\KeyValueRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[RequireLivewireContext]
 #[SoftCustomization('keyValue')]
@@ -23,7 +23,7 @@ class Component extends TallStackUiComponent implements Customization
 {
     // A sentinel default is what tells an omitted color apart from an
     // explicit null one, since both would reach the constructor as null.
-    protected const UNSPECIFIED = '__ts_unspecified__';
+    protected const UNSPECIFIED = '__tst_unspecified__';
 
     public function __construct(
         public ?string $label = null,
@@ -45,7 +45,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.key-value.main');
+        return view('ts-ui-trippodi::components.key-value.main');
     }
 
     public function customization(): array
@@ -100,7 +100,7 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if ($this->static && $this->limit) {
-            __ts_validation_exception($this, 'The [static] and [limit] attributes cannot be used at the same time.');
+            __tst_validation_exception($this, 'The [static] and [limit] attributes cannot be used at the same time.');
         }
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace TallStackUi\Components\Layout\SideBar\Separator;
+namespace Trippodi\Trippodi\TallStackUi\Components\Layout\SideBar\Separator;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('sideBar.separator')]
 class Component extends TallStackUiComponent implements Customization
@@ -27,7 +27,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.layout.sidebar.separator');
+        return view('ts-ui-trippodi::components.layout.sidebar.separator');
     }
 
     public function customization(): array

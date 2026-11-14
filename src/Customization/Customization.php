@@ -1,98 +1,98 @@
 <?php
 
-namespace TallStackUi\Customization;
+namespace Trippodi\Trippodi\TallStackUi\Customization;
 
 use InvalidArgumentException;
 use ReflectionMethod;
 use RuntimeException;
-use TallStackUi\Components\Accordion\Items\Component as AccordionItems;
-use TallStackUi\Components\Accordion\Main\Component as Accordion;
-use TallStackUi\Components\Alert\Component as Alert;
-use TallStackUi\Components\Avatar\Component as Avatar;
-use TallStackUi\Components\Avatar\Group\Component as AvatarGroup;
-use TallStackUi\Components\BackToTop\Component as BackToTop;
-use TallStackUi\Components\Badge\Component as Badge;
-use TallStackUi\Components\Banner\Component as Banner;
-use TallStackUi\Components\Boolean\Component as Boolean;
-use TallStackUi\Components\Breadcrumbs\Component as Breadcrumbs;
-use TallStackUi\Components\Button\Circle\Component as Circle;
-use TallStackUi\Components\Button\Group\Component as ButtonGroup;
-use TallStackUi\Components\Button\Normal\Component as Button;
-use TallStackUi\Components\Calendar\Component as Calendar;
-use TallStackUi\Components\Card\Component as Card;
-use TallStackUi\Components\Carousel\Component as Carousel;
-use TallStackUi\Components\Chart\Component as Chart;
-use TallStackUi\Components\Clipboard\Component as Clipboard;
-use TallStackUi\Components\CommandPalette\Component as CommandPalette;
-use TallStackUi\Components\Dial\Items\Component as DialItems;
-use TallStackUi\Components\Dial\Main\Component as Dial;
-use TallStackUi\Components\Dialog\Component as Dialog;
-use TallStackUi\Components\Dropdown\Items\Component as DropdownItems;
-use TallStackUi\Components\Dropdown\Main\Component as Dropdown;
-use TallStackUi\Components\Dropdown\Submenu\Component as DropdownSubmenu;
-use TallStackUi\Components\Editor\Component as Editor;
-use TallStackUi\Components\Environment\Component as Environment;
-use TallStackUi\Components\Errors\Component as Errors;
-use TallStackUi\Components\Floating\Component as Floating;
-use TallStackUi\Components\Form\Autocomplete\Component as Autocomplete;
-use TallStackUi\Components\Form\Checkbox\Component as Checkbox;
-use TallStackUi\Components\Form\Checkbox\Group\Component as CheckboxGroup;
-use TallStackUi\Components\Form\Color\Component as Color;
-use TallStackUi\Components\Form\Currency\Component as Currency;
-use TallStackUi\Components\Form\Date\Component as Date;
-use TallStackUi\Components\Form\Error\Component as Error;
-use TallStackUi\Components\Form\Hint\Component as Hint;
-use TallStackUi\Components\Form\Input\Component as Input;
-use TallStackUi\Components\Form\InputSelect\Component as InputSelect;
-use TallStackUi\Components\Form\Label\Component as Label;
-use TallStackUi\Components\Form\Number\Component as Number;
-use TallStackUi\Components\Form\Password\Component as Password;
-use TallStackUi\Components\Form\Pin\Component as Pin;
-use TallStackUi\Components\Form\Radio\Component as Radio;
-use TallStackUi\Components\Form\Radio\Group\Component as RadioGroup;
-use TallStackUi\Components\Form\Range\Component as Range;
-use TallStackUi\Components\Form\Select\Native\Component as SelectNative;
-use TallStackUi\Components\Form\Select\Styled\Component as SelectStyled;
-use TallStackUi\Components\Form\Tag\Component as Tag;
-use TallStackUi\Components\Form\Textarea\Component as Textarea;
-use TallStackUi\Components\Form\Time\Component as Time;
-use TallStackUi\Components\Form\Toggle\Component as Toggle;
-use TallStackUi\Components\Form\Upload\Async\Component as UploadAsync;
-use TallStackUi\Components\Form\Upload\Component as Upload;
-use TallStackUi\Components\Gallery\Component as Gallery;
-use TallStackUi\Components\Icon\Component as Icon;
-use TallStackUi\Components\Kbd\Component as Kbd;
-use TallStackUi\Components\KeyValue\Component as KeyValue;
-use TallStackUi\Components\Layout\Header\Component as Header;
-use TallStackUi\Components\Layout\Main\Component as Layout;
-use TallStackUi\Components\Layout\SideBar\Item\Component as SideBarItem;
-use TallStackUi\Components\Layout\SideBar\Main\Component as SideBar;
-use TallStackUi\Components\Layout\SideBar\Separator\Component as Separator;
-use TallStackUi\Components\Link\Component as Link;
-use TallStackUi\Components\List\Items\Component as ListItems;
-use TallStackUi\Components\List\Main\Component as TsList;
-use TallStackUi\Components\Loading\Component as Loading;
-use TallStackUi\Components\Modal\Component as Modal;
-use TallStackUi\Components\Progress\Bar\Component as Progress;
-use TallStackUi\Components\Progress\Circle\Component as ProgressCircle;
-use TallStackUi\Components\QrCode\Component as QrCode;
-use TallStackUi\Components\Rating\Component as Rating;
-use TallStackUi\Components\Reaction\Component as Reaction;
-use TallStackUi\Components\Signature\Component as Signature;
-use TallStackUi\Components\Slide\Component as Slide;
-use TallStackUi\Components\Spinner\Component as Spinner;
-use TallStackUi\Components\Stats\Component as Stats;
-use TallStackUi\Components\Step\Main\Component as Step;
-use TallStackUi\Components\Swap\Component as Swap;
-use TallStackUi\Components\Tab\Main\Component as Tab;
-use TallStackUi\Components\Table\Component as Table;
-use TallStackUi\Components\ThemeSwitch\Component as ThemeSwitch;
-use TallStackUi\Components\Timeline\Items\Component as TimelineItems;
-use TallStackUi\Components\Timeline\Main\Component as Timeline;
-use TallStackUi\Components\Toast\Component as Toast;
-use TallStackUi\Components\Tooltip\Component as Tooltip;
-use TallStackUi\Components\Wrapper\Input\Component as InputWrapper;
-use TallStackUi\Components\Wrapper\Radio\Component as RadioWrapper;
+use Trippodi\Trippodi\TallStackUi\Components\Accordion\Items\Component as AccordionItems;
+use Trippodi\Trippodi\TallStackUi\Components\Accordion\Main\Component as Accordion;
+use Trippodi\Trippodi\TallStackUi\Components\Alert\Component as Alert;
+use Trippodi\Trippodi\TallStackUi\Components\Avatar\Component as Avatar;
+use Trippodi\Trippodi\TallStackUi\Components\Avatar\Group\Component as AvatarGroup;
+use Trippodi\Trippodi\TallStackUi\Components\BackToTop\Component as BackToTop;
+use Trippodi\Trippodi\TallStackUi\Components\Badge\Component as Badge;
+use Trippodi\Trippodi\TallStackUi\Components\Banner\Component as Banner;
+use Trippodi\Trippodi\TallStackUi\Components\Boolean\Component as Boolean;
+use Trippodi\Trippodi\TallStackUi\Components\Breadcrumbs\Component as Breadcrumbs;
+use Trippodi\Trippodi\TallStackUi\Components\Button\Circle\Component as Circle;
+use Trippodi\Trippodi\TallStackUi\Components\Button\Group\Component as ButtonGroup;
+use Trippodi\Trippodi\TallStackUi\Components\Button\Normal\Component as Button;
+use Trippodi\Trippodi\TallStackUi\Components\Calendar\Component as Calendar;
+use Trippodi\Trippodi\TallStackUi\Components\Card\Component as Card;
+use Trippodi\Trippodi\TallStackUi\Components\Carousel\Component as Carousel;
+use Trippodi\Trippodi\TallStackUi\Components\Chart\Component as Chart;
+use Trippodi\Trippodi\TallStackUi\Components\Clipboard\Component as Clipboard;
+use Trippodi\Trippodi\TallStackUi\Components\CommandPalette\Component as CommandPalette;
+use Trippodi\Trippodi\TallStackUi\Components\Dial\Items\Component as DialItems;
+use Trippodi\Trippodi\TallStackUi\Components\Dial\Main\Component as Dial;
+use Trippodi\Trippodi\TallStackUi\Components\Dialog\Component as Dialog;
+use Trippodi\Trippodi\TallStackUi\Components\Dropdown\Items\Component as DropdownItems;
+use Trippodi\Trippodi\TallStackUi\Components\Dropdown\Main\Component as Dropdown;
+use Trippodi\Trippodi\TallStackUi\Components\Dropdown\Submenu\Component as DropdownSubmenu;
+use Trippodi\Trippodi\TallStackUi\Components\Editor\Component as Editor;
+use Trippodi\Trippodi\TallStackUi\Components\Environment\Component as Environment;
+use Trippodi\Trippodi\TallStackUi\Components\Errors\Component as Errors;
+use Trippodi\Trippodi\TallStackUi\Components\Floating\Component as Floating;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Autocomplete\Component as Autocomplete;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Checkbox\Component as Checkbox;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Checkbox\Group\Component as CheckboxGroup;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Color\Component as Color;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Currency\Component as Currency;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Date\Component as Date;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Error\Component as Error;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Hint\Component as Hint;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Input\Component as Input;
+use Trippodi\Trippodi\TallStackUi\Components\Form\InputSelect\Component as InputSelect;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Label\Component as Label;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Number\Component as Number;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Password\Component as Password;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Pin\Component as Pin;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Radio\Component as Radio;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Radio\Group\Component as RadioGroup;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Range\Component as Range;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Select\Native\Component as SelectNative;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Select\Styled\Component as SelectStyled;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Tag\Component as Tag;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Textarea\Component as Textarea;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Time\Component as Time;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Toggle\Component as Toggle;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Upload\Async\Component as UploadAsync;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Upload\Component as Upload;
+use Trippodi\Trippodi\TallStackUi\Components\Gallery\Component as Gallery;
+use Trippodi\Trippodi\TallStackUi\Components\Icon\Component as Icon;
+use Trippodi\Trippodi\TallStackUi\Components\Kbd\Component as Kbd;
+use Trippodi\Trippodi\TallStackUi\Components\KeyValue\Component as KeyValue;
+use Trippodi\Trippodi\TallStackUi\Components\Layout\Header\Component as Header;
+use Trippodi\Trippodi\TallStackUi\Components\Layout\Main\Component as Layout;
+use Trippodi\Trippodi\TallStackUi\Components\Layout\SideBar\Item\Component as SideBarItem;
+use Trippodi\Trippodi\TallStackUi\Components\Layout\SideBar\Main\Component as SideBar;
+use Trippodi\Trippodi\TallStackUi\Components\Layout\SideBar\Separator\Component as Separator;
+use Trippodi\Trippodi\TallStackUi\Components\Link\Component as Link;
+use Trippodi\Trippodi\TallStackUi\Components\List\Items\Component as ListItems;
+use Trippodi\Trippodi\TallStackUi\Components\List\Main\Component as TsList;
+use Trippodi\Trippodi\TallStackUi\Components\Loading\Component as Loading;
+use Trippodi\Trippodi\TallStackUi\Components\Modal\Component as Modal;
+use Trippodi\Trippodi\TallStackUi\Components\Progress\Bar\Component as Progress;
+use Trippodi\Trippodi\TallStackUi\Components\Progress\Circle\Component as ProgressCircle;
+use Trippodi\Trippodi\TallStackUi\Components\QrCode\Component as QrCode;
+use Trippodi\Trippodi\TallStackUi\Components\Rating\Component as Rating;
+use Trippodi\Trippodi\TallStackUi\Components\Reaction\Component as Reaction;
+use Trippodi\Trippodi\TallStackUi\Components\Signature\Component as Signature;
+use Trippodi\Trippodi\TallStackUi\Components\Slide\Component as Slide;
+use Trippodi\Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
+use Trippodi\Trippodi\TallStackUi\Components\Stats\Component as Stats;
+use Trippodi\Trippodi\TallStackUi\Components\Step\Main\Component as Step;
+use Trippodi\Trippodi\TallStackUi\Components\Swap\Component as Swap;
+use Trippodi\Trippodi\TallStackUi\Components\Tab\Main\Component as Tab;
+use Trippodi\Trippodi\TallStackUi\Components\Table\Component as Table;
+use Trippodi\Trippodi\TallStackUi\Components\ThemeSwitch\Component as ThemeSwitch;
+use Trippodi\Trippodi\TallStackUi\Components\Timeline\Items\Component as TimelineItems;
+use Trippodi\Trippodi\TallStackUi\Components\Timeline\Main\Component as Timeline;
+use Trippodi\Trippodi\TallStackUi\Components\Toast\Component as Toast;
+use Trippodi\Trippodi\TallStackUi\Components\Tooltip\Component as Tooltip;
+use Trippodi\Trippodi\TallStackUi\Components\Wrapper\Input\Component as InputWrapper;
+use Trippodi\Trippodi\TallStackUi\Components\Wrapper\Radio\Component as RadioWrapper;
 
 /**
  * @internal
@@ -373,8 +373,8 @@ class Customization
             throw new RuntimeException('No component has been set');
         }
 
-        if (str_contains($this->component, 'ts-ui::customization')) {
-            $this->component = str_replace('ts-ui::customization.', '', $this->component);
+        if (str_contains($this->component, 'ts-ui-trippodi::customization')) {
+            $this->component = str_replace('ts-ui-trippodi::customization.', '', $this->component);
         }
 
         // This is necessary for cases where personalization aims to
@@ -677,7 +677,7 @@ class Customization
      */
     private function component(string $class): string|CustomizationFactory
     {
-        $component = __ts_search_component($class);
+        $component = __tst_search_component($class);
 
         // This is the strategy adopted for scope personalization. We create a temporary
         // key in the Laravel container, and instead of returning the same instance - which
@@ -685,13 +685,13 @@ class Customization
         if (($scope = $this->scope) !== null) {
             $this->scope = null; // Resetting the scope to avoid infinite recursion.
 
-            $key = __ts_scope_container_key($component, $scope);
+            $key = __tst_scope_container_key($component, $scope);
 
             if ($this->extending) {
                 $this->extending = false;
 
                 if (! app()->bound($key)) {
-                    $name = str_replace('ts-ui::customization.', '', $component);
+                    $name = str_replace('ts-ui-trippodi::customization.', '', $component);
 
                     throw new InvalidArgumentException("The scope [$scope] was not defined for the component [$name] and therefore cannot be extended.");
                 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Interactions;
+namespace Trippodi\Trippodi\TallStackUi\Interactions;
 
 use Exception;
 use Livewire\Component;

@@ -25,8 +25,8 @@
                 $customization['button.base'],
                 $customization['button.sizes.'.$size],
             ])>
-        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                             :icon="TallStackUi::icon($icon)"
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                             :icon="TallStackUiTrippodi::icon($icon)"
                              internal
                              @class([$customization['icon.sizes.'.$size], $colors['icon']]) />
     </button>

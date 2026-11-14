@@ -1,9 +1,9 @@
 <?php
 
-namespace TallStackUi\Support\Runtime\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Exception;
-use TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class RangeRuntime extends AbstractRuntime
 {
@@ -35,15 +35,15 @@ class RangeRuntime extends AbstractRuntime
     private function boundaries(mixed $min, mixed $max, mixed $step): void
     {
         if ($min >= $max) {
-            __ts_validation_exception($this->component, 'The [min] value must be less than the [max] value.');
+            __tst_validation_exception($this->component, 'The [min] value must be less than the [max] value.');
         }
 
         if ($step <= 0) {
-            __ts_validation_exception($this->component, 'The [step] value must be greater than zero.');
+            __tst_validation_exception($this->component, 'The [step] value must be greater than zero.');
         }
 
         if ($step > ($max - $min)) {
-            __ts_validation_exception($this->component, 'The [step] value must not be greater than the distance between [min] and [max].');
+            __tst_validation_exception($this->component, 'The [step] value must not be greater than the distance between [min] and [max].');
         }
     }
 
@@ -56,21 +56,21 @@ class RangeRuntime extends AbstractRuntime
         $label = $this->wireable() ? 'wire:model' : 'value';
 
         if (! is_array($value) || count($value) !== 2) {
-            __ts_validation_exception($this->component, "The [$label] property must be an array with exactly two values.");
+            __tst_validation_exception($this->component, "The [$label] property must be an array with exactly two values.");
         }
 
         [$start, $end] = array_values($value);
 
         if (! is_numeric($start) || ! is_numeric($end)) {
-            __ts_validation_exception($this->component, "The [$label] property must contain only numeric values.");
+            __tst_validation_exception($this->component, "The [$label] property must contain only numeric values.");
         }
 
         if ($start > $end) {
-            __ts_validation_exception($this->component, "The first value of the [$label] property must be less than or equal to the second one.");
+            __tst_validation_exception($this->component, "The first value of the [$label] property must be less than or equal to the second one.");
         }
 
         if ($start < $min || $end > $max) {
-            __ts_validation_exception($this->component, "The [$label] property must contain values between [min] and [max].");
+            __tst_validation_exception($this->component, "The [$label] property must contain values between [min] and [max].");
         }
 
         return [$start, $end];

@@ -17,8 +17,8 @@
                           '{{ $customization['panels.text.number.inactive'] }}': parseInt(selected) >= item.step,
                       }">
                 </span>
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                     :icon="TallStackUi::icon('check')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                     :icon="TallStackUiTrippodi::icon('check')"
                                      x-show="parseInt(selected) > item.step || parseInt(selected) === item.step && item.completed === true"
                                      internal
                                      class="{{ $customization['panels.check'] }}" />

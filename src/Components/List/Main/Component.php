@@ -1,18 +1,18 @@
 <?php
 
-namespace TallStackUi\Components\List\Main;
+namespace Trippodi\Trippodi\TallStackUi\Components\List\Main;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Traits\SkeletonSetup;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\ListRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\SkeletonSetup;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\ListRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('list')]
 #[PassThroughRuntime(ListRuntime::class)]
@@ -52,7 +52,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view($this->skeletonized() ? 'ts-ui::components.list.skeleton' : 'ts-ui::components.list.main');
+        return view($this->skeletonized() ? 'ts-ui-trippodi::components.list.skeleton' : 'ts-ui-trippodi::components.list.main');
     }
 
     public function customization(): array
@@ -107,20 +107,20 @@ class Component extends TallStackUiComponent implements Customization
         $allowed = ['40', '60', '80', '96'];
 
         if ($this->height !== null && ! in_array($this->height, $allowed, true)) {
-            __ts_validation_exception($this, 'The [height] must be one of: ['.implode(', ', $allowed).'].');
+            __tst_validation_exception($this, 'The [height] must be one of: ['.implode(', ', $allowed).'].');
         }
 
         if ($this->lazy !== null) {
             if ($this->items === null) {
-                __ts_validation_exception($this, 'The [lazy] requires the [items] because there is nothing to slice without them.');
+                __tst_validation_exception($this, 'The [lazy] requires the [items] because there is nothing to slice without them.');
             }
 
             if ($this->height === null) {
-                __ts_validation_exception($this, 'The [lazy] requires the [height] to create the scroll container that loads the next rows.');
+                __tst_validation_exception($this, 'The [lazy] requires the [height] to create the scroll container that loads the next rows.');
             }
 
             if ($this->lazy < 1) {
-                __ts_validation_exception($this, 'The [lazy] must be greater than 0.');
+                __tst_validation_exception($this, 'The [lazy] must be greater than 0.');
             }
         }
 
@@ -128,7 +128,7 @@ class Component extends TallStackUiComponent implements Customization
             $name = data_get($item, 'name');
 
             if (! is_string($name) || trim($name) === '') {
-                __ts_validation_exception($this, "The [name] is required for the item at index [{$index}].");
+                __tst_validation_exception($this, "The [name] is required for the item at index [{$index}].");
             }
         }
     }

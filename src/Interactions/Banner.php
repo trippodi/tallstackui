@@ -1,9 +1,9 @@
 <?php
 
-namespace TallStackUi\Interactions;
+namespace Trippodi\Trippodi\TallStackUi\Interactions;
 
 use Exception;
-use TallStackUi\Interactions\Traits\DispatchInteraction;
+use Trippodi\Trippodi\TallStackUi\Interactions\Traits\DispatchInteraction;
 
 class Banner extends AbstractInteraction
 {

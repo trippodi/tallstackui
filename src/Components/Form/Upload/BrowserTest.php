@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Form\Upload;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Upload;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
@@ -14,7 +14,7 @@ use Livewire\Livewire;
 use Livewire\WithFileUploads;
 use PHPUnit\Framework\Attributes\Test;
 use Symfony\Component\Finder\SplFileInfo;
-use TallStackUi\Components\Form\Upload\Component as UploadComponent;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Upload\Component as UploadComponent;
 use Tests\Browser\BrowserTestCase;
 
 class BrowserTest extends BrowserTestCase
@@ -1322,9 +1322,9 @@ class BrowserTest extends BrowserTestCase
 
             public function boot(): void
             {
-                config(['ts-ui.components.upload.1.without-summary' => true]);
+                config(['ts-ui-trippodi.components.upload.1.without-summary' => true]);
 
-                __ts_get_component_configuration(UploadComponent::class, flush: true);
+                __tst_get_component_configuration(UploadComponent::class, flush: true);
             }
 
             public function render(): string
@@ -1461,7 +1461,7 @@ class BrowserTest extends BrowserTestCase
 
             public function boot(): void
             {
-                config(['ts-ui.invalidate_global' => true]);
+                config(['ts-ui-trippodi.invalidate_global' => true]);
             }
 
             public function render(): string

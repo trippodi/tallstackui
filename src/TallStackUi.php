@@ -1,14 +1,14 @@
 <?php
 
-namespace TallStackUi;
+namespace Trippodi\TallStackUi;
 
 use Illuminate\View\ComponentAttributeBag;
-use TallStackUi\Customization\Customization;
-use TallStackUi\Support\Blade\ComponentPrefix;
-use TallStackUi\Support\Blade\Directives;
-use TallStackUi\Support\Blade\Wireable;
-use TallStackUi\Support\Breadcrumbs\BreadcrumbRegistry;
-use TallStackUi\Support\Icons\IconGuideMap;
+use Trippodi\Trippodi\TallStackUi\Customization\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Blade\ComponentPrefix;
+use Trippodi\Trippodi\TallStackUi\Support\Blade\Directives;
+use Trippodi\Trippodi\TallStackUi\Support\Blade\Wireable;
+use Trippodi\Trippodi\TallStackUi\Support\Breadcrumbs\BreadcrumbRegistry;
+use Trippodi\Trippodi\TallStackUi\Support\Icons\IconGuideMap;
 
 class TallStackUi
 {

@@ -16,9 +16,9 @@
      x-on:keydown="navigate($event)"
      {{ $attributes->only(['x-on:select', 'x-on:clear', 'x-on:open', 'x-on:close']) }}>
     @if ($request['params'] ?? null)
-        <div hidden x-ref="params">{{ TallStackUi::blade()->json($request['params']) }}</div>
+        <div hidden x-ref="params">{{ TallStackUiTrippodi::blade()->json($request['params']) }}</div>
     @endif
-    <x-dynamic-component :component="TallStackUi::prefix('input')"
+    <x-dynamic-component :component="TallStackUiTrippodi::prefix('input')"
                          scope="form.autocomplete.input"
                          :id="$id"
                          :label="$label"
@@ -50,8 +50,8 @@
                             x-show="search || selected"
                             x-on:click="clear()"
                             dusk="tallstackui_autocomplete_clear">
-                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                             :icon="TallStackUi::icon('x-mark')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                             :icon="TallStackUiTrippodi::icon('x-mark')"
                                              internal
                                              class="{{ $customization['icon.clear'] }}" />
                     </button>
@@ -59,7 +59,7 @@
             @endif
         </x-slot:suffix>
     </x-dynamic-component>
-    <x-dynamic-component :component="TallStackUi::prefix('floating')"
+    <x-dynamic-component :component="TallStackUiTrippodi::prefix('floating')"
                          scope="form.autocomplete.floating"
                          :floating="$customization['floating.default']"
                          :class="$customization['floating.class']"
@@ -71,9 +71,9 @@
             dusk="tallstackui_autocomplete_options">
             <div x-show="loading" class="{{ $customization['box.list.loading.wrapper'] }}">
                 @if ($spinner)
-                    <x-dynamic-component :component="TallStackUi::prefix('spinner')" :type="$spinner" />
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('spinner')" :type="$spinner" />
                 @else
-                    <x-ts-ui::icon.generic.loading class="{{ $customization['box.list.loading.class'] }}" />
+                    <x-ts-ui-trippodi::icon.generic.loading class="{{ $customization['box.list.loading.class'] }}" />
                 @endif
             </div>
             <template x-if="!loading">

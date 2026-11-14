@@ -72,8 +72,8 @@
                     <div class="{{ $customization['title.wrapper'] }}">
                         <h3 class="{{ $customization['title.text'] }}">{{ $title }}</h3>
                         <button type="button" x-on:click="show = false" dusk="tallstackui_modal_close">
-                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                 :icon="TallStackUi::icon('x-mark')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                 :icon="TallStackUiTrippodi::icon('x-mark')"
                                                  internal
                                                  class="{{ $customization['title.close'] }}" />
                         </button>

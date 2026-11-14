@@ -1,6 +1,6 @@
 <?php
 
-use TallStackUi\Components\Kbd\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Kbd\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -86,37 +86,37 @@ it('can render with monospace font')
     ->not->toContain('<code>');
 
 it('can render borderless through the global configuration', function () {
-    config()->set('ts-ui.components.kbd.1.borderless', true);
+    config()->set('ts-ui-trippodi.components.kbd.1.borderless', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-kbd text="Ctrl" />')->render()->toContain('border-transparent!');
 
-    config()->set('ts-ui.components.kbd.1.borderless', false);
+    config()->set('ts-ui-trippodi.components.kbd.1.borderless', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can render shadowless through the global configuration', function () {
-    config()->set('ts-ui.components.kbd.1.shadowless', true);
+    config()->set('ts-ui-trippodi.components.kbd.1.shadowless', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-kbd text="Ctrl" />')->render()->toContain('shadow-none!');
 
-    config()->set('ts-ui.components.kbd.1.shadowless', false);
+    config()->set('ts-ui-trippodi.components.kbd.1.shadowless', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can suppress the global borderless through the inline prop', function () {
-    config()->set('ts-ui.components.kbd.1.borderless', true);
+    config()->set('ts-ui-trippodi.components.kbd.1.borderless', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-kbd text="Ctrl" :borderless="false" />')->render()->not->toContain('border-transparent!');
 
-    config()->set('ts-ui.components.kbd.1.borderless', false);
+    config()->set('ts-ui-trippodi.components.kbd.1.borderless', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });

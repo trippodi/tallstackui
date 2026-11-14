@@ -1,15 +1,15 @@
 <?php
 
-namespace TallStackUi\Components\Toast;
+namespace Trippodi\Trippodi\TallStackUi\Components\Toast;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use InvalidArgumentException;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\ToastColors;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\ToastColors;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('toast')]
 #[ColorsThroughOf(ToastColors::class)]
@@ -19,7 +19,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.toast.main');
+        return view('ts-ui-trippodi::components.toast.main');
     }
 
     public function customization(): array
@@ -100,27 +100,27 @@ class Component extends TallStackUiComponent implements Customization
     /** @throws InvalidArgumentException */
     protected function validate(): void
     {
-        $configuration = __ts_get_component_configuration(self::class);
-        $messages = trans('ts-ui::messages.toast.button');
+        $configuration = __tst_get_component_configuration(self::class);
+        $messages = trans('ts-ui-trippodi::messages.toast.button');
 
         if (! in_array($configuration['position'] ?? 'top-right', self::POSITIONS)) {
-            __ts_validation_exception($this, 'The [position] must be one of the following: ['.implode(', ', self::POSITIONS).']');
+            __tst_validation_exception($this, 'The [position] must be one of the following: ['.implode(', ', self::POSITIONS).']');
         }
 
         if (! str($configuration['z-index'] ?? 'z-50')->startsWith('z-')) {
-            __ts_validation_exception($this, 'The [z-index] must start with z- prefix');
+            __tst_validation_exception($this, 'The [z-index] must start with z- prefix');
         }
 
         if (blank($messages['ok'] ?? null)) {
-            __ts_validation_exception($this, 'The [ok] message cannot be empty.');
+            __tst_validation_exception($this, 'The [ok] message cannot be empty.');
         }
 
         if (blank($messages['confirm'] ?? null)) {
-            __ts_validation_exception($this, 'The [confirm] message cannot be empty.');
+            __tst_validation_exception($this, 'The [confirm] message cannot be empty.');
         }
 
         if (blank($messages['cancel'] ?? null)) {
-            __ts_validation_exception($this, 'The [cancel] message cannot be empty.');
+            __tst_validation_exception($this, 'The [cancel] message cannot be empty.');
         }
     }
 }

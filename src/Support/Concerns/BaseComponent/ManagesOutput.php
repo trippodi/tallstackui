@@ -1,17 +1,17 @@
 <?php
 
-namespace TallStackUi\Support\Concerns\BaseComponent;
+namespace Trippodi\Trippodi\TallStackUi\Support\Concerns\BaseComponent;
 
 use Illuminate\Contracts\View\View;
 use ReflectionAttribute;
 use ReflectionClass;
-use TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
 
 trait ManagesOutput
 {
     private function output(View $view, array $data): View|string
     {
-        $config = collect(config('ts-ui'));
+        $config = collect(config('ts-ui-trippodi'));
         $debug = collect($config->get('debug', []));
 
         // To improve performance, we disable debug mode when unit tests are running.
@@ -44,15 +44,15 @@ trait ManagesOutput
                 || ! collect($reflection->getProperty($key)->getAttributes())->contains(fn (ReflectionAttribute $attribute) => $attribute->getName() === SkipDebug::class);
         })->toArray();
 
-        $attributes = $this->view('ts-ui::components.debug.attributes', ['data' => $data])->render();
+        $attributes = $this->view('ts-ui-trippodi::components.debug.attributes', ['data' => $data])->render();
 
         return <<<blade
-            <x-ts-ui::debug>
+            <x-ts-ui-trippodi::debug>
                 {$view->render()}
                 <x-slot:code>
                     $attributes
                 </x-slot:code>
-            </x-ts-ui::debug>
+            </x-ts-ui-trippodi::debug>
         blade;
     }
 }

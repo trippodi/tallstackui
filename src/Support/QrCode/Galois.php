@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Support\QrCode;
+namespace Trippodi\Trippodi\TallStackUi\Support\QrCode;
 
 final class Galois
 {

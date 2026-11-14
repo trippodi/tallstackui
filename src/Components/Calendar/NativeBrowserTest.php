@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Calendar;
+namespace Trippodi\Trippodi\TallStackUi\Components\Calendar;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;

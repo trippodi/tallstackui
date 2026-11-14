@@ -1,17 +1,17 @@
 <?php
 
-namespace TallStackUi\Components\Link;
+namespace Trippodi\Trippodi\TallStackUi\Components\Link;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use InvalidArgumentException;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\LinkColors;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\LinkColors;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('link')]
 #[ColorsThroughOf(LinkColors::class)]
@@ -61,7 +61,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.link.main');
+        return view('ts-ui-trippodi::components.link.main');
     }
 
     public function customization(): array
@@ -90,7 +90,7 @@ class Component extends TallStackUiComponent implements Customization
         // is not set. With that, we allow the usage
         // of link component for anchor links.
         if (! $this->fragment && ! $this->href) {
-            __ts_validation_exception($this, 'The [href] attribute is required when no [fragment] is provided.');
+            __tst_validation_exception($this, 'The [href] attribute is required when no [fragment] is provided.');
         }
     }
 }

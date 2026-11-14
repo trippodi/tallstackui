@@ -1,10 +1,10 @@
 <?php
 
-namespace TallStackUi\Support\Icons;
+namespace Trippodi\Trippodi\TallStackUi\Support\Icons;
 
 use Exception;
 use Illuminate\View\Component;
-use TallStackUi\Components\Icon\Component as Icon;
+use Trippodi\Trippodi\TallStackUi\Components\Icon\Component as Icon;
 
 class IconGuideMap
 {
@@ -121,7 +121,7 @@ class IconGuideMap
     {
         self::$guide = new IconGuide;
 
-        self::$configuration = __ts_get_component_configuration(Icon::class);
+        self::$configuration = __tst_get_component_configuration(Icon::class);
 
         $type = (string) self::$configuration['type'];
 

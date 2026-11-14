@@ -1,9 +1,9 @@
 <?php
 
-namespace TallStackUi\Http\AsyncUpload\Events;
+namespace Trippodi\Trippodi\TallStackUi\Http\AsyncUpload\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
-use TallStackUi\Http\AsyncUpload\AsyncUploadResponse;
+use Trippodi\Trippodi\TallStackUi\Http\AsyncUpload\AsyncUploadResponse;
 
 class AsyncUploadCompleted
 {

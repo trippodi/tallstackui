@@ -13,12 +13,12 @@
     ]) }} @if ($blank) target="_blank" @endif @if ($configurations['navigate']) wire:navigate
    @elseif ($configurations['navigateHover']) wire:navigate.hover @endif>
     @if ($icon && $position === 'left')
-        <x-dynamic-component :component="TallStackUi::prefix('icon')" :$icon internal
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')" :$icon internal
                              class="{{ $customization['icon.size'] }}" />
     @endif
     {!! $text ??= $slot->isNotEmpty() ? $slot : ($icon ? null : $href) !!}
     @if ($icon && $position === 'right')
-        <x-dynamic-component :component="TallStackUi::prefix('icon')" :$icon internal
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')" :$icon internal
                              class="{{ $customization['icon.size'] }}" />
     @endif
 </a>

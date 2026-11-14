@@ -22,8 +22,8 @@
                     aria-controls="dropdown-menu"
                     dusk="tallstackui_open_dropdown">
                 <span class="{{ $customization['action.text'] }}">{{ $text }}</span>
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                     :icon="TallStackUi::icon('chevron-down')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                     :icon="TallStackUiTrippodi::icon('chevron-down')"
                                      internal
                                      class="{{ $customization['action.icon'] }}"
                                      x-bind:class="{ 'transform {{ $customization['action.icon-rotated'] }}': animate && show }" />
@@ -34,7 +34,7 @@
                     x-on:click="show = !show; $refs.dropdown.dispatchEvent(new CustomEvent('open', {detail: {status: show}}))"
                     aria-controls="dropdown-menu"
                     dusk="tallstackui_open_dropdown">
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
                                      :$icon
                                      internal
                                      class="{{ $customization['action.icon'] }}"
@@ -43,7 +43,7 @@
         @else
             {!! $action !!}
         @endif
-        <x-dynamic-component :component="TallStackUi::prefix('floating')"
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('floating')"
                              scope="dropdown.floating"
                              :floating="$customization['floating.default']"
                              @class([

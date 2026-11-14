@@ -1,19 +1,19 @@
 <?php
 
-namespace TallStackUi\Components\Wrapper\Radio;
+namespace Trippodi\Trippodi\TallStackUi\Components\Wrapper\Radio;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('wrapper.radio')]
 class Component extends TallStackUiComponent implements Customization
 {
     /** Container key holding the properties whose error is already on the page. */
-    private const CLAIMED = 'ts-ui::wrapper.radio.claimed';
+    private const CLAIMED = 'ts-ui-trippodi::wrapper.radio.claimed';
 
     public function __construct(
         public ?string $property = null,
@@ -25,12 +25,12 @@ class Component extends TallStackUiComponent implements Customization
         public ?bool $error = false,
         public ?bool $locked = false,
     ) {
-        $this->invalidate ??= config('ts-ui.invalidate_global') ?? false;
+        $this->invalidate ??= config('ts-ui-trippodi.invalidate_global') ?? false;
     }
 
     public function blade(): View
     {
-        return view('ts-ui::components.wrapper.radio');
+        return view('ts-ui-trippodi::components.wrapper.radio');
     }
 
     public function customization(): array

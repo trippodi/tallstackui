@@ -1,10 +1,10 @@
 <?php
 
-namespace TallStackUi\Support\Blade;
+namespace Trippodi\Trippodi\TallStackUi\Support\Blade;
 
 use Illuminate\Support\Facades\Blade;
-use TallStackUi\Components\Tooltip\Component as Tooltip;
-use TallStackUi\Facades\TallStackUi as Facade;
+use Trippodi\Trippodi\TallStackUi\Components\Tooltip\Component as Tooltip;
+use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi as Facade;
 
 class Directives
 {
@@ -21,11 +21,11 @@ class Directives
         $script = '<?php echo \\'.Facade::class.'::directives()->script(); ?>';
         $style = '<?php echo \\'.Facade::class.'::directives()->style(); ?>';
 
-        Blade::directive('tallStackUiScript', fn (): string => $script);
+        Blade::directive('tallStackUiTrippodiScript', fn (): string => $script);
 
-        Blade::directive('tallStackUiStyle', fn (): string => $style);
+        Blade::directive('tallStackUiTrippodiStyle', fn (): string => $style);
 
-        Blade::directive('tallStackUiSetup', fn (): string => "{$script}\n{$style}");
+        Blade::directive('tallStackUiTrippodiSetup', fn (): string => "{$script}\n{$style}");
 
         // The goal of this directive is to allow interaction with the contents of the table
         // component. The concept was taken from konradkalemba/blade-components-scoped-slots.
@@ -47,7 +47,7 @@ class Directives
 
         Blade::directive('endinteract', fn (): string => '<?php }); ?>');
 
-        Blade::precompiler(fn (string $string): string => preg_replace_callback('/<\s*tallstackui\:(setup|script|style)(\s+[a-zA-Z0-9_-]+(?:\s+[a-zA-Z0-9_-]+)*)?\s*\/?>/', fn (array $matches): string => match ($matches[1]) {
+        Blade::precompiler(fn (string $string): string => preg_replace_callback('/<\s*tallstackui-trippodi\:(setup|script|style)(\s+[a-zA-Z0-9_-]+(?:\s+[a-zA-Z0-9_-]+)*)?\s*\/?>/', fn (array $matches): string => match ($matches[1]) {
             'setup' => "{$script}\n{$style}",
             'script' => $script,
             'style' => $style,
@@ -76,7 +76,7 @@ class Directives
 
         foreach ($manifest as $key => $entry) {
             if (str_starts_with($key, '_') && str_ends_with($entry['file'], '.js')) {
-                $html .= "<link rel=\"modulepreload\" href=\"/tallstackui/script/{$entry['file']}\">";
+                $html .= "<link rel=\"modulepreload\" href=\"/tallstackui-trippodi/script/{$entry['file']}\">";
             }
         }
 
@@ -96,14 +96,14 @@ class Directives
      */
     private function configuration(): string
     {
-        $tooltip = __ts_get_component_configuration(Tooltip::class) ?? [];
+        $tooltip = __tst_get_component_configuration(Tooltip::class) ?? [];
 
         return collect([
             'tooltip-delay' => $tooltip['delay'] ?? null,
             'tooltip-color' => $tooltip['color'] ?? null,
             'tooltip-size' => $tooltip['size'] ?? null,
             'tooltip-invert' => ($tooltip['invert'] ?? false) ? 'true' : null,
-            'tooltip-flash' => __ts_global('flash', Tooltip::class) ? 'true' : null,
+            'tooltip-flash' => __tst_global('flash', Tooltip::class) ? 'true' : null,
         ])->filter(fn (?string $value): bool => filled($value))
             ->map(fn (string $value, string $key): string => ' data-tsui-'.$key.'="'.e($value).'"')
             ->implode('');
@@ -115,8 +115,8 @@ class Directives
     private function format(string $file, string $attributes = ''): string
     {
         return (match (true) { // @phpstan-ignore-line
-            str_ends_with($file, '.js') => fn () => "<script type=\"module\" src=\"/tallstackui/script/{$file}\"{$attributes}></script>",
-            str_ends_with($file, '.css') => fn () => "<link href=\"/tallstackui/style/{$file}\" rel=\"stylesheet\" type=\"text/css\">",
+            str_ends_with($file, '.js') => fn () => "<script type=\"module\" src=\"/tallstackui-trippodi/script/{$file}\"{$attributes}></script>",
+            str_ends_with($file, '.css') => fn () => "<link href=\"/tallstackui-trippodi/style/{$file}\" rel=\"stylesheet\" type=\"text/css\">",
         })();
     }
 

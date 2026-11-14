@@ -17,7 +17,7 @@
     @js($property),
     @js($value),
     @js($locale))">
-    <x-dynamic-component :component="TallStackUi::prefix('input')"
+    <x-dynamic-component :component="TallStackUiTrippodi::prefix('input')"
                          scope="form.currency.input"
                          {{ $attributes->except(['name', 'value'])->whereDoesntStartWith('wire:model') }}
                          :class="$customization['input.appearance']"
@@ -45,8 +45,8 @@
                                 $customization['clearable.padding.without-currency'] => ! $currency,
                             ]) x-show="input !== '' && clearable">
                         <button type="button" class="cursor-pointer" dusk="tallstackui_form_currency_clearable">
-                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                 :icon="TallStackUi::icon('x-mark')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                 :icon="TallStackUiTrippodi::icon('x-mark')"
                                                  x-on:click="clear()"
                                                  internal
                                     @class([

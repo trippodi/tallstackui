@@ -46,36 +46,36 @@
                      x-bind:style="{ opacity: content(index) }">
                     <div class="shrink-0">
                         <div x-show="toast.type === 'success'">
-                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                 :icon="TallStackUi::icon('check-circle')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                 :icon="TallStackUiTrippodi::icon('check-circle')"
                                                  outline
                                                  internal
                                     @class([$customization['icon.size'], $ts_ui__colorful ? $customization['colorful.icon'] : $colors['icon']['success']]) />
                         </div>
                         <div x-show="toast.type === 'error'">
-                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                 :icon="TallStackUi::icon('x-circle')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                 :icon="TallStackUiTrippodi::icon('x-circle')"
                                                  outline
                                                  internal
                                     @class([$customization['icon.size'], $ts_ui__colorful ? $customization['colorful.icon'] : $colors['icon']['error']]) />
                         </div>
                         <div x-show="toast.type === 'info'">
-                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                 :icon="TallStackUi::icon('information-circle')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                 :icon="TallStackUiTrippodi::icon('information-circle')"
                                                  outline
                                                  internal
                                     @class([$customization['icon.size'], $ts_ui__colorful ? $customization['colorful.icon'] : $colors['icon']['info']]) />
                         </div>
                         <div x-show="toast.type === 'warning'">
-                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                 :icon="TallStackUi::icon('exclamation-circle')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                 :icon="TallStackUiTrippodi::icon('exclamation-circle')"
                                                  outline
                                                  internal
                                     @class([$customization['icon.size'], $ts_ui__colorful ? $customization['colorful.icon'] : $colors['icon']['warning']]) />
                         </div>
                         <div x-show="toast.type === 'question'">
-                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                 :icon="TallStackUi::icon('question-mark-circle')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                 :icon="TallStackUiTrippodi::icon('question-mark-circle')"
                                                  outline
                                                  internal
                                     @class([$customization['icon.size'], $ts_ui__colorful ? $customization['colorful.icon'] : $colors['icon']['question']]) />
@@ -110,8 +110,8 @@
                         <div class="{{ $customization['buttons.close.wrapper'] }}">
                             <button x-on:click="hide(true, false)" type="button"
                                     class="{{ $ts_ui__colorful ? $customization['colorful.close'] : $customization['buttons.close.class'] }}">
-                                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                     :icon="TallStackUi::icon('x-mark')"
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                     :icon="TallStackUiTrippodi::icon('x-mark')"
                                                      dusk="tallstackui_toast_close"
                                                      internal
                                                      class="{{ $customization['buttons.close.size'] }}" />
@@ -123,8 +123,8 @@
                                     x-on:click="toast.expandable = !toast.expandable"
                                     type="button"
                                     class="{{ $ts_ui__colorful ? $customization['colorful.expand'] : $customization['buttons.expand.class'] }}">
-                                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                     :icon="TallStackUi::icon('chevron-down')"
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                     :icon="TallStackUiTrippodi::icon('chevron-down')"
                                                      internal
                                                      class="{{ $customization['buttons.expand.size'] }}" />
                             </button>

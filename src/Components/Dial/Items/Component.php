@@ -1,16 +1,16 @@
 <?php
 
-namespace TallStackUi\Components\Dial\Items;
+namespace Trippodi\Trippodi\TallStackUi\Components\Dial\Items;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\DialItemsColors;
-use TallStackUi\Support\Runtime\Components\DialItemsRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\DialItemsColors;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\DialItemsRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('dial.items')]
 #[ColorsThroughOf(DialItemsColors::class)]
@@ -31,7 +31,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.dial.items');
+        return view('ts-ui-trippodi::components.dial.items');
     }
 
     public function customization(): array
@@ -59,7 +59,7 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if (! $this->icon) {
-            __ts_validation_exception($this, 'The [icon] property is required.');
+            __tst_validation_exception($this, 'The [icon] property is required.');
         }
     }
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace TallStackUi\Support\Runtime\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class StatsRuntime extends AbstractRuntime
 {
@@ -34,7 +34,7 @@ class StatsRuntime extends AbstractRuntime
         $shorthand = $this->component->chart; // @phpstan-ignore-line
 
         if ($chart instanceof ComponentSlot && is_array($shorthand) && $shorthand !== []) {
-            __ts_validation_exception($this->component, 'Cannot pass both [:chart] and the [chart] slot simultaneously. Choose one.');
+            __tst_validation_exception($this->component, 'Cannot pass both [:chart] and the [chart] slot simultaneously. Choose one.');
         }
     }
 }

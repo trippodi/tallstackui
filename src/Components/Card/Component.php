@@ -1,19 +1,19 @@
 <?php
 
-namespace TallStackUi\Components\Card;
+namespace Trippodi\Trippodi\TallStackUi\Components\Card;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Traits\SkeletonSetup;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\CardColors;
-use TallStackUi\Support\Runtime\Components\CardRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\SkeletonSetup;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\CardColors;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\CardRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('card')]
 #[ColorsThroughOf(CardColors::class)]
@@ -50,7 +50,7 @@ class Component extends TallStackUiComponent implements Customization
         #[SkipDebug]
         public ComponentSlot|string|null $footer = null
     ) {
-        $configuration = __ts_get_component_configuration(self::class);
+        $configuration = __tst_get_component_configuration(self::class);
 
         $this->shadowless ??= $configuration['shadowless'] ?? false;
         $this->bordered ??= $configuration['bordered'] ?? false;
@@ -67,7 +67,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view($this->skeletonized() ? 'ts-ui::components.card.skeleton' : 'ts-ui::components.card.main');
+        return view($this->skeletonized() ? 'ts-ui-trippodi::components.card.skeleton' : 'ts-ui-trippodi::components.card.main');
     }
 
     public function customization(): array
@@ -148,7 +148,7 @@ class Component extends TallStackUiComponent implements Customization
         $this->guard();
 
         if ($this->image !== null && $this->color !== null) {
-            __ts_validation_exception($this, 'The [image] and [color] cannot be used together.');
+            __tst_validation_exception($this, 'The [image] and [color] cannot be used together.');
         }
 
         if (! is_string($this->round)) {
@@ -158,7 +158,7 @@ class Component extends TallStackUiComponent implements Customization
         $sizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'];
 
         if (! in_array($this->round, $sizes, true)) {
-            __ts_validation_exception($this, 'The [round] must be true or one of: ['.implode(', ', $sizes).'].');
+            __tst_validation_exception($this, 'The [round] must be true or one of: ['.implode(', ', $sizes).'].');
         }
     }
 }

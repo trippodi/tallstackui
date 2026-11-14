@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Layout\Header\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Layout\Header\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -10,24 +10,24 @@ uses(TestCase::class)->group('Feature');
 // reached through the dot notation of the config helper.
 function tallstackui_header_size(string $size): void
 {
-    $components = config('ts-ui.components');
+    $components = config('ts-ui-trippodi.components');
 
     $components['layout.header'][1]['size'] = $size;
 
-    config()->set('ts-ui.components', $components);
+    config()->set('ts-ui-trippodi.components', $components);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 }
 
 function tallstackui_header_collapse_icon(?string $icon): void
 {
-    $components = config('ts-ui.components');
+    $components = config('ts-ui-trippodi.components');
 
     $components['layout.header'][1]['collapse-icon'] = $icon;
 
-    config()->set('ts-ui.components', $components);
+    config()->set('ts-ui-trippodi.components', $components);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 }
 
 afterEach(function () {

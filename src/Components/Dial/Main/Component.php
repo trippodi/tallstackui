@@ -1,17 +1,17 @@
 <?php
 
-namespace TallStackUi\Components\Dial\Main;
+namespace Trippodi\Trippodi\TallStackUi\Components\Dial\Main;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\DialColors;
-use TallStackUi\Support\Runtime\Components\DialRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\DialColors;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\DialRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('dial')]
 #[ColorsThroughOf(DialColors::class)]
@@ -41,7 +41,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.dial.main');
+        return view('ts-ui-trippodi::components.dial.main');
     }
 
     public function customization(): array
@@ -83,7 +83,7 @@ class Component extends TallStackUiComponent implements Customization
         $positions = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
 
         if (! in_array($this->position, $positions)) {
-            __ts_validation_exception($this, 'The [position] must be one of: '.implode(', ', $positions));
+            __tst_validation_exception($this, 'The [position] must be one of: '.implode(', ', $positions));
         }
     }
 }

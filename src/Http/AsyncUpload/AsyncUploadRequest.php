@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Http\AsyncUpload;
+namespace Trippodi\Trippodi\TallStackUi\Http\AsyncUpload;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;

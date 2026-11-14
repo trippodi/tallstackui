@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\QrCode;
+namespace Trippodi\Trippodi\TallStackUi\Components\QrCode;
 
 use Laravel\Dusk\Browser;
 use Livewire\Component;

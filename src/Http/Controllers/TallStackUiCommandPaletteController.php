@@ -1,12 +1,12 @@
 <?php
 
-namespace TallStackUi\Http\Controllers;
+namespace Trippodi\Trippodi\TallStackUi\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use TallStackUi\Components\CommandPalette\Component;
-use TallStackUi\Support\CommandPalette\Callback;
-use TallStackUi\Support\CommandPalette\ItemSelected;
+use Trippodi\Trippodi\TallStackUi\Components\CommandPalette\Component;
+use Trippodi\Trippodi\TallStackUi\Support\CommandPalette\Callback;
+use Trippodi\Trippodi\TallStackUi\Support\CommandPalette\ItemSelected;
 
 class TallStackUiCommandPaletteController
 {
@@ -14,7 +14,7 @@ class TallStackUiCommandPaletteController
     {
         abort_unless($request->hasValidSignature(), 403);
 
-        $actionable = __ts_get_component_configuration(Component::class, 'actionable');
+        $actionable = __tst_get_component_configuration(Component::class, 'actionable');
 
         abort_unless($actionable && class_exists($actionable), 404, '[TallStackUI] Actionable class not found.');
 

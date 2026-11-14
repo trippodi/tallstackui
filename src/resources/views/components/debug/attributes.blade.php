@@ -1,5 +1,5 @@
 @php
-    $name = \TallStackUi\Facades\TallStackUi::prefix()->remove($data['componentName']);
+    $name = \TallStackUi\Facades\TallStackUiTrippodi::prefix()->remove($data['componentName']);
     $attributes = collect($data['attributes'])->filter(fn (mixed $value, string $key) => ! is_array($value));
     $ignores = ['slot', 'trigger', 'content', 'componentName'];
 
@@ -20,7 +20,7 @@
             <li>{{ $key }}: <span class="text-red-500">{{ $value }}</span></li>
             @if ($loop->last && $data['slot']->isNotEmpty())
                 <li class="inline-flex gap-x-1">slot mode:
-                    <x-ts-ui::icon.generic.check class="w-4 h-4 text-green-500" />
+                    <x-ts-ui-trippodi::icon.generic.check class="w-4 h-4 text-green-500" />
                 </li>
             @endif
         @empty

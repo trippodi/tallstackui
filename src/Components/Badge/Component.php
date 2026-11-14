@@ -1,15 +1,15 @@
 <?php
 
-namespace TallStackUi\Components\Badge;
+namespace Trippodi\Trippodi\TallStackUi\Components\Badge;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use TallStackUi\Attributes\ColorsThroughOf;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Colors\Components\BadgeColors;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\ColorsThroughOf;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\Components\BadgeColors;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('badge')]
 #[ColorsThroughOf(BadgeColors::class)]
@@ -41,15 +41,15 @@ class Component extends TallStackUiComponent implements Customization
         public ?string $right = null,
     ) {
         $this->style = $this->outline ? 'outline' : ($this->light ? 'light' : 'solid');
-        $this->size = $this->lg ? 'lg' : ($this->md ? 'md' : ($this->sm ? 'sm' : ($this->xs ? 'xs' : (__ts_get_component_configuration(self::class, 'size') ?? 'xs'))));
+        $this->size = $this->lg ? 'lg' : ($this->md ? 'md' : ($this->sm ? 'sm' : ($this->xs ? 'xs' : (__tst_get_component_configuration(self::class, 'size') ?? 'xs'))));
         $this->position = $this->position === 'right' ? 'right' : 'left';
-        $this->round ??= __ts_get_component_configuration(self::class, 'round') ?? false;
+        $this->round ??= __tst_get_component_configuration(self::class, 'round') ?? false;
         $this->rounded = $this->round === true ? 'full' : (is_string($this->round) ? $this->round : 'md');
     }
 
     public function blade(): View
     {
-        return view('ts-ui::components.badge.main');
+        return view('ts-ui-trippodi::components.badge.main');
     }
 
     public function customization(): array
@@ -84,7 +84,7 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if (! in_array($this->size, ['xs', 'sm', 'md', 'lg'], true)) {
-            __ts_validation_exception($this, 'The [size] configuration must be one of: [xs, sm, md, lg].');
+            __tst_validation_exception($this, 'The [size] configuration must be one of: [xs, sm, md, lg].');
         }
 
         if (! is_string($this->round)) {
@@ -94,7 +94,7 @@ class Component extends TallStackUiComponent implements Customization
         $sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
 
         if (! in_array($this->round, $sizes, true)) {
-            __ts_validation_exception($this, 'The [round] must be true or one of: ['.implode(', ', $sizes).'].');
+            __tst_validation_exception($this, 'The [round] must be true or one of: ['.implode(', ', $sizes).'].');
         }
     }
 }

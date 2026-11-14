@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Form\Currency;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Currency;
 
 use Laravel\Dusk\Browser;
 use Livewire\Attributes\Validate;

@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Clipboard;
+namespace Trippodi\Trippodi\TallStackUi\Components\Clipboard;
 
 use Facebook\WebDriver\WebDriverKeys;
 use Laravel\Dusk\Browser;

@@ -1,10 +1,10 @@
 <?php
 
-namespace TallStackUi\Support\Concerns;
+namespace Trippodi\Trippodi\TallStackUi\Support\Concerns;
 
 use Exception;
-use TallStackUi\Exceptions\InappropriateIconGuideExecution;
-use TallStackUi\Support\Icons\IconGuideMap;
+use Trippodi\Trippodi\TallStackUi\Exceptions\InappropriateIconGuideExecution;
+use Trippodi\Trippodi\TallStackUi\Support\Icons\IconGuideMap;
 
 trait BuildRawIcon
 {

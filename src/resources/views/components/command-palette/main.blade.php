@@ -51,8 +51,8 @@
              dusk="tallstackui_command_palette">
             <div @class([$customization['input.wrapper']])
                  x-bind:class="{ '{{ $customization['input.border-empty'] }}': available.length === 0 && (!search || loading || !fetched) }">
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                     :icon="TallStackUi::icon('magnifying-glass')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                     :icon="TallStackUiTrippodi::icon('magnifying-glass')"
                                      internal
                                      @class([$customization['input.icon']]) />
                 <input x-ref="search"
@@ -66,7 +66,7 @@
                        dusk="tallstackui_command_palette_search"
                        @class([$customization['input.base']]) />
                 <div x-show="loading" @class([$customization['input.loading']])>
-                    <x-ts-ui::icon.generic.loading :class="$customization['loading.icon']" />
+                    <x-ts-ui-trippodi::icon.generic.loading :class="$customization['loading.icon']" />
                 </div>
             </div>
             <div x-ref="list"

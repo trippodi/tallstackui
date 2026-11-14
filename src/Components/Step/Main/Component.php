@@ -1,17 +1,17 @@
 <?php
 
-namespace TallStackUi\Components\Step\Main;
+namespace Trippodi\Trippodi\TallStackUi\Components\Step\Main;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Traits\SkeletonSetup;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\StepRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\SkeletonSetup;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\StepRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('step')]
 #[PassThroughRuntime(StepRuntime::class)]
@@ -43,7 +43,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view($this->skeletonized() ? 'ts-ui::components.step.skeleton' : 'ts-ui::components.step.main');
+        return view($this->skeletonized() ? 'ts-ui-trippodi::components.step.skeleton' : 'ts-ui-trippodi::components.step.main');
     }
 
     public function customization(): array
@@ -147,13 +147,13 @@ class Component extends TallStackUiComponent implements Customization
     {
         return str_contains($this->helpers, '::') || str_contains($this->helpers, '.')
             ? $this->helpers
-            : 'ts-ui::components.step.helpers.'.$this->helpers;
+            : 'ts-ui-trippodi::components.step.helpers.'.$this->helpers;
     }
 
     protected function setup(): void
     {
         if ($this->helpers === true) {
-            $configured = __ts_get_component_configuration(self::class, 'helpers');
+            $configured = __tst_get_component_configuration(self::class, 'helpers');
 
             $this->helpers = is_string($configured) ? $configured : 'default';
         }
@@ -164,7 +164,7 @@ class Component extends TallStackUiComponent implements Customization
         $this->guard();
 
         if (is_string($this->helpers) && ! str_contains($this->helpers, '::') && ! str_contains($this->helpers, '.') && ! in_array($this->helpers, self::HELPERS, true)) {
-            __ts_validation_exception($this, 'The [helpers] must be one of ['.implode(', ', self::HELPERS).'] or a view path.');
+            __tst_validation_exception($this, 'The [helpers] must be one of ['.implode(', ', self::HELPERS).'] or a view path.');
         }
     }
 }

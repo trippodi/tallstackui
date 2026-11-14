@@ -1,21 +1,21 @@
 <?php
 
-namespace TallStackUi\Components\Form\Select\Styled;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Select\Styled;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use InvalidArgumentException;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Floating\Component as Floating;
-use TallStackUi\Components\Spinner\Component as Spinner;
-use TallStackUi\Components\Traits\FormDefaultInputClasses;
-use TallStackUi\Components\Traits\SelectSetup;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\SelectStyledRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Floating\Component as Floating;
+use Trippodi\Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\FormDefaultInputClasses;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\SelectSetup;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\SelectStyledRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 use Throwable;
 
 #[SoftCustomization('select.styled')]
@@ -56,7 +56,7 @@ class Component extends TallStackUiComponent implements Customization
         #[SkipDebug]
         public ?string $spinner = null,
     ) {
-        $this->placeholders = array_merge(trans('ts-ui::messages.select'), $this->placeholders ?? []);
+        $this->placeholders = array_merge(trans('ts-ui-trippodi::messages.select'), $this->placeholders ?? []);
         $this->placeholder ??= data_get($this->placeholders, 'default');
 
         $this->common = ! filled($this->request);
@@ -69,7 +69,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.select.styled');
+        return view('ts-ui-trippodi::components.form.select.styled');
     }
 
     public function customization(): array
@@ -170,12 +170,12 @@ class Component extends TallStackUiComponent implements Customization
     {
         $this->selectSetup();
 
-        $this->indicator ??= __ts_get_component_configuration(self::class, 'indicator');
+        $this->indicator ??= __tst_get_component_configuration(self::class, 'indicator');
 
         if (blank($this->indicator)) {
             $this->indicator = null;
         } elseif ($this->indicator === 'spinner') {
-            $this->spinner = __ts_get_component_configuration(Spinner::class, 'type') ?? 'ring';
+            $this->spinner = __tst_get_component_configuration(Spinner::class, 'type') ?? 'ring';
         } elseif (str_starts_with($this->indicator, 'spinner.')) {
             $this->spinner = substr($this->indicator, 8);
         }
@@ -185,15 +185,15 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if (filled($this->options) && filled($this->request)) {
-            __ts_validation_exception($this, 'The [options] and [request] cannot be defined at the same time.');
+            __tst_validation_exception($this, 'The [options] and [request] cannot be defined at the same time.');
         }
 
         if ($this->indicator !== null && ! in_array($this->spinner, Spinner::TYPES, true)) {
-            __ts_validation_exception($this, 'The [indicator] must be [spinner] or [spinner.{type}], where type is one of ['.implode(', ', Spinner::TYPES).']');
+            __tst_validation_exception($this, 'The [indicator] must be [spinner] or [spinner.{type}], where type is one of ['.implode(', ', Spinner::TYPES).']');
         }
 
         if ($this->common && ($this->lazy && $this->lazy < 10)) {
-            __ts_validation_exception($this, 'The attribute [lazy] must be greater than or equal to 10.');
+            __tst_validation_exception($this, 'The attribute [lazy] must be greater than or equal to 10.');
         }
 
         if ($this->common || ($this->request !== null && ! is_array($this->request))) {
@@ -201,13 +201,13 @@ class Component extends TallStackUiComponent implements Customization
         }
 
         if (! isset($this->request['url'])) {
-            __ts_validation_exception($this, 'The attribute [url] is required in the request array.');
+            __tst_validation_exception($this, 'The attribute [url] is required in the request array.');
         }
 
         $this->request['method'] = strtolower((string) $this->request['method']);
 
         if (! in_array($this->request['method'], ['get', 'post'])) {
-            __ts_validation_exception($this, 'The attribute [method] must be "get" or "post".');
+            __tst_validation_exception($this, 'The attribute [method] must be "get" or "post".');
         }
 
         if (! isset($this->request['params'])) {
@@ -215,7 +215,7 @@ class Component extends TallStackUiComponent implements Customization
         }
 
         if (! is_array($this->request['params']) || blank($this->request['params'])) {
-            __ts_validation_exception($this, 'The attribute [params] must be an array and cannot be empty.');
+            __tst_validation_exception($this, 'The attribute [params] must be an array and cannot be empty.');
         }
     }
 }

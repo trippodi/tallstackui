@@ -1,9 +1,9 @@
 <?php
 
-namespace TallStackUi\Support\Concerns\BaseComponent;
+namespace Trippodi\Trippodi\TallStackUi\Support\Concerns\BaseComponent;
 
-use TallStackUi\Support\Colors\CompileColors;
-use TallStackUi\Support\Configurations\CompileConfigurations;
+use Trippodi\Trippodi\TallStackUi\Support\Colors\CompileColors;
+use Trippodi\Trippodi\TallStackUi\Support\Configurations\CompileConfigurations;
 use Throwable;
 
 trait ManagesCompilation
@@ -25,8 +25,8 @@ trait ManagesCompilation
             $data = array_merge($data, ['configurations' => [...$configurations]]);
         }
 
-        $data['ts_ui__flash'] = __ts_global('flash', static::class);
-        $data['ts_ui__colorful'] = __ts_global('colorful', static::class);
+        $data['ts_ui__flash'] = __tst_global('flash', static::class);
+        $data['ts_ui__colorful'] = __tst_global('colorful', static::class);
 
         return [...$data];
     }

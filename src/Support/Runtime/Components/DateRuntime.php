@@ -1,10 +1,10 @@
 <?php
 
-namespace TallStackUi\Support\Runtime\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Exception;
 use Illuminate\Support\Carbon;
-use TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class DateRuntime extends AbstractRuntime
 {
@@ -42,7 +42,7 @@ class DateRuntime extends AbstractRuntime
         }
 
         if (($range || $multiple) && ! is_array($value)) {
-            __ts_validation_exception($this->component, 'The [value] must be an array when using the [range] or [multiple].');
+            __tst_validation_exception($this->component, 'The [value] must be an array when using the [range] or [multiple].');
         }
 
         if ($range && count($value) === 2) {
@@ -52,7 +52,7 @@ class DateRuntime extends AbstractRuntime
 
             if ($start instanceof Carbon && $end instanceof Carbon) {
                 if ($start->greaterThan($end)) {
-                    __ts_validation_exception($this->component, 'The start date in the [range] must be greater than the second date.');
+                    __tst_validation_exception($this->component, 'The start date in the [range] must be greater than the second date.');
                 }
             }
         }

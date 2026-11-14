@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Customization;
+namespace Trippodi\Trippodi\TallStackUi\Customization;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Arr;
@@ -261,7 +261,7 @@ class CustomizationFactory implements Arrayable
             // Naming the component after its customization key, which is what
             // customize() accepts. The Blade view name would say "badge.main",
             // and feeding that back turns "main" into a scope instead.
-            $component = str_replace('ts-ui::customization.', '', __ts_search_component($this->component));
+            $component = str_replace('ts-ui-trippodi::customization.', '', __tst_search_component($this->component));
 
             throw new InvalidArgumentException("Component [$component] does not have the block [$block] to be customized. Allowed: ".implode(', ', $this->blocks));
         }

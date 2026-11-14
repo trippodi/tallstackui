@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Form\Select\Styled;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Select\Styled;
 
 use Illuminate\Support\Collection;
 use Laravel\Dusk\Browser;

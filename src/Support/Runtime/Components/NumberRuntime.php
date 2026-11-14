@@ -1,12 +1,12 @@
 <?php
 
-namespace TallStackUi\Support\Runtime\Components;
+namespace Trippodi\Trippodi\TallStackUi\Support\Runtime\Components;
 
 use Exception;
-use TallStackUi\Components\Form\Number\Component as Number;
-use TallStackUi\Facades\TallStackUi;
-use TallStackUi\Support\Blade\Wireable;
-use TallStackUi\Support\Runtime\AbstractRuntime;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Number\Component as Number;
+use Trippodi\Trippodi\TallStackUi\Facades\TallStackUi;
+use Trippodi\Trippodi\TallStackUi\Support\Blade\Wireable;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\AbstractRuntime;
 
 class NumberRuntime extends AbstractRuntime
 {
@@ -59,7 +59,7 @@ class NumberRuntime extends AbstractRuntime
         $max = $this->data('max');
 
         if ($min !== null && $max !== null && $min > $max) {
-            __ts_validation_exception($this->component, 'The [min] value must be less than the [max] value.');
+            __tst_validation_exception($this->component, 'The [min] value must be less than the [max] value.');
         }
     }
 }

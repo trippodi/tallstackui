@@ -3,8 +3,8 @@
 @endphp
 
 <span {{ $attributes }} @if ($attributes->has('wire:click')) class="cursor-pointer" @endif>
-    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                         :icon="TallStackUi::icon($boolean ? $iconWhenTrue : $iconWhenFalse)"
+    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                         :icon="TallStackUiTrippodi::icon($boolean ? $iconWhenTrue : $iconWhenFalse)"
                          internal
                          @class([$customization['icon'], $colors['icon']]) />
 </span>

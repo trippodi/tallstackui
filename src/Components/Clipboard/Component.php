@@ -1,17 +1,17 @@
 <?php
 
-namespace TallStackUi\Components\Clipboard;
+namespace Trippodi\Trippodi\TallStackUi\Components\Clipboard;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use InvalidArgumentException;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SkipDebug;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Components\Traits\FormDefaultInputClasses;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\ClipboardRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SkipDebug;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Components\Traits\FormDefaultInputClasses;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\ClipboardRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('clipboard')]
 #[PassThroughRuntime(ClipboardRuntime::class)]
@@ -35,7 +35,7 @@ class Component extends TallStackUiComponent implements Customization
         #[SkipDebug]
         public ?string $type = null,
     ) {
-        $this->placeholders = trans('ts-ui::messages.clipboard');
+        $this->placeholders = trans('ts-ui-trippodi::messages.clipboard');
 
         $this->type = match ($this->icon) {
             null, false => 'input',
@@ -50,7 +50,7 @@ class Component extends TallStackUiComponent implements Customization
 
     public function blade(): View
     {
-        return view('ts-ui::components.clipboard.main');
+        return view('ts-ui-trippodi::components.clipboard.main');
     }
 
     public function customization(): array
@@ -102,7 +102,7 @@ class Component extends TallStackUiComponent implements Customization
     public function validating(?string $text = null): void
     {
         if (! $text) {
-            __ts_validation_exception($this, 'The [text] cannot be empty. You should specify the text using property or slot.');
+            __tst_validation_exception($this, 'The [text] cannot be empty. You should specify the text using property or slot.');
         }
     }
 
@@ -110,17 +110,17 @@ class Component extends TallStackUiComponent implements Customization
     protected function validate(): void
     {
         if (is_array($this->icon) && ($invalid = array_diff(array_keys($this->icon), self::STATES)) !== []) {
-            __ts_validation_exception($this, 'The [icon] array only accepts the keys ['.implode(', ', self::STATES).']. Received: ['.implode(', ', $invalid).'].');
+            __tst_validation_exception($this, 'The [icon] array only accepts the keys ['.implode(', ', self::STATES).']. Received: ['.implode(', ', $invalid).'].');
         }
 
-        $messages = trans('ts-ui::messages.clipboard');
+        $messages = trans('ts-ui-trippodi::messages.clipboard');
 
         if (blank(data_get($messages, 'button.copy'))) {
-            __ts_validation_exception($this, 'The [button.copy] message cannot be empty.');
+            __tst_validation_exception($this, 'The [button.copy] message cannot be empty.');
         }
 
         if (blank(data_get($messages, 'button.copied'))) {
-            __ts_validation_exception($this, 'The [button.copied] message cannot be empty.');
+            __tst_validation_exception($this, 'The [button.copied] message cannot be empty.');
         }
     }
 }

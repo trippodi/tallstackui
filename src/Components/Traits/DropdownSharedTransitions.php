@@ -1,12 +1,12 @@
 <?php
 
-namespace TallStackUi\Components\Traits;
+namespace Trippodi\Trippodi\TallStackUi\Components\Traits;
 
 trait DropdownSharedTransitions
 {
     public function transitions(): string
     {
-        if (__ts_global('flash', $this)) {
+        if (__tst_global('flash', $this)) {
             return '';
         }
 

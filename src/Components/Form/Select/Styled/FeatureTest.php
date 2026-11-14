@@ -1,20 +1,20 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Form\Select\Styled\Component;
-use TallStackUi\Components\Spinner\Component as Spinner;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Select\Styled\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
 
 beforeEach(function () {
-    $this->components = config('ts-ui.components');
+    $this->components = config('ts-ui-trippodi.components');
 });
 
 afterEach(function () {
-    config()->set('ts-ui.components', $this->components);
+    config()->set('ts-ui-trippodi.components', $this->components);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can use as common select', function () {
@@ -136,12 +136,12 @@ it('can render with grouped options', function () {
 });
 
 it('can render with selectable keys from the global configuration', function () {
-    config()->set('ts-ui.components', [
-        ...config('ts-ui.components'),
+    config()->set('ts-ui-trippodi.components', [
+        ...config('ts-ui-trippodi.components'),
         'select.styled' => [Component::class, ['select' => 'label:name|value:id']],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $options = [['name' => 'New York', 'id' => 1], ['name' => 'Los Angeles', 'id' => 2]];
 
@@ -151,12 +151,12 @@ it('can render with selectable keys from the global configuration', function () 
 });
 
 it('can override the global configuration keys inline', function () {
-    config()->set('ts-ui.components', [
-        ...config('ts-ui.components'),
+    config()->set('ts-ui-trippodi.components', [
+        ...config('ts-ui-trippodi.components'),
         'select.styled' => [Component::class, ['select' => 'label:name|value:id']],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $options = [['title' => 'New York', 'uuid' => 1]];
 
@@ -201,42 +201,42 @@ it('can render a spinner loading indicator inline', function () {
 });
 
 it('can render a spinner loading indicator from the configuration', function () {
-    config()->set('ts-ui.components', [
-        ...config('ts-ui.components'),
+    config()->set('ts-ui-trippodi.components', [
+        ...config('ts-ui-trippodi.components'),
         'select.styled' => [Component::class, ['indicator' => 'spinner.dots']],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-select.styled request="https://foo-bar.com" />')->render()
         ->toContain('dusk="spinner-dots"');
 });
 
 it('can use the global spinner type when the indicator is spinner', function () {
-    config()->set('ts-ui.components', [
-        ...config('ts-ui.components'),
+    config()->set('ts-ui-trippodi.components', [
+        ...config('ts-ui-trippodi.components'),
         'select.styled' => [Component::class, ['indicator' => 'spinner']],
     ]);
-    config()->set('ts-ui.components.spinner.1.type', 'wave');
+    config()->set('ts-ui-trippodi.components.spinner.1.type', 'wave');
 
-    __ts_get_component_configuration(Component::class, flush: true);
-    __ts_get_component_configuration(Spinner::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Spinner::class, flush: true);
 
     try {
         expect('<x-select.styled request="https://foo-bar.com" />')->render()
             ->toContain('dusk="spinner-wave"');
     } finally {
-        __ts_get_component_configuration(Spinner::class, flush: true);
+        __tst_get_component_configuration(Spinner::class, flush: true);
     }
 });
 
 it('can override the configured spinner indicator inline', function () {
-    config()->set('ts-ui.components', [
-        ...config('ts-ui.components'),
+    config()->set('ts-ui-trippodi.components', [
+        ...config('ts-ui-trippodi.components'),
         'select.styled' => [Component::class, ['indicator' => 'spinner.dots']],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-select.styled request="https://foo-bar.com" indicator="spinner.bars" />')->render()
         ->toContain('dusk="spinner-bars"')

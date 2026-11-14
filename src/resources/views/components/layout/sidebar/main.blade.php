@@ -39,8 +39,8 @@
                      @endif
                      class="{{ $customization['mobile.button.wrapper'] }}">
                     <button x-on:click="tallStackUiMenuMobile = false" type="button" aria-label="Close menu" class="cursor-pointer">
-                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                             :icon="TallStackUi::icon($customization['mobile.button.icon'])"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                             :icon="TallStackUiTrippodi::icon($customization['mobile.button.icon'])"
                                              internal
                                              class="{{ $customization['mobile.button.size'] }}" />
                     </button>

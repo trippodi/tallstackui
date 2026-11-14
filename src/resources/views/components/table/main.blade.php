@@ -22,7 +22,7 @@
                 <div class="{{ $customization['filter.quantity'] }}"
                      @if (!$livewire) x-on:select.capture="navigate({ '{{ $filter['quantity'] }}': $event.detail.select }, @js($anchor))" @endif>
                     @if ($livewire)
-                        <x-dynamic-component :component="TallStackUi::prefix('select.styled')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('select.styled')"
                                              scope="table.select-styled"
                                              :label="data_get($placeholders, 'quantity')"
                                              :options="$quantity"
@@ -30,7 +30,7 @@
                                              required
                                              invalidate />
                     @else
-                        <x-dynamic-component :component="TallStackUi::prefix('select.styled')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('select.styled')"
                                              scope="table.select-styled"
                                              :label="data_get($placeholders, 'quantity')"
                                              :options="$quantity"
@@ -44,17 +44,17 @@
                 <div class="{{ $customization['filter.search'] }}"
                      @if (!$livewire) x-on:input.debounce.500ms="navigate({ '{{ $filter['search'] }}': $event.target.value }, @js($anchor))" @endif>
                     @if ($livewire)
-                        <x-dynamic-component :component="TallStackUi::prefix('input')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('input')"
                                              scope="table.input"
-                                             :icon="TallStackUi::icon('magnifying-glass')"
+                                             :icon="TallStackUiTrippodi::icon('magnifying-glass')"
                                              wire:model.live.debounce.500ms="{{ $filter['search'] }}"
                                              :placeholder="data_get($placeholders, 'search')"
                                              type="search"
                                              invalidate />
                     @else
-                        <x-dynamic-component :component="TallStackUi::prefix('input')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('input')"
                                              scope="table.input"
-                                             :icon="TallStackUi::icon('magnifying-glass')"
+                                             :icon="TallStackUiTrippodi::icon('magnifying-glass')"
                                              :value="$searching"
                                              :placeholder="data_get($placeholders, 'search')"
                                              type="search"
@@ -72,11 +72,11 @@
                     @if ($spinner)
                         <div class="{{ $customization['loading.indicator'] }}"
                              wire:loading="{{ $target }}">
-                            <x-dynamic-component :component="TallStackUi::prefix('spinner')"
+                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('spinner')"
                                                  :type="$spinner" />
                         </div>
                     @else
-                        <x-ts-ui::icon.generic.loading class="{{ $customization['loading.icon'] }}"
+                        <x-ts-ui-trippodi::icon.generic.loading class="{{ $customization['loading.icon'] }}"
                                                        wire:loading="{{ $target }}" />
                     @endif
                 @endif
@@ -88,7 +88,7 @@
                         @endif
                         @if ($selectable)
                             <th @class([$customization['table.th-actions-width'], $customization['table.th'] => ! $compact, $customization['table.th-compact'] => $compact]) wire:key="checkall-{{ implode(',', $ids()) }}">
-                                <x-dynamic-component :component="TallStackUi::prefix('checkbox')"
+                                <x-dynamic-component :component="TallStackUiTrippodi::prefix('checkbox')"
                                                      scope="table.checkbox"
                                                      x-ref="checkbox"
                                                      x-on:change="all($el.checked, {{ \Illuminate\Support\Js::from($ids()) }})"
@@ -112,8 +112,8 @@
                                         {{ $header['label'] ?? '' }}
                                     @endif
                                     @if ($sortable($header))
-                                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                             :icon="TallStackUi::icon($sorted($header) ? ($head($header)['direction'] === 'desc' ? 'chevron-up' : 'chevron-down') : 'chevron-up-down')"
+                                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                             :icon="TallStackUiTrippodi::icon($sorted($header) ? ($head($header)['direction'] === 'desc' ? 'chevron-up' : 'chevron-down') : 'chevron-up-down')"
                                                              internal
                                                              class="{{ $customization['table.sort'] }}" />
                                     @endif
@@ -150,8 +150,8 @@
                                         <button type="button"
                                                 x-on:click="toggle('{{ $id }}')"
                                                 @class([$customization['expandable.button'], 'cursor-pointer'])>
-                                            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                                                 :icon="TallStackUi::icon('chevron-right')"
+                                            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                                                 :icon="TallStackUiTrippodi::icon('chevron-right')"
                                                                  internal
                                                                  x-bind:class="expanded('{{ $id }}') ? '{{ $customization['expandable.rotated'] }}' : ''"
                                                                  class="{{ $customization['expandable.icon'] }}" />
@@ -161,7 +161,7 @@
                             @endif
                             @if ($selectable)
                                 <td @class([$customization['table.td'] => ! $compact, $customization['table.td-compact'] => $compact])>
-                                    <x-dynamic-component :component="TallStackUi::prefix('checkbox')"
+                                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('checkbox')"
                                                          scope="table.checkbox"
                                                          id="checkbox-{{ $key }}"
                                                          :attributes="$modifier()"

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Modal\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Modal\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -147,9 +147,9 @@ it('cannot force the centered padding and rounding when centering from a breakpo
 });
 
 it('can center from a breakpoint defined through the config', function () {
-    config()->set('ts-ui.components.modal.1.center', 'lg');
+    config()->set('ts-ui-trippodi.components.modal.1.center', 'lg');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $component = <<<'HTML'
     <x-modal title="Centered">
@@ -160,9 +160,9 @@ it('can center from a breakpoint defined through the config', function () {
     expect($component)->render()
         ->toContain('sm:max-w-2xl items-end lg:items-center');
 
-    config()->set('ts-ui.components.modal.1.center', false);
+    config()->set('ts-ui-trippodi.components.modal.1.center', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can thrown exception when center is unnaceptable', function (string $center) {
@@ -382,9 +382,9 @@ it('cannot render the handle by default', function () {
 });
 
 it('can render the handle through the global configuration', function () {
-    config()->set('ts-ui.components.modal.1.handle', true);
+    config()->set('ts-ui-trippodi.components.modal.1.handle', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $component = <<<'HTML'
     <x-modal>
@@ -394,15 +394,15 @@ it('can render the handle through the global configuration', function () {
 
     expect($component)->render()->toContain('tallstackui_modal_handle');
 
-    config()->set('ts-ui.components.modal.1.handle', false);
+    config()->set('ts-ui-trippodi.components.modal.1.handle', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can suppress the global handle through the inline prop', function () {
-    config()->set('ts-ui.components.modal.1.handle', true);
+    config()->set('ts-ui-trippodi.components.modal.1.handle', true);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $component = <<<'HTML'
     <x-modal :handle="false">
@@ -412,9 +412,9 @@ it('can suppress the global handle through the inline prop', function () {
 
     expect($component)->render()->not->toContain('tallstackui_modal_handle');
 
-    config()->set('ts-ui.components.modal.1.handle', false);
+    config()->set('ts-ui-trippodi.components.modal.1.handle', false);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('cannot use handle with a fully centered modal', function () {

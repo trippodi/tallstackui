@@ -5,7 +5,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Table\Component as TableComponent;
+use Trippodi\Trippodi\TallStackUi\Components\Table\Component as TableComponent;
 use Tests\TestCase;
 
 use function Livewire\invade;
@@ -31,10 +31,10 @@ function tablePaginator(int $total = 30, int $perPage = 10, int $page = 1, strin
 function tableConfig(array $values): void
 {
     foreach ($values as $key => $value) {
-        config()->set("ts-ui.components.table.1.{$key}", $value);
+        config()->set("ts-ui-trippodi.components.table.1.{$key}", $value);
     }
 
-    __ts_get_component_configuration(TableComponent::class, flush: true);
+    __tst_get_component_configuration(TableComponent::class, flush: true);
 }
 
 // Renders the paginator on its own, the only way to reach the Livewire
@@ -45,7 +45,7 @@ function tablePaginatorView(array $data = []): string
 
     $variant = $data['variant'] ?? 'simple';
 
-    return view("ts-ui::components.table.paginators.{$variant}", array_merge([
+    return view("ts-ui-trippodi::components.table.paginators.{$variant}", array_merge([
         'paginator' => $paginator,
         'elements' => invade($paginator)->elements(),
         'livewire' => true,
@@ -338,7 +338,7 @@ describe('the paginator variants', function () {
     });
 
     it('can take a view path of its own', function () {
-        expect('<x-table :$headers :$rows paginate paginator="ts-ui::components.table.paginators.minimal" />')
+        expect('<x-table :$headers :$rows paginate paginator="ts-ui-trippodi::components.table.paginators.minimal" />')
             ->render(['headers' => [['index' => 'name', 'label' => 'Name']], 'rows' => tablePaginator()])
             ->toContain('after:bg-primary-600');
     });

@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Loading\Component;
-use TallStackUi\Components\Spinner\Component as Spinner;
+use Trippodi\Trippodi\TallStackUi\Components\Loading\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Spinner\Component as Spinner;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -12,10 +12,10 @@ beforeEach(function () {
 });
 
 afterEach(function () {
-    config()->set('ts-ui.components.loading.1.indicator', null);
-    config()->set('ts-ui.components.spinner.1.type', 'ring');
+    config()->set('ts-ui-trippodi.components.loading.1.indicator', null);
+    config()->set('ts-ui-trippodi.components.spinner.1.type', 'ring');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can render the default svg indicator')
@@ -65,26 +65,26 @@ it('can use shimmer or caret as an indicator with text', function (string $type)
 })->with(['shimmer', 'caret']);
 
 it('can use the global indicator configuration', function () {
-    config()->set('ts-ui.components.loading.1.indicator', 'spinner.dots');
+    config()->set('ts-ui-trippodi.components.loading.1.indicator', 'spinner.dots');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-loading />')->render()->toContain('dusk="spinner-dots"');
 });
 
 it('can use the global spinner type when the indicator is spinner', function () {
-    config()->set('ts-ui.components.loading.1.indicator', 'spinner');
-    config()->set('ts-ui.components.spinner.1.type', 'wave');
+    config()->set('ts-ui-trippodi.components.loading.1.indicator', 'spinner');
+    config()->set('ts-ui-trippodi.components.spinner.1.type', 'wave');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-loading />')->render()->toContain('dusk="spinner-wave"');
 });
 
 it('can override the global indicator configuration inline', function () {
-    config()->set('ts-ui.components.loading.1.indicator', 'spinner.dots');
+    config()->set('ts-ui-trippodi.components.loading.1.indicator', 'spinner.dots');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     expect('<x-loading indicator="spinner.bars" />')
         ->render()
@@ -93,9 +93,9 @@ it('can override the global indicator configuration inline', function () {
 });
 
 it('cannot use an invalid global indicator configuration', function () {
-    config()->set('ts-ui.components.loading.1.indicator', 'spinner.foo');
+    config()->set('ts-ui-trippodi.components.loading.1.indicator', 'spinner.foo');
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $this->expectException(ViewException::class);
     $this->expectExceptionMessage('The [indicator] must be [spinner] or [spinner.{type}]');

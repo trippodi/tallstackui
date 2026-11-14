@@ -45,29 +45,29 @@
         @if ($wire)
             <div @class([$customization['text'], $customization['wire.content']])>
                 <div x-show="type === 'success'">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('check-circle')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('check-circle')"
                                          outline
                                          internal
                                          class="{{ $customization['icon'] }}" />
                 </div>
                 <div x-show="type === 'error'">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('x-circle')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('x-circle')"
                                          outline
                                          internal
                                          class="{{ $customization['icon'] }}" />
                 </div>
                 <div x-show="type === 'info'">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('information-circle')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('information-circle')"
                                          outline
                                          internal
                                          class="{{ $customization['icon'] }}" />
                 </div>
                 <div x-show="type === 'warning'">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('exclamation-circle')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('exclamation-circle')"
                                          outline
                                          internal
                                          class="{{ $customization['icon'] }}" />
@@ -93,8 +93,8 @@
             </span>
         @endif
         <button type="button" x-on:click="show = false" x-show="close" dusk="tallstackui_banner_close">
-            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                 :icon="TallStackUi::icon('x-mark')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                 :icon="TallStackUiTrippodi::icon('x-mark')"
                                  internal
                                  @class([$customization['close'], $colors['text'] ?? '' => !$wire])
                                  x-bind:class="{

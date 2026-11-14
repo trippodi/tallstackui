@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Support\Breadcrumbs;
+namespace Trippodi\Trippodi\TallStackUi\Support\Breadcrumbs;
 
 use Closure;
 use Illuminate\Http\Request;

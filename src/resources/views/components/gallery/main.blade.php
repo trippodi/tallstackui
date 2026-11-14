@@ -21,7 +21,7 @@
             $configurations['columns'],
         ])>
             @foreach ($images as $index => $image)
-                <x-dynamic-component component="ts-ui::gallery.tile"
+                <x-dynamic-component component="ts-ui-trippodi::gallery.tile"
                                      :$image
                                      :$index
                                      :ratio-class="$configurations['ratio']"
@@ -39,7 +39,7 @@
             $configurations['columns'],
         ])>
             @foreach ($images as $index => $image)
-                <x-dynamic-component component="ts-ui::gallery.tile"
+                <x-dynamic-component component="ts-ui-trippodi::gallery.tile"
                                      :$image
                                      :$index
                                      :ratio-class="null"
@@ -53,7 +53,7 @@
     @else
         <div class="{{ $customization['feature.wrapper.' . $configurations['thumbnails']] }}">
             <div class="{{ $customization['feature.cover.wrapper.' . $configurations['thumbnails']] }}">
-                <x-dynamic-component component="ts-ui::gallery.tile"
+                <x-dynamic-component component="ts-ui-trippodi::gallery.tile"
                                      :image="$cover"
                                      :index="$coverIndex"
                                      :ratio-class="$configurations['ratio']"
@@ -66,7 +66,7 @@
             @if (filled($tiles))
                 <div class="{{ $customization['feature.thumbnails.wrapper.' . $configurations['thumbnails']] }}">
                     @foreach ($tiles as $index => $image)
-                        <x-dynamic-component component="ts-ui::gallery.tile"
+                        <x-dynamic-component component="ts-ui-trippodi::gallery.tile"
                                              :$image
                                              :$index
                                              :ratio-class="$customization['feature.thumbnails.ratio']"
@@ -104,8 +104,8 @@
                         x-on:click="close()"
                         class="{{ $customization['lightbox.close.button'] }}"
                         dusk="tallstackui_gallery_close">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('x-mark')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('x-mark')"
                                          internal
                                          class="{{ $customization['lightbox.close.icon'] }}" />
                 </button>
@@ -115,8 +115,8 @@
                             x-bind:disabled="!expandedHasPrevious"
                             class="{{ $customization['lightbox.navigable.button.left.base'] }}"
                             dusk="tallstackui_gallery_expanded_previous">
-                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                             :icon="TallStackUi::icon('chevron-left')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                             :icon="TallStackUiTrippodi::icon('chevron-left')"
                                              internal
                                              class="{{ $customization['lightbox.navigable.button.left.icon.size'] }}" />
                     </button>
@@ -125,8 +125,8 @@
                             x-bind:disabled="!expandedHasNext"
                             class="{{ $customization['lightbox.navigable.button.right.base'] }}"
                             dusk="tallstackui_gallery_expanded_next">
-                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                             :icon="TallStackUi::icon('chevron-right')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                             :icon="TallStackUiTrippodi::icon('chevron-right')"
                                              internal
                                              class="{{ $customization['lightbox.navigable.button.right.icon.size'] }}" />
                     </button>

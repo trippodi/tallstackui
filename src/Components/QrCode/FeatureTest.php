@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\View\ViewException;
-use TallStackUi\Components\Icon\Component as Icon;
+use Trippodi\Trippodi\TallStackUi\Components\Icon\Component as Icon;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
@@ -56,17 +56,17 @@ it('can render with a text watermark')
     ->toContain('text-anchor="middle"');
 
 it('can render a caption that looks like an icon name as text when the icons are local', function () {
-    $original = config('ts-ui.components.icon');
+    $original = config('ts-ui-trippodi.components.icon');
 
     // A local set resolves through plain Blade components, and a caption that
     // matches nothing there used to reach the icon component and fail on the
     // missing view instead of falling back.
-    config()->set('ts-ui.components.icon', [
+    config()->set('ts-ui-trippodi.components.icon', [
         Icon::class,
         ['type' => 'views/components/svg', 'style' => 'solid', 'custom' => ['guide' => []]],
     ]);
 
-    __ts_get_component_configuration('', flush: true);
+    __tst_get_component_configuration('', flush: true);
 
     try {
         expect('<x-qr-code link="https://tallstackui.com" watermark="foo-bar" />')
@@ -74,9 +74,9 @@ it('can render a caption that looks like an icon name as text when the icons are
             ->toContain('<text')
             ->toContain('foo-bar');
     } finally {
-        config()->set('ts-ui.components.icon', $original);
+        config()->set('ts-ui-trippodi.components.icon', $original);
 
-        __ts_get_component_configuration('', flush: true);
+        __tst_get_component_configuration('', flush: true);
     }
 });
 

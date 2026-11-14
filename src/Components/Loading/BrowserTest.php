@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Components\Loading;
+namespace Trippodi\Trippodi\TallStackUi\Components\Loading;
 
 use Laravel\Dusk\Browser;
 use Livewire\Attributes\Renderless;

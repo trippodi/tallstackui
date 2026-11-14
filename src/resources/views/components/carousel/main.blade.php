@@ -14,8 +14,8 @@
                     class="{{ $customization['buttons.left.base'] }}"
                     dusk="tallstackui_carousel_previous"
                     x-on:click="previous()">
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                     :icon="TallStackUi::icon('chevron-left')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                     :icon="TallStackUiTrippodi::icon('chevron-left')"
                                      internal
                                      class="{{ $customization['buttons.left.icon.size'] }}" />
             </button>
@@ -23,8 +23,8 @@
                     class="{{ $customization['buttons.right.base'] }}"
                     dusk="tallstackui_carousel_next"
                     x-on:click="next()">
-                <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                     :icon="TallStackUi::icon('chevron-right')"
+                <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                     :icon="TallStackUiTrippodi::icon('chevron-right')"
                                      internal
                                      class="{{ $customization['buttons.right.icon.size'] }}" />
             </button>
@@ -177,8 +177,8 @@
                         x-on:click="close()"
                         class="{{ $customization['clickable.close.button'] }}"
                         dusk="tallstackui_carousel_close">
-                    <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                         :icon="TallStackUi::icon('x-mark')"
+                    <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                         :icon="TallStackUiTrippodi::icon('x-mark')"
                                          internal
                                          class="{{ $customization['clickable.close.icon'] }}" />
                 </button>
@@ -188,8 +188,8 @@
                             x-bind:disabled="!expandedHasPrevious"
                             class="{{ $customization['clickable.navigable.button.left.base'] }}"
                             dusk="tallstackui_carousel_expanded_previous">
-                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                             :icon="TallStackUi::icon('chevron-left')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                             :icon="TallStackUiTrippodi::icon('chevron-left')"
                                              internal
                                              class="{{ $customization['clickable.navigable.button.left.icon.size'] }}" />
                     </button>
@@ -198,8 +198,8 @@
                             x-bind:disabled="!expandedHasNext"
                             class="{{ $customization['clickable.navigable.button.right.base'] }}"
                             dusk="tallstackui_carousel_expanded_next">
-                        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                             :icon="TallStackUi::icon('chevron-right')"
+                        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                             :icon="TallStackUiTrippodi::icon('chevron-right')"
                                              internal
                                              class="{{ $customization['clickable.navigable.button.right.icon.size'] }}" />
                     </button>

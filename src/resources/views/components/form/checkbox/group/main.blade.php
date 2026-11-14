@@ -16,13 +16,13 @@
         $customization['columns.' . $columns] => in_array($variant, ['card', 'panel']),
     ])>
         @foreach ($options as $item)
-            @include('ts-ui::components.form.checkbox.group.item', ['item' => $item, 'index' => $loop->index])
+            @include('ts-ui-trippodi::components.form.checkbox.group.item', ['item' => $item, 'index' => $loop->index])
         @endforeach
     </div>
     @if ($hint && !$error)
-        <x-dynamic-component :component="TallStackUi::prefix('hint')" scope="form.checkbox.group.hint" :$hint />
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('hint')" scope="form.checkbox.group.hint" :$hint />
     @endif
     @if ($validate)
-        <x-dynamic-component :component="TallStackUi::prefix('error')" scope="form.checkbox.group.error" :$property />
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('error')" scope="form.checkbox.group.error" :$property />
     @endif
 </fieldset>

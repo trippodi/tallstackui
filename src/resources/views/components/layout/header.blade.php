@@ -10,8 +10,8 @@
             type="button"
             aria-label="Toggle sidebar"
             class="{{ $customization['collapse.class'] }}">
-        <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                             :icon="TallStackUi::icon($collapseIcon ?? $customization['collapse.icon'])"
+        <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                             :icon="TallStackUiTrippodi::icon($collapseIcon ?? $customization['collapse.icon'])"
                              internal
                              class="{{ $customization['collapse.icon.size'] }}" />
     </button>
@@ -20,8 +20,8 @@
                 x-bind:aria-expanded="tallStackUiMenuMobile"
                 aria-label="Open menu"
                 class="{{ $customization['button.class'] }}">
-            <x-dynamic-component :component="TallStackUi::prefix('icon')"
-                                 :icon="TallStackUi::icon('bars-4')"
+            <x-dynamic-component :component="TallStackUiTrippodi::prefix('icon')"
+                                 :icon="TallStackUiTrippodi::icon('bars-4')"
                                  internal
                                  class="{{ $customization['button.icon.size'] }}" />
         </button>

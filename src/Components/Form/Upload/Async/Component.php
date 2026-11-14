@@ -1,16 +1,16 @@
 <?php
 
-namespace TallStackUi\Components\Form\Upload\Async;
+namespace Trippodi\Trippodi\TallStackUi\Components\Form\Upload\Async;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\PassThroughRuntime;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\Support\Runtime\Components\UploadAsyncRuntime;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\PassThroughRuntime;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\Support\Runtime\Components\UploadAsyncRuntime;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('form.upload.async')]
 #[PassThroughRuntime(UploadAsyncRuntime::class)]
@@ -45,20 +45,20 @@ class Component extends TallStackUiComponent implements Customization
         public string|bool|null $error = null,
     ) {
         $this->method ??= 'POST';
-        $this->title ??= trans('ts-ui::messages.upload_async.title');
-        $this->description ??= trans('ts-ui::messages.upload_async.description');
+        $this->title ??= trans('ts-ui-trippodi::messages.upload_async.title');
+        $this->description ??= trans('ts-ui-trippodi::messages.upload_async.description');
         $this->height ??= 'min-h-48';
         $this->columns = max(1, min(6, $this->columns ?? 6));
         $this->sortable = $this->multiple && $this->sortable;
         $this->files = $this->files instanceof Collection ? $this->files->all() : ($this->files ?? []);
-        $this->error ??= trans('ts-ui::messages.upload_async.errors.generic');
+        $this->error ??= trans('ts-ui-trippodi::messages.upload_async.errors.generic');
 
         $this->route = rescue(fn () => route($this->route), $this->route, false);
     }
 
     public function blade(): View
     {
-        return view('ts-ui::components.form.upload.async');
+        return view('ts-ui-trippodi::components.form.upload.async');
     }
 
     public function customization(): array

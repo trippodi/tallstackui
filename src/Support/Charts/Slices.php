@@ -1,6 +1,6 @@
 <?php
 
-namespace TallStackUi\Support\Charts;
+namespace Trippodi\Trippodi\TallStackUi\Support\Charts;
 
 /** @internal */
 final class Slices

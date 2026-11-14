@@ -1,18 +1,18 @@
 <?php
 
-use TallStackUi\Components\Form\Select\Native\Component;
+use Trippodi\Trippodi\TallStackUi\Components\Form\Select\Native\Component;
 use Tests\TestCase;
 
 uses(TestCase::class)->group('Feature');
 
 beforeEach(function () {
-    $this->components = config('ts-ui.components');
+    $this->components = config('ts-ui-trippodi.components');
 });
 
 afterEach(function () {
-    config()->set('ts-ui.components', $this->components);
+    config()->set('ts-ui-trippodi.components', $this->components);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 });
 
 it('can render')
@@ -59,12 +59,12 @@ it('can render with selectable array options', function () {
 });
 
 it('can render with selectable keys from the global configuration', function () {
-    config()->set('ts-ui.components', [
-        ...config('ts-ui.components'),
+    config()->set('ts-ui-trippodi.components', [
+        ...config('ts-ui-trippodi.components'),
         'select.native' => [Component::class, ['select' => 'label:name|value:id']],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $component = <<<'HTML'
     <x-select.native :options="[['name' => 'Apple', 'id' => '1'], ['name' => 'Banana', 'id' => '2']]" />
@@ -77,12 +77,12 @@ it('can render with selectable keys from the global configuration', function () 
 });
 
 it('can override the global configuration keys inline', function () {
-    config()->set('ts-ui.components', [
-        ...config('ts-ui.components'),
+    config()->set('ts-ui-trippodi.components', [
+        ...config('ts-ui-trippodi.components'),
         'select.native' => [Component::class, ['select' => 'label:name|value:id']],
     ]);
 
-    __ts_get_component_configuration(Component::class, flush: true);
+    __tst_get_component_configuration(Component::class, flush: true);
 
     $component = <<<'HTML'
     <x-select.native :options="[['title' => 'Apple', 'uuid' => '1']]" select="label:title|value:uuid" />

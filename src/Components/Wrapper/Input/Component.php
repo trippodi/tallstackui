@@ -1,12 +1,12 @@
 <?php
 
-namespace TallStackUi\Components\Wrapper\Input;
+namespace Trippodi\Trippodi\TallStackUi\Components\Wrapper\Input;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\View\ComponentSlot;
-use TallStackUi\Attributes\SoftCustomization;
-use TallStackUi\Customization\Contracts\Customization;
-use TallStackUi\TallStackUiComponent;
+use Trippodi\Trippodi\TallStackUi\Attributes\SoftCustomization;
+use Trippodi\Trippodi\TallStackUi\Customization\Contracts\Customization;
+use Trippodi\Trippodi\TallStackUi\TallStackUiComponent;
 
 #[SoftCustomization('wrapper.input')]
 class Component extends TallStackUiComponent implements Customization
@@ -20,12 +20,12 @@ class Component extends TallStackUiComponent implements Customization
         public ?bool $error = false,
         public ?bool $clearable = null,
     ) {
-        $this->invalidate ??= config('ts-ui.invalidate_global') ?? false;
+        $this->invalidate ??= config('ts-ui-trippodi.invalidate_global') ?? false;
     }
 
     public function blade(): View
     {
-        return view('ts-ui::components.wrapper.input');
+        return view('ts-ui-trippodi::components.wrapper.input');
     }
 
     public function customization(): array
